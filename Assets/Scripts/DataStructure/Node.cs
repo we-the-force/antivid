@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum NodeType { Road, House, Hospital, };
+public enum NodeType { Road, House, Hospital, Shop, Workplace };
 //[Serializable]
 public class Node
 {

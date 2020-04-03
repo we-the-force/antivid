@@ -2,118 +2,112 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 using Random = UnityEngine.Random;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
-using UnityEngine.Tilemaps;
 
 [Serializable]
-[CreateAssetMenu(fileName = "New Node Tile", menuName = "Tiles/Node Tile")]
-public class NodeTile : Tile
+[CreateAssetMenu(fileName = "New Prefab Tile", menuName = "Tiles/Prefab Tile")]
+public class NodeTile : TileBase
 {
     [SerializeField]
-    public Sprite[] m_Sprites;
+    public Sprite m_Preview;
+    [SerializeField]
+    public GameObject[] m_Prefabs;
+    [SerializeField]
+    public Vector3 m_positionOffset;
+    [SerializeField]
+    public NodeType m_nodeType;
 
-    public override void RefreshTile(Vector3Int position, ITilemap tilemap)
+    private void OnEnable()
     {
-        base.RefreshTile(position, tilemap);
-
+        //if (m_node == null)
+        //{
+        //    Debug.LogWarning($"Node was null, instantiating an empty one ({name})");
+        //    m_node = new Node();
+        //}
     }
+
 
     public override void GetTileData(Vector3Int position, ITilemap tilemap, ref TileData tileData)
     {
-        //base.GetTileData(position, tilemap, ref tileData);
-        //tileData.sprite = sprite;
-        //tileData.color = Color.white;
-        //var m = tileData.transform;
-        //m.SetTRS(Vector3.zero, new Quaternion(), Vector3.one);
-        //tileData.transform = m;
-        //tileData.flags = TileFlags.LockTransform;
-        //tileData.colliderType = ColliderType.None;
-        base.GetTileData(position, tilemap, ref tileData);
-        if ((m_Sprites != null) && (m_Sprites.Length > 0))
+        if (m_Preview)
         {
-            long hash = position.x;
-            hash = (hash + 0xabcd1234) + (hash << 15);
-            hash = (hash + 0x0987efab) ^ (hash >> 11);
-            hash ^= position.y;
-            hash = (hash + 0x46ac12fd) + (hash << 7);
-            hash = (hash + 0xbe9730af) ^ (hash << 11);
-            Random.InitState((int)hash);
-            tileData.sprite = m_Sprites[(int)(m_Sprites.Length * Random.value)];
+            tileData.sprite = m_Preview;
+            if (m_Prefabs.Length > 0)
+            {
+                tileData.gameObject = m_Prefabs[Random.Range(0, m_Prefabs.Length)];
+                tileData.gameObject.SetActive(false);
+            }
         }
+        //base.GetTileData(position, tilemap, ref tileData);
     }
 
-    bool HasNodeTile(ITilemap tilemap, Vector3Int position)
+    public override bool StartUp(Vector3Int position, ITilemap tilemap, GameObject go)
+    {
+        if (PrefabExists(0) && go != null && Application.isPlaying)
+        {
+            var aux = tilemap.GetTransformMatrix(position).rotation.eulerAngles;
+
+            //Debug.Log(aux.transform.rotation.ToString("F2"));
+            //Debug.Log($"go: {go.transform.localRotation.eulerAngles}, aux: {aux.ToString("F2")}");
+            //Debug.Log($"go: {go.transform.localRotation.eulerAngles}, aux: {aux.ToString("F2")}");
+
+            //go.transform.parent = GameObject.Find("Objects").transform;
+            go.transform.parent = GameObject.Find("Objects").transform.Find(m_nodeType.ToString());
+            go.transform.localPosition += m_positionOffset;
+            go.transform.localRotation = Quaternion.Euler(0, -aux.z, 0);
+            go.SetActive(true);
+        }
+        return base.StartUp(position, tilemap, go);
+    }
+
+    public void OnDestroy()
+    {
+        Debug.Log($"Ayyy got nuked ({m_Preview.texture.name})");
+    }
+    public bool HasNodeOnLocation(Tilemap tilemap, Vector3Int position)
     {
         return tilemap.GetTile(position) == this;
     }
-
-    int GetIndex(byte mask)
+    public override void RefreshTile(Vector3Int position, ITilemap tilemap)
     {
-        switch (mask)
-        {
-            case 0: return 0;
-            case 12: return 1;
-            case 8: return 2;
-            case 14: return 3;
-            case 15: return 4;
-        }
-        return -1;
+        Vector3Int aux = new Vector3Int(position.x, position.y, position.z);
+        base.RefreshTile(aux, tilemap);
+        //Debug.Log($"Currently refreshing: {aux.ToString()}, rot: {tilemap.GetTransformMatrix(position).rotation.eulerAngles.ToString("F2")}");
     }
-
-    Quaternion GetRotation(byte mask)
+    bool HasPrefabs()
     {
-        switch (mask)
-        {
-            case 8: return Quaternion.Euler(0, 0, -90f);
-            case 14: return Quaternion.Euler(0, 0, -180f);
-            case 13: return Quaternion.Euler(0, 0, -270f);
-        }
-        return Quaternion.Euler(0, 0, 0);
+        return m_Prefabs.Length > 0;
     }
-
-#if UNITY_EDITOR
-#endif
+    bool PrefabExists(int index)
+    {
+        if (m_Prefabs.Length >= index)
+        {
+            return m_Prefabs[index] != null;
+        }
+        return false;
+    }
 }
 
 #if UNITY_EDITOR
 [CustomEditor(typeof(NodeTile), true)]
 [CanEditMultipleObjects]
-public class NodeTileEditor : Editor
+public class RoadNodeTileEditor : Editor
 {
-    private NodeTile tile { get { return (target as NodeTile); } }
+    private NodeTile nodeTile { get { return (target as NodeTile); } }
 
     public override void OnInspectorGUI()
     {
+        base.OnInspectorGUI();
         EditorGUI.BeginChangeCheck();
-        int count = EditorGUILayout.DelayedIntField("Number of Sprites", tile.m_Sprites != null ? tile.m_Sprites.Length : 0);
-        if (count < 0)
-            count = 0;
-        if (tile.m_Sprites == null || tile.m_Sprites.Length != count)
-        {
-            Array.Resize<Sprite>(ref tile.m_Sprites, count);
-        }
-        if (count == 0)
-            return;
-
-
-
-
-        EditorGUILayout.LabelField("Place random sprites");
-        EditorGUILayout.Separator();
-
-        for (int i = 0; i < count; i++)
-        {
-            tile.m_Sprites[i] = (Sprite)EditorGUILayout.ObjectField($"Sprite {i + 1}", tile.m_Sprites[i], typeof(Sprite), false, null);
-        }
-
-
-
-        //EditorGUILayout.DropdownButton();
+        GUILayout.Label("Node Settings");
+        Node auxNode = new Node();
+        //GUILayout.Label("Node Type");
         if (EditorGUI.EndChangeCheck())
-            EditorUtility.SetDirty(tile);
+            EditorUtility.SetDirty(nodeTile);
     }
 }
 #endif

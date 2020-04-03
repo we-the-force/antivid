@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4669992005326262158}
   - component: {fileID: 803440551680314058}
   - component: {fileID: 8132867417536725241}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 3642844991826953081}
   - component: {fileID: 3642844991826953080}
   - component: {fileID: 3642844991826953083}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Road
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 3642844992476729518}
   - component: {fileID: 3642844992476729516}
   - component: {fileID: 3642844992476729519}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sidewalk01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -257,16 +257,17 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3642844992800548565}
+  - component: {fileID: 1552110356238809355}
   - component: {fileID: 3642844992800548564}
   - component: {fileID: 3642844992800548567}
   - component: {fileID: 3642844992800548566}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StraightRoad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3642844992800548565
 Transform:
   m_ObjectHideFlags: 0
@@ -284,6 +285,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1552110356238809355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3642844992800548553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e248e8a5b1fcfdb41a227dd1d8865221, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rayLength: 0.05
+  rayOffset: -0.001
+  nodeType: 0
+  adjacentNodes: []
 --- !u!33 &3642844992800548564
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -341,5 +358,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 0.525, z: 0}

@@ -11,8 +11,7 @@ GameObject:
   - component: {fileID: 5417872477889615606}
   - component: {fileID: 7887943946531110937}
   - component: {fileID: 7486848771547239718}
-  - component: {fileID: 4241121133835361465}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,19 +78,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &4241121133835361465
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1857414853726408594}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5318173178146058995
 GameObject:
   m_ObjectHideFlags: 0
@@ -103,7 +89,7 @@ GameObject:
   - component: {fileID: 5318173178146058992}
   - component: {fileID: 5318173178146058993}
   - component: {fileID: 5318173178146058994}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Road01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,7 +167,7 @@ GameObject:
   - component: {fileID: 5318173178178190216}
   - component: {fileID: 5318173178178190214}
   - component: {fileID: 5318173178178190215}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Road02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -259,7 +245,7 @@ GameObject:
   - component: {fileID: 5318173179073339687}
   - component: {fileID: 5318173179073339685}
   - component: {fileID: 5318173179073339686}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sidewalk01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -337,7 +323,7 @@ GameObject:
   - component: {fileID: 5318173179168847213}
   - component: {fileID: 5318173179168847211}
   - component: {fileID: 5318173179168847212}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sidewalk02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -413,16 +399,17 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5318173179387058012}
+  - component: {fileID: 2899708525032590152}
   - component: {fileID: 5318173179387058013}
   - component: {fileID: 5318173179387058014}
   - component: {fileID: 5318173179387058015}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CornerRoad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5318173179387058012
 Transform:
   m_ObjectHideFlags: 0
@@ -442,6 +429,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2899708525032590152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5318173179387057984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e248e8a5b1fcfdb41a227dd1d8865221, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rayLength: 0.05
+  rayOffset: -0.001
+  nodeType: 0
+  adjacentNodes: []
 --- !u!33 &5318173179387058013
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -499,5 +502,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 0.525, z: 0}
