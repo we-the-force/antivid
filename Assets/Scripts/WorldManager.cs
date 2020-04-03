@@ -31,6 +31,51 @@ public class WorldManager : MonoBehaviour
         InitPathCollection();
     }
 
+    public void GetPerkValues(GlobalObject.AgentPerk perk,
+            out float hungerResistance,
+            out float healthResistance,
+            out float wanderResistance,
+            out float educationResistance,
+            out float entertainmentResistance,
+            out float sleepResistance,
+            out float resourceProduction
+)
+    {
+        hungerResistance = 1;
+        healthResistance = 1;
+        wanderResistance = 1;
+        educationResistance = 1;
+        entertainmentResistance = 1;
+        sleepResistance = 1;
+        resourceProduction = 1;
+
+        switch (perk)
+        {
+            case GlobalObject.AgentPerk.Athletic:
+                hungerResistance = 0.7f;
+                healthResistance = 1.3f;
+                break;
+            case GlobalObject.AgentPerk.Workaholic:
+                resourceProduction = 1.25f;
+                healthResistance = 0.7f;
+                sleepResistance = 0.85f;
+                break;
+            case GlobalObject.AgentPerk.Introvert:
+                educationResistance = 1.6f;
+                wanderResistance = 1.6f;
+                healthResistance = 0.6f;
+                entertainmentResistance = 1.6f;
+                resourceProduction = 1.1f;
+                hungerResistance = 1.3f;
+                break;
+            case GlobalObject.AgentPerk.Extrovert:
+                entertainmentResistance = 0.65f;
+                healthResistance = 1.2f;
+                wanderResistance = 0.65f;
+                break;
+        }
+    }
+
 
     public void InitPathCollection()
     {
