@@ -15,11 +15,6 @@ public class NodeComponent : MonoBehaviour
     public NodeType nodeType;
 
     [SerializeField]
-    List<Vector3> positions = new List<Vector3>();
-    [SerializeField]
-    List<Vector3> directions = new List<Vector3>();
-
-    [SerializeField]
     List<Ray> rays = new List<Ray>();
 
     [SerializeField]
@@ -46,7 +41,7 @@ public class NodeComponent : MonoBehaviour
         adjacentNodes.Clear();
         for (int i = 0; i < rays.Count; i++)
         {
-            Color col;
+            Color col = Color.black;
             switch (i)
             {
                 case 0:
@@ -60,9 +55,6 @@ public class NodeComponent : MonoBehaviour
                     break;
                 case 3:
                     col = Color.blue;
-                    break;
-                default:
-                    col = Color.black;
                     break;
             }
             Debug.DrawRay(rays[i].origin, rays[i].direction * rayLength, col, 2f);
@@ -88,17 +80,6 @@ public class NodeComponent : MonoBehaviour
         rays.Add(new Ray(new Vector3(boxColl.bounds.max.x + rayOffset, boxColl.bounds.center.y, boxColl.bounds.center.z), Vector3.right));      //right
         rays.Add(new Ray(new Vector3(boxColl.bounds.center.x, boxColl.bounds.center.y, boxColl.bounds.min.z - rayOffset), Vector3.back));       //down
         rays.Add(new Ray(new Vector3(boxColl.bounds.min.x - rayOffset, boxColl.bounds.center.y, boxColl.bounds.center.z), Vector3.left));       //left
-        SetAuxVector3s();
-    }
-    void SetAuxVector3s()
-    {
-        positions.Clear();
-        directions.Clear();
-        foreach (Ray r in rays)
-        {
-            positions.Add(r.origin);
-            directions.Add(r.direction);
-        }
     }
     void PrimeGameObject()
     {

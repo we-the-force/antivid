@@ -55,8 +55,8 @@ public class NodeTile : TileBase
             //Debug.Log($"go: {go.transform.localRotation.eulerAngles}, aux: {aux.ToString("F2")}");
             //Debug.Log($"go: {go.transform.localRotation.eulerAngles}, aux: {aux.ToString("F2")}");
 
-            //go.transform.parent = GameObject.Find("Objects").transform;
-            go.transform.parent = GameObject.Find("Objects").transform.Find(m_nodeType.ToString());
+            go.transform.parent = GameObject.Find("Objects").transform;
+            //go.transform.parent = GameObject.Find("Objects").transform.Find(m_nodeType.ToString());
             go.transform.localPosition += m_positionOffset;
             go.transform.localRotation = Quaternion.Euler(0, -aux.z, 0);
             go.SetActive(true);
@@ -103,9 +103,6 @@ public class RoadNodeTileEditor : Editor
     {
         base.OnInspectorGUI();
         EditorGUI.BeginChangeCheck();
-        GUILayout.Label("Node Settings");
-        Node auxNode = new Node();
-        //GUILayout.Label("Node Type");
         if (EditorGUI.EndChangeCheck())
             EditorUtility.SetDirty(nodeTile);
     }

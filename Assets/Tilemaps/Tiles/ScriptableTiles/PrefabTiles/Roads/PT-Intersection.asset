@@ -15,5 +15,6 @@ MonoBehaviour:
   m_Preview: {fileID: -558145011113562201, guid: c45e2ddadf12770498a7fe93429b8738,
     type: 3}
   m_Prefabs:
-  - {fileID: 196147020536780438, guid: b627d20527da8cc469cc477f4ffdf108, type: 3}
+  - {fileID: 4441096090412889460, guid: bea1e9693fdf5e04d949d54ca057fa50, type: 3}
   m_positionOffset: {x: 0, y: 0, z: 0}
+  m_nodeType: 0
