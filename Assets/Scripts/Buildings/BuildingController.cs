@@ -6,6 +6,8 @@ public class BuildingController : MonoBehaviour
 {
     public GlobalObject.NeedScale MainNeedCovered;
     public float TimeToCoverNeed;
+    public int PercentageRestored;
+
     public int AgentCapacity;    
     public int CurrentAgentCount;
     public PathFindingNode AssociatedNode;

@@ -48,6 +48,7 @@ public class AgentMovement : MonoBehaviour
                 if (NextTile.NodeID == ObjectiveNodeID)
                 {
                     //--- YA DEBE REGRESAR
+                    Agent.myCurrentNode = NextTile;
                     myRigidBody.velocity = Vector3.zero;
                     Agent.DestinyReached();
                     break;

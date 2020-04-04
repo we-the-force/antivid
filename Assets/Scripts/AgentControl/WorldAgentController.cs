@@ -37,7 +37,7 @@ public class WorldAgentController : MonoBehaviour
                     _agent.myCurrentNode = Buildings[i].AssociatedNode;
                     _agent.currentNodeId = Buildings[i].AssociatedNode.NodeID;
 
-                    _agent.Speed = Random.Range(1.5f, 2f);
+                    _agent.Speed = Random.Range(3f, 4f);
 
                     _agent.myHouse = Buildings[i];
                     _agent.InitAgent();                    
@@ -63,8 +63,23 @@ public class WorldAgentController : MonoBehaviour
                 break;
             }
         }
-
+               
         return id;
+    }
+
+    public BuildingController GetBuilding(GlobalObject.NeedScale forNeed)
+    {
+        for (int i = 0; i < Buildings.Count; i++)
+        {
+            BuildingController _building = Buildings[i];
+
+            if (_building.MainNeedCovered == forNeed && _building.CurrentAgentCount < _building.AgentCapacity)
+            {
+                return _building;
+            }
+        }
+
+        return null;
     }
 
 

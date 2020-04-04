@@ -126,6 +126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 0
   AgentID: 0
+  AnimationObject: {fileID: 4743075007067415372}
   myStatus: 0
   myNeedList: []
   myRigidBody: {fileID: 4743075006342897449}
@@ -173,6 +174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 1
   ShipIsMoving: 0
+  movementVector: {x: 0, y: 0, z: 0}
   CurrentTileID: 0
   ObjectiveNodeID: 0
   currentDistance: 0

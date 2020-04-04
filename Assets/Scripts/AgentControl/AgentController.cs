@@ -8,6 +8,8 @@ public class AgentController : MonoBehaviour
 
     public int AgentID;
 
+    public GameObject AnimationObject;
+
     public GlobalObject.AgentStatus myStatus;
 
     public List<NeedPercentage> myNeedList;
@@ -16,6 +18,10 @@ public class AgentController : MonoBehaviour
 
     public PathFindingNode myCurrentNode;
     public int myDestinationNodeID;
+
+    private BuildingController myDestinationBuilding;
+
+
 
     public BuildingController myHouse;
 
@@ -28,7 +34,7 @@ public class AgentController : MonoBehaviour
     /// </summary>
     public GlobalObject.NeedScale NeedTakenCare;
     public bool TakingCareOfNeed = false;
-
+    private bool ExecutingBuilding = false;
 
     private AgentMovement movementController;
 
@@ -72,7 +78,7 @@ public class AgentController : MonoBehaviour
         NeedPercentage _need = new NeedPercentage();
         _need.Need = GlobalObject.NeedScale.Hunger;
         _need.PercentageToCompare = Mathf.RoundToInt(100 * hungerResistance);
-        _need.TicValue = 2;
+        _need.TicValue = 1;
         myNeedList.Add(_need);
 
         _need = new NeedPercentage();
@@ -96,13 +102,13 @@ public class AgentController : MonoBehaviour
         _need = new NeedPercentage();
         _need.Need = GlobalObject.NeedScale.Sleep;
         _need.PercentageToCompare = Mathf.RoundToInt(100 * sleepResistance);
-        _need.TicValue = 2;
+        _need.TicValue = 1;
         myNeedList.Add(_need);
 
         _need = new NeedPercentage();
         _need.Need = GlobalObject.NeedScale.Wander;
         _need.PercentageToCompare = Mathf.RoundToInt(100 * wanderResistance);
-        _need.TicValue = 3;
+        _need.TicValue = 1;
 
         StartCoroutine("Life");
     }
@@ -113,26 +119,33 @@ public class AgentController : MonoBehaviour
 
         while (true)
         {
-            //--- Cada Tik va a ser de 1/4 de segundo
-            if (seconds >= 0.25f)
+            if (!ExecutingBuilding)
             {
-                //--- Al cumplirse un tik, se suman los porcentajes de acuerdo a las resistencias y habilidades del agente
-                for (int i = 0; i < myNeedList.Count; i++)
+                //--- Cada Tik va a ser de 1/4 de segundo
+                if (seconds >= 0.25f)
                 {
-                    if(myNeedList[i].MaxPercentage())
+                    //--- Al cumplirse un tik, se suman los porcentajes de acuerdo a las resistencias y habilidades del agente
+                    for (int i = 0; i < myNeedList.Count; i++)
                     {
-                        TakeCareOfNeed(myNeedList[i].Need);
+                        if (myNeedList[i].MaxPercentage())
+                        {
+                            TakeCareOfNeed(myNeedList[i].Need);
+                        }
                     }
+
+                    seconds = 0;
                 }
 
-                seconds = 0;
+                yield return new WaitForFixedUpdate();
+                seconds += Time.fixedDeltaTime;
             }
-
-            yield return new WaitForFixedUpdate();
-            seconds += Time.fixedDeltaTime;
+            else
+            {
+                yield return new WaitForFixedUpdate();
+            }
         }
     }
-
+       
     private void TakeCareOfNeed(GlobalObject.NeedScale _need)
     {
         //--- Si ya se esta atendiendo una necesidad, no cambia de necesidad, pero si va 
@@ -143,7 +156,30 @@ public class AgentController : MonoBehaviour
         TakingCareOfNeed = true;
         NeedTakenCare = _need;
 
-        myDestinationNodeID = WorldAgentController.instance.GetBuildingPathfindingNodeID(_need);
+        if (_need == GlobalObject.NeedScale.Wander)
+        {
+            //--- Obtiene un id random de camino para deambular
+            GetRoad();
+        }
+        else
+        {
+            Debug.LogError("Buscar Edificio para necesidad: " + _need.ToString());
+
+            myDestinationBuilding = WorldAgentController.instance.GetBuilding(_need);
+
+            if (myDestinationBuilding == null)
+            {
+                _need = GlobalObject.NeedScale.Wander;
+                Debug.LogError("El edificio esta lleno, WANDER");
+                GetRoad();
+            }
+            else
+            {
+                myDestinationNodeID = myDestinationBuilding.AssociatedNode.NodeID;
+            }
+        }
+
+        //myDestinationNodeID = WorldAgentController.instance.GetBuildingPathfindingNodeID(_need);
 
         if (myDestinationNodeID < 0)
         {
@@ -157,21 +193,75 @@ public class AgentController : MonoBehaviour
         movementController.MoveAgent(myDestinationNodeID);
     }
 
+    private void GetRoad()
+    {
+        myDestinationBuilding = null;
+
+        int max = WorldAgentController.instance.RoadSystem.Count;
+        int rnd = Random.Range(0, max);
+
+        myDestinationNodeID = WorldAgentController.instance.RoadSystem[rnd].NodeID;
+    }
 
     public void DestinyReached()
     {
-        Debug.LogError(" SI YA LLEGO A ALGUN LADO");
-
-        
+        //Debug.LogError(" SI YA LLEGO A ALGUN LADO");
+        StartCoroutine("ExecuteDestiny");
     }
 
 
-    IEnumerator Moving()
+    IEnumerator ExecuteDestiny()
     {
-        while (true)
+        //--- Ya llego al destino; en caso de que sea Wander; espera un ratito y luego regresa a realizar sus tareas
+        if (NeedTakenCare == GlobalObject.NeedScale.Wander)
         {
-            yield return new WaitForFixedUpdate();
+            yield return new WaitForSeconds(1.5f);
+            TakingCareOfNeed = false;
+            yield break;
         }
+
+
+        if (myDestinationBuilding != null)
+        {
+            if (myDestinationBuilding.CurrentAgentCount == myDestinationBuilding.AgentCapacity)
+            {
+                //--- En caso de que sea un Building, pero este lleno;  se va a deambular un rato.
+                TakingCareOfNeed = false;
+
+                TakeCareOfNeed(GlobalObject.NeedScale.Wander);
+                yield break;
+            }
+            else
+            {
+                //--- En caso de que sea un Building y haya cupo, entra en el edificio, aumenta los personitas en el edificio, y comienza a esperar el tiempo correspondiente
+                //--- Al terminar, sale del edificio y se va a realizar sus tareas normales
+                ExecutingBuilding = true;
+                myDestinationBuilding.CurrentAgentCount++;
+                SetVisibility(false);
+
+                yield return new WaitForSeconds(myDestinationBuilding.TimeToCoverNeed);
+                for (int i = 0; i < myNeedList.Count; i++)
+                {
+                    if (myNeedList[i].Need == NeedTakenCare)
+                    {
+                        myNeedList[i].CurrentPercentage -= myDestinationBuilding.PercentageRestored;
+                        break;
+                    }
+                }
+
+                ExecutingBuilding = false;
+                SetVisibility(true);
+                myDestinationBuilding.CurrentAgentCount--;
+                myDestinationBuilding = null;
+                TakingCareOfNeed = false;
+                yield break;
+            }
+        }
+    }
+
+    public void SetVisibility(bool visible)
+    {
+        AnimationObject.SetActive(visible);       
     }
 
 }
