@@ -170,8 +170,8 @@ TextureImporter:
       name: 4bit_road_tiles_8
       rect:
         serializedVersion: 2
-        x: 10
-        y: 90
+        x: 90
+        y: 250
         width: 64
         height: 64
       alignment: 0
@@ -191,8 +191,8 @@ TextureImporter:
       name: 4bit_road_tiles_9
       rect:
         serializedVersion: 2
-        x: 90
-        y: 90
+        x: 250
+        y: 250
         width: 64
         height: 64
       alignment: 0
