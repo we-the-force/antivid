@@ -19,12 +19,19 @@ public class WorldManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 2f;
+        StartCoroutine(DelayStart());
+    }
+
+    IEnumerator DelayStart()
+    {
+        yield return null;
         NodeCollection = new List<PathFindingNode>();
 
         for (int i = 0; i < NodeParent.childCount; i++)
         {
             PathFindingNode _node = NodeParent.GetChild(i).GetComponent<PathFindingNode>();
-            _node.NodeID = i; 
+            _node.NodeID = i;
             _node.InitConnections();
             NodeCollection.Add(_node);
         }

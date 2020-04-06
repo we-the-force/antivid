@@ -1,0 +1,289 @@
+fileFormatVersion: 2
+guid: c45e2ddadf12770498a7fe93429b8738
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -558145011113562201
+    second: 4bit_road_tiles_0
+  - first:
+      213: -1055867552956724528
+    second: 4bit_road_tiles_1
+  - first:
+      213: -2322170212891377904
+    second: 4bit_road_tiles_2
+  - first:
+      213: -6188736000431266583
+    second: 4bit_road_tiles_3
+  - first:
+      213: -4586624778421651580
+    second: 4bit_road_tiles_4
+  - first:
+      213: 3072372711750786536
+    second: 4bit_road_tiles_5
+  - first:
+      213: -4004576006637823064
+    second: 4bit_road_tiles_6
+  - first:
+      213: -1337506587710640403
+    second: 4bit_road_tiles_7
+  - first:
+      213: 5137246090112923204
+    second: 4bit_road_tiles_8
+  - first:
+      213: -1081875405473339064
+    second: 4bit_road_tiles_9
+  - first:
+      213: -7101708002357630193
+    second: 4bit_road_tiles_10
+  - first:
+      213: 3466981530196168331
+    second: 4bit_road_tiles_11
+  - first:
+      213: 4408328613302514433
+    second: 4bit_road_tiles_12
+  - first:
+      213: 771246829456147224
+    second: 4bit_road_tiles_13
+  - first:
+      213: 6946591811912011413
+    second: 4bit_road_tiles_14
+  - first:
+      213: -3664760242391813536
+    second: 4bit_road_tiles_15
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Lumin
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 4bit_road_tiles_0
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 250
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c81847aaba0c7d148b411ea9d9244c0f
+      internalID: -558145011113562201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4bit_road_tiles_8
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 250
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b74171b4ef73b7b45a4574ff0103643e
+      internalID: 5137246090112923204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4bit_road_tiles_9
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 250
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f137c52ecf1b0b4ab5a25924484a3d6
+      internalID: -1081875405473339064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4bit_road_tiles_10
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 90
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2701bd7cc6b2c849b241e58d7ad5a05
+      internalID: -7101708002357630193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4bit_road_tiles_11
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 90
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03cd6c31d22d1eb42bfa5728c1d2c99b
+      internalID: 3466981530196168331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4bit_road_tiles_15
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 10
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46cf72327ad72a846af0ac1c04646802
+      internalID: -3664760242391813536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

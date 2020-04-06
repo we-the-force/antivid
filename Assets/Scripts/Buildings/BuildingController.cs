@@ -13,6 +13,16 @@ public class BuildingController : MonoBehaviour
     public PathFindingNode AssociatedNode;
 
 
+    private void Start()
+    {
+        AssociatedNode = GetComponent<PathFindingNode>().ConnectedNodes[0];
+        //StartCoroutine(DelayedStart());
+    }
 
-
+    IEnumerator DelayedStart()
+    {
+        yield return null;
+        //yield return null;
+        AssociatedNode = GetComponent<PathFindingNode>().ConnectedNodes[0];
+    }
 }

@@ -7,13 +7,14 @@ public class WorldAgentController : MonoBehaviour
     public GameObject AgentPrefab;
     public Transform AgentAnchor;
 
+    
+
     public static WorldAgentController instance;
 
     public List<BuildingController> Buildings;
     public List<PathFindingNode> RoadSystem;
 
     public List<AgentController> AgentCollection;
-
 
     private void Awake()
     {
@@ -22,6 +23,35 @@ public class WorldAgentController : MonoBehaviour
 
     private void Start()
     {
+        StartCoroutine(DelayedStart());
+    }
+
+    void PoblateRoadSystem()
+    {
+        RoadSystem.Clear();
+        RoadSystem = WorldManager.instance.NodeCollection.FindAll(x => x.nodeType == NodeType.Road);
+    }
+    void PoblateBuildings()
+    {
+        Buildings.Clear();
+        List<NodeType> auxList = new List<NodeType>() { NodeType.Hospital, NodeType.House, NodeType.School, NodeType.Shop, NodeType.Workplace, NodeType.Entertainment };
+        List<PathFindingNode> nodeList = WorldManager.instance.NodeCollection.FindAll(x => auxList.Contains(x.nodeType));
+        foreach (PathFindingNode pfn in nodeList)
+        {
+            BuildingController auxBuildCont = pfn.GetComponent<BuildingController>();
+            if (auxBuildCont != null)
+            {
+                Buildings.Add(auxBuildCont);
+            }
+        }
+    }
+
+    IEnumerator DelayedStart()
+    {
+        yield return null;
+        yield return null;
+        PoblateRoadSystem();
+        PoblateBuildings();
         for (int i = 0; i < Buildings.Count; i++)
         {
             if (Buildings[i].MainNeedCovered == GlobalObject.NeedScale.Sleep)
@@ -40,14 +70,13 @@ public class WorldAgentController : MonoBehaviour
                     _agent.Speed = Random.Range(3f, 4f);
 
                     _agent.myHouse = Buildings[i];
-                    _agent.InitAgent();                    
+                    _agent.InitAgent();
 
                     AgentCollection.Add(_agent);
                 }
             }
         }
     }
-
 
     public int GetBuildingPathfindingNodeID(GlobalObject.NeedScale forNeed)
     {
