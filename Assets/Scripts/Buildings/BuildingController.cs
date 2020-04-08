@@ -8,14 +8,18 @@ public class BuildingController : MonoBehaviour
     public float TimeToCoverNeed;
     public int PercentageRestored;
 
-    public int AgentCapacity;    
+    public int AgentCapacity;
     public int CurrentAgentCount;
     public PathFindingNode AssociatedNode;
 
 
     private void Start()
     {
-        AssociatedNode = GetComponent<PathFindingNode>().ConnectedNodes[0];
+        List<PathFindingNode> auxList = GetComponent<PathFindingNode>().ConnectedNodes;
+        if (auxList.Count > 0)
+        {
+            AssociatedNode = GetComponent<PathFindingNode>().ConnectedNodes[0];
+        }
         //StartCoroutine(DelayedStart());
     }
 
