@@ -36,14 +36,20 @@ public class AgentMovement : MonoBehaviour
         StartCoroutine("MovementAction");
     }
 
+    private float CurrentSpeed;
+    private float currentSeconds;
+    private float secondsToNode;
+
     IEnumerator MovementAction()
     {
-        float seconds = currentDistance / Speed;
-        float currentSeconds = 0;
+        CurrentSpeed = Speed * WorldManager.instance.TicScale;
+
+        secondsToNode = currentDistance / CurrentSpeed;
+        currentSeconds = 0;
 
         while (true)
         {
-            if (currentSeconds >= seconds)
+            if (currentSeconds >= secondsToNode)
             {
                 if (NextTile.NodeID == ObjectiveNodeID)
                 {
@@ -64,14 +70,30 @@ public class AgentMovement : MonoBehaviour
                 NextTile = WorldManager.instance.GetNextTileInRoute(CurrentTileID, ObjectiveNodeID);
 
                 getRotation();
-                seconds = currentDistance / Speed;
+
+                CurrentSpeed = Speed * WorldManager.instance.TicScale;
+                secondsToNode = currentDistance / CurrentSpeed;
                 currentSeconds = 0;
             }
 
             yield return new WaitForFixedUpdate();
 
-            myRigidBody.velocity = (movementVector * Speed);// * Time.fixedDeltaTime;
+            myRigidBody.velocity = (movementVector * CurrentSpeed);// * Time.fixedDeltaTime;
             currentSeconds += Time.fixedDeltaTime;
+        }
+    }
+
+    public void TicReceived()
+    {
+        float _speed = Speed * WorldManager.instance.TicScale;
+
+        if (CurrentSpeed != _speed)
+        {
+            CurrentSpeed = _speed;
+
+            float percentage = currentSeconds / secondsToNode;
+            secondsToNode = currentDistance / CurrentSpeed;
+            currentSeconds = secondsToNode * percentage;
         }
     }
 

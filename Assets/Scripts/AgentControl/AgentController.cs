@@ -33,6 +33,8 @@ public class AgentController : MonoBehaviour
 
     public int currentNodeId;
 
+    private int TicCounter;
+
     /// <summary>
     /// La necesidad que en este momento se esta atendiendo
     /// </summary>
@@ -55,6 +57,8 @@ public class AgentController : MonoBehaviour
 
     public void InitAgent()
     {
+        WorldManager.TicDelegate += TicReceived;
+
         movementController = gameObject.GetComponent<AgentMovement>();
 
         movementController.Speed = Speed;
@@ -121,16 +125,32 @@ public class AgentController : MonoBehaviour
         StartCoroutine("Life");
     }
 
+    private void TicReceived()
+    {
+        movementController.TicReceived();
+
+        Debug.LogError("TIC RECIBIDO executing building ? " + ExecutingBuilding);
+
+        //--- Con esto se sustituye lo de la corutina de la vida
+        if (!ExecutingBuilding && !Sneezing)
+        {
+            TakeCareOfNeed(NextNeed());
+        }
+
+        if (ExecutingBuilding)
+        {
+            TicCounter++;
+        }
+    }
+
     IEnumerator Life()
     {
         //--- Inicializa cada agente con un tiempo diferente en IDLE, y despues comienza a deambular.
         float time = Random.Range(0.5f, 3.5f);
         yield return new WaitForSeconds(time);
         TakeCareOfNeed(GlobalObject.NeedScale.Wander);
-
+        /*
         float seconds = 0;
-
-        //float sneezeSeconds = 0;
 
         while (true)
         {
@@ -143,32 +163,17 @@ public class AgentController : MonoBehaviour
                     TakeCareOfNeed(NextNeed());
                     seconds = 0;
                 }
-                /*
-                if (sneezeSeconds >= WorldAgentController.instance.SneezeBaseFrequency)
-                {
-                    StartCoroutine("Sneeze");
-                    sneezeSeconds = 0;
-                }
-                */
 
                 yield return new WaitForFixedUpdate();
                 seconds += Time.fixedDeltaTime;
-                /*
-                if (myStatus == GlobalObject.AgentStatus.Mild_Case)
-                {
-                    sneezeSeconds += Time.fixedDeltaTime;
-                }
-                else if (myStatus == GlobalObject.AgentStatus.Serious_Case)
-                {
-                    sneezeSeconds += (Time.fixedDeltaTime * 2);
-                }
-                */
+
             }
             else
             {
                 yield return new WaitForFixedUpdate();
             }
         }
+        */
     }
 
     private GlobalObject.NeedScale NextNeed()
@@ -291,7 +296,6 @@ public class AgentController : MonoBehaviour
             yield break;
         }
 
-
         if (myDestinationBuilding != null)
         {
             if (myDestinationBuilding.CurrentAgentCount == myDestinationBuilding.AgentCapacity)
@@ -309,7 +313,18 @@ public class AgentController : MonoBehaviour
                 myDestinationBuilding.CurrentAgentCount++;
                 SetVisibility(false);
 
-                yield return new WaitForSeconds(myDestinationBuilding.TimeToCoverNeed);
+                TicCounter = 0;
+                while (true)
+                {
+                    if (TicCounter >= myDestinationBuilding.TicsToCoverNeed)
+                    {
+                        break;
+                    }
+                    yield return new WaitForFixedUpdate();
+                }
+
+                //yield return new WaitForSeconds(myDestinationBuilding.TimeToCoverNeed);
+
                 for (int i = 0; i < myNeedList.Count; i++)
                 {
                     if (myNeedList[i].Need == NeedTakenCare)
@@ -350,16 +365,20 @@ public class AgentController : MonoBehaviour
         GameObject obj = Instantiate(WorldAgentController.instance.SneezePrefab, WorldAgentController.instance.AgentAnchor);
         obj.transform.position = transform.position;
 
+        //--- Especifica que tipo de estornudo es
+        obj.GetComponent<SneezeController>().SneezeStatus = myStatus;
+        obj.GetComponent<SneezeController>().Init();
+
         yield return new WaitForSeconds(0.35f);
         Sneezing = false;
     }
 
-    public void AddContagion()
+    public void AddContagion(float _percentage = 1)
     {
         if (PorcentageContagio > 100)
             return;
 
-        PorcentageContagio += 25 * FactorContagio;
+        PorcentageContagio += _percentage * FactorContagio;
 
         if (PorcentageContagio >= 100)
         {

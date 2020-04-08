@@ -5,8 +5,36 @@ using System.Linq;
 
 public class WorldManager : MonoBehaviour
 {
+
     public static WorldManager instance;
 
+
+    //--- World Time (tic) logic declaration
+    public float SecondsPerTic;
+    public float TicScale = 1.0f;
+
+    public delegate void OnTicCall();
+    public static OnTicCall TicDelegate;
+    
+    IEnumerator TICManager()
+    {
+        float _seconds = 1;
+
+        while (true)
+        {
+            _seconds = SecondsPerTic / TicScale;
+            yield return new WaitForSeconds(_seconds);
+
+            TicDelegate();
+        }
+    }
+
+    public void ChangeTimeScale(float _scale)
+    {
+        TicScale = _scale;
+    }
+    //-----
+    
     private void Awake()
     {
         instance = this;
@@ -169,6 +197,9 @@ public class WorldManager : MonoBehaviour
                 rowObj.PathCostCollection.Add(_pathCost);
             }
         }
+
+        
+        StartCoroutine("TICManager");
     }
 
     private void ResetConnectionArray(out int[,] connectionArray, int rank)

@@ -2113,6 +2113,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03095047c09bcd64886efe977df67153, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SecondsPerTic: 1
+  TicScale: 1
   NodeParent: {fileID: 708537263}
   NodeCollection: []
 --- !u!4 &1052171973
@@ -2146,6 +2148,9 @@ MonoBehaviour:
   AgentPrefab: {fileID: 4743075006342897453, guid: 84d2765961a894e4b9751e03153f2b21,
     type: 3}
   AgentAnchor: {fileID: 538156430}
+  SneezeBaseFrequency: 10
+  SneezePrefab: {fileID: 5738051209377488478, guid: 21d9acae3ca97274fba835c6146655cc,
+    type: 3}
   Buildings:
   - {fileID: 1218068739}
   - {fileID: 1894677176}

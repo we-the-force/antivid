@@ -4,19 +4,46 @@ using UnityEngine;
 
 public class SneezeController : MonoBehaviour
 {
-    public GameObject sneezeEffect;
+    public GameObject sneezeEffectMildCase;
+    public GameObject sneezeEffectSeriousCase;
+
+    private GameObject sneezeEffect;
+
+    public GlobalObject.AgentStatus SneezeStatus;
 
     public float SneezeLifespan;
 
+    public int SneezeLifespanInTics;
+    public int ticCount;
+
+    public float IllnessPercentageToAdd = 10;
+
     public Collider myCollider;
 
-    private void Start()
+    public void Init()
     {
-        StartCoroutine("Init");
+        sneezeEffect = sneezeEffectMildCase;
+
+        if (SneezeStatus == GlobalObject.AgentStatus.Serious_Case)
+        {
+            //--- Cambia la duracion y la coloracion del estornudo
+            SneezeLifespan += SneezeLifespan;
+            sneezeEffect = sneezeEffectSeriousCase;
+        }
+
+        ticCount = 0;
+        WorldManager.TicDelegate += TicReceived;
+
+        StartCoroutine("InitCycle");
     }
 
-    IEnumerator Init()
-    { 
+    private void TicReceived()
+    {
+        ticCount++;
+    }
+
+    IEnumerator InitCycle()
+    {
         yield return new WaitForSeconds(0.2f);
 
         sneezeEffect.SetActive(true);
@@ -24,8 +51,16 @@ public class SneezeController : MonoBehaviour
 
         Debug.LogError(">>> YA ESTORNUDO");
 
-        yield return new WaitForSeconds(SneezeLifespan);
+        while (true)
+        {
+            if(ticCount >= SneezeLifespanInTics)
+            {
+                break;
+            }
+            yield return new WaitForFixedUpdate();
+        }
 
+        WorldManager.TicDelegate -= TicReceived;
         Destroy(gameObject);
     }
 
@@ -34,7 +69,7 @@ public class SneezeController : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            other.GetComponent<AgentController>().AddContagion();
+            other.GetComponent<AgentController>().AddContagion(IllnessPercentageToAdd);
         }
     }
 
