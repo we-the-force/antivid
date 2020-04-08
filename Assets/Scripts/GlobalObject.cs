@@ -23,7 +23,8 @@ public class GlobalObject
         Entertainment,
         HealtCare,
         Education,
-        Wander //--- Esta necesidad activa una accion idle del agente que lo lleva a deambular por las calles nomas asi, selecciona un tile de camino al azar y se mueve para alla
+        Wander, //--- Esta necesidad activa una accion idle del agente que lo lleva a deambular por las calles nomas asi, selecciona un tile de camino al azar y se mueve para alla
+        None
     }
 
     [System.Serializable]

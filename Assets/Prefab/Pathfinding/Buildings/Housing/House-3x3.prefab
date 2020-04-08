@@ -287,7 +287,7 @@ MonoBehaviour:
   ShortestPathCollection: []
   rayLength: 0.05
   rayOffset: -0.001
-  nodeType: 3
+  nodeType: 1
 --- !u!114 &428587748571672074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,10 +300,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1570f164b9443f45af3e99d32a1c444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MainNeedCovered: 0
+  MainNeedCovered: 1
   TimeToCoverNeed: 2.5
   PercentageRestored: 100
-  AgentCapacity: 5
+  AgentCapacity: 3
   CurrentAgentCount: 0
   AssociatedNode: {fileID: 0}
 --- !u!65 &2710027372233662234

@@ -460,7 +460,7 @@ MonoBehaviour:
   MainNeedCovered: 2
   TimeToCoverNeed: 2.5
   PercentageRestored: 100
-  AgentCapacity: 5
+  AgentCapacity: 10
   CurrentAgentCount: 0
   AssociatedNode: {fileID: 0}
 --- !u!65 &4205342804727711564

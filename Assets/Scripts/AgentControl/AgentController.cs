@@ -163,7 +163,7 @@ public class AgentController : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Buscar Edificio para necesidad: " + _need.ToString());
+            //Debug.LogError("Buscar Edificio para necesidad: " + _need.ToString());
 
             myDestinationBuilding = WorldAgentController.instance.GetBuilding(_need);
 
