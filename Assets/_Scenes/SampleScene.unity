@@ -2131,26 +2131,11 @@ MonoBehaviour:
   AgentPrefab: {fileID: 4743075006342897453, guid: 84d2765961a894e4b9751e03153f2b21,
     type: 3}
   AgentAnchor: {fileID: 538156430}
-  Buildings:
-  - {fileID: 1218068739}
-  - {fileID: 1894677176}
-  - {fileID: 1859025431}
-  - {fileID: 1475932768}
-  - {fileID: 1042247932}
-  - {fileID: 439933534}
-  - {fileID: 1349641376}
-  - {fileID: 760272505}
-  RoadSystem:
-  - {fileID: 137550015}
-  - {fileID: 115371605}
-  - {fileID: 1288701300}
-  - {fileID: 1137176226}
-  - {fileID: 914577476}
-  - {fileID: 131326347}
-  - {fileID: 1862773802}
-  - {fileID: 735921982}
-  - {fileID: 1230821253}
-  - {fileID: 1143173969}
+  SneezeBaseFrequency: 10
+  SneezePrefab: {fileID: 5738051209377488478, guid: 21d9acae3ca97274fba835c6146655cc,
+    type: 3}
+  Buildings: []
+  RoadSystem: []
   AgentCollection: []
 --- !u!114 &1052171975
 MonoBehaviour:
@@ -15209,7 +15194,7 @@ PrefabInstance:
     - target: {fileID: 4743075006342897455, guid: 84d2765961a894e4b9751e03153f2b21,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -20.69
       objectReference: {fileID: 0}
     - target: {fileID: 4743075006342897455, guid: 84d2765961a894e4b9751e03153f2b21,
         type: 3}

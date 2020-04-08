@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class GlobalObject
 {
-
     [System.Serializable]
     public enum AgentStatus
     {
@@ -23,7 +22,8 @@ public class GlobalObject
         Entertainment,
         HealtCare,
         Education,
-        Wander //--- Esta necesidad activa una accion idle del agente que lo lleva a deambular por las calles nomas asi, selecciona un tile de camino al azar y se mueve para alla
+        Wander, //--- Esta necesidad activa una accion idle del agente que lo lleva a deambular por las calles nomas asi, selecciona un tile de camino al azar y se mueve para alla
+        None
     }
 
     [System.Serializable]
@@ -36,6 +36,14 @@ public class GlobalObject
         Extrovert
     }
 }
+
+[System.Serializable]
+public class PathCost
+{
+    public int TileID;
+    public int Cost;
+}
+
 
 [System.Serializable]
 public class NeedPercentage
@@ -65,5 +73,25 @@ public class NeedPercentage
             CurrentPercentage += TicValue;
             return false;
         }
+    }
+
+    public int PercentageDifference()
+    {
+        if (CurrentPercentage > PercentageToCompare)
+        {
+            _quarter += 0.25f;
+
+            if (_quarter >= 1.0f)
+            {
+                CurrentPercentage++;
+                _quarter = 0;
+            }
+        }
+        else
+        {
+            CurrentPercentage += TicValue;
+        }
+
+        return (CurrentPercentage - PercentageToCompare);
     }
 }

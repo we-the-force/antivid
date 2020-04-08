@@ -7,7 +7,8 @@ public class WorldAgentController : MonoBehaviour
     public GameObject AgentPrefab;
     public Transform AgentAnchor;
 
-    
+    public float SneezeBaseFrequency = 10f;
+    public GameObject SneezePrefab;
 
     public static WorldAgentController instance;
 
@@ -67,7 +68,7 @@ public class WorldAgentController : MonoBehaviour
                     _agent.myCurrentNode = Buildings[i].AssociatedNode;
                     _agent.currentNodeId = Buildings[i].AssociatedNode.NodeID;
 
-                    _agent.Speed = Random.Range(3f, 4f);
+                    _agent.Speed = Random.Range(1f, 2f);
 
                     _agent.myHouse = Buildings[i];
                     _agent.InitAgent();
@@ -76,6 +77,9 @@ public class WorldAgentController : MonoBehaviour
                 }
             }
         }
+
+        AgentCollection[0].myStatus = GlobalObject.AgentStatus.Mild_Case;
+        AgentCollection[0].SickIndicator.SetActive(true);
     }
 
     public int GetBuildingPathfindingNodeID(GlobalObject.NeedScale forNeed)
@@ -96,20 +100,44 @@ public class WorldAgentController : MonoBehaviour
         return id;
     }
 
-    public BuildingController GetBuilding(GlobalObject.NeedScale forNeed)
+    public BuildingController GetBuilding(GlobalObject.NeedScale forNeed, PathFindingNode fromTile)
     {
+        List<BuildingController> ElegibleBuildings = new List<BuildingController>();
+        BuildingController _building;
+
         for (int i = 0; i < Buildings.Count; i++)
         {
-            BuildingController _building = Buildings[i];
+            _building = Buildings[i];
 
             if (_building.MainNeedCovered == forNeed && _building.CurrentAgentCount < _building.AgentCapacity)
             {
-                return _building;
+                ElegibleBuildings.Add(_building);
             }
         }
 
-        return null;
+        if(ElegibleBuildings.Count == 0)
+            return null;
+
+        if(ElegibleBuildings.Count == 1)
+            return ElegibleBuildings[0];
+
+        int _cost = 99999;
+        _building = null;
+        for (int i = 0; i < ElegibleBuildings.Count; i++)
+        {
+            for (int k = 0; k < fromTile.PathCostCollection.Count; k++)
+            {
+                if (fromTile.PathCostCollection[k].TileID == ElegibleBuildings[i].AssociatedNode.NodeID)
+                {
+                    if (_cost > fromTile.PathCostCollection[k].Cost)
+                    {
+                        _cost = fromTile.PathCostCollection[k].Cost;
+                        _building = ElegibleBuildings[i];
+                    }
+                }
+            }
+        }
+
+        return _building;
     }
-
-
 }

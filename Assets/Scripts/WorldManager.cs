@@ -159,6 +159,14 @@ public class WorldManager : MonoBehaviour
             for (int i = 0; i < lista.Count; i++)
             {
                 rowObj.ShortestPathCollection.Add(lista[i]);
+
+                string[] pathIdCollection = lista[i].Split(',');
+                PathCost _pathCost = new PathCost();
+
+                _pathCost.TileID = int.Parse(pathIdCollection[0]);
+                _pathCost.Cost = pathIdCollection.Length;
+
+                rowObj.PathCostCollection.Add(_pathCost);
             }
         }
     }

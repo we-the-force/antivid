@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class AgentController : MonoBehaviour
 {
+    public AgentIcon IconController;
+
+    public float FactorContagio = 1.0f;
+    public float PorcentageContagio = 0f;
+    private bool Sneezing;
+
     public float Speed;
 
     public int AgentID;
@@ -20,9 +26,7 @@ public class AgentController : MonoBehaviour
     public int myDestinationNodeID;
 
     private BuildingController myDestinationBuilding;
-
-
-
+       
     public BuildingController myHouse;
 
     public GlobalObject.AgentPerk myPerk;
@@ -46,6 +50,8 @@ public class AgentController : MonoBehaviour
     public float entertainmentResistance = 1.0f;
     public float sleepResistance = 1.0f;
     public float resourceProduction = 1.0f;
+
+    public GameObject SickIndicator;
 
     public void InitAgent()
     {
@@ -110,34 +116,53 @@ public class AgentController : MonoBehaviour
         _need.PercentageToCompare = Mathf.RoundToInt(100 * wanderResistance);
         _need.TicValue = 1;
 
+        SetVisibility(false);
+
         StartCoroutine("Life");
     }
 
     IEnumerator Life()
     {
+        //--- Inicializa cada agente con un tiempo diferente en IDLE, y despues comienza a deambular.
+        float time = Random.Range(0.5f, 3.5f);
+        yield return new WaitForSeconds(time);
+        TakeCareOfNeed(GlobalObject.NeedScale.Wander);
+
         float seconds = 0;
+
+        //float sneezeSeconds = 0;
 
         while (true)
         {
-            if (!ExecutingBuilding)
+            if (!ExecutingBuilding && !Sneezing)
             {
                 //--- Cada Tik va a ser de 1/4 de segundo
                 if (seconds >= 0.25f)
                 {
                     //--- Al cumplirse un tik, se suman los porcentajes de acuerdo a las resistencias y habilidades del agente
-                    for (int i = 0; i < myNeedList.Count; i++)
-                    {
-                        if (myNeedList[i].MaxPercentage())
-                        {
-                            TakeCareOfNeed(myNeedList[i].Need);
-                        }
-                    }
-
+                    TakeCareOfNeed(NextNeed());
                     seconds = 0;
                 }
+                /*
+                if (sneezeSeconds >= WorldAgentController.instance.SneezeBaseFrequency)
+                {
+                    StartCoroutine("Sneeze");
+                    sneezeSeconds = 0;
+                }
+                */
 
                 yield return new WaitForFixedUpdate();
                 seconds += Time.fixedDeltaTime;
+                /*
+                if (myStatus == GlobalObject.AgentStatus.Mild_Case)
+                {
+                    sneezeSeconds += Time.fixedDeltaTime;
+                }
+                else if (myStatus == GlobalObject.AgentStatus.Serious_Case)
+                {
+                    sneezeSeconds += (Time.fixedDeltaTime * 2);
+                }
+                */
             }
             else
             {
@@ -145,12 +170,43 @@ public class AgentController : MonoBehaviour
             }
         }
     }
-       
+
+    private GlobalObject.NeedScale NextNeed()
+    {
+        GlobalObject.NeedScale _need = GlobalObject.NeedScale.None;
+
+        int _tmpPercentage;
+        int _maxPercentage = -999;
+
+        for (int i = 0; i < myNeedList.Count; i++)
+        {
+            _tmpPercentage = myNeedList[i].PercentageDifference();
+            if (_tmpPercentage > _maxPercentage)
+            {
+                _maxPercentage = _tmpPercentage;
+                _need = myNeedList[i].Need;
+            }
+        }
+
+        if (_maxPercentage <= 0)
+        {
+            _need = GlobalObject.NeedScale.None;
+        }
+
+        return _need;
+    }
+
+
     private void TakeCareOfNeed(GlobalObject.NeedScale _need)
     {
         //--- Si ya se esta atendiendo una necesidad, no cambia de necesidad, pero si va 
         //--- sumando porcentaje de necesidad
+        SetVisibility(true);
+
         if (TakingCareOfNeed)
+            return;
+
+        if (_need == GlobalObject.NeedScale.None)
             return;
 
         TakingCareOfNeed = true;
@@ -161,15 +217,21 @@ public class AgentController : MonoBehaviour
             //--- Obtiene un id random de camino para deambular
             GetRoad();
         }
+        else if (_need == GlobalObject.NeedScale.Sleep)
+        {
+            myDestinationBuilding = myHouse;
+            myDestinationNodeID = myDestinationBuilding.AssociatedNode.NodeID;
+        }
         else
         {
             Debug.LogError("Buscar Edificio para necesidad: " + _need.ToString());
 
-            myDestinationBuilding = WorldAgentController.instance.GetBuilding(_need);
+            myDestinationBuilding = WorldAgentController.instance.GetBuilding(_need, myCurrentNode);
 
             if (myDestinationBuilding == null)
             {
                 _need = GlobalObject.NeedScale.Wander;
+                NeedTakenCare = _need;
                 Debug.LogError("El edificio esta lleno, WANDER");
                 GetRoad();
             }
@@ -178,7 +240,7 @@ public class AgentController : MonoBehaviour
                 myDestinationNodeID = myDestinationBuilding.AssociatedNode.NodeID;
             }
         }
-
+               
         //myDestinationNodeID = WorldAgentController.instance.GetBuildingPathfindingNodeID(_need);
 
         if (myDestinationNodeID < 0)
@@ -189,6 +251,8 @@ public class AgentController : MonoBehaviour
             TakingCareOfNeed = false;
             return;
         }
+
+        IconController.ShowIconFor(NeedTakenCare);
 
         movementController.MoveAgent(myDestinationNodeID);
     }
@@ -215,7 +279,14 @@ public class AgentController : MonoBehaviour
         //--- Ya llego al destino; en caso de que sea Wander; espera un ratito y luego regresa a realizar sus tareas
         if (NeedTakenCare == GlobalObject.NeedScale.Wander)
         {
-            yield return new WaitForSeconds(1.5f);
+            if (myStatus == GlobalObject.AgentStatus.Mild_Case || myStatus == GlobalObject.AgentStatus.Serious_Case)
+            {
+                StartCoroutine("Sneeze");
+            }
+            else
+            {
+                yield return new WaitForSeconds(1.5f);
+            }
             TakingCareOfNeed = false;
             yield break;
         }
@@ -227,7 +298,6 @@ public class AgentController : MonoBehaviour
             {
                 //--- En caso de que sea un Building, pero este lleno;  se va a deambular un rato.
                 TakingCareOfNeed = false;
-
                 TakeCareOfNeed(GlobalObject.NeedScale.Wander);
                 yield break;
             }
@@ -253,6 +323,12 @@ public class AgentController : MonoBehaviour
                 SetVisibility(true);
                 myDestinationBuilding.CurrentAgentCount--;
                 myDestinationBuilding = null;
+
+                if (myStatus == GlobalObject.AgentStatus.Mild_Case || myStatus == GlobalObject.AgentStatus.Serious_Case)
+                {
+                    StartCoroutine("Sneeze");
+                }
+
                 TakingCareOfNeed = false;
                 yield break;
             }
@@ -262,6 +338,40 @@ public class AgentController : MonoBehaviour
     public void SetVisibility(bool visible)
     {
         AnimationObject.SetActive(visible);       
+    }
+
+    IEnumerator Sneeze()
+    {
+        movementController.StopMovement();
+        Sneezing = true;
+        TakingCareOfNeed = false;
+
+        yield return new WaitForSeconds(0.25f);
+        GameObject obj = Instantiate(WorldAgentController.instance.SneezePrefab, WorldAgentController.instance.AgentAnchor);
+        obj.transform.position = transform.position;
+
+        yield return new WaitForSeconds(0.35f);
+        Sneezing = false;
+    }
+
+    public void AddContagion()
+    {
+        if (PorcentageContagio > 100)
+            return;
+
+        PorcentageContagio += 25 * FactorContagio;
+
+        if (PorcentageContagio >= 100)
+        {
+            SickIndicator.SetActive(true);
+            myStatus = GlobalObject.AgentStatus.Mild_Case;
+            StartCoroutine("IllnessManager");
+        }
+    }
+
+    IEnumerator IllnessManager()
+    {
+        yield return null;
     }
 
 }

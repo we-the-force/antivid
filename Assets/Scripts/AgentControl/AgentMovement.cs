@@ -75,6 +75,12 @@ public class AgentMovement : MonoBehaviour
         }
     }
 
+    public void StopMovement()
+    {
+        StopCoroutine("MovementAction");
+        myRigidBody.velocity = Vector3.zero;
+    }
+
     private void getRotation()
     {
         transform.LookAt(NextTile.transform);

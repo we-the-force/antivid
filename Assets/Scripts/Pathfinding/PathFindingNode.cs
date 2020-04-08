@@ -17,6 +17,8 @@ public class PathFindingNode : MonoBehaviour
 
     public List<string> ShortestPathCollection = new List<string>();
 
+    public List<PathCost> PathCostCollection = new List<PathCost>();   
+
 
     [SerializeField, Range(0.01f, 0.05f), Tooltip("The length of the ray to be casted")]
     float rayLength = 0.01f;
