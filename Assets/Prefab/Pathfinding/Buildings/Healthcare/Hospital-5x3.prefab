@@ -129,6 +129,7 @@ MonoBehaviour:
   ConnectedNodes: []
   HeadingToConnectedNode: 
   ShortestPathCollection: []
+  PathCostCollection: []
   rayLength: 0.05
   rayOffset: -0.001
   nodeType: 2
@@ -146,10 +147,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainNeedCovered: 3
   TimeToCoverNeed: 2.5
+  TicsToCoverNeed: 50
   PercentageRestored: 100
   AgentCapacity: 15
   CurrentAgentCount: 0
   AssociatedNode: {fileID: 0}
+  UpkeepCost: 1125
 --- !u!65 &681786540097949662
 BoxCollider:
   m_ObjectHideFlags: 0

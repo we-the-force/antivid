@@ -17,6 +17,7 @@ public class AgentController : MonoBehaviour
     public GameObject AnimationObject;
 
     public GlobalObject.AgentStatus myStatus;
+    public GlobalObject.AgentStatus previousStatus;
 
     public List<NeedPercentage> myNeedList;
 
@@ -120,6 +121,8 @@ public class AgentController : MonoBehaviour
         _need.PercentageToCompare = Mathf.RoundToInt(100 * wanderResistance);
         _need.TicValue = 1;
 
+        previousStatus = myStatus;
+
         SetVisibility(false);
 
         StartCoroutine("Life");
@@ -129,7 +132,25 @@ public class AgentController : MonoBehaviour
     {
         movementController.TicReceived();
 
-        Debug.LogError("TIC RECIBIDO executing building ? " + ExecutingBuilding);
+        if (previousStatus != myStatus)
+        {
+            //Debug.LogError($"Ay valiendo queso cambie de status     ({previousStatus}, {myStatus})");
+            if (myStatus == GlobalObject.AgentStatus.Mild_Case || myStatus == GlobalObject.AgentStatus.Serious_Case || myStatus == GlobalObject.AgentStatus.Out_of_circulation)
+            {
+                //if (myStatus == GlobalObject.AgentStatus.Mild_Case)
+                //{
+                //    myNeedList[3].TicValue = 1;
+                //}
+                //else if (myStatus == GlobalObject.AgentStatus.Serious_Case)
+                //{
+                //    myNeedList[3].TicValue = 3;
+                //}
+                //Debug.LogError($"Uff si cambie a uno de los no chidos unu {myStatus}");
+                WorldAgentController.instance.CalculateAgentIncome();
+            }
+        }
+
+        //Debug.LogError("TIC RECIBIDO executing building ? " + ExecutingBuilding);
 
         //--- Con esto se sustituye lo de la corutina de la vida
         if (!ExecutingBuilding && !Sneezing)
@@ -141,6 +162,8 @@ public class AgentController : MonoBehaviour
         {
             TicCounter++;
         }
+
+        previousStatus = myStatus;
     }
 
     IEnumerator Life()
@@ -318,6 +341,25 @@ public class AgentController : MonoBehaviour
                 {
                     if (TicCounter >= myDestinationBuilding.TicsToCoverNeed)
                     {
+                        if (NeedTakenCare == GlobalObject.NeedScale.HealtCare)
+                        {
+                            if (myStatus == GlobalObject.AgentStatus.Mild_Case)
+                            {
+                                CurrencyManager.Instance.CurrentCurrency -= 200;
+                            }
+                            else if (myStatus == GlobalObject.AgentStatus.Serious_Case)
+                            {
+                                CurrencyManager.Instance.CurrentCurrency -= 400;
+                            }
+                            else
+                            {
+                                CurrencyManager.Instance.CurrentCurrency -= 100;
+                            }
+                        }
+                        else
+                        {
+                            CurrencyManager.Instance.CurrentCurrency += 50;
+                        }
                         break;
                     }
                     yield return new WaitForFixedUpdate();

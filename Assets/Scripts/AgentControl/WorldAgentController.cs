@@ -17,6 +17,12 @@ public class WorldAgentController : MonoBehaviour
 
     public List<AgentController> AgentCollection;
 
+    [Tooltip("How much resources each agent will give you each period")]
+    public float IncomePerAgent;
+
+    public float TotalBuildingUpkeepCost;
+    public float TotalAgentIncome;
+
     private void Awake()
     {
         instance = this;
@@ -78,10 +84,37 @@ public class WorldAgentController : MonoBehaviour
             }
         }
 
-        AgentCollection[0].myStatus = GlobalObject.AgentStatus.Mild_Case;
+        //AgentCollection[0].myStatus = GlobalObject.AgentStatus.Mild_Case;
+        AgentCollection[0].myStatus = GlobalObject.AgentStatus.Serious_Case;
         AgentCollection[0].SickIndicator.SetActive(true);
+        CalculateBuildingUpkeepCost();
+        CalculateAgentIncome();
     }
 
+    public void CalculateBuildingUpkeepCost()
+    {
+        TotalBuildingUpkeepCost = 0;
+        foreach (BuildingController bc in Buildings)
+        {
+            TotalBuildingUpkeepCost += bc.UpkeepCost;
+        }
+    }
+    public void CalculateAgentIncome()
+    {
+        TotalAgentIncome = 0;
+        List<GlobalObject.AgentStatus> invalidStatus = new List<GlobalObject.AgentStatus>() { GlobalObject.AgentStatus.Serious_Case, GlobalObject.AgentStatus.Out_of_circulation };
+        foreach (AgentController ac in AgentCollection)
+        {
+            if (ac.myStatus == GlobalObject.AgentStatus.Mild_Case)
+            {
+                TotalAgentIncome += IncomePerAgent / 2f;
+            }
+            else if (!invalidStatus.Contains(ac.myStatus))
+            {
+                TotalAgentIncome += IncomePerAgent;
+            }
+        }
+    }
     public int GetBuildingPathfindingNodeID(GlobalObject.NeedScale forNeed)
     {
         int id = -1;

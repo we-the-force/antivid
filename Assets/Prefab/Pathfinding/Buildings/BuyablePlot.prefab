@@ -570,7 +570,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37baadbfa96167b45a67d533b8b8c3ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Cost: 5
+  Cost: 10000
+  UpkeepCost: 1000
   IsBuyable: 1
   IsBuildable: 1
   IsBought: 0
@@ -607,6 +608,7 @@ MonoBehaviour:
   ConnectedNodes: []
   HeadingToConnectedNode: 
   ShortestPathCollection: []
+  PathCostCollection: []
   rayLength: 0.05
   rayOffset: -0.001
   nodeType: 7
@@ -624,10 +626,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainNeedCovered: 6
   TimeToCoverNeed: 2.5
+  TicsToCoverNeed: 20
   PercentageRestored: 100
-  AgentCapacity: 3
+  AgentCapacity: 10
   CurrentAgentCount: 0
   AssociatedNode: {fileID: 0}
+  UpkeepCost: 0
 --- !u!65 &2419314783476966320
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1032,13 +1036,14 @@ GameObject:
   - component: {fileID: 1372943737460922508}
   - component: {fileID: 3634682359382806419}
   - component: {fileID: 5224089311854227703}
+  - component: {fileID: 7657859610895015200}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5809265205090970977
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1060,7 +1065,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 90, y: 270, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 1.076}
+  m_AnchoredPosition: {x: 0, y: 1.8}
   m_SizeDelta: {x: 3, y: 3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &1372943737460922508
@@ -1123,6 +1128,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &7657859610895015200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5103086237844800041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c96cd823abfdf1540ad1be51cde94d7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 0}
 --- !u!1 &5682357341733080890
 GameObject:
   m_ObjectHideFlags: 0

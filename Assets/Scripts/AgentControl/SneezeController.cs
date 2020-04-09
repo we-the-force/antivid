@@ -22,6 +22,15 @@ public class SneezeController : MonoBehaviour
 
     public void Init()
     {
+        if (sneezeEffectMildCase == null)
+        {
+            sneezeEffectMildCase = transform.GetChild(0).gameObject;
+        }
+        if (sneezeEffectSeriousCase == null)
+        {
+            sneezeEffectSeriousCase = transform.GetChild(1).gameObject;
+        }
+
         sneezeEffect = sneezeEffectMildCase;
 
         if (SneezeStatus == GlobalObject.AgentStatus.Serious_Case)
@@ -49,7 +58,7 @@ public class SneezeController : MonoBehaviour
         sneezeEffect.SetActive(true);
         myCollider.enabled = true;
 
-        Debug.LogError(">>> YA ESTORNUDO");
+        //Debug.LogError(">>> YA ESTORNUDO");
 
         while (true)
         {
