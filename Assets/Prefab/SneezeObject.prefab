@@ -9620,7 +9620,7 @@ MonoBehaviour:
   SneezeLifespan: 6
   SneezeLifespanInTics: 30
   ticCount: 0
-  IllnessPercentageToAdd: 10
+  IllnessPercentageToAdd: 2.5
   myCollider: {fileID: 88886512494763692}
 --- !u!135 &88886512494763692
 SphereCollider:

@@ -17,6 +17,13 @@ public class WorldAgentController : MonoBehaviour
 
     public List<AgentController> AgentCollection;
 
+    public float NeedTreshhold;
+
+    //--- Propiedades relacionadas con la historia de la enfermedad
+    public float InfectedCellPerTic;
+    public float SeriousIllnessInfectionFactor;
+    //-------------------------------------------------------------
+
     private void Awake()
     {
         instance = this;

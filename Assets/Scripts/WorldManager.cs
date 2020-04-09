@@ -9,6 +9,8 @@ public class WorldManager : MonoBehaviour
     public static WorldManager instance;
 
 
+    public float buildingInfectionPercentage;
+
     //--- World Time (tic) logic declaration
     public float SecondsPerTic;
     public float TicScale = 1.0f;
@@ -26,6 +28,7 @@ public class WorldManager : MonoBehaviour
             yield return new WaitForSeconds(_seconds);
 
             TicDelegate();
+            CanvasControl.instance.Statistic(WorldAgentController.instance.AgentCollection);
         }
     }
 

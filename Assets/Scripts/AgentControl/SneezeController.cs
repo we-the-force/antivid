@@ -10,7 +10,7 @@ public class SneezeController : MonoBehaviour
     private GameObject sneezeEffect;
 
     public GlobalObject.AgentStatus SneezeStatus;
-
+    
     public float SneezeLifespan;
 
     public int SneezeLifespanInTics;
@@ -49,8 +49,6 @@ public class SneezeController : MonoBehaviour
         sneezeEffect.SetActive(true);
         myCollider.enabled = true;
 
-        Debug.LogError(">>> YA ESTORNUDO");
-
         while (true)
         {
             if(ticCount >= SneezeLifespanInTics)
@@ -69,7 +67,7 @@ public class SneezeController : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            other.GetComponent<AgentController>().AddContagion(IllnessPercentageToAdd);
+            other.GetComponent<AgentController>().AddContagion(IllnessPercentageToAdd, true);
         }
     }
 

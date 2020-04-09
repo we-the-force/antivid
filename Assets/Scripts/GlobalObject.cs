@@ -11,7 +11,8 @@ public class GlobalObject
         Mild_Case,
         Serious_Case,
         Out_of_circulation,
-        Inmune
+        Inmune,
+        BeingTreated
     }
 
     [System.Serializable]
@@ -49,9 +50,12 @@ public class PathCost
 public class NeedPercentage
 {
     public GlobalObject.NeedScale Need;
-    public int PercentageToCompare;
-    public int CurrentPercentage;
-    public int TicValue;
+    public float PercentageToCompare;
+    public float CurrentPercentage;
+
+    public float PercentageToAddPerTic;
+
+    public float TicValue;
 
     private float _quarter = 0;
 
@@ -75,7 +79,7 @@ public class NeedPercentage
         }
     }
 
-    public int PercentageDifference()
+    public float PercentageDifference()
     {
         if (CurrentPercentage > PercentageToCompare)
         {
@@ -83,7 +87,7 @@ public class NeedPercentage
 
             if (_quarter >= 1.0f)
             {
-                CurrentPercentage++;
+                CurrentPercentage+=TicValue;
                 _quarter = 0;
             }
         }

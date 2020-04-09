@@ -33,6 +33,7 @@ public class AgentMovement : MonoBehaviour
 
         movementVector = new Vector3(0, 0, 0);
         getRotation();
+
         StartCoroutine("MovementAction");
     }
 

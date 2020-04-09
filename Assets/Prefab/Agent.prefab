@@ -206,8 +206,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IconController: {fileID: 6055284869750767877}
+  TotalCellsInBody: 1500
+  CellsCuredPerTic: 1.5
+  ContagioPerTic: 0.0225
   FactorContagio: 1
-  PorcentageContagio: 0
   Speed: 0
   AgentID: 0
   AnimationObject: {fileID: 4743075007067415372}
