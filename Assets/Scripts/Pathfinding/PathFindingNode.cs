@@ -114,7 +114,7 @@ public class PathFindingNode : MonoBehaviour
             Debug.DrawRay(rays[i].origin, rays[i].direction * rayLength, col, 2f);
             if (Physics.Raycast(rays[i], out RaycastHit hit, rayLength, 1 << LayerMask.NameToLayer("PathfindingNode")))
             {
-                Debug.Log($"Hit something! ({hit.transform.name})");
+                //Debug.Log($"Hit something! ({hit.transform.name})");
                 PathFindingNode auxComp = hit.transform.GetComponent<PathFindingNode>();
                 if (auxComp != null)
                 {
@@ -123,7 +123,7 @@ public class PathFindingNode : MonoBehaviour
             }
             else
             {
-                Debug.Log("Hit nothing unu");
+                //Debug.Log("Hit nothing unu");
             }
         }
     }
