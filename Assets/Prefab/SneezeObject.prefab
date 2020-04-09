@@ -9614,8 +9614,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65f8dc3312d592545a5fbec8d0ec2266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sneezeEffectMildCase: {fileID: 1239603001396014983}
-  sneezeEffectSeriousCase: {fileID: 3848722000261344769}
+  sneezeEffectMildCase: {fileID: 0}
+  sneezeEffectSeriousCase: {fileID: 0}
   SneezeStatus: 0
   SneezeLifespan: 6
   SneezeLifespanInTics: 30

@@ -15,6 +15,7 @@ public class BuildingController : MonoBehaviour
     public int CurrentAgentCount;
     public PathFindingNode AssociatedNode;
 
+    public float UpkeepCost;
 
     private void Start()
     {

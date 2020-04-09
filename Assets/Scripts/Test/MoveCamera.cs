@@ -35,7 +35,7 @@ public class MoveCamera : MonoBehaviour
             Vector3 playerInput = new Vector3(Input.GetAxisRaw("Horizontal"), /*Input.GetButton("Fire1") ? -1 : Input.GetButton("Fire2") ? 1 :*/ 0, Input.GetAxisRaw("Vertical"));
             float auxPercentage = 1f / 15f * (currentZoom + 5f);
             float auxSpeed = movementSpeed * auxPercentage;
-            Debug.Log($"Zoom: {currentZoom}, percentage: {auxPercentage}");
+            //Debug.Log($"Zoom: {currentZoom}, percentage: {auxPercentage}");
             transform.position += Quaternion.Euler(0, (int)currentRot, 0) * (playerInput * (auxSpeed * Time.deltaTime));
         }
         else
@@ -83,9 +83,9 @@ public class MoveCamera : MonoBehaviour
         {
             currentZoom = 1.5f;
         }
-        else if (currentZoom + zoomFactor > 10f)
+        else if (currentZoom + zoomFactor > 15f)
         {
-            currentZoom = 10f;
+            currentZoom = 15f;
         }
         else
         {

@@ -9,6 +9,7 @@ public enum PlotSize { TwoByTwo, TwoByThree, ThreeByThree, ThreeByFour };
 public class BuyablePlot : MonoBehaviour
 {
     public float Cost = 5f;
+    public float UpkeepCost = 1000;
     public bool IsBuyable = true;
     public bool IsBuildable = true;
     public bool IsBought = false;
@@ -32,12 +33,16 @@ public class BuyablePlot : MonoBehaviour
         pfnode = GetComponent<PathFindingNode>();
         buildCont = GetComponent<BuildingController>();
         canvas = transform.GetChild(0).gameObject;
+        IsBought = false;
+        IsBuyable = true;
+        UpdateCost();
         ShowCanvas();
     }
     void Start()
     {
         HandleModel();
         canvas.GetComponent<RectTransform>().rotation = Quaternion.Euler(90f, 0, 0);
+
     }
 
     public void Buy(NodeType type)
@@ -45,16 +50,21 @@ public class BuyablePlot : MonoBehaviour
         IsBuyable = false;
         IsBought = true;
         AssignedNode = type;
+        UpdateCost();
         HandleModel();
         interactingWithCanvas = false;
         ShowCanvas();
+        buildCont.TicsToCoverNeed = type == NodeType.Hospital ? 40 : 20;
+        WorldAgentController.instance.CalculateBuildingUpkeepCost();
     }
     public void UnBuy()
     {
         IsBuyable = true;
         IsBought = false;
         AssignedNode = NodeType.Buyable;
+        UpdateCost();
         HandleModel();
+        WorldAgentController.instance.CalculateBuildingUpkeepCost();
     }
     public void HandleModel()
     {
@@ -142,12 +152,21 @@ public class BuyablePlot : MonoBehaviour
 #endif
         }
     }
+    void UpdateCost()
+    {
+        buildCont.UpkeepCost = IsBought ? UpkeepCost : 0;
+    }
 
     //0: Health, 1: Food, 2 Entertainment
     public void BuyBuilding(int type)
     {
-        Debug.Log("Buying building!");
-        Buy(type == 0 ? NodeType.Hospital : type == 1 ? NodeType.Shop : NodeType.Entertainment);
+        if (CurrencyManager.Instance.HasEnoughCurrency(Cost))
+        {
+            Debug.Log("Buying building!");
+            CurrencyManager.Instance.CurrentCurrency -= Cost;
+            Buy(type == 0 ? NodeType.Hospital : type == 1 ? NodeType.Shop : NodeType.Entertainment);
+        }
+        
     }
     public void CanvasCancelButton()
     {

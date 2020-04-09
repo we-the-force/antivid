@@ -22,6 +22,15 @@ public class SneezeController : MonoBehaviour
 
     public void Init()
     {
+        if (sneezeEffectMildCase == null)
+        {
+            sneezeEffectMildCase = transform.GetChild(0).gameObject;
+        }
+        if (sneezeEffectSeriousCase == null)
+        {
+            sneezeEffectSeriousCase = transform.GetChild(1).gameObject;
+        }
+
         sneezeEffect = sneezeEffectMildCase;
 
         if (SneezeStatus == GlobalObject.AgentStatus.Serious_Case)
