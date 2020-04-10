@@ -15,12 +15,20 @@ public class ClickRayComponent : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity))
-            {
-                Debug.Log($"Hit something! ({hit.transform.name})");
-                hit.transform.SendMessage("Click");
-            }
+            HandleClick(true);
+        }
+        if (Input.GetMouseButtonDown(1))
+        {
+            HandleClick(false);
+        }
+    }
+    void HandleClick(bool leftClick)
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity))
+        {
+            Debug.Log($"Hit something! ({hit.transform.name})");
+            hit.transform.SendMessage(leftClick ? "LeftClick" : "RightClick", SendMessageOptions.DontRequireReceiver);
         }
     }
 }

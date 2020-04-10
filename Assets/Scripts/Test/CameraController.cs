@@ -4,8 +4,10 @@ using UnityEngine;
 
 //public enum CameraRotation { Up = 0, Right = 270, Left = 90, Down = 180 };
 public enum CameraRotation { Up = -45, Right = 225, Left = 45, Down = 135 };
-public class MoveCamera : MonoBehaviour
+public class CameraController : MonoBehaviour
 {
+    static CameraController _instance = null;
+
     [SerializeField, Tooltip("Units per second"), Range(1f, 10f)]
     float movementSpeed = 5f;
     [SerializeField, Tooltip("Units per second"), Range(1f, 100f)]
@@ -18,21 +20,39 @@ public class MoveCamera : MonoBehaviour
     [SerializeField]
     float currentZoom = 8;
 
+    Vector3 playerInput;
     public bool freeMovement = true;
     public GameObject objectToFollow;
     [SerializeField]
     bool isFollowing = false;
     Camera cam;
 
+    public static CameraController Instance
+    {
+        get { return _instance; }
+    }
+
     private void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        _instance = this;
+
         cam = transform.GetComponentInChildren<Camera>();
     }
     private void Update()
     {
-        if (freeMovement || objectToFollow == null)
+        playerInput = new Vector3(Input.GetAxisRaw("Horizontal"), /*Input.GetButton("Fire1") ? -1 : Input.GetButton("Fire2") ? 1 :*/ 0, Input.GetAxisRaw("Vertical"));
+        if (playerInput != Vector3.zero || objectToFollow == null)
         {
-            Vector3 playerInput = new Vector3(Input.GetAxisRaw("Horizontal"), /*Input.GetButton("Fire1") ? -1 : Input.GetButton("Fire2") ? 1 :*/ 0, Input.GetAxisRaw("Vertical"));
+            freeMovement = true;
+            isFollowing = false;
+            objectToFollow = null;
+        }
+        if (freeMovement)
+        {
             float auxPercentage = 1f / 15f * (currentZoom + 5f);
             float auxSpeed = movementSpeed * auxPercentage;
             //Debug.Log($"Zoom: {currentZoom}, percentage: {auxPercentage}");
@@ -43,7 +63,7 @@ public class MoveCamera : MonoBehaviour
             if (objectToFollow != null)
             {
                 Vector2 pos = Vector2.Lerp(new Vector2(transform.position.x, transform.position.z), new Vector2(objectToFollow.transform.position.x, objectToFollow.transform.position.z), movementSpeed * Time.deltaTime);
-                transform.position = new Vector3(pos.x, 3.5f, pos.y);
+                transform.position = new Vector3(pos.x, 0, pos.y);
             }
         }
         if (Input.GetKeyDown(KeyCode.E))
@@ -61,10 +81,6 @@ public class MoveCamera : MonoBehaviour
         else if (Input.GetKey(KeyCode.F))
         {
             ZoomCamera(1);
-        }
-        if (Input.GetMouseButtonDown(1))
-        {
-
         }
 
         transform.rotation = Quaternion.Euler(0, Mathf.LerpAngle(transform.rotation.eulerAngles.y, (int)currentRot, rotationSpeed * Time.deltaTime), 0);
@@ -91,5 +107,11 @@ public class MoveCamera : MonoBehaviour
         {
             currentZoom += zoomFactor;
         }
+    }
+    public void SetObjectToFollow(GameObject toFollow)
+    {
+        isFollowing = true;
+        freeMovement = false;
+        objectToFollow = toFollow;
     }
 }

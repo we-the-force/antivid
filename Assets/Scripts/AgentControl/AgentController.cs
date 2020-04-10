@@ -340,9 +340,9 @@ public class AgentController : MonoBehaviour
 
             if (myDestinationBuilding == null)
             {
+                //Debug.LogError($"Building was null! Need: {_need}");
                 _need = GlobalObject.NeedScale.Wander;
                 NeedTakenCare = _need;
-                //Debug.LogError("El edificio esta lleno, WANDER");
                 GetRoad();
             }
             else
@@ -562,5 +562,9 @@ public class AgentController : MonoBehaviour
             SickIndicator.SetActive(fromSneeze);
             myStatus = GlobalObject.AgentStatus.Mild_Case;
         }
+    }
+    public void RightClick()
+    {
+        CameraController.Instance.SetObjectToFollow(gameObject);
     }
 }

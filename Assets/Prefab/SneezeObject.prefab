@@ -9618,7 +9618,7 @@ MonoBehaviour:
   sneezeEffectSeriousCase: {fileID: 0}
   SneezeStatus: 0
   SneezeLifespan: 6
-  SneezeLifespanInTics: 30
+  SneezeLifespanInTics: 45
   ticCount: 0
   IllnessPercentageToAdd: 2.5
   myCollider: {fileID: 88886512494763692}

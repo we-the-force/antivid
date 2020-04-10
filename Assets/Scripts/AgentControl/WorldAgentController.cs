@@ -30,6 +30,8 @@ public class WorldAgentController : MonoBehaviour
     public float TotalBuildingUpkeepCost;
     public float TotalAgentIncome;
 
+    public int initialInfectedDudes = 3;
+
     private void Awake()
     {
         instance = this;
@@ -91,11 +93,28 @@ public class WorldAgentController : MonoBehaviour
             }
         }
 
-        AgentCollection[0].myStatus = GlobalObject.AgentStatus.Mild_Case;
-        //AgentCollection[0].myStatus = GlobalObject.AgentStatus.Serious_Case;
-        AgentCollection[0].SickIndicator.SetActive(true);
+        InfectAgents(initialInfectedDudes);
+
+        //AgentCollection[0].myStatus = GlobalObject.AgentStatus.Mild_Case;
+        ////AgentCollection[0].myStatus = GlobalObject.AgentStatus.Serious_Case;
+        //AgentCollection[0].SickIndicator.SetActive(true);
         CalculateBuildingUpkeepCost();
         CalculateAgentIncome();
+    }
+
+    void InfectAgents(int limit)
+    {
+        int count = 0;
+        while(count < limit)
+        {
+            int randomIndex = Random.Range(0, AgentCollection.Count - 1);
+            if (AgentCollection[randomIndex].myStatus == GlobalObject.AgentStatus.Healty)
+            {
+                AgentCollection[randomIndex].myStatus = GlobalObject.AgentStatus.Mild_Case;
+                AgentCollection[randomIndex].SickIndicator.SetActive(true);
+                count++;
+            }
+        }
     }
 
     public void CalculateBuildingUpkeepCost()
@@ -114,7 +133,7 @@ public class WorldAgentController : MonoBehaviour
         {
             if (ac.myStatus == GlobalObject.AgentStatus.Mild_Case)
             {
-                TotalAgentIncome += IncomePerAgent / 2f;
+                TotalAgentIncome += IncomePerAgent / 1.5f;
             }
             else if (!invalidStatus.Contains(ac.myStatus))
             {

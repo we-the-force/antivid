@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8aa89eede4637704dbb0112996ed0453, type: 3}
-  m_Name: PT-Hos-5x3
+  m_Name: PT-Hos-3x3
   m_EditorClassIdentifier: 
-  m_Preview: {fileID: 21300000, guid: 8ac562cb88315eb4385fe823c4fb5a31, type: 3}
+  m_Preview: {fileID: 21300000, guid: cdbf6f83a6424dd4480723c5fd8c7048, type: 3}
   m_spriteColor: {r: 1, g: 1, b: 1, a: 1}
   m_Prefabs:
   - {fileID: 461324823070731037, guid: 7604c6417d6322a41826ead7e76ebd85, type: 3}

@@ -178,7 +178,7 @@ public class BuyablePlot : MonoBehaviour
     {
         canvas.SetActive(interactingWithCanvas);
     }
-    public void Click()
+    public void LeftClick()
     {
         interactingWithCanvas = true;
         ShowCanvas();
