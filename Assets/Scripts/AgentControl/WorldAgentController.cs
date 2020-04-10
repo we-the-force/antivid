@@ -91,8 +91,8 @@ public class WorldAgentController : MonoBehaviour
             }
         }
 
-        //AgentCollection[0].myStatus = GlobalObject.AgentStatus.Mild_Case;
-        AgentCollection[0].myStatus = GlobalObject.AgentStatus.Serious_Case;
+        AgentCollection[0].myStatus = GlobalObject.AgentStatus.Mild_Case;
+        //AgentCollection[0].myStatus = GlobalObject.AgentStatus.Serious_Case;
         AgentCollection[0].SickIndicator.SetActive(true);
         CalculateBuildingUpkeepCost();
         CalculateAgentIncome();

@@ -35,7 +35,7 @@ public class AgentController : MonoBehaviour
     public int myDestinationNodeID;
 
     private BuildingController myDestinationBuilding;
-       
+
     public BuildingController myHouse;
 
     public GlobalObject.AgentPerk myPerk;
@@ -164,7 +164,7 @@ public class AgentController : MonoBehaviour
                 {
                     myStatus = GlobalObject.AgentStatus.Serious_Case;
                 }
-                               
+
                 break;
 
             case GlobalObject.AgentStatus.Serious_Case:
@@ -196,6 +196,21 @@ public class AgentController : MonoBehaviour
                 //--- totalidad de las celulas en el cuerpo, la cura progresara dependiendo de el coeficiente de 
                 //--- felicidad total del agente en ese momento
                 CurrentInfectedCells -= (CellsCuredPerTic + (CellsCuredPerTic * HappinessCoeficient));
+
+
+                if (myStatus == GlobalObject.AgentStatus.Mild_Case)
+                {
+                    CurrencyManager.Instance.CurrentCurrency -= 200;
+                }
+                else if (myStatus == GlobalObject.AgentStatus.Serious_Case)
+                {
+                    CurrencyManager.Instance.CurrentCurrency -= 400;
+                }
+                else
+                {
+                    CurrencyManager.Instance.CurrentCurrency -= 100;
+                }
+
 
                 if (CurrentInfectedCells <= 0)
                 {
@@ -320,7 +335,7 @@ public class AgentController : MonoBehaviour
         else
         {
             //Debug.LogError("Buscar Edificio para necesidad: " + _need.ToString());
-                       
+
             myDestinationBuilding = WorldAgentController.instance.GetBuilding(_need, myCurrentNode);
 
             if (myDestinationBuilding == null)
@@ -335,7 +350,7 @@ public class AgentController : MonoBehaviour
                 myDestinationNodeID = myDestinationBuilding.AssociatedNode.NodeID;
             }
         }
-               
+
         //myDestinationNodeID = WorldAgentController.instance.GetBuildingPathfindingNodeID(_need);
 
         if (myDestinationNodeID < 0)
@@ -450,31 +465,16 @@ public class AgentController : MonoBehaviour
                     myStatus = GlobalObject.AgentStatus.BeingTreated;
                     yield break;
                 }
-                
+
                 TicCounter = 0;
                 while (true)
                 {
                     if (TicCounter >= myDestinationBuilding.TicsToCoverNeed)
                     {
-                        if (NeedTakenCare == GlobalObject.NeedScale.HealtCare)
-                        {
-                            if (myStatus == GlobalObject.AgentStatus.Mild_Case)
-                            {
-                                CurrencyManager.Instance.CurrentCurrency -= 200;
-                            }
-                            else if (myStatus == GlobalObject.AgentStatus.Serious_Case)
-                            {
-                                CurrencyManager.Instance.CurrentCurrency -= 400;
-                            }
-                            else
-                            {
-                                CurrencyManager.Instance.CurrentCurrency -= 100;
-                            }
-                        }
-                        else
-                        {
-                            CurrencyManager.Instance.CurrentCurrency += 50;
-                        }
+
+                        //{
+                        CurrencyManager.Instance.CurrentCurrency += 500;
+                        //}
                         break;
                     }
                     yield return new WaitForFixedUpdate();
@@ -509,7 +509,7 @@ public class AgentController : MonoBehaviour
 
     public void SetVisibility(bool visible)
     {
-        AnimationObject.SetActive(visible);       
+        AnimationObject.SetActive(visible);
     }
 
     private void AddInfectedCells(bool fromSneeze)
@@ -549,8 +549,8 @@ public class AgentController : MonoBehaviour
     {
         if (myStatus == GlobalObject.AgentStatus.Inmune)
             return;
-        
-        if(fromSneeze) AddInfectedCells(true);
+
+        if (fromSneeze) AddInfectedCells(true);
 
         if (PorcentageContagio > 100)
             return;

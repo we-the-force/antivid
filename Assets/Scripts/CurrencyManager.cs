@@ -38,7 +38,7 @@ public class CurrencyManager : MonoBehaviour
     public float CurrentCurrency
     {
         get { return _currentCurrency; }
-        set { _currentCurrency = value; UpdateCurrencyText(); }
+        set { _currentCurrency = value; UpdateCurrencyText(); Debug.Log($"Thing changed by {value}"); }
     }
     public static CurrencyManager Instance
     {
