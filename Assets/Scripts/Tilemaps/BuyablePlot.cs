@@ -54,7 +54,7 @@ public class BuyablePlot : MonoBehaviour
         HandleModel();
         interactingWithCanvas = false;
         ShowCanvas();
-        buildCont.TicsToCoverNeed = type == NodeType.Hospital ? 40 : 20;
+        buildCont.TicsToCoverNeed = type == NodeType.HealthCare ? 40 : 20;
         WorldAgentController.instance.CalculateBuildingUpkeepCost();
     }
     public void UnBuy()
@@ -112,11 +112,11 @@ public class BuyablePlot : MonoBehaviour
     {
         switch (type)
         {
-            case NodeType.Shop:
+            case NodeType.Food:
                 return GlobalObject.NeedScale.Hunger;
-            case NodeType.Hospital:
+            case NodeType.HealthCare:
                 return GlobalObject.NeedScale.HealtCare;
-            case NodeType.School:
+            case NodeType.Education:
                 return GlobalObject.NeedScale.Education;
             case NodeType.Entertainment:
                 return GlobalObject.NeedScale.Entertainment;
@@ -132,11 +132,14 @@ public class BuyablePlot : MonoBehaviour
                 case NodeType.Entertainment:
                     AssignedModel.transform.GetChild(1).GetComponent<Renderer>().material = Materials[0];
                     break;
-                case NodeType.Hospital:
+                case NodeType.HealthCare:
                     AssignedModel.transform.GetChild(1).GetComponent<Renderer>().material = Materials[1];
                     break;
-                case NodeType.Shop:
+                case NodeType.Food:
                     AssignedModel.transform.GetChild(1).GetComponent<Renderer>().material = Materials[2];
+                    break;
+                case NodeType.Education:
+                    AssignedModel.transform.GetChild(1).GetComponent<Renderer>().material = Materials[3];
                     break;
             }
         }
@@ -164,7 +167,26 @@ public class BuyablePlot : MonoBehaviour
         {
             Debug.Log("Buying building!");
             CurrencyManager.Instance.CurrentCurrency -= Cost;
-            Buy(type == 0 ? NodeType.Hospital : type == 1 ? NodeType.Shop : NodeType.Entertainment);
+            //Buy(nodeType);
+            NodeType auxNode = NodeType.None;
+            switch (type)
+            {
+                case 0:
+                    auxNode = NodeType.HealthCare;
+                    break;
+                case 1:
+                    auxNode = NodeType.Food;
+                    break;
+                case 2:
+                    auxNode = NodeType.Education;
+                    break;
+                case 3:
+                    auxNode = NodeType.Entertainment;
+                    break;
+            }
+
+            //Buy(type == 0 ? NodeType.HealthCare : type == 1 ? NodeType.Food : NodeType.Entertainment);
+            Buy(auxNode);
         }
         
     }

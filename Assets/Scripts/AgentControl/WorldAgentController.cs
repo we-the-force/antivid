@@ -50,7 +50,7 @@ public class WorldAgentController : MonoBehaviour
     void PoblateBuildings()
     {
         Buildings.Clear();
-        List<NodeType> auxList = new List<NodeType>() { NodeType.Hospital, NodeType.House, NodeType.School, NodeType.Shop, NodeType.Workplace, NodeType.Entertainment, NodeType.Buyable };
+        List<NodeType> auxList = new List<NodeType>() { NodeType.HealthCare, NodeType.House, NodeType.Education, NodeType.Food, NodeType.Workplace, NodeType.Entertainment, NodeType.Buyable };
         List<PathFindingNode> nodeList = WorldManager.instance.NodeCollection.FindAll(x => auxList.Contains(x.nodeType));
         foreach (PathFindingNode pfn in nodeList)
         {
