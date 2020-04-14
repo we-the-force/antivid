@@ -9,7 +9,22 @@ public class WorldManager : MonoBehaviour
     public static WorldManager instance;
 
 
+    /// <summary>
+    /// Determina la cantidad de porcentage de contagio que se aumenta en todos los agentes de un edificio
+    /// cuando un agente cotagiado entra en ese edificio
+    /// </summary>
     public float buildingInfectionPercentage;
+
+    /// <summary>
+    /// Determina que tan infeccioso es el virus, para los agentes que viajan fuera de la ciudad
+    /// es la probabilidad de que alguien regrese contagiado
+    /// </summary>
+    public float TravelInfectionPercentage;
+
+    /// <summary>
+    /// Determina despues de cuantos viajes un agente se contagia; si no ha recibido contagio de manera natural
+    /// </summary>
+    public int InfectionGuaranteedAfterNumberOfTravel;
 
     //--- World Time (tic) logic declaration
     public float SecondsPerTic;
@@ -68,6 +83,49 @@ public class WorldManager : MonoBehaviour
         InitPathCollection();
     }
 
+
+    public List<PerkPercentages> NeedPercentageBaseCollection;
+    /*public List<NeedPercentage> GetPerkValues(GlobalObject.AgentPerk perk, out float resourceProduction)
+    {
+        List<NeedPercentage> _needCollection = NeedPercentageBaseCollection;
+        resourceProduction = 1;
+
+        switch (perk)
+        {
+            case GlobalObject.AgentPerk.Gamer:
+                break;
+            case GlobalObject.AgentPerk.Executive:
+                break;
+            case GlobalObject.AgentPerk.LeasureTraveler:
+                break;
+            case GlobalObject.AgentPerk.Athletic:
+                hungerResistance = 0.7f;
+                healthResistance = 1.3f;
+                break;
+            case GlobalObject.AgentPerk.Workaholic:
+                resourceProduction = 1.25f;
+                healthResistance = 0.7f;
+                sleepResistance = 0.85f;
+                break;
+            case GlobalObject.AgentPerk.Introvert:
+                educationResistance = 1.6f;
+                wanderResistance = 1.6f;
+                healthResistance = 0.6f;
+                entertainmentResistance = 1.6f;
+                resourceProduction = 1.1f;
+                hungerResistance = 1.3f;
+                break;
+            case GlobalObject.AgentPerk.Extrovert:
+                entertainmentResistance = 0.65f;
+                healthResistance = 1.2f;
+                wanderResistance = 0.65f;
+                break;
+        }
+
+
+        return _needCollection;
+    }*/
+
     public void GetPerkValues(GlobalObject.AgentPerk perk,
             out float hungerResistance,
             out float healthResistance,
@@ -75,6 +133,7 @@ public class WorldManager : MonoBehaviour
             out float educationResistance,
             out float entertainmentResistance,
             out float sleepResistance,
+            out float travelResistance,
             out float resourceProduction
 )
     {
@@ -85,9 +144,16 @@ public class WorldManager : MonoBehaviour
         entertainmentResistance = 1;
         sleepResistance = 1;
         resourceProduction = 1;
+        travelResistance = 1;
 
         switch (perk)
         {
+            case GlobalObject.AgentPerk.Gamer:
+                break;
+            case GlobalObject.AgentPerk.Executive:
+                break;
+            case GlobalObject.AgentPerk.LeasureTraveler:
+                break;
             case GlobalObject.AgentPerk.Athletic:
                 hungerResistance = 0.7f;
                 healthResistance = 1.3f;

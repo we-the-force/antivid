@@ -5,6 +5,9 @@ using UnityEngine;
 public class WorldAgentController : MonoBehaviour
 {
     public GameObject AgentPrefab;
+
+    public List<GameObject> AgentPrefabCollection;
+
     public Transform AgentAnchor;
 
     public float SneezeBaseFrequency = 10f;
@@ -50,7 +53,7 @@ public class WorldAgentController : MonoBehaviour
     void PoblateBuildings()
     {
         Buildings.Clear();
-        List<NodeType> auxList = new List<NodeType>() { NodeType.HealthCare, NodeType.House, NodeType.Education, NodeType.Food, NodeType.Workplace, NodeType.Entertainment, NodeType.Buyable };
+        List<NodeType> auxList = new List<NodeType>() { NodeType.HealthCare, NodeType.House, NodeType.Education, NodeType.Food, NodeType.Workplace, NodeType.Entertainment, NodeType.Buyable, NodeType.Border };
         List<PathFindingNode> nodeList = WorldManager.instance.NodeCollection.FindAll(x => auxList.Contains(x.nodeType));
         foreach (PathFindingNode pfn in nodeList)
         {
@@ -74,7 +77,10 @@ public class WorldAgentController : MonoBehaviour
             {
                 for (int a = 0; a < Buildings[i].AgentCapacity; a++)
                 {
-                    GameObject obj = Instantiate(AgentPrefab, AgentAnchor);
+                    int rnd = Random.Range(0, AgentPrefabCollection.Count);
+
+
+                    GameObject obj = Instantiate(AgentPrefabCollection[rnd], AgentAnchor);
                     AgentController _agent = obj.GetComponent<AgentController>();
 
                     obj.transform.position = Buildings[i].transform.position;
@@ -83,7 +89,7 @@ public class WorldAgentController : MonoBehaviour
                     _agent.myCurrentNode = Buildings[i].AssociatedNode;
                     _agent.currentNodeId = Buildings[i].AssociatedNode.NodeID;
 
-                    _agent.Speed = Random.Range(1f, 2f);
+                    _agent.Speed = Random.Range(0.8f, 1.4f);
 
                     _agent.myHouse = Buildings[i];
                     _agent.InitAgent();

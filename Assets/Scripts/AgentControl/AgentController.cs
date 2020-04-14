@@ -16,6 +16,9 @@ public class AgentController : MonoBehaviour
 
     public float FactorContagio = 1.0f;
     public float PorcentageContagio { get; set; }
+
+    public int HasTraveledQuantity { get; set; }
+
     private bool Sneezing;
 
     public float Speed;
@@ -23,6 +26,7 @@ public class AgentController : MonoBehaviour
     public int AgentID;
 
     public GameObject AnimationObject;
+    public Animator AnimatorController;
 
     public GlobalObject.AgentStatus myStatus;
     public GlobalObject.AgentStatus previousStatus;
@@ -53,16 +57,18 @@ public class AgentController : MonoBehaviour
 
     private AgentMovement movementController;
 
-    //--- Propiedades
-    public float hungerResistance = 1.0f;
-    public float healthResistance = 1.0f;
-    public float wanderResistance = 1.0f;
-    public float educationResistance = 1.0f;
-    public float entertainmentResistance = 1.0f;
-    public float sleepResistance = 1.0f;
-    public float resourceProduction = 1.0f;
+    public float travelResistance = 1.0f;
 
     public GameObject SickIndicator;
+
+    public float resourceProduction = 1.0f;
+
+    public float percentageHospitalOnMildCase = 0;
+    public bool visitedHospitalOnMildCase;
+
+    public float percentageHospitalRandomCase = 0;
+    public bool visitedHospitalOnRandomCase;
+
 
     public void InitAgent()
     {
@@ -70,11 +76,13 @@ public class AgentController : MonoBehaviour
 
         CurrentInfectedCells = 0;
 
+        HasTraveledQuantity = 0;
+
         movementController = gameObject.GetComponent<AgentMovement>();
 
         movementController.Speed = Speed;
 
-        int rndPerk = Random.Range(1, 5);
+        int rndPerk = Random.Range(1, 8);
         switch (rndPerk)
         {
             case 1:
@@ -89,47 +97,38 @@ public class AgentController : MonoBehaviour
             case 4:
                 myPerk = GlobalObject.AgentPerk.Introvert;
                 break;
+            case 5:
+                myPerk = GlobalObject.AgentPerk.LeasureTraveler;
+                break;
+            case 6:
+                myPerk = GlobalObject.AgentPerk.Executive;
+                break;
+            case 7:
+                myPerk = GlobalObject.AgentPerk.Gamer;
+                break;
             default:
                 myPerk = GlobalObject.AgentPerk.None;
                 break;
         }
 
-        WorldManager.instance.GetPerkValues(myPerk, out hungerResistance, out healthResistance, out wanderResistance, out educationResistance, out entertainmentResistance, out sleepResistance, out resourceProduction);
+        for (int i = 0; i < WorldManager.instance.NeedPercentageBaseCollection.Count; i++)
+        {
+            if (WorldManager.instance.NeedPercentageBaseCollection[i].Perk == myPerk)
+            {
+                PerkPercentages pp = WorldManager.instance.NeedPercentageBaseCollection[i];
 
-        NeedPercentage _need = new NeedPercentage();
-        _need.Need = GlobalObject.NeedScale.Hunger;
-        _need.PercentageToCompare = Mathf.RoundToInt(100 * hungerResistance);
-        _need.TicValue = 1;
-        myNeedList.Add(_need);
+                myNeedList = pp.NeedPercentageCollection;
+                resourceProduction = pp.resourceProduction;
 
-        _need = new NeedPercentage();
-        _need.Need = GlobalObject.NeedScale.Education;
-        _need.PercentageToCompare = Mathf.RoundToInt(100 * educationResistance);
-        _need.TicValue = 1;
-        myNeedList.Add(_need);
+                if (pp.WillAttendHospitalOnMildCase)
+                    percentageHospitalOnMildCase = Random.Range(2.0f, 6.0f);
 
-        _need = new NeedPercentage();
-        _need.Need = GlobalObject.NeedScale.Entertainment;
-        _need.PercentageToCompare = Mathf.RoundToInt(100 * entertainmentResistance);
-        _need.TicValue = 1;
-        myNeedList.Add(_need);
+                if (pp.WillRandomlyAttendHospital)
+                    percentageHospitalRandomCase = Random.Range(46.0f, 49.8f);
 
-        _need = new NeedPercentage();
-        _need.Need = GlobalObject.NeedScale.HealtCare;
-        _need.PercentageToCompare = Mathf.RoundToInt(100 * healthResistance);
-        _need.TicValue = 0;
-        myNeedList.Add(_need);
-
-        _need = new NeedPercentage();
-        _need.Need = GlobalObject.NeedScale.Sleep;
-        _need.PercentageToCompare = Mathf.RoundToInt(100 * sleepResistance);
-        _need.TicValue = 1;
-        myNeedList.Add(_need);
-
-        _need = new NeedPercentage();
-        _need.Need = GlobalObject.NeedScale.Wander;
-        _need.PercentageToCompare = Mathf.RoundToInt(100 * wanderResistance);
-        _need.TicValue = 1;
+                break;
+            }
+        }
 
         previousStatus = myStatus;
 
@@ -236,19 +235,26 @@ public class AgentController : MonoBehaviour
             }
         }
 
-        //--- Con esto se sustituye lo de la corutina de la vida
-        if (!ExecutingBuilding && !Sneezing)
-        {
-            if (myStatus != GlobalObject.AgentStatus.Out_of_circulation && myStatus != GlobalObject.AgentStatus.BeingTreated)
-                TakeCareOfNeed(NextNeed());
-        }
+
+        previousStatus = myStatus;
 
         if (ExecutingBuilding)
         {
             TicCounter++;
+            return;
         }
 
-        previousStatus = myStatus;
+        if (Sneezing)
+        {
+            return;
+        }
+
+        //--- Con esto se sustituye lo de la corutina de la vida
+        //if (!ExecutingBuilding && !Sneezing)
+        //{
+            if (myStatus != GlobalObject.AgentStatus.Out_of_circulation && myStatus != GlobalObject.AgentStatus.BeingTreated)
+                TakeCareOfNeed(NextNeed());
+        //}                     
     }
 
     IEnumerator Life()
@@ -304,6 +310,7 @@ public class AgentController : MonoBehaviour
                 _need = GlobalObject.NeedScale.HealtCare;
             }
         }
+
         return _need;
     }
 
@@ -387,8 +394,22 @@ public class AgentController : MonoBehaviour
     IEnumerator ExecuteDestiny()
     {
         //--- Ya llego al destino; en caso de que sea Wander; espera un ratito y luego regresa a realizar sus tareas
+        int _ticCounter = 0;
+        NeedPercentage _myNeedPercentage = null;
+        for (int i = 0; i < myNeedList.Count; i++)
+        {
+            if (myNeedList[i].Need == NeedTakenCare)
+            {
+                _ticCounter = Mathf.RoundToInt(myNeedList[i].TicsToCoverNeed);
+                _myNeedPercentage = myNeedList[i];
+                break;
+            }
+        }
+        
         if (NeedTakenCare == GlobalObject.NeedScale.Wander)
         {
+            if(_myNeedPercentage != null) _myNeedPercentage.CurrentPercentage = 0;
+
             if (myStatus == GlobalObject.AgentStatus.Mild_Case || myStatus == GlobalObject.AgentStatus.Serious_Case)
             {
                 StartCoroutine("Sneeze");
@@ -399,7 +420,7 @@ public class AgentController : MonoBehaviour
                 TicCounter = 0;
                 while (true)
                 {
-                    if (TicCounter == 6)
+                    if (TicCounter == _ticCounter)
                     {
                         break;
                     }
@@ -469,7 +490,7 @@ public class AgentController : MonoBehaviour
                 TicCounter = 0;
                 while (true)
                 {
-                    if (TicCounter >= myDestinationBuilding.TicsToCoverNeed)
+                    if (TicCounter >= _ticCounter) // myDestinationBuilding.TicsToCoverNeed)
                     {
 
                         //{
@@ -480,16 +501,22 @@ public class AgentController : MonoBehaviour
                     yield return new WaitForFixedUpdate();
                 }
 
+                if(_myNeedPercentage != null) _myNeedPercentage.CurrentPercentage -= myDestinationBuilding.PercentageRestored;
+
                 //yield return new WaitForSeconds(myDestinationBuilding.TimeToCoverNeed);
 
-                for (int i = 0; i < myNeedList.Count; i++)
-                {
-                    if (myNeedList[i].Need == NeedTakenCare)
-                    {
-                        myNeedList[i].CurrentPercentage -= myDestinationBuilding.PercentageRestored;
-                        break;
-                    }
-                }
+                //  for (int i = 0; i < myNeedList.Count; i++)
+                // {
+                // if (myNeedList[i].Need == NeedTakenCare)
+                //{
+
+
+                // myNeedList[i].CurrentPercentage -= myDestinationBuilding.PercentageRestored;
+                //  break;
+                // }
+                //  }
+
+                ExecuteBuildingAction(myDestinationBuilding.MainNeedCovered);
 
                 ExecutingBuilding = false;
                 SetVisibility(true);
@@ -507,6 +534,44 @@ public class AgentController : MonoBehaviour
         }
     }
 
+    public void ExecuteBuildingAction(GlobalObject.NeedScale _needCovered)
+    {
+        switch (_needCovered)
+        {
+            case GlobalObject.NeedScale.Travel:
+                Debug.LogError("HA REALIZADO VIAJE");
+                HasTraveledQuantity++;
+
+                if (myStatus == GlobalObject.AgentStatus.Healty)
+                {
+                    if (PorcentageContagio == 0)
+                    {
+                        //--- Dependiendo del escenario; se estima la probabilidad de contagio 
+                        if (HasTraveledQuantity >= WorldManager.instance.InfectionGuaranteedAfterNumberOfTravel)
+                        {
+                            AddContagion(WorldManager.instance.buildingInfectionPercentage, false);
+                            Debug.LogError("Agregado contagio por que ya ha viajado muchas veces " + PorcentageContagio);
+                        }
+                        else
+                        {
+                            float _rand = Random.Range(0.0f, 100.0f);
+                            if (_rand < WorldManager.instance.TravelInfectionPercentage)
+                            {
+                                AddContagion(WorldManager.instance.buildingInfectionPercentage, false);
+                                Debug.LogError("Agregado contagio por que le ha tocado la suerte " + PorcentageContagio);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        AddContagion(WorldManager.instance.buildingInfectionPercentage, false);
+                        Debug.LogError("Ya tiene bichos, agregado su dosis adicional " + PorcentageContagio);
+                    }
+                }
+                break;
+        }
+    }
+    
     public void SetVisibility(bool visible)
     {
         AnimationObject.SetActive(visible);
@@ -532,6 +597,9 @@ public class AgentController : MonoBehaviour
         movementController.StopMovement();
         Sneezing = true;
         TakingCareOfNeed = false;
+
+        yield return new WaitForFixedUpdate();
+        AnimatorController.SetInteger("CurrentState", 0);
 
         yield return new WaitForSeconds(0.25f);
         GameObject obj = Instantiate(WorldAgentController.instance.SneezePrefab, WorldAgentController.instance.AgentAnchor);

@@ -48,6 +48,8 @@ public class AgentMovement : MonoBehaviour
         secondsToNode = currentDistance / CurrentSpeed;
         currentSeconds = 0;
 
+        Agent.AnimatorController.SetInteger("CurrentState", 1);
+
         while (true)
         {
             if (currentSeconds >= secondsToNode)
@@ -57,6 +59,7 @@ public class AgentMovement : MonoBehaviour
                     //--- YA DEBE REGRESAR
                     Agent.myCurrentNode = NextTile;
                     myRigidBody.velocity = Vector3.zero;
+                    Agent.AnimatorController.SetInteger("CurrentState", 0);
                     Agent.DestinyReached();
                     break;
                 }
@@ -101,6 +104,7 @@ public class AgentMovement : MonoBehaviour
     public void StopMovement()
     {
         StopCoroutine("MovementAction");
+        Agent.AnimatorController.SetInteger("CurrentState", 1);
         myRigidBody.velocity = Vector3.zero;
     }
 

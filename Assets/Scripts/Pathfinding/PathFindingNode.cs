@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEditor;
 #endif
 
-public enum NodeType { Road, House, HealthCare, Food, Workplace, Education, Entertainment, Buyable, None };
+public enum NodeType { Road, House, HealthCare, Food, Workplace, Education, Entertainment, Buyable, None, Border };
 public class PathFindingNode : MonoBehaviour
 {
     public int NodeID;

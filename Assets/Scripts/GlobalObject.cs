@@ -24,7 +24,8 @@ public class GlobalObject
         HealtCare,
         Education,
         Wander, //--- Esta necesidad activa una accion idle del agente que lo lleva a deambular por las calles nomas asi, selecciona un tile de camino al azar y se mueve para alla
-        None
+        None,
+        Travel
     }
 
     [System.Serializable]
@@ -34,7 +35,10 @@ public class GlobalObject
         Athletic,
         Workaholic,
         Introvert,
-        Extrovert
+        Extrovert,
+        LeasureTraveler,
+        Executive,
+        Gamer
     }
 }
 
@@ -45,17 +49,29 @@ public class PathCost
     public int Cost;
 }
 
+[System.Serializable]
+public class PerkPercentages
+{
+    public GlobalObject.AgentPerk Perk;
+    public List<NeedPercentage> NeedPercentageCollection;
+    public float resourceProduction;
+    public bool WillAttendHospitalOnMildCase;
+    public bool WillRandomlyAttendHospital;
+}
+
 
 [System.Serializable]
 public class NeedPercentage
 {
     public GlobalObject.NeedScale Need;
-    public float PercentageToCompare;
-    public float CurrentPercentage;
+    public float PercentageToCompare = 100;
 
-    public float PercentageToAddPerTic;
+    public float CurrentPercentage { get; set; }
 
-    public float TicValue;
+    // public float PercentageToAddPerTic;
+
+    public float TicsToCoverNeed = 10;
+    public float TicValue = 1;
 
     private float _quarter = 0;
 

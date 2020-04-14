@@ -35,6 +35,9 @@ public class AgentIcon : MonoBehaviour
             case GlobalObject.NeedScale.Wander:
                 IconGameObject[5].SetActive(true);
                 break;
+            case GlobalObject.NeedScale.Travel:
+                IconGameObject[6].SetActive(true);
+                break;
         }
     }
 
