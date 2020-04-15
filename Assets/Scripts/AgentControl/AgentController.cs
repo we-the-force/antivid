@@ -48,6 +48,9 @@ public class AgentController : MonoBehaviour
 
     private int TicCounter;
 
+    public List<WarehouseItemObject> BackPack;
+    public float PercentageForTheBackPack;
+
     /// <summary>
     /// La necesidad que en este momento se esta atendiendo
     /// </summary>
@@ -70,7 +73,7 @@ public class AgentController : MonoBehaviour
     public bool visitedHospitalOnRandomCase;
 
 
-    public void InitAgent()
+    public void InitAgent(GlobalObject.AgentPerk useThisPerk = GlobalObject.AgentPerk.Random)
     {
         WorldManager.TicDelegate += TicReceived;
 
@@ -82,35 +85,44 @@ public class AgentController : MonoBehaviour
 
         movementController.Speed = Speed;
 
-        int rndPerk = Random.Range(1, 8);
-        switch (rndPerk)
+        if (useThisPerk == GlobalObject.AgentPerk.Random)
         {
-            case 1:
-                myPerk = GlobalObject.AgentPerk.Athletic;
-                break;
-            case 2:
-                myPerk = GlobalObject.AgentPerk.Workaholic;
-                break;
-            case 3:
-                myPerk = GlobalObject.AgentPerk.Extrovert;
-                break;
-            case 4:
-                myPerk = GlobalObject.AgentPerk.Introvert;
-                break;
-            case 5:
-                myPerk = GlobalObject.AgentPerk.LeasureTraveler;
-                break;
-            case 6:
-                myPerk = GlobalObject.AgentPerk.Executive;
-                break;
-            case 7:
-                myPerk = GlobalObject.AgentPerk.Gamer;
-                break;
-            default:
-                myPerk = GlobalObject.AgentPerk.None;
-                break;
+            int rndPerk = Random.Range(1, 8);
+            switch (rndPerk)
+            {
+                case 1:
+                    myPerk = GlobalObject.AgentPerk.Athletic;
+                    break;
+                case 2:
+                    myPerk = GlobalObject.AgentPerk.Workaholic;
+                    break;
+                case 3:
+                    myPerk = GlobalObject.AgentPerk.Extrovert;
+                    break;
+                case 4:
+                    myPerk = GlobalObject.AgentPerk.Introvert;
+                    break;
+                case 5:
+                    myPerk = GlobalObject.AgentPerk.LeasureTraveler;
+                    break;
+                case 6:
+                    myPerk = GlobalObject.AgentPerk.Executive;
+                    break;
+                case 7:
+                    myPerk = GlobalObject.AgentPerk.Gamer;
+                    break;
+                default:
+                    myPerk = GlobalObject.AgentPerk.None;
+                    break;
+            }
+        }
+        else
+        {
+            myPerk = useThisPerk;
         }
 
+
+        //--- Asigna los porcentajes de necesidades de acuerdo al Perk establecido para el agente
         for (int i = 0; i < WorldManager.instance.NeedPercentageBaseCollection.Count; i++)
         {
             if (WorldManager.instance.NeedPercentageBaseCollection[i].Perk == myPerk)
@@ -119,6 +131,7 @@ public class AgentController : MonoBehaviour
 
                 myNeedList = pp.NeedPercentageCollection;
                 resourceProduction = pp.resourceProduction;
+                PercentageForTheBackPack = pp.PercentageForBackPack;
 
                 if (pp.WillAttendHospitalOnMildCase)
                     percentageHospitalOnMildCase = Random.Range(2.0f, 6.0f);
@@ -139,54 +152,112 @@ public class AgentController : MonoBehaviour
 
     private void TicReceived()
     {
+        //--- Avienta un tic al controlador de movimiento, con lo cual en caso de estar avanzando controla la velocidad relativa a la escala de tiempo
         movementController.TicReceived();
 
-        if (PorcentageContagio > 0 && PorcentageContagio <= 100)
-        {
-            AddContagion(ContagioPerTic, false);
-        }
-
+        //--- Un agente que esta fuera de circulacion, debe regresar a casa y apagarse
+        //--- es por eso que todas las acciones del TIC ya no se ejecutan, solo el movimiento
+        //--- para que pueda regresar a su casa
         if (myStatus == GlobalObject.AgentStatus.Out_of_circulation)
+            return;
+
+        //--- Ejecuta la logica de contagio, solo aplica en caso de tener 
+        //--- Porcentage de Contagio mayor a 0, pero menor que 100. Llegando a 100, ya pasa a la siguiente etapa de contagio (Caso Leve de enfermedad)
+        AddContagion(ContagioPerTic, false);
+
+        //--- Sumar porcentaje a la cantidad de enfermedad. Esto solo aplicara cuando el agente tenga ya una enfermedad
+        //--- activada, y el metodo regresa verdadero en caso de que el agente queda fuera de circulacion, a partir de lo cual ya no debe 
+        //--- continuar con las acciones del TIC
+        if (HandleBodyCells())
+            return;
+
+        //--- Le avisa al Controller que actualice la cantidad de recursos que se obtienen, ya que esta infectado/inmunizado
+        if (previousStatus != myStatus)
         {
+            //Debug.LogError($"Ay valiendo queso cambie de status     ({previousStatus}, {myStatus})");
+            if (myStatus == GlobalObject.AgentStatus.Mild_Case || myStatus == GlobalObject.AgentStatus.Serious_Case || myStatus == GlobalObject.AgentStatus.Out_of_circulation || myStatus == GlobalObject.AgentStatus.Inmune)
+            {
+                WorldAgentController.instance.CalculateAgentIncome();
+            }
+        }        
+        previousStatus = myStatus;
+
+        //--- Cuando se estan ejecutando los edificios, se suman los un contador de Tic para tener control del tiempo
+        //--- de ejecucion de los edificios, debe esperar a que termine de ejecutar el edificio para calcular la 
+        //--- siguiente necesidad
+        if (ExecutingBuilding)
+        {
+            TicCounter++;
             return;
         }
+        
+        //--- Si estornuda hace una pausa, para no moverse de ese lugar hasta que termine el estornudo
+        if (Sneezing)
+            return;
 
-        //-- Sumar porcentaje a la cantidad de enfermedad
+        //--- Determina la siguiente necesidad que tiene que cubrir el agente, y en caso de que si exista 
+        //--- esa necesidad, solicita la ruta hacia el edificio y comienza a ejecutar
+        if (myStatus != GlobalObject.AgentStatus.Out_of_circulation && myStatus != GlobalObject.AgentStatus.BeingTreated)
+            TakeCareOfNeed(NextNeed());
+                  
+    }
+
+    IEnumerator Life()
+    {
+        //--- Inicializa cada agente con un tiempo diferente en IDLE, y despues comienza a deambular.
+        float time = Random.Range(0.5f, 3.5f);
+        yield return new WaitForSeconds(time);
+        TakeCareOfNeed(GlobalObject.NeedScale.Wander);
+    }
+
+
+    /// <summary>
+    /// Regresa verdadero solo cuando queda fuera de circulacion
+    /// </summary>
+    /// <returns></returns>
+    private bool HandleBodyCells()
+    {
+        bool isOutOfCirculation = false;
         switch (myStatus)
         {
             case GlobalObject.AgentStatus.Mild_Case:
                 AddInfectedCells(false);
-
                 float cellTreshold = TotalCellsInBody * 0.75f;
 
+                //--- En caso de que las celulas infectadas en el cuerpo del agente sobrepasen
+                //--- un limite establecido, el agente obtiene un caso serio de enfermedad
+                //--- Si el limite es mas pequeño, es mas probable que sobreviva (tiene mayor oportunidad 
+                //--- de llegar al hospital antes de quedar fuera de circulacion
                 if (CurrentInfectedCells > cellTreshold)
                 {
                     myStatus = GlobalObject.AgentStatus.Serious_Case;
                 }
-
                 break;
 
             case GlobalObject.AgentStatus.Serious_Case:
                 AddInfectedCells(false);
+
+                //--- Cuando la cantidad de celulas infectadas en el cuerpo sobrepasa la cantidad total
+                //--- de celulas, ese agente queda fuera de circulacion, y ya no puede ser atendido en el hospital 
+                //--- lo unico que le queda hacer es regresar a casa y apagarse, ya tampoco contribuye a la economia
                 if (CurrentInfectedCells > TotalCellsInBody)
                 {
                     myStatus = GlobalObject.AgentStatus.Out_of_circulation;
                     movementController.StopMovement();
 
-                    ExecutingBuilding = false;
-                    SetVisibility(true);
-
-                    if (myDestinationBuilding != null)
+                    if (ExecutingBuilding && myDestinationBuilding != null)
                     {
                         myDestinationBuilding.CurrentAgentCount--;
-                        myDestinationBuilding = null;
+                        //myDestinationBuilding = null;
                     }
 
+                    ExecutingBuilding = false;
+                    SetVisibility(true);
                     TakingCareOfNeed = false;
 
                     TakeCareOfNeed(GlobalObject.NeedScale.Sleep);
 
-                    return;
+                    isOutOfCirculation = true;
                 }
                 break;
 
@@ -195,7 +266,6 @@ public class AgentController : MonoBehaviour
                 //--- totalidad de las celulas en el cuerpo, la cura progresara dependiendo de el coeficiente de 
                 //--- felicidad total del agente en ese momento
                 CurrentInfectedCells -= (CellsCuredPerTic + (CellsCuredPerTic * HappinessCoeficient));
-
 
                 if (myStatus == GlobalObject.AgentStatus.Mild_Case)
                 {
@@ -209,7 +279,6 @@ public class AgentController : MonoBehaviour
                 {
                     CurrencyManager.Instance.CurrentCurrency -= 100;
                 }
-
 
                 if (CurrentInfectedCells <= 0)
                 {
@@ -225,44 +294,7 @@ public class AgentController : MonoBehaviour
                 break;
         }
 
-        //--- Le avisa al Controller que actualice la cantidad de recursos que se obtienen, ya que esta infectado/inmunizado
-        if (previousStatus != myStatus)
-        {
-            //Debug.LogError($"Ay valiendo queso cambie de status     ({previousStatus}, {myStatus})");
-            if (myStatus == GlobalObject.AgentStatus.Mild_Case || myStatus == GlobalObject.AgentStatus.Serious_Case || myStatus == GlobalObject.AgentStatus.Out_of_circulation || myStatus == GlobalObject.AgentStatus.Inmune)
-            {
-                WorldAgentController.instance.CalculateAgentIncome();
-            }
-        }
-
-
-        previousStatus = myStatus;
-
-        if (ExecutingBuilding)
-        {
-            TicCounter++;
-            return;
-        }
-
-        if (Sneezing)
-        {
-            return;
-        }
-
-        //--- Con esto se sustituye lo de la corutina de la vida
-        //if (!ExecutingBuilding && !Sneezing)
-        //{
-            if (myStatus != GlobalObject.AgentStatus.Out_of_circulation && myStatus != GlobalObject.AgentStatus.BeingTreated)
-                TakeCareOfNeed(NextNeed());
-        //}                     
-    }
-
-    IEnumerator Life()
-    {
-        //--- Inicializa cada agente con un tiempo diferente en IDLE, y despues comienza a deambular.
-        float time = Random.Range(0.5f, 3.5f);
-        yield return new WaitForSeconds(time);
-        TakeCareOfNeed(GlobalObject.NeedScale.Wander);
+        return isOutOfCirculation;
     }
 
     private void SetHappiness()
@@ -457,6 +489,9 @@ public class AgentController : MonoBehaviour
                 ExecutingBuilding = true;
                 myDestinationBuilding.CurrentAgentCount++;
 
+                //--- Agrega contagio a la gente que esta en el edificio
+                //--- En caso de que existan politicas de distanciamiento y asi, aqui se colocara 
+                //--- un porcentaje de que suceda un contagio
                 if (myStatus == GlobalObject.AgentStatus.Mild_Case || myStatus == GlobalObject.AgentStatus.Serious_Case)
                 {
                     for (int i = 0; i < WorldAgentController.instance.AgentCollection.Count; i++)
@@ -492,7 +527,6 @@ public class AgentController : MonoBehaviour
                 {
                     if (TicCounter >= _ticCounter) // myDestinationBuilding.TicsToCoverNeed)
                     {
-
                         //{
                         CurrencyManager.Instance.CurrentCurrency += 500;
                         //}
@@ -501,27 +535,36 @@ public class AgentController : MonoBehaviour
                     yield return new WaitForFixedUpdate();
                 }
 
-                if(_myNeedPercentage != null) _myNeedPercentage.CurrentPercentage -= myDestinationBuilding.PercentageRestored;
-
-                //yield return new WaitForSeconds(myDestinationBuilding.TimeToCoverNeed);
-
-                //  for (int i = 0; i < myNeedList.Count; i++)
-                // {
-                // if (myNeedList[i].Need == NeedTakenCare)
-                //{
-
-
-                // myNeedList[i].CurrentPercentage -= myDestinationBuilding.PercentageRestored;
-                //  break;
-                // }
-                //  }
-
+                if (NeedTakenCare == GlobalObject.NeedScale.Sleep)
+                {
+                    for (int i = 0; i < BackPack.Count; i++)
+                    {
+                        myHouse.myWarehouse.StoreGoods(BackPack[i].Need, BackPack[i].CurrentQty);
+                        BackPack[i].CurrentQty = 0;
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < BackPack.Count; i++)
+                    {
+                        if (BackPack[i].Need == NeedTakenCare)
+                        {
+                            BackPack[i].CurrentQty += myDestinationBuilding.PercentageRestored * PercentageForTheBackPack;
+                            if (BackPack[i].CurrentQty > BackPack[i].CurrentMaxQty)
+                                BackPack[i].CurrentQty = BackPack[i].CurrentMaxQty;
+                            break;
+                        }
+                    }
+                }
+                
+                if (_myNeedPercentage != null) _myNeedPercentage.CurrentPercentage -= myDestinationBuilding.PercentageRestored;
+                
                 ExecuteBuildingAction(myDestinationBuilding.MainNeedCovered);
 
                 ExecutingBuilding = false;
                 SetVisibility(true);
                 myDestinationBuilding.CurrentAgentCount--;
-                myDestinationBuilding = null;
+             //   myDestinationBuilding = null;
 
                 if (myStatus == GlobalObject.AgentStatus.Mild_Case || myStatus == GlobalObject.AgentStatus.Serious_Case)
                 {
@@ -539,7 +582,7 @@ public class AgentController : MonoBehaviour
         switch (_needCovered)
         {
             case GlobalObject.NeedScale.Travel:
-                Debug.LogError("HA REALIZADO VIAJE");
+                //Debug.LogError("HA REALIZADO VIAJE");
                 HasTraveledQuantity++;
 
                 if (myStatus == GlobalObject.AgentStatus.Healty)
@@ -550,7 +593,7 @@ public class AgentController : MonoBehaviour
                         if (HasTraveledQuantity >= WorldManager.instance.InfectionGuaranteedAfterNumberOfTravel)
                         {
                             AddContagion(WorldManager.instance.buildingInfectionPercentage, false);
-                            Debug.LogError("Agregado contagio por que ya ha viajado muchas veces " + PorcentageContagio);
+                            //Debug.LogError("Agregado contagio por que ya ha viajado muchas veces " + PorcentageContagio);
                         }
                         else
                         {
@@ -558,14 +601,14 @@ public class AgentController : MonoBehaviour
                             if (_rand < WorldManager.instance.TravelInfectionPercentage)
                             {
                                 AddContagion(WorldManager.instance.buildingInfectionPercentage, false);
-                                Debug.LogError("Agregado contagio por que le ha tocado la suerte " + PorcentageContagio);
+                                //Debug.LogError("Agregado contagio por que le ha tocado la suerte " + PorcentageContagio);
                             }
                         }
                     }
                     else
                     {
                         AddContagion(WorldManager.instance.buildingInfectionPercentage, false);
-                        Debug.LogError("Ya tiene bichos, agregado su dosis adicional " + PorcentageContagio);
+                        //Debug.LogError("Ya tiene bichos, agregado su dosis adicional " + PorcentageContagio);
                     }
                 }
                 break;
@@ -620,7 +663,7 @@ public class AgentController : MonoBehaviour
 
         if (fromSneeze) AddInfectedCells(true);
 
-        if (PorcentageContagio > 100)
+        if (PorcentageContagio < 0 || PorcentageContagio > 100)
             return;
 
         PorcentageContagio += _percentage * FactorContagio;

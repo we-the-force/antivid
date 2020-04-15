@@ -38,7 +38,8 @@ public class GlobalObject
         Extrovert,
         LeasureTraveler,
         Executive,
-        Gamer
+        Gamer,
+        Random
     }
 }
 
@@ -57,6 +58,25 @@ public class PerkPercentages
     public float resourceProduction;
     public bool WillAttendHospitalOnMildCase;
     public bool WillRandomlyAttendHospital;
+    public float PercentageForBackPack;
+}
+
+[System.Serializable]
+public class PerkQuantityForScenario
+{
+    public GlobalObject.AgentPerk Perk;
+    public float Percentage;
+    public int Qty { get; set; }
+    public int CreatedQty { get; set; }
+}
+
+[System.Serializable]
+public class WarehouseItemObject
+{
+    public GlobalObject.NeedScale Need;
+    public float CurrentQty;
+    public float BaseMaxQty;
+    public float CurrentMaxQty;
 }
 
 

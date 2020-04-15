@@ -386,6 +386,7 @@ MonoBehaviour:
     resourceProduction: 1
     WillAttendHospitalOnMildCase: 0
     WillRandomlyAttendHospital: 0
+    PercentageForBackPack: 0.25
   - Perk: 1
     NeedPercentageCollection:
     - Need: 0
@@ -407,6 +408,7 @@ MonoBehaviour:
     resourceProduction: 0.9
     WillAttendHospitalOnMildCase: 1
     WillRandomlyAttendHospital: 0
+    PercentageForBackPack: 0.3
   - Perk: 2
     NeedPercentageCollection:
     - Need: 0
@@ -432,6 +434,7 @@ MonoBehaviour:
     resourceProduction: 1.2
     WillAttendHospitalOnMildCase: 0
     WillRandomlyAttendHospital: 0
+    PercentageForBackPack: 0.2
   - Perk: 3
     NeedPercentageCollection:
     - Need: 0
@@ -453,6 +456,7 @@ MonoBehaviour:
     resourceProduction: 0.8
     WillAttendHospitalOnMildCase: 0
     WillRandomlyAttendHospital: 0
+    PercentageForBackPack: 0.15
   - Perk: 4
     NeedPercentageCollection:
     - Need: 0
@@ -478,6 +482,7 @@ MonoBehaviour:
     resourceProduction: 1
     WillAttendHospitalOnMildCase: 1
     WillRandomlyAttendHospital: 1
+    PercentageForBackPack: 0.35
   - Perk: 5
     NeedPercentageCollection:
     - Need: 0
@@ -503,6 +508,7 @@ MonoBehaviour:
     resourceProduction: 0.3
     WillAttendHospitalOnMildCase: 0
     WillRandomlyAttendHospital: 0
+    PercentageForBackPack: 0.35
   - Perk: 6
     NeedPercentageCollection:
     - Need: 0
@@ -520,6 +526,7 @@ MonoBehaviour:
     resourceProduction: 1.5
     WillAttendHospitalOnMildCase: 1
     WillRandomlyAttendHospital: 0
+    PercentageForBackPack: 0.3
   - Perk: 7
     NeedPercentageCollection:
     - Need: 0
@@ -537,6 +544,7 @@ MonoBehaviour:
     resourceProduction: 0.7
     WillAttendHospitalOnMildCase: 0
     WillRandomlyAttendHospital: 1
+    PercentageForBackPack: 0.4
 --- !u!114 &5160226374194979869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -568,6 +576,23 @@ MonoBehaviour:
   TotalBuildingUpkeepCost: 0
   TotalAgentIncome: 0
   initialInfectedDudes: 0
+  ScenarioPercentagesForPerks:
+  - Perk: 0
+    Percentage: 0.2
+  - Perk: 1
+    Percentage: 0.1
+  - Perk: 2
+    Percentage: 0.15
+  - Perk: 3
+    Percentage: 0.05
+  - Perk: 4
+    Percentage: 0.05
+  - Perk: 5
+    Percentage: 0.1
+  - Perk: 6
+    Percentage: 0.2
+  - Perk: 7
+    Percentage: 0.15
 --- !u!114 &5160226374194979868
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -17,6 +17,8 @@ public class BuildingController : MonoBehaviour
 
     public float UpkeepCost;
 
+    public Warehouse myWarehouse;
+
     private void Start()
     {
         List<PathFindingNode> auxList = GetComponent<PathFindingNode>().ConnectedNodes;
@@ -24,6 +26,13 @@ public class BuildingController : MonoBehaviour
         {
             AssociatedNode = GetComponent<PathFindingNode>().ConnectedNodes[0];
         }
+        
+        myWarehouse = gameObject.GetComponent<Warehouse>();
+        if (myWarehouse == null)
+        {
+            myWarehouse = gameObject.AddComponent<Warehouse>();
+        }
+
         //StartCoroutine(DelayedStart());
     }
 

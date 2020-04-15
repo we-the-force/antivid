@@ -337,6 +337,20 @@ MonoBehaviour:
   myHouse: {fileID: 0}
   myPerk: 0
   currentNodeId: 0
+  BackPack:
+  - Need: 0
+    CurrentQty: 0
+    BaseMaxQty: 150
+    CurrentMaxQty: 150
+  - Need: 2
+    CurrentQty: 0
+    BaseMaxQty: 80
+    CurrentMaxQty: 80
+  - Need: 4
+    CurrentQty: 0
+    BaseMaxQty: 60
+    CurrentMaxQty: 0
+  PercentageForTheBackPack: 0
   NeedTakenCare: 0
   TakingCareOfNeed: 0
   travelResistance: 1

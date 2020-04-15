@@ -35,6 +35,8 @@ public class WorldAgentController : MonoBehaviour
 
     public int initialInfectedDudes = 3;
 
+    public List<PerkQuantityForScenario> ScenarioPercentagesForPerks;
+
     private void Awake()
     {
         instance = this;
@@ -92,13 +94,61 @@ public class WorldAgentController : MonoBehaviour
                     _agent.Speed = Random.Range(0.8f, 1.4f);
 
                     _agent.myHouse = Buildings[i];
-                    _agent.InitAgent();
+                    //_agent.InitAgent();
 
                     AgentCollection.Add(_agent);
                 }
             }
         }
 
+        //--- Calcula las cantidades de personas por tipo de Perk segun los porcentajes establecidos
+        for (int i = 0; i < ScenarioPercentagesForPerks.Count; i++)
+        {
+            ScenarioPercentagesForPerks[i].Qty = Mathf.RoundToInt(AgentCollection.Count * ScenarioPercentagesForPerks[i].Percentage);
+
+            //Debug.LogError("Para Perk " + ScenarioPercentagesForPerks[i].Perk.ToString() + " tantos monitos " + ScenarioPercentagesForPerks[i].Qty);
+        }
+
+        List<GlobalObject.AgentPerk> _perksToCreate = new List<GlobalObject.AgentPerk>();
+        int cPerk = 0;
+        while (true)
+        {
+            if (ScenarioPercentagesForPerks.Count == 0)
+                break;
+
+            if (cPerk == ScenarioPercentagesForPerks.Count)
+                cPerk = 0;
+
+            _perksToCreate.Add(ScenarioPercentagesForPerks[cPerk].Perk);
+
+            ScenarioPercentagesForPerks[cPerk].Qty--;
+
+            if (ScenarioPercentagesForPerks[cPerk].Qty == 0)
+            {
+                ScenarioPercentagesForPerks.RemoveAt(cPerk);
+            }
+            else
+            {
+                cPerk++;
+            }            
+        }
+
+      //  Debug.LogError(">>> TOTAL PERKS " + _perksToCreate.Count + " >>> Agents " + AgentCollection.Count);
+
+        for (int i = 0; i < AgentCollection.Count; i++)
+        {
+            if (_perksToCreate.Count == i)
+            {
+                AgentCollection[i].InitAgent(GlobalObject.AgentPerk.Random);
+            }
+            else
+            {
+                AgentCollection[i].InitAgent(_perksToCreate[i]);
+            }
+        }
+
+
+        //--- Si el escenario tiene una cantidad de agentes infectados desde el inicio, aqui se realiza el calculo de cuales son los infectados
         InfectAgents(initialInfectedDudes);
 
         //AgentCollection[0].myStatus = GlobalObject.AgentStatus.Mild_Case;
