@@ -52,43 +52,55 @@ public class AgentMovement : MonoBehaviour
 
         while (true)
         {
-            if (currentSeconds >= secondsToNode)
+            if (WorldManager.instance.TicScale == 0)
             {
-                if (NextTile.NodeID == ObjectiveNodeID)
+                // es pausa
+                myRigidBody.velocity = Vector3.zero;
+                yield return new WaitForFixedUpdate();
+            }
+            else
+            {
+                if (currentSeconds >= secondsToNode)
                 {
-                    //--- YA DEBE REGRESAR
+                    Vector3 _pos = transform.position;
+                    _pos.x = NextTile.transform.position.x;
+                    _pos.z = NextTile.transform.position.z;
+                    transform.position = _pos;
+
+                    if (NextTile.NodeID == ObjectiveNodeID)
+                    {
+                        //--- YA DEBE REGRESAR
+                        Agent.myCurrentNode = NextTile;
+                        myRigidBody.velocity = Vector3.zero;
+                        Agent.AnimatorController.SetInteger("CurrentState", 0);
+                        Agent.DestinyReached();
+                        break;
+                    }
+
+                    CurrentTileID = NextTile.NodeID;
                     Agent.myCurrentNode = NextTile;
-                    myRigidBody.velocity = Vector3.zero;
-                    Agent.AnimatorController.SetInteger("CurrentState", 0);
-                    Agent.DestinyReached();
-                    break;
+                    NextTile = WorldManager.instance.GetNextTileInRoute(CurrentTileID, ObjectiveNodeID);
+
+                    getRotation();
+
+                    CurrentSpeed = Speed * WorldManager.instance.TicScale;
+                    secondsToNode = currentDistance / CurrentSpeed;
+                    currentSeconds = 0;
                 }
 
-                Vector3 _pos = transform.position;
-                _pos.x = NextTile.transform.position.x;
-                _pos.z = NextTile.transform.position.z;
-                transform.position = _pos;
-                
-                CurrentTileID = NextTile.NodeID;
-                Agent.myCurrentNode = NextTile;
-                NextTile = WorldManager.instance.GetNextTileInRoute(CurrentTileID, ObjectiveNodeID);
+                yield return new WaitForFixedUpdate();
 
-                getRotation();
-
-                CurrentSpeed = Speed * WorldManager.instance.TicScale;
-                secondsToNode = currentDistance / CurrentSpeed;
-                currentSeconds = 0;
+                myRigidBody.velocity = (movementVector * CurrentSpeed);// * Time.fixedDeltaTime;
+                currentSeconds += Time.fixedDeltaTime;
             }
-
-            yield return new WaitForFixedUpdate();
-
-            myRigidBody.velocity = (movementVector * CurrentSpeed);// * Time.fixedDeltaTime;
-            currentSeconds += Time.fixedDeltaTime;
         }
     }
 
     public void TicReceived()
     {
+        if (WorldManager.instance.TicScale == 0)
+            return;
+
         float _speed = Speed * WorldManager.instance.TicScale;
 
         if (CurrentSpeed != _speed)

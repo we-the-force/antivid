@@ -7,6 +7,12 @@ public class CanvasControl : MonoBehaviour
 {
     public static CanvasControl instance;
 
+    public BuyBuildingWindow BuildWindow;
+
+    public GameObject EconomicPanel;
+    public GameObject ControlsPanel;
+    public GameObject InfoPanel;
+    
     public Text txtTotPop;
     public Text txtSick;
     public Text txtDead;
@@ -47,6 +53,15 @@ public class CanvasControl : MonoBehaviour
         txtDead.text = totDead.ToString();
         txtSick.text = totSick.ToString();
         txtInmune.text = totInmune.ToString();    
+    }
+
+    public void ShowBuildWindow(BuyablePlot _buyablePlot)
+    {
+        EconomicPanel.SetActive(false);
+        ControlsPanel.SetActive(false);
+        InfoPanel.SetActive(false);
+
+        BuildWindow.ShowWindow(_buyablePlot);
     }
 
 }

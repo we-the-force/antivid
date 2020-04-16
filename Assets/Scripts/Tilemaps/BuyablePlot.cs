@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -8,6 +9,11 @@ using UnityEditor;
 public enum PlotSize { TwoByTwo, TwoByThree, ThreeByThree, ThreeByFour };
 public class BuyablePlot : MonoBehaviour
 {
+    [SerializeField]
+    Image barraProgreso;
+
+    public float TicsToBuild = 15;
+
     public float Cost = 5f;
     public float UpkeepCost = 1000;
     public bool IsBuyable = true;
@@ -36,7 +42,7 @@ public class BuyablePlot : MonoBehaviour
         IsBought = false;
         IsBuyable = true;
         UpdateCost();
-        ShowCanvas();
+      //  ShowCanvas();
     }
     void Start()
     {
@@ -45,15 +51,32 @@ public class BuyablePlot : MonoBehaviour
 
     }
 
+    private void TicReceived()
+    {
+        currentTics++;
+        barraProgreso.fillAmount = currentTics / TicsToBuild;
+
+        if (currentTics == TicsToBuild)
+        {
+            Buy(auxNode);
+        }
+    }
+
+
     public void Buy(NodeType type)
     {
+        WorldManager.TicDelegate -= TicReceived;
+        UnderConstruction = false;
+
+        canvas.SetActive(false);
+
         IsBuyable = false;
         IsBought = true;
         AssignedNode = type;
         UpdateCost();
         HandleModel();
         interactingWithCanvas = false;
-        ShowCanvas();
+        //ShowCanvas();
         buildCont.TicsToCoverNeed = type == NodeType.HealthCare ? 40 : 20;
         WorldAgentController.instance.CalculateBuildingUpkeepCost();
     }
@@ -161,14 +184,23 @@ public class BuyablePlot : MonoBehaviour
     }
 
     //0: Health, 1: Food, 2 Entertainment
+    private NodeType auxNode = NodeType.None;
+    private bool UnderConstruction;
+    private int currentTics = 0;
     public void BuyBuilding(int type)
     {
+        Debug.LogError("Comprar el tipo  " + type.ToString());
+
         if (CurrencyManager.Instance.HasEnoughCurrency(Cost))
         {
+            canvas.SetActive(true);
+
+            UnderConstruction = true;
+            currentTics = 0;
             Debug.Log("Buying building!");
             CurrencyManager.Instance.CurrentCurrency -= Cost;
             //Buy(nodeType);
-            NodeType auxNode = NodeType.None;
+
             switch (type)
             {
                 case 0:
@@ -184,24 +216,39 @@ public class BuyablePlot : MonoBehaviour
                     auxNode = NodeType.Entertainment;
                     break;
             }
-
-            //Buy(type == 0 ? NodeType.HealthCare : type == 1 ? NodeType.Food : NodeType.Entertainment);
-            Buy(auxNode);
+                        
+            WorldManager.TicDelegate += TicReceived;
+            //Buy(type == 0 ? NodeType.HealthCare : type == 1 ? NodeType.Food : NodeType.Entertainment);           
+        }
+        else
+        {
+            Debug.LogError("No tiene dinero " + Cost.ToString());
         }
         
     }
     public void CanvasCancelButton()
     {
+        WorldManager.instance.ChangeTimeScale(1);
         interactingWithCanvas = false;
-        ShowCanvas();
+        //ShowCanvas();
     }
 
     void ShowCanvas()
     {
-        canvas.SetActive(interactingWithCanvas);
+        if (interactingWithCanvas)
+        {
+            WorldManager.instance.ChangeTimeScale(0);
+            CanvasControl.instance.ShowBuildWindow(this);
+        }
+
+
+        //canvas.SetActive(interactingWithCanvas);
     }
     public void LeftClick()
     {
+        if (UnderConstruction)
+            return;
+
         interactingWithCanvas = true;
         ShowCanvas();
         Debug.Log("I was clicked!");

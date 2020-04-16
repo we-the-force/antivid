@@ -121,6 +121,9 @@ public class AgentController : MonoBehaviour
             myPerk = useThisPerk;
         }
 
+        GameObject animObj = Instantiate(WorldAgentController.instance.GetAnimationForPerk(myPerk), AnimationObject.transform);
+        AnimatorController = animObj.GetComponent<Animator>();
+        animObj.transform.localPosition = Vector3.zero;
 
         //--- Asigna los porcentajes de necesidades de acuerdo al Perk establecido para el agente
         for (int i = 0; i < WorldManager.instance.NeedPercentageBaseCollection.Count; i++)

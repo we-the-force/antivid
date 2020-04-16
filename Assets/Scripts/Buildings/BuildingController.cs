@@ -18,6 +18,7 @@ public class BuildingController : MonoBehaviour
     public float UpkeepCost;
 
     public Warehouse myWarehouse;
+    public BuildingRandomizer myBuildingRandomizer;
 
     private void Start()
     {
@@ -33,6 +34,12 @@ public class BuildingController : MonoBehaviour
             myWarehouse = gameObject.AddComponent<Warehouse>();
         }
 
+        myBuildingRandomizer = gameObject.GetComponent<BuildingRandomizer>();
+
+        if (myBuildingRandomizer != null)
+        {
+            myBuildingRandomizer.InitBuilding();
+        }
         //StartCoroutine(DelayedStart());
     }
 

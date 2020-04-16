@@ -44,6 +44,13 @@ public class GlobalObject
 }
 
 [System.Serializable]
+public class AnimationForPerk
+{
+    public GlobalObject.AgentPerk Perk;
+    public GameObject AnimationPrefab;
+}
+
+[System.Serializable]
 public class PathCost
 {
     public int TileID;

@@ -559,6 +559,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AgentPrefab: {fileID: 4743075006342897453, guid: 84d2765961a894e4b9751e03153f2b21,
     type: 3}
+  AgentAnimationCollection:
+  - Perk: 0
+    AnimationPrefab: {fileID: 4156003515841724013, guid: de9085ab7e316244fa99865d5b9dc895,
+      type: 3}
+  - Perk: 1
+    AnimationPrefab: {fileID: 8649870468810775337, guid: 083b0d2902db86b4b8d262f68c93e6ba,
+      type: 3}
+  - Perk: 2
+    AnimationPrefab: {fileID: 6471486837805941215, guid: ff09d51bf3fc31b4a82f70b796cb76bd,
+      type: 3}
+  - Perk: 3
+    AnimationPrefab: {fileID: 4156003515841724013, guid: de9085ab7e316244fa99865d5b9dc895,
+      type: 3}
+  - Perk: 4
+    AnimationPrefab: {fileID: 8649870468810775337, guid: 083b0d2902db86b4b8d262f68c93e6ba,
+      type: 3}
+  - Perk: 5
+    AnimationPrefab: {fileID: 6471486837805941215, guid: ff09d51bf3fc31b4a82f70b796cb76bd,
+      type: 3}
+  - Perk: 6
+    AnimationPrefab: {fileID: 4156003515841724013, guid: de9085ab7e316244fa99865d5b9dc895,
+      type: 3}
+  - Perk: 7
+    AnimationPrefab: {fileID: 8649870468810775337, guid: 083b0d2902db86b4b8d262f68c93e6ba,
+      type: 3}
   AgentPrefabCollection:
   - {fileID: 4743075006342897453, guid: 84d2765961a894e4b9751e03153f2b21, type: 3}
   - {fileID: 4893472308648014615, guid: c21326080ef6dad4487315753e902934, type: 3}

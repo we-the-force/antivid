@@ -6,7 +6,9 @@ public class WorldAgentController : MonoBehaviour
 {
     public GameObject AgentPrefab;
 
-    public List<GameObject> AgentPrefabCollection;
+    public List<AnimationForPerk> AgentAnimationCollection;
+
+    //public List<GameObject> AgentPrefabCollection;
 
     public Transform AgentAnchor;
 
@@ -47,6 +49,22 @@ public class WorldAgentController : MonoBehaviour
         StartCoroutine(DelayedStart());
     }
 
+    public GameObject GetAnimationForPerk(GlobalObject.AgentPerk _perk)
+    {
+        GameObject obj = null;
+
+        for (int i = 0; i < AgentAnimationCollection.Count; i++)
+        {
+            if(AgentAnimationCollection[i].Perk == _perk)
+            {
+                obj = AgentAnimationCollection[i].AnimationPrefab;
+                break;
+            }
+        }
+
+        return obj;
+    }
+
     void PoblateRoadSystem()
     {
         RoadSystem.Clear();
@@ -79,10 +97,12 @@ public class WorldAgentController : MonoBehaviour
             {
                 for (int a = 0; a < Buildings[i].AgentCapacity; a++)
                 {
-                    int rnd = Random.Range(0, AgentPrefabCollection.Count);
+                    //int rnd = Random.Range(0, AgentPrefabCollection.Count);
 
 
-                    GameObject obj = Instantiate(AgentPrefabCollection[rnd], AgentAnchor);
+                   // GameObject obj = Instantiate(AgentPrefabCollection[rnd], AgentAnchor);
+
+                    GameObject obj = Instantiate(AgentPrefab, AgentAnchor);
                     AgentController _agent = obj.GetComponent<AgentController>();
 
                     obj.transform.position = Buildings[i].transform.position;
@@ -106,8 +126,9 @@ public class WorldAgentController : MonoBehaviour
         {
             ScenarioPercentagesForPerks[i].Qty = Mathf.RoundToInt(AgentCollection.Count * ScenarioPercentagesForPerks[i].Percentage);
 
-            //Debug.LogError("Para Perk " + ScenarioPercentagesForPerks[i].Perk.ToString() + " tantos monitos " + ScenarioPercentagesForPerks[i].Qty);
+            Debug.LogError("Para Perk " + ScenarioPercentagesForPerks[i].Perk.ToString() + " tantos monitos " + ScenarioPercentagesForPerks[i].Qty);
         }
+
 
         List<GlobalObject.AgentPerk> _perksToCreate = new List<GlobalObject.AgentPerk>();
         int cPerk = 0;
@@ -130,8 +151,9 @@ public class WorldAgentController : MonoBehaviour
             else
             {
                 cPerk++;
-            }            
+            }
         }
+
 
       //  Debug.LogError(">>> TOTAL PERKS " + _perksToCreate.Count + " >>> Agents " + AgentCollection.Count);
 

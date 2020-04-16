@@ -31,6 +31,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2179866399375813798}
+  - {fileID: 7630268740834299120}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
@@ -74,6 +75,7 @@ MonoBehaviour:
   CurrentAgentCount: 0
   AssociatedNode: {fileID: 0}
   UpkeepCost: 1125
+  myWarehouse: {fileID: 0}
 --- !u!65 &681786540097949662
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -415,7 +417,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2179866399375813798
 Transform:
   m_ObjectHideFlags: 0
@@ -670,3 +672,78 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1001 &3215178916908738538
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 5856046595584232958}
+    m_Modifications:
+    - target: {fileID: -927199367670048503, guid: 4b252210eaed51d44a1c9f3fdae9db15,
+        type: 3}
+      propertyPath: m_Name
+      value: EDF_HOSPITAL
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 4b252210eaed51d44a1c9f3fdae9db15,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 4b252210eaed51d44a1c9f3fdae9db15,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 4b252210eaed51d44a1c9f3fdae9db15,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 4b252210eaed51d44a1c9f3fdae9db15,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 4b252210eaed51d44a1c9f3fdae9db15,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 4b252210eaed51d44a1c9f3fdae9db15,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 4b252210eaed51d44a1c9f3fdae9db15,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 4b252210eaed51d44a1c9f3fdae9db15,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 4b252210eaed51d44a1c9f3fdae9db15,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 4b252210eaed51d44a1c9f3fdae9db15,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 4b252210eaed51d44a1c9f3fdae9db15,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4b252210eaed51d44a1c9f3fdae9db15, type: 3}
+--- !u!4 &7630268740834299120 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 4b252210eaed51d44a1c9f3fdae9db15,
+    type: 3}
+  m_PrefabInstance: {fileID: 3215178916908738538}
+  m_PrefabAsset: {fileID: 0}

@@ -39,16 +39,28 @@ public class WorldManager : MonoBehaviour
 
         while (true)
         {
-            _seconds = SecondsPerTic / TicScale;
-            yield return new WaitForSeconds(_seconds);
+            if (TicScale == 0)
+            {
+                //--- es pausa
+                _seconds = 0;
+                yield return new WaitForFixedUpdate();
+            }
+            else
+            {
+                _seconds = SecondsPerTic / TicScale;
+                yield return new WaitForSeconds(_seconds);
 
-            TicDelegate();
-            CanvasControl.instance.Statistic(WorldAgentController.instance.AgentCollection);
+                TicDelegate();
+
+                CanvasControl.instance.Statistic(WorldAgentController.instance.AgentCollection);
+            }
         }
     }
 
     public void ChangeTimeScale(float _scale)
     {
+        //--- Si la _scale es igual a 0; ahi se hace la pausa;
+        //---
         TicScale = _scale;
     }
     //-----
