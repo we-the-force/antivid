@@ -71,29 +71,30 @@ public class WorldAgentController : MonoBehaviour
         yield return null;
         PoblateRoadSystem();
         PoblateBuildings();
-        for (int i = 0; i < Buildings.Count; i++)
+        List<BuildingController> auxHouses = Buildings.FindAll(x => x.BaseNeedCovered == GlobalObject.NeedScale.Sleep);
+        for (int i = 0; i < auxHouses.Count; i++)
         {
-            if (Buildings[i].MainNeedCovered == GlobalObject.NeedScale.Sleep)
+            //if (Buildings[i].BaseNeedCovered == GlobalObject.NeedScale.Sleep)
+            //{
+            for (int a = 0; a < auxHouses[i].BaseAgentCapacity; a++)
             {
-                for (int a = 0; a < Buildings[i].BaseAgentCapacity; a++)
-                {
-                    GameObject obj = Instantiate(AgentPrefab, AgentAnchor);
-                    AgentController _agent = obj.GetComponent<AgentController>();
+                GameObject obj = Instantiate(AgentPrefab, AgentAnchor);
+                AgentController _agent = obj.GetComponent<AgentController>();
 
-                    obj.transform.position = Buildings[i].transform.position;
+                obj.transform.position = auxHouses[i].transform.position;
 
-                    _agent.AgentID = a;
-                    _agent.myCurrentNode = Buildings[i].AssociatedNode;
-                    _agent.currentNodeId = Buildings[i].AssociatedNode.NodeID;
+                _agent.AgentID = a;
+                _agent.myCurrentNode = auxHouses[i].AssociatedNode;
+                _agent.currentNodeId = auxHouses[i].AssociatedNode.NodeID;
 
-                    _agent.Speed = Random.Range(1f, 2f);
+                _agent.Speed = Random.Range(1f, 2f);
 
-                    _agent.myHouse = Buildings[i];
-                    _agent.InitAgent();
+                _agent.myHouse = auxHouses[i];
+                _agent.InitAgent();
 
-                    AgentCollection.Add(_agent);
-                }
+                AgentCollection.Add(_agent);
             }
+            //}
         }
 
         InfectAgents(initialInfectedDudes);
@@ -110,8 +111,13 @@ public class WorldAgentController : MonoBehaviour
         ActivePolicies.Clear();
         ActivePolicies = policies;
 
+        RefreshBuildingsPolicies();
+    }
+    public void RefreshBuildingsPolicies()
+    {
         ClearAllBuildingsPolicies();
-        SetBuildingEffectivityPolicy();
+        SetNeedChangePolicies();
+        SetBuildingPolicies();
     }
     void ClearAllBuildingsPolicies()
     {
@@ -120,22 +126,65 @@ public class WorldAgentController : MonoBehaviour
             build.ResetMods();
         }
     }
-    void SetBuildingEffectivityPolicy()
+    void SetNeedChangePolicies()
+    {
+        foreach (Policy pol in ActivePolicies)
+        {
+            TransformBuilding auxTB = pol.TransformBuildingSection;
+            if (auxTB.Enabled)
+            {
+                float percentage = auxTB.Percentage;
+                GlobalObject.NeedScale toChange = auxTB.BuildingToChange;
+                GlobalObject.NeedScale newNeed = auxTB.TargetBuilding;
+                List<BuildingController> toChangeBuildings = Buildings.FindAll(x => x.BaseNeedCovered == toChange && x.BaseNeedCovered == x.MainNeedCovered);
+
+                float floatQtyToChange = (float)toChangeBuildings.Count * percentage;
+
+                int buildingQuantityToChange = Mathf.RoundToInt(floatQtyToChange);
+                int changedBuildings = 0;
+                int killswitch = 0;
+                while (changedBuildings < buildingQuantityToChange && toChangeBuildings.Count > 0)
+                {
+                    killswitch++;
+
+                    int randomIndex = Random.Range(0, toChangeBuildings.Count - 1);
+                    toChangeBuildings[randomIndex].SetTemporaryNewNeed(newNeed);
+                    changedBuildings++;
+                    toChangeBuildings.RemoveAt(randomIndex);
+
+                    if (killswitch > 1000)
+                    {
+                        break;
+                    }
+                }
+            }
+        }
+    }
+    void SetBuildingPolicies()
     {
         foreach (Policy pol in ActivePolicies)
         {
             foreach (BuildingController build in Buildings)
             {
                 BuildingEffectivity auxBE = pol.BuildingEffectivitySection;
+                LimitBuilding auxLB = pol.LimitBuildingSection;
+
                 if (auxBE.Enabled)
                 {
                     for (int i = 0; i < auxBE.ParameterMods.Count; i++)
                     {
                         if (auxBE.ParameterMods[i].BuildingType == build.MainNeedCovered && auxBE.ParameterMods[i].BuildingType != GlobalObject.NeedScale.None)
                         {
-                            build.AddModPercentageRestored(pol.BuildingEffectivitySection.ParameterMods[i].Percentage);
+                            build.AddModPercentageRestored(auxBE.ParameterMods[i].Percentage);
                             //Debug.Log("Set some property to a building!");
                         }
+                    }
+                }
+                if (auxLB.Enabled)
+                {
+                    if (build.MainNeedCovered == auxLB.BuildingToChange)
+                    {
+                        build.AddModAgentCapacity(auxLB.Percentage);
                     }
                 }
             }

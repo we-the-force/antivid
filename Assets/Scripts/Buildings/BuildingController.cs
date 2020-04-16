@@ -5,7 +5,7 @@ using UnityEngine.Serialization;
 
 public class BuildingController : MonoBehaviour
 {
-    public GlobalObject.NeedScale MainNeedCovered;
+    public GlobalObject.NeedScale BaseNeedCovered;
     public float TimeToCoverNeed;
 
     [FormerlySerializedAs("TicsToCoverNeed")]
@@ -28,6 +28,8 @@ public class BuildingController : MonoBehaviour
     public float UpkeepCost;
 
     [SerializeField]
+    GlobalObject.NeedScale _currentNeedCovered;
+    [SerializeField]
     int _ticsToCoverNeed;
     [SerializeField]
     float _percentageRecovered;
@@ -46,6 +48,10 @@ public class BuildingController : MonoBehaviour
     {
         get { return _agentCapacity; }
     }
+    public GlobalObject.NeedScale MainNeedCovered
+    {
+        get { return _currentNeedCovered; }
+    }
 
     private void Start()
     {
@@ -56,9 +62,10 @@ public class BuildingController : MonoBehaviour
         }
         ResetMods();
 
+        ResetMainNeed();
         AddModTicsToCoverNeed(1);
         AddModPercentageRestored(1);
-        AddAgentCapacity(1);
+        AddModAgentCapacity(1);
         //StartCoroutine(DelayedStart());
     }
     IEnumerator DelayedStart()
@@ -72,7 +79,7 @@ public class BuildingController : MonoBehaviour
         ModTicsToCoverNeed = 1;
         ModPercentageRestored = 1;
         ModAgentCapacity = 1;
-
+        ResetMainNeed();
         RecalcValues();
     }
     public void RecalcValues()
@@ -91,9 +98,17 @@ public class BuildingController : MonoBehaviour
         ModPercentageRestored += (amount - 1);
         _percentageRecovered = BasePercentageRestored * ModPercentageRestored;
     }
-    public void AddAgentCapacity(float amount)
+    public void AddModAgentCapacity(float amount)
     {
         ModAgentCapacity += (amount - 1);
         _agentCapacity = (int)(BaseAgentCapacity * ModAgentCapacity); 
+    }
+    public void SetTemporaryNewNeed(GlobalObject.NeedScale newNeed)
+    {
+        _currentNeedCovered = newNeed;
+    }
+    public void ResetMainNeed()
+    {
+        _currentNeedCovered = BaseNeedCovered;
     }
 }

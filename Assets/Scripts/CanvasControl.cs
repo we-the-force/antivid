@@ -48,7 +48,4 @@ public class CanvasControl : MonoBehaviour
         txtSick.text = totSick.ToString();
         txtInmune.text = totInmune.ToString();    
     }
-
 }
-
-

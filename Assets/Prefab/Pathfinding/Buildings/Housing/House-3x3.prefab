@@ -223,7 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1570f164b9443f45af3e99d32a1c444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MainNeedCovered: 1
+  BaseNeedCovered: 1
   TimeToCoverNeed: 2.5
   BaseTicsToCoverNeed: 100
   BasePercentageRestored: 100
@@ -234,6 +234,7 @@ MonoBehaviour:
   CurrentAgentCount: 0
   AssociatedNode: {fileID: 0}
   UpkeepCost: 112.5
+  _currentNeedCovered: 0
   _ticsToCoverNeed: 0
   _percentageRecovered: 0
   _agentCapacity: 0

@@ -10,7 +10,7 @@ public class LimitBuilding
     public bool Enabled;
     [Tooltip("The buildings that will be changed")]
     public GlobalObject.NeedScale BuildingToChange;
-    [Tooltip("The percentage to lower the limit of the building by"), Range(0, 1)]
+    [Tooltip("The percentage to lower the limit of the building by"), Range(0, 2)]
     public float Percentage;
 
     public LimitBuilding()

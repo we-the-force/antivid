@@ -56,6 +56,7 @@ public class BuyablePlot : MonoBehaviour
         ShowCanvas();
         buildCont.BaseTicsToCoverNeed = type == NodeType.HealthCare ? 200 : 100;
         WorldAgentController.instance.CalculateBuildingUpkeepCost();
+        WorldAgentController.instance.RefreshBuildingsPolicies();
     }
     public void UnBuy()
     {
@@ -106,7 +107,7 @@ public class BuyablePlot : MonoBehaviour
         {
             buildCont = GetComponent<BuildingController>();
         }
-        buildCont.MainNeedCovered = (TranslateNodeTypeToNeed(AssignedNode));
+        buildCont.BaseNeedCovered = (TranslateNodeTypeToNeed(AssignedNode));
     }
     GlobalObject.NeedScale TranslateNodeTypeToNeed(NodeType type)
     {
@@ -202,9 +203,12 @@ public class BuyablePlot : MonoBehaviour
     }
     public void LeftClick()
     {
-        interactingWithCanvas = true;
-        ShowCanvas();
-        Debug.Log("I was clicked!");
+        if (!IsBought)
+        {
+            interactingWithCanvas = true;
+            ShowCanvas();
+            Debug.Log("I was clicked!");
+        }
     }
 }
 
