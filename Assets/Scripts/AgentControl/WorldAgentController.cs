@@ -32,6 +32,9 @@ public class WorldAgentController : MonoBehaviour
 
     public int initialInfectedDudes = 3;
 
+    [SerializeField]
+    List<Policy> ActivePolicies = new List<Policy>();
+
     private void Awake()
     {
         instance = this;
@@ -72,7 +75,7 @@ public class WorldAgentController : MonoBehaviour
         {
             if (Buildings[i].MainNeedCovered == GlobalObject.NeedScale.Sleep)
             {
-                for (int a = 0; a < Buildings[i].AgentCapacity; a++)
+                for (int a = 0; a < Buildings[i].BaseAgentCapacity; a++)
                 {
                     GameObject obj = Instantiate(AgentPrefab, AgentAnchor);
                     AgentController _agent = obj.GetComponent<AgentController>();
@@ -102,10 +105,46 @@ public class WorldAgentController : MonoBehaviour
         CalculateAgentIncome();
     }
 
+    public void ReceivePolicies(List<Policy> policies)
+    {
+        ActivePolicies.Clear();
+        ActivePolicies = policies;
+
+        ClearAllBuildingsPolicies();
+        SetBuildingEffectivityPolicy();
+    }
+    void ClearAllBuildingsPolicies()
+    {
+        foreach (BuildingController build in Buildings)
+        {
+            build.ResetMods();
+        }
+    }
+    void SetBuildingEffectivityPolicy()
+    {
+        foreach (Policy pol in ActivePolicies)
+        {
+            foreach (BuildingController build in Buildings)
+            {
+                BuildingEffectivity auxBE = pol.BuildingEffectivitySection;
+                if (auxBE.Enabled)
+                {
+                    for (int i = 0; i < auxBE.ParameterMods.Count; i++)
+                    {
+                        if (auxBE.ParameterMods[i].BuildingType == build.MainNeedCovered && auxBE.ParameterMods[i].BuildingType != GlobalObject.NeedScale.None)
+                        {
+                            build.AddModPercentageRestored(pol.BuildingEffectivitySection.ParameterMods[i].Percentage);
+                            //Debug.Log("Set some property to a building!");
+                        }
+                    }
+                }
+            }
+        }
+    }
     void InfectAgents(int limit)
     {
         int count = 0;
-        while(count < limit)
+        while (count < limit)
         {
             int randomIndex = Random.Range(0, AgentCollection.Count - 1);
             if (AgentCollection[randomIndex].myStatus == GlobalObject.AgentStatus.Healty)
@@ -149,13 +188,13 @@ public class WorldAgentController : MonoBehaviour
         {
             BuildingController _building = Buildings[i];
 
-            if (_building.MainNeedCovered == forNeed && _building.CurrentAgentCount < _building.AgentCapacity)
+            if (_building.MainNeedCovered == forNeed && _building.CurrentAgentCount < _building.BaseAgentCapacity)
             {
                 id = _building.AssociatedNode.NodeID;
                 break;
             }
         }
-               
+
         return id;
     }
 
@@ -168,16 +207,16 @@ public class WorldAgentController : MonoBehaviour
         {
             _building = Buildings[i];
 
-            if (_building.MainNeedCovered == forNeed && _building.CurrentAgentCount < _building.AgentCapacity)
+            if (_building.MainNeedCovered == forNeed && _building.CurrentAgentCount < _building.BaseAgentCapacity)
             {
                 ElegibleBuildings.Add(_building);
             }
         }
 
-        if(ElegibleBuildings.Count == 0)
+        if (ElegibleBuildings.Count == 0)
             return null;
 
-        if(ElegibleBuildings.Count == 1)
+        if (ElegibleBuildings.Count == 1)
             return ElegibleBuildings[0];
 
         int _cost = 99999;

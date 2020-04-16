@@ -54,7 +54,7 @@ public class BuyablePlot : MonoBehaviour
         HandleModel();
         interactingWithCanvas = false;
         ShowCanvas();
-        buildCont.TicsToCoverNeed = type == NodeType.HealthCare ? 40 : 20;
+        buildCont.BaseTicsToCoverNeed = type == NodeType.HealthCare ? 200 : 100;
         WorldAgentController.instance.CalculateBuildingUpkeepCost();
     }
     public void UnBuy()

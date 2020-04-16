@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿#if UNITY_EDITOR
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
@@ -38,3 +39,4 @@ public class PrefabTileBrush : GridBrush
         return Mathf.PerlinNoise((position.x + offset) * scale, (position.y + offset) * scale);
     }
 }
+#endif

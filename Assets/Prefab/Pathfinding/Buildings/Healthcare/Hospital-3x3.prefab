@@ -68,12 +68,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainNeedCovered: 3
   TimeToCoverNeed: 2.5
-  TicsToCoverNeed: 50
-  PercentageRestored: 100
-  AgentCapacity: 15
+  BaseTicsToCoverNeed: 200
+  BasePercentageRestored: 100
+  ModTicsToCoverNeed: 1
+  ModPercentageRestored: 1
+  ModAgentCapacity: 1
+  BaseAgentCapacity: 30
   CurrentAgentCount: 0
   AssociatedNode: {fileID: 0}
   UpkeepCost: 1125
+  _ticsToCoverNeed: 0
+  _percentageRecovered: 0
+  _agentCapacity: 0
 --- !u!65 &681786540097949662
 BoxCollider:
   m_ObjectHideFlags: 0

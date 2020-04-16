@@ -1,21 +1,51 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class BuildingController : MonoBehaviour
 {
     public GlobalObject.NeedScale MainNeedCovered;
     public float TimeToCoverNeed;
 
-    public int TicsToCoverNeed;
+    [FormerlySerializedAs("TicsToCoverNeed")]
+    public int BaseTicsToCoverNeed;
+    [FormerlySerializedAs("PercentageRestored")]
+    public float BasePercentageRestored;
 
-    public int PercentageRestored;
+    [SerializeField]
+    float ModTicsToCoverNeed = 1;
+    [SerializeField]
+    float ModPercentageRestored = 1;
+    [SerializeField]
+    float ModAgentCapacity = 1;
 
-    public int AgentCapacity;
+    [FormerlySerializedAs("AgentCapacity")]
+    public int BaseAgentCapacity;
     public int CurrentAgentCount;
     public PathFindingNode AssociatedNode;
 
     public float UpkeepCost;
+
+    [SerializeField]
+    int _ticsToCoverNeed;
+    [SerializeField]
+    float _percentageRecovered;
+    [SerializeField]
+    int _agentCapacity;
+
+    public int TicsToCoverNeed
+    {
+        get { return _ticsToCoverNeed; }
+    }
+    public float PercentageRestored
+    {
+        get { return _percentageRecovered; }
+    }
+    public int AgentCapacity
+    {
+        get { return _agentCapacity; }
+    }
 
     private void Start()
     {
@@ -24,13 +54,46 @@ public class BuildingController : MonoBehaviour
         {
             AssociatedNode = GetComponent<PathFindingNode>().ConnectedNodes[0];
         }
+        ResetMods();
+
+        AddModTicsToCoverNeed(1);
+        AddModPercentageRestored(1);
+        AddAgentCapacity(1);
         //StartCoroutine(DelayedStart());
     }
-
     IEnumerator DelayedStart()
     {
         yield return null;
         //yield return null;
         AssociatedNode = GetComponent<PathFindingNode>().ConnectedNodes[0];
+    }
+    public void ResetMods()
+    {
+        ModTicsToCoverNeed = 1;
+        ModPercentageRestored = 1;
+        ModAgentCapacity = 1;
+
+        RecalcValues();
+    }
+    public void RecalcValues()
+    {
+        _ticsToCoverNeed = (int)(BaseTicsToCoverNeed * ModTicsToCoverNeed);
+        _percentageRecovered = BasePercentageRestored * ModPercentageRestored;
+        _agentCapacity = (int)(BaseAgentCapacity * ModAgentCapacity);
+    }
+    public void AddModTicsToCoverNeed(float amount)
+    {
+        ModTicsToCoverNeed += (amount - 1);
+        _ticsToCoverNeed = (int)(BaseTicsToCoverNeed * ModTicsToCoverNeed);
+    }
+    public void AddModPercentageRestored(float amount)
+    {
+        ModPercentageRestored += (amount - 1);
+        _percentageRecovered = BasePercentageRestored * ModPercentageRestored;
+    }
+    public void AddAgentCapacity(float amount)
+    {
+        ModAgentCapacity += (amount - 1);
+        _agentCapacity = (int)(BaseAgentCapacity * ModAgentCapacity); 
     }
 }
