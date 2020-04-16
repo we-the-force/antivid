@@ -304,12 +304,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainNeedCovered: 2
   TimeToCoverNeed: 2.5
-  TicsToCoverNeed: 30
-  PercentageRestored: 100
-  AgentCapacity: 10
+  TicsToCoverNeed: 0
+  PercentageRestored: 0
+  AgentCapacity: 0
   CurrentAgentCount: 0
   AssociatedNode: {fileID: 0}
   UpkeepCost: 750
+  myWarehouse: {fileID: 0}
+  myBuildingRandomizer: {fileID: 0}
 --- !u!65 &4205342804727711564
 BoxCollider:
   m_ObjectHideFlags: 0
