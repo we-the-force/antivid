@@ -18,11 +18,17 @@ public class BuyBuildingWindow : MonoBehaviour
 
     public int _building; // 0-healthcare 1-food 2-education 3-entertainment
 
-    private BuyablePlot SelectedBuyablePlot;
+    [SerializeField]
+    private BuyablePlot _selectedBuyablePlot;
+
+    public BuyablePlot SelectedBuyablePlot
+    {
+        get { return _selectedBuyablePlot; }
+    }
 
     public void ShowWindow(BuyablePlot _buyablePlot)
     {
-        SelectedBuyablePlot = _buyablePlot;
+        _selectedBuyablePlot = _buyablePlot;
 
         SelectBuilding(0);
 
@@ -43,16 +49,15 @@ public class BuyBuildingWindow : MonoBehaviour
 
     public void BuySelected()
     {
-        SelectedBuyablePlot.BuyBuilding(_building);
+        _selectedBuyablePlot.BuyBuilding(_building);
         CloseWindow();
     }
 
     public void CloseWindow()
     {
         gameObject.SetActive(false);
-
-        SelectedBuyablePlot.CanvasCancelButton();
-
+        _selectedBuyablePlot.CanvasCancelButton();
+        _selectedBuyablePlot = null;
         CanvasControl.instance.EconomicPanel.SetActive(true);
         CanvasControl.instance.ControlsPanel.SetActive(true);
         CanvasControl.instance.InfoPanel.SetActive(true);

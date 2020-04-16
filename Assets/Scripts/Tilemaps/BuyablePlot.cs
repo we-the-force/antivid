@@ -33,7 +33,10 @@ public class BuyablePlot : MonoBehaviour
     GameObject canvas;
     [SerializeField]
     bool interactingWithCanvas = false;
-    //A list of what can be built depending on the dimensions.
+
+    BuyBuildingWindow buyBuildingWindow;
+    //BuyBuildingWindow
+
     private void Awake()
     {
         pfnode = GetComponent<PathFindingNode>();
@@ -42,13 +45,14 @@ public class BuyablePlot : MonoBehaviour
         IsBought = false;
         IsBuyable = true;
         UpdateCost();
-      //  ShowCanvas();
+        //  ShowCanvas();
     }
     void Start()
     {
         HandleModel();
         canvas.GetComponent<RectTransform>().rotation = Quaternion.Euler(90f, 0, 0);
-
+        //buyBuildingWindow = GameObject.Find("BuyBuildingWindow").GetComponent<BuyBuildingWindow>();
+        buyBuildingWindow = GameObject.Find("Canvas").transform.Find("BuyBuildingWindow").GetComponent<BuyBuildingWindow>();
     }
 
     private void TicReceived()
@@ -216,7 +220,7 @@ public class BuyablePlot : MonoBehaviour
                     auxNode = NodeType.Entertainment;
                     break;
             }
-                        
+
             WorldManager.TicDelegate += TicReceived;
             //Buy(type == 0 ? NodeType.HealthCare : type == 1 ? NodeType.Food : NodeType.Entertainment);           
         }
@@ -224,7 +228,7 @@ public class BuyablePlot : MonoBehaviour
         {
             Debug.LogError("No tiene dinero " + Cost.ToString());
         }
-        
+
     }
     public void CanvasCancelButton()
     {
@@ -235,12 +239,12 @@ public class BuyablePlot : MonoBehaviour
 
     void ShowCanvas()
     {
-        if (interactingWithCanvas)
+        if (interactingWithCanvas && buyBuildingWindow.SelectedBuyablePlot == null)
         {
             WorldManager.instance.ChangeTimeScale(0);
             CanvasControl.instance.ShowBuildWindow(this);
         }
-
+        Debug.Log($"Tried to do the thing but couldn do it lmao ({interactingWithCanvas} && {(buyBuildingWindow.SelectedBuyablePlot == null)})");
 
         //canvas.SetActive(interactingWithCanvas);
     }
