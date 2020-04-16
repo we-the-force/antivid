@@ -61,6 +61,7 @@ public class BuyBuildingWindow : MonoBehaviour
         CanvasControl.instance.EconomicPanel.SetActive(true);
         CanvasControl.instance.ControlsPanel.SetActive(true);
         CanvasControl.instance.InfoPanel.SetActive(true);
+        CanvasControl.instance.PolicyPanel.SetActive(true);
     }
 
 

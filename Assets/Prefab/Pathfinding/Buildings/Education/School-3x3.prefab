@@ -381,15 +381,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1570f164b9443f45af3e99d32a1c444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MainNeedCovered: 4
+  BaseNeedCovered: 4
   TimeToCoverNeed: 2.5
-  TicsToCoverNeed: 25
-  PercentageRestored: 100
-  AgentCapacity: 10
+  BaseTicsToCoverNeed: 100
+  BasePercentageRestored: 100
+  ModTicsToCoverNeed: 1
+  ModPercentageRestored: 1
+  ModAgentCapacity: 1
+  BaseAgentCapacity: 15
   CurrentAgentCount: 0
   AssociatedNode: {fileID: 0}
   UpkeepCost: 937.5
   myWarehouse: {fileID: 0}
+  _currentNeedCovered: 0
+  _ticsToCoverNeed: 0
+  _percentageRecovered: 0
+  _agentCapacity: 0
 --- !u!65 &3888273397042115772
 BoxCollider:
   m_ObjectHideFlags: 0

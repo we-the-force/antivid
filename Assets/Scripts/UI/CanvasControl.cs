@@ -12,7 +12,8 @@ public class CanvasControl : MonoBehaviour
     public GameObject EconomicPanel;
     public GameObject ControlsPanel;
     public GameObject InfoPanel;
-    
+    public GameObject PolicyPanel;
+
     public Text txtTotPop;
     public Text txtSick;
     public Text txtDead;
@@ -25,9 +26,9 @@ public class CanvasControl : MonoBehaviour
 
     public void Statistic(List<AgentController> fromPopulation)
     {
-        int totSick=0;
-        int totDead=0;
-        int totInmune=0;
+        int totSick = 0;
+        int totDead = 0;
+        int totInmune = 0;
 
         for (int i = 0; i < fromPopulation.Count; i++)
         {
@@ -45,14 +46,14 @@ public class CanvasControl : MonoBehaviour
                     break;
                 case GlobalObject.AgentStatus.Out_of_circulation:
                     totDead++;
-                    break;                
+                    break;
             }
         }
 
         txtTotPop.text = fromPopulation.Count.ToString();
         txtDead.text = totDead.ToString();
         txtSick.text = totSick.ToString();
-        txtInmune.text = totInmune.ToString();    
+        txtInmune.text = totInmune.ToString();
     }
 
     public void ShowBuildWindow(BuyablePlot _buyablePlot)
@@ -60,10 +61,9 @@ public class CanvasControl : MonoBehaviour
         EconomicPanel.SetActive(false);
         ControlsPanel.SetActive(false);
         InfoPanel.SetActive(false);
+        PolicyPanel.SetActive(false);
 
         BuildWindow.ShowWindow(_buyablePlot);
     }
 
 }
-
-

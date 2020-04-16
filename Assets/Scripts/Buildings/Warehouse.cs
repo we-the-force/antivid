@@ -26,7 +26,7 @@ public class Warehouse : MonoBehaviour
     {
         bool GoodExist = false;
 
-        Debug.LogError(">Almacenando para need " + forNeed.ToString() + " Qty " + Qty);
+        Debug.LogWarning(">Almacenando para need " + forNeed.ToString() + " Qty " + Qty);
 
         for (int i = 0; i < StockPile.Count; i++)
         {

@@ -394,7 +394,7 @@ MonoBehaviour:
       TicsToCoverNeed: 10
       TicValue: 1
     - Need: 1
-      PercentageToCompare: 90
+      PercentageToCompare: 75
       TicsToCoverNeed: 30
       TicValue: 1
     - Need: 2
@@ -402,7 +402,7 @@ MonoBehaviour:
       TicsToCoverNeed: 15
       TicValue: 1
     - Need: 5
-      PercentageToCompare: 90
+      PercentageToCompare: 85
       TicsToCoverNeed: 10
       TicValue: 1
     resourceProduction: 0.9
@@ -559,6 +559,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AgentPrefab: {fileID: 4743075006342897453, guid: 84d2765961a894e4b9751e03153f2b21,
     type: 3}
+  AgentAnchor: {fileID: 5160226373831960405}
   AgentAnimationCollection:
   - Perk: 0
     AnimationPrefab: {fileID: 4156003515841724013, guid: de9085ab7e316244fa99865d5b9dc895,
@@ -584,10 +585,6 @@ MonoBehaviour:
   - Perk: 7
     AnimationPrefab: {fileID: 8649870468810775337, guid: 083b0d2902db86b4b8d262f68c93e6ba,
       type: 3}
-  AgentPrefabCollection:
-  - {fileID: 4743075006342897453, guid: 84d2765961a894e4b9751e03153f2b21, type: 3}
-  - {fileID: 4893472308648014615, guid: c21326080ef6dad4487315753e902934, type: 3}
-  AgentAnchor: {fileID: 5160226373831960405}
   SneezeBaseFrequency: 10
   SneezePrefab: {fileID: 5738051209377488478, guid: 21d9acae3ca97274fba835c6146655cc,
     type: 3}
@@ -601,6 +598,7 @@ MonoBehaviour:
   TotalBuildingUpkeepCost: 0
   TotalAgentIncome: 0
   initialInfectedDudes: 0
+  ActivePolicies: []
   ScenarioPercentagesForPerks:
   - Perk: 0
     Percentage: 0.2

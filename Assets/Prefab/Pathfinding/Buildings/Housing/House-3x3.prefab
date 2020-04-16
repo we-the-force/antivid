@@ -204,7 +204,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3756885184921549226}
   - component: {fileID: 6244374180134580841}
-  - component: {fileID: 1423276799678628237}
   m_Layer: 0
   m_Name: Base_EDF
   m_TagString: Untagged
@@ -234,44 +233,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1788433980202415558}
   m_Mesh: {fileID: 560527641870329500, guid: 42a32f4e427218242ad9a669cb143e3a, type: 3}
---- !u!23 &1423276799678628237
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1788433980202415558}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 5561349426305759274, guid: 42a32f4e427218242ad9a669cb143e3a, type: 3}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
 --- !u!1 &2022331145445435021
 GameObject:
   m_ObjectHideFlags: 0
@@ -787,6 +748,7 @@ GameObject:
   - component: {fileID: 2710027372233662234}
   - component: {fileID: 4969676439675427382}
   - component: {fileID: 8514814139774493643}
+  - component: {fileID: 1423276799678628237}
   m_Layer: 8
   m_Name: House-3x3
   m_TagString: Untagged
@@ -842,16 +804,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1570f164b9443f45af3e99d32a1c444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MainNeedCovered: 1
+  BaseNeedCovered: 1
   TimeToCoverNeed: 2.5
-  TicsToCoverNeed: 20
-  PercentageRestored: 100
-  AgentCapacity: 5
+  BaseTicsToCoverNeed: 20
+  BasePercentageRestored: 100
+  ModTicsToCoverNeed: 1
+  ModPercentageRestored: 1
+  ModAgentCapacity: 1
+  BaseAgentCapacity: 5
   CurrentAgentCount: 0
   AssociatedNode: {fileID: 0}
   UpkeepCost: 112.5
   myWarehouse: {fileID: 0}
   myBuildingRandomizer: {fileID: 0}
+  _currentNeedCovered: 0
+  _ticsToCoverNeed: 0
+  _percentageRecovered: 0
+  _agentCapacity: 0
 --- !u!65 &2710027372233662234
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -902,6 +871,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5850c8209957e5b44adebac3e9929954, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SelectedTemplate: 0
   DecorationAnchor: {fileID: 7397987361957364659}
   TemplateCollection:
   - gameObjects:
@@ -916,6 +886,43 @@ MonoBehaviour:
   - gameObjects:
     - {fileID: 3030027573942733969}
     - {fileID: 520369617709760375}
+--- !u!23 &1423276799678628237
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3065604225176157145}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials: []
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!1 &3420807958770779697
 GameObject:
   m_ObjectHideFlags: 0

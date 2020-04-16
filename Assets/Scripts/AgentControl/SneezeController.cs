@@ -58,7 +58,7 @@ public class SneezeController : MonoBehaviour
         sneezeEffect.SetActive(true);
         myCollider.enabled = true;
 
-        Debug.LogError("Sneeze");
+        //Debug.LogError("Sneeze");
 
         while (true)
         {

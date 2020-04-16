@@ -224,16 +224,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1570f164b9443f45af3e99d32a1c444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MainNeedCovered: 7
+  BaseNeedCovered: 7
   TimeToCoverNeed: 10
-  TicsToCoverNeed: 0
-  PercentageRestored: 0
-  AgentCapacity: 0
+  BaseTicsToCoverNeed: 0
+  BasePercentageRestored: 0
+  ModTicsToCoverNeed: 1
+  ModPercentageRestored: 1
+  ModAgentCapacity: 1
+  BaseAgentCapacity: 0
   CurrentAgentCount: 0
   AssociatedNode: {fileID: 0}
   UpkeepCost: 200
   myWarehouse: {fileID: 0}
   myBuildingRandomizer: {fileID: 0}
+  _currentNeedCovered: 0
+  _ticsToCoverNeed: 0
+  _percentageRecovered: 0
+  _agentCapacity: 0
 --- !u!65 &2710027372233662234
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -996,6 +1003,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 9054797033907674426}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: 5dd22e9f3fce3f345be15d2c03c5f839,
+        type: 3}
+      propertyPath: m_Name
+      value: EDF_HOTEL
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 5dd22e9f3fce3f345be15d2c03c5f839,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1050,11 +1062,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 5dd22e9f3fce3f345be15d2c03c5f839,
-        type: 3}
-      propertyPath: m_Name
-      value: EDF_HOTEL
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5dd22e9f3fce3f345be15d2c03c5f839, type: 3}
