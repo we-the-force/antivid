@@ -23,6 +23,8 @@ public class NodeTile : TileBase
     [SerializeField]
     public NodeType m_nodeType;
 
+
+
     public override void GetTileData(Vector3Int position, ITilemap tilemap, ref TileData tileData)
     {
         if (m_Preview)
@@ -44,7 +46,15 @@ public class NodeTile : TileBase
         {
             var aux = tilemap.GetTransformMatrix(position).rotation.eulerAngles;
 
-            go.transform.parent = GameObject.Find("NodeCollection").transform;
+            if (m_nodeType == NodeType.None)
+            {
+                go.transform.parent = GameObject.Find("GrassCollection").transform;
+            }
+            else
+            {
+                go.transform.parent = GameObject.Find("NodeCollection").transform;
+            }
+
             //go.transform.parent = GameObject.Find("Objects").transform.Find(m_nodeType.ToString());
             go.transform.localPosition += m_positionOffset;
             go.transform.localRotation = Quaternion.Euler(0, -aux.z, 0);

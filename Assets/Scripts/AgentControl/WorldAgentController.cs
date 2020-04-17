@@ -73,7 +73,7 @@ public class WorldAgentController : MonoBehaviour
     void PoblateBuildings()
     {
         Buildings.Clear();
-        List<NodeType> auxList = new List<NodeType>() { NodeType.HealthCare, NodeType.House, NodeType.Education, NodeType.Food, NodeType.Workplace, NodeType.Entertainment, NodeType.Buyable };
+        List<NodeType> auxList = new List<NodeType>() { NodeType.HealthCare, NodeType.House, NodeType.Education, NodeType.Food, NodeType.Workplace, NodeType.Entertainment, NodeType.Buyable, NodeType.Border };
         List<PathFindingNode> nodeList = WorldManager.instance.NodeCollection.FindAll(x => auxList.Contains(x.nodeType));
         foreach (PathFindingNode pfn in nodeList)
         {
@@ -108,21 +108,42 @@ public class WorldAgentController : MonoBehaviour
                 _agent.Speed = Random.Range(1f, 2f);
 
                 _agent.myHouse = auxHouses[i];
-                _agent.InitAgent();
+                //_agent.InitAgent();
 
                 AgentCollection.Add(_agent);
             }
         }
 
         //--- Calcula las cantidades de personas por tipo de Perk segun los porcentajes establecidos
+
+        List<GlobalObject.AgentPerk> _perksToCreate = new List<GlobalObject.AgentPerk>();
+
         for (int i = 0; i < ScenarioPercentagesForPerks.Count; i++)
         {
             ScenarioPercentagesForPerks[i].Qty = Mathf.RoundToInt(AgentCollection.Count * ScenarioPercentagesForPerks[i].Percentage);
 
+            for (int k = 0; k < ScenarioPercentagesForPerks[i].Qty; k++)
+            {
+                _perksToCreate.Add(ScenarioPercentagesForPerks[i].Perk);
+            }
+
             Debug.LogWarning("Para Perk " + ScenarioPercentagesForPerks[i].Perk.ToString() + " tantos monitos " + ScenarioPercentagesForPerks[i].Qty);
         }
 
-        List<GlobalObject.AgentPerk> _perksToCreate = new List<GlobalObject.AgentPerk>();
+        Debug.LogError("TotalAgentes: " + AgentCollection.Count + " >>> TotalPerks " + _perksToCreate.Count);
+
+        //--- Randomiza la lista de perks
+        for (int i = 0; i < _perksToCreate.Count; i++)
+        {
+            GlobalObject.AgentPerk _tmpPerk = _perksToCreate[i];
+            int rnd = Random.Range(i, _perksToCreate.Count);
+            _perksToCreate[i] = _perksToCreate[rnd];
+            _perksToCreate[rnd] = _tmpPerk;
+        }
+
+
+       // List<GlobalObject.AgentPerk> _perksToCreate = new List<GlobalObject.AgentPerk>();
+       /*
         int cPerk = 0;
         int killswitch = 0;
         while (true)
@@ -152,7 +173,7 @@ public class WorldAgentController : MonoBehaviour
                 break;
             }
         }
-
+        */
         //  Debug.LogError(">>> TOTAL PERKS " + _perksToCreate.Count + " >>> Agents " + AgentCollection.Count);
 
         for (int i = 0; i < AgentCollection.Count; i++)

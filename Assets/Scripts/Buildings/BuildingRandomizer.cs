@@ -9,6 +9,13 @@ public class BuildingRandomizer : MonoBehaviour
     public Transform DecorationAnchor;
     public List<BuildingTemplate> TemplateCollection;
 
+    public bool InitAutomatically = false;
+
+    private void Start()
+    {
+        if (InitAutomatically)
+            InitBuilding();
+    }
 
     public void InitBuilding(int _template = -1)
     {
