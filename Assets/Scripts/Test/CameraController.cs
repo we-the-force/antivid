@@ -95,9 +95,9 @@ public class CameraController : MonoBehaviour
     void ZoomCamera(int zoom)
     {
         float zoomFactor = zoomSpeed * Time.deltaTime * zoom;
-        if (currentZoom + zoomFactor < 1.5f)
+        if (currentZoom + zoomFactor < 0.75f)
         {
-            currentZoom = 1.5f;
+            currentZoom = 0.75f;
         }
         else if (currentZoom + zoomFactor > 15f)
         {

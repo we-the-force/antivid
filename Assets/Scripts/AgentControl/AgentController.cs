@@ -132,7 +132,8 @@ public class AgentController : MonoBehaviour
             {
                 PerkPercentages pp = WorldManager.instance.NeedPercentageBaseCollection[i];
 
-                myNeedList = pp.NeedPercentageCollection;
+                //myNeedList = pp.NeedPercentageCollection;
+                myNeedList = pp.CloneNeedPercentage();
                 resourceProduction = pp.resourceProduction;
                 PercentageForTheBackPack = pp.PercentageForBackPack;
 
@@ -368,6 +369,7 @@ public class AgentController : MonoBehaviour
     /// </summary>
     private void HandleQuarantine()
     {
+        //Debug.LogError("Quarantine :C");
         if (myDestinationBuilding != myHouse && !ExecutingBuilding)
         {
             TakeCareOfNeed(GlobalObject.NeedScale.Sleep);
@@ -381,6 +383,21 @@ public class AgentController : MonoBehaviour
             }
 
             //TODO: Hacer que sacie sus necesidaes usando el warehouse de la casa.
+            foreach (NeedPercentage np in myNeedList)
+            {
+                if (np.Need == GlobalObject.NeedScale.Hunger || np.Need == GlobalObject.NeedScale.Entertainment || np.Need == GlobalObject.NeedScale.Education)
+                {
+                    if (np.CurrentPercentage > np.PercentageToCompare)
+                    {
+                        float quantity = myHouse.myWarehouse.UseGoods(np.Need, 20f);
+                        np.CurrentPercentage -= quantity;
+                        if (myHouse.GetComponent<PathFindingNode>().NodeID == 1)
+                        {
+                            Debug.Log($"Agent{AgentID} took {quantity} from houseID: {1}");
+                        }
+                    }
+                }
+            }
 
             List<NeedPercentage> CriticalNeeds = myNeedList.FindAll(x => (x.CurrentPercentage > (x.PercentageToCompare * 2)) && (x.Need == GlobalObject.NeedScale.Hunger || x.Need == GlobalObject.NeedScale.HealtCare));
 

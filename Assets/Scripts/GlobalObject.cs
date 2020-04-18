@@ -66,6 +66,16 @@ public class PerkPercentages
     public bool WillAttendHospitalOnMildCase;
     public bool WillRandomlyAttendHospital;
     public float PercentageForBackPack;
+
+    public List<NeedPercentage> CloneNeedPercentage()
+    {
+        List<NeedPercentage> auxList = new List<NeedPercentage>();
+        foreach (NeedPercentage np in NeedPercentageCollection)
+        {
+            auxList.Add(np.Clone());
+        }
+        return auxList;
+    }
 }
 
 [System.Serializable]
@@ -141,5 +151,19 @@ public class NeedPercentage
         CurrentPercentage += TicValue;
         //}
         return (CurrentPercentage - PercentageToCompare);
+    }
+
+    public NeedPercentage Clone()
+    {
+        NeedPercentage auxNP = new NeedPercentage()
+        {
+            Need = this.Need,
+            PercentageToCompare = this.PercentageToCompare,
+            CurrentPercentage = this.CurrentPercentage,
+            TicsToCoverNeed = this.TicsToCoverNeed,
+            TicValue = this.TicValue,
+            _quarter = this._quarter
+        };
+        return auxNP;
     }
 }

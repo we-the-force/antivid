@@ -788,6 +788,7 @@ MonoBehaviour:
   ConnectedNodes: []
   HeadingToConnectedNode: 
   ShortestPathCollection: []
+  SP_Destinations: 
   PathCostCollection: []
   rayLength: 0.05
   rayOffset: -0.001
@@ -848,16 +849,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StockPile:
   - Need: 0
-    CurrentQty: 0
-    BaseMaxQty: 300
+    CurrentQty: 250
+    BaseMaxQty: 1000
     CurrentMaxQty: 0
   - Need: 2
-    CurrentQty: 0
-    BaseMaxQty: 300
+    CurrentQty: 250
+    BaseMaxQty: 1000
     CurrentMaxQty: 0
   - Need: 4
-    CurrentQty: 0
-    BaseMaxQty: 300
+    CurrentQty: 250
+    BaseMaxQty: 1000
     CurrentMaxQty: 0
 --- !u!114 &8514814139774493643
 MonoBehaviour:
@@ -886,6 +887,7 @@ MonoBehaviour:
   - gameObjects:
     - {fileID: 3030027573942733969}
     - {fileID: 520369617709760375}
+  InitAutomatically: 0
 --- !u!23 &1423276799678628237
 MeshRenderer:
   m_ObjectHideFlags: 0

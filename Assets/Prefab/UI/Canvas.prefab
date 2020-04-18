@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00012207031, y: -0.0006957328}
+  m_AnchoredPosition: {x: 0, y: -0.00026522443}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &25137568
@@ -390,6 +390,7 @@ GameObject:
   - component: {fileID: 1422321955}
   - component: {fileID: 1422321957}
   - component: {fileID: 1422321956}
+  - component: {fileID: 1787323971}
   m_Layer: 5
   m_Name: PolicyPanel
   m_TagString: Untagged
@@ -453,6 +454,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!65 &1787323971
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1422321954}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 200, y: 200, z: 0.1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1492199649
 GameObject:
   m_ObjectHideFlags: 0
@@ -803,7 +817,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 443989799}
   m_Direction: 0
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.99999905
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1991,7 +2005,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &9201387680210376484
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3502,7 +3516,7 @@ MonoBehaviour:
   EconomicPanel: {fileID: 9201387680000882599}
   ControlsPanel: {fileID: 9201387681882547568}
   InfoPanel: {fileID: 9201387680504227182}
-  PolicyPanel: {fileID: 0}
+  PolicyPanel: {fileID: 1422321954}
   txtTotPop: {fileID: 9201387680579861521}
   txtSick: {fileID: 9201387680654221889}
   txtDead: {fileID: 9201387681684516670}
@@ -6425,6 +6439,7 @@ GameObject:
   - component: {fileID: 9201387681882547569}
   - component: {fileID: 9201387681882547571}
   - component: {fileID: 9201387681882547570}
+  - component: {fileID: 475408098}
   m_Layer: 5
   m_Name: SpeedModifier
   m_TagString: Untagged
@@ -6492,6 +6507,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!65 &475408098
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9201387681882547568}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 338, y: 50, z: 0.01}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &9201387681915078796
 GameObject:
   m_ObjectHideFlags: 0
