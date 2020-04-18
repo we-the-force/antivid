@@ -60,10 +60,7 @@ public class BuyBuildingWindow : MonoBehaviour
         gameObject.SetActive(false);
         _selectedBuyablePlot.CanvasCancelButton();
         _selectedBuyablePlot = null;
-        CanvasControl.instance.EconomicPanel.SetActive(true);
-        CanvasControl.instance.ControlsPanel.SetActive(true);
-        CanvasControl.instance.InfoPanel.SetActive(true);
-        CanvasControl.instance.PolicyPanel.SetActive(true);
+        CanvasControl.instance.ShowHideUI(true);
     }
 
 
