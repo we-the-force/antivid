@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PolicyName: Turn schools into hospitals
   PolicyDescription: Turn schools into hospitals
-  Enabled: 1
+  Enabled: 0
+  IsQuarantine: 0
   TransformBuildingSection:
     Enabled: 1
     BuildingToChange: 4

@@ -93,7 +93,7 @@ public class NeedPercentage
     public GlobalObject.NeedScale Need;
     public float PercentageToCompare = 100;
 
-    public float CurrentPercentage { get; set; }
+    public float CurrentPercentage/* { get; set; }*/;
 
     // public float PercentageToAddPerTic;
 
@@ -124,21 +124,22 @@ public class NeedPercentage
 
     public float PercentageDifference()
     {
-        /*if (CurrentPercentage > PercentageToCompare)
+        /*
+        if (CurrentPercentage > PercentageToCompare)
         {
             _quarter += 0.25f;
 
             if (_quarter >= 1.0f)
             {
-                CurrentPercentage+=TicValue;
+                CurrentPercentage += TicValue;
                 _quarter = 0;
             }
         }
         else
-        {*/
-            CurrentPercentage += TicValue;
-       // }
-
+        {
+        */
+        CurrentPercentage += TicValue;
+        //}
         return (CurrentPercentage - PercentageToCompare);
     }
 }

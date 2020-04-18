@@ -182,7 +182,7 @@ public class AgentController : MonoBehaviour
             {
                 WorldAgentController.instance.CalculateAgentIncome();
             }
-        }        
+        }
         previousStatus = myStatus;
 
         //--- Cuando se estan ejecutando los edificios, se suman los un contador de Tic para tener control del tiempo
@@ -193,7 +193,7 @@ public class AgentController : MonoBehaviour
             TicCounter++;
             return;
         }
-        
+
         //--- Si estornuda hace una pausa, para no moverse de ese lugar hasta que termine el estornudo
         if (Sneezing)
             return;
@@ -201,8 +201,20 @@ public class AgentController : MonoBehaviour
         //--- Determina la siguiente necesidad que tiene que cubrir el agente, y en caso de que si exista 
         //--- esa necesidad, solicita la ruta hacia el edificio y comienza a ejecutar
         if (myStatus != GlobalObject.AgentStatus.Out_of_circulation && myStatus != GlobalObject.AgentStatus.BeingTreated)
-            TakeCareOfNeed(NextNeed());
-                  
+        {
+            //--- Si hay cuarentena, se ejecuta el comportamiento de cuarentena.
+            //--- Si no, se ejecuta el comportamiento normalon.
+            if (PolicyManager.Instance.IsOnQuarantine)
+            {
+                HandleQuarantine();
+            }
+            else
+            {
+                TakeCareOfNeed(NextNeed());
+            }
+        }
+        //}
+
     }
 
     IEnumerator Life()
@@ -212,7 +224,6 @@ public class AgentController : MonoBehaviour
         yield return new WaitForSeconds(time);
         TakeCareOfNeed(GlobalObject.NeedScale.Wander);
     }
-
 
     /// <summary>
     /// Regresa verdadero solo cuando queda fuera de circulacion
@@ -349,6 +360,45 @@ public class AgentController : MonoBehaviour
         return _need;
     }
 
+    /// <summary>
+    /// Cuando hay cuarentena se mete a este chavo
+    /// Primero checa si esta en su casita; si no, lo manda a mimir.
+    /// Despues, si ya esta en su casita, pone invisible al chavo, le incrementa sus necesidades
+    /// si su status es Serious_Case lo manda al hospital. Si su hambre sube mucho tambien lo manda a comers.
+    /// </summary>
+    private void HandleQuarantine()
+    {
+        if (myDestinationBuilding != myHouse && !ExecutingBuilding)
+        {
+            TakeCareOfNeed(GlobalObject.NeedScale.Sleep);
+        }
+        else if (myCurrentNode.ConnectedNodes.Contains(myHouse.GetComponent<PathFindingNode>()))
+        {
+            SetVisibility(false);
+            for (int i = 0; i < myNeedList.Count; i++)
+            {
+                myNeedList[i].PercentageDifference();
+            }
+
+            //TODO: Hacer que sacie sus necesidaes usando el warehouse de la casa.
+
+            List<NeedPercentage> CriticalNeeds = myNeedList.FindAll(x => (x.CurrentPercentage > (x.PercentageToCompare * 2)) && (x.Need == GlobalObject.NeedScale.Hunger || x.Need == GlobalObject.NeedScale.HealtCare));
+
+            if (myStatus == GlobalObject.AgentStatus.Serious_Case)
+            {
+                Debug.Log("Should be leaving Quarantine now :'c (Gotta go to the hospital)");
+                SetVisibility(true);
+                TakeCareOfNeed(GlobalObject.NeedScale.HealtCare);
+            }
+            if (CriticalNeeds.Count > 0)
+            {
+                Debug.LogError($"Should be leaving Quarantine now (qty: {CriticalNeeds.Count}, [0]: {CriticalNeeds[0].Need}, Perk: {myPerk}) :'c");
+                SetVisibility(true);
+                TakeCareOfNeed(GlobalObject.NeedScale.Hunger);
+            }
+        }
+    }
+
     private void TakeCareOfNeed(GlobalObject.NeedScale _need)
     {
         //--- Si ya se esta atendiendo una necesidad, no cambia de necesidad, pero si va 
@@ -382,7 +432,7 @@ public class AgentController : MonoBehaviour
 
             if (myDestinationBuilding == null)
             {
-                //Debug.LogError($"Building was null! Need: {_need}");
+                Debug.LogError($"Building was null! Need: {_need}");
                 _need = GlobalObject.NeedScale.Wander;
                 NeedTakenCare = _need;
                 GetRoad();
@@ -403,6 +453,7 @@ public class AgentController : MonoBehaviour
             TakingCareOfNeed = false;
             return;
         }
+
 
         IconController.ShowIconFor(NeedTakenCare);
 
@@ -440,10 +491,10 @@ public class AgentController : MonoBehaviour
                 break;
             }
         }
-        
+
         if (NeedTakenCare == GlobalObject.NeedScale.Wander)
         {
-            if(_myNeedPercentage != null) _myNeedPercentage.CurrentPercentage = 0;
+            if (_myNeedPercentage != null) _myNeedPercentage.CurrentPercentage = 0;
 
             if (myStatus == GlobalObject.AgentStatus.Mild_Case || myStatus == GlobalObject.AgentStatus.Serious_Case)
             {
@@ -482,6 +533,7 @@ public class AgentController : MonoBehaviour
                     yield break;
                 }
                 //--- En caso de que sea un Building, pero este lleno;  se va a deambular un rato.
+                Debug.LogError($"Building was full Need: {NeedTakenCare} [AgentController.ExecuteDestiny()]");
                 TakeCareOfNeed(GlobalObject.NeedScale.Wander);
                 yield break;
             }
@@ -501,7 +553,7 @@ public class AgentController : MonoBehaviour
                     {
                         AgentController _agent = WorldAgentController.instance.AgentCollection[i];
 
-                        if (_agent.ExecutingBuilding)
+                        if (_agent.ExecutingBuilding && _agent.currentNodeId == currentNodeId)
                         {
                             _agent.AddContagion(WorldManager.instance.buildingInfectionPercentage, false);
                         }
@@ -559,15 +611,26 @@ public class AgentController : MonoBehaviour
                         }
                     }
                 }
-                
-                if (_myNeedPercentage != null) _myNeedPercentage.CurrentPercentage -= myDestinationBuilding.PercentageRestored;
-                
+
+                if (_myNeedPercentage != null)
+                {
+                    if (_myNeedPercentage.CurrentPercentage - myDestinationBuilding.PercentageRestored < 0)
+                    {
+                        _myNeedPercentage.CurrentPercentage = 0;
+                    }
+                    else
+                    {
+                        _myNeedPercentage.CurrentPercentage -= myDestinationBuilding.PercentageRestored;
+
+                    }
+                }
+
                 ExecuteBuildingAction(myDestinationBuilding.MainNeedCovered);
 
                 ExecutingBuilding = false;
                 SetVisibility(true);
                 myDestinationBuilding.CurrentAgentCount--;
-             //   myDestinationBuilding = null;
+                //   myDestinationBuilding = null;
 
                 if (myStatus == GlobalObject.AgentStatus.Mild_Case || myStatus == GlobalObject.AgentStatus.Serious_Case)
                 {
@@ -617,7 +680,7 @@ public class AgentController : MonoBehaviour
                 break;
         }
     }
-    
+
     public void SetVisibility(bool visible)
     {
         AnimationObject.SetActive(visible);
