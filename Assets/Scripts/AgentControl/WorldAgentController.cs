@@ -7,6 +7,11 @@ public class WorldAgentController : MonoBehaviour
     public GameObject AgentPrefab;
     public Transform AgentAnchor;
 
+    public float InitialSpeed;
+    public float SpeedStep;
+    public int SpeedVariationQty;
+    public List<float> SpeedList;
+
     public List<AnimationForPerk> AgentAnimationCollection;
 
     public float SneezeBaseFrequency = 10f;
@@ -46,6 +51,14 @@ public class WorldAgentController : MonoBehaviour
 
     private void Start()
     {
+        SpeedList = new List<float>();
+        float _sp = InitialSpeed;
+        for (int i = 0; i < SpeedVariationQty; i++)
+        {
+            SpeedList.Add(_sp);
+            _sp += SpeedStep;
+        }
+
         StartCoroutine(DelayedStart());
     }
 
@@ -105,7 +118,9 @@ public class WorldAgentController : MonoBehaviour
                 _agent.myCurrentNode = auxHouses[i].AssociatedNode;
                 _agent.currentNodeId = auxHouses[i].AssociatedNode.NodeID;
 
-                _agent.Speed = Random.Range(1f, 2f);
+                int rnd = Random.Range(0, SpeedList.Count);
+
+                _agent.Speed = SpeedList[rnd];
 
                 _agent.myHouse = auxHouses[i];
                 //_agent.InitAgent();

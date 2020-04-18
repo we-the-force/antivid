@@ -208,7 +208,7 @@ public class AgentController : MonoBehaviour
     IEnumerator Life()
     {
         //--- Inicializa cada agente con un tiempo diferente en IDLE, y despues comienza a deambular.
-        float time = Random.Range(0.5f, 3.5f);
+        float time = Random.Range(2.5f, 3.5f);
         yield return new WaitForSeconds(time);
         TakeCareOfNeed(GlobalObject.NeedScale.Wander);
     }

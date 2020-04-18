@@ -16,6 +16,7 @@ public class PathFindingNode : MonoBehaviour
     public List<PathFindingNodeConnection> NodeConnection;// { get; set; }
 
     public List<string> ShortestPathCollection = new List<string>();
+    public List<int> SP_Destinations = new List<int>();
 
     public List<PathCost> PathCostCollection = new List<PathCost>();   
 

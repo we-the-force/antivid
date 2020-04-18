@@ -897,6 +897,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5583174368119082090, guid: d2606b8f6142b3a42ab212a657622e0a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: d2606b8f6142b3a42ab212a657622e0a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -979,6 +984,11 @@ PrefabInstance:
       value: ARBOL_1
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: d70b8966ba83cc14abb558d36b070d89,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2172859852426309026, guid: d70b8966ba83cc14abb558d36b070d89,
         type: 3}
       propertyPath: m_IsActive
       value: 0

@@ -23,13 +23,41 @@ public class AgentMovement : MonoBehaviour
         Agent = gameObject.GetComponent<AgentController>();
         myRigidBody = GetComponent<Rigidbody>();
     }
-    
+
+
+    private List<int> PathToFollow = new List<int>();
+    private int NextTileToFollow = 0;
+
     public void MoveAgent(int _objectiveNodeID)
     {
+        StopCoroutine("MovementAction");
+
         CurrentTileID = Agent.myCurrentNode.NodeID;
         ObjectiveNodeID = _objectiveNodeID;
 
-        NextTile = WorldManager.instance.GetNextTileInRoute(CurrentTileID, ObjectiveNodeID);
+        NextTileToFollow = 0;
+        PathToFollow = new List<int>();
+
+        string _path = WorldManager.instance.GetCompletePath(_objectiveNodeID, Agent.myCurrentNode);
+        string[] pathIdCollection = _path.Split(',');
+        
+        int tot = pathIdCollection.Length - 1;
+        for (int i = tot; i >= 0; i--)
+        {
+            int id = 0;
+            int.TryParse(pathIdCollection[i], out id);
+            PathToFollow.Add(id);
+        }
+
+        if (PathToFollow.Count > 0)
+        {            
+            NextTile = WorldManager.instance.GetNodeFromID(PathToFollow[NextTileToFollow]);
+        }
+        else
+        {
+            return;
+        }
+        //NextTile = WorldManager.instance.GetNextTileInRoute(CurrentTileID, ObjectiveNodeID, Agent.myCurrentNode);
 
         movementVector = new Vector3(0, 0, 0);
         getRotation();
@@ -79,7 +107,10 @@ public class AgentMovement : MonoBehaviour
 
                     CurrentTileID = NextTile.NodeID;
                     Agent.myCurrentNode = NextTile;
-                    NextTile = WorldManager.instance.GetNextTileInRoute(CurrentTileID, ObjectiveNodeID);
+
+                    NextTileToFollow++;
+                    NextTile = WorldManager.instance.GetNodeFromID(PathToFollow[NextTileToFollow]);
+                    //NextTile = WorldManager.instance.GetNextTileInRoute(CurrentTileID, ObjectiveNodeID, Agent.myCurrentNode);
 
                     getRotation();
 

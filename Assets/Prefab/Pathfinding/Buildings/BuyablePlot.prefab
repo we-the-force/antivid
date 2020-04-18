@@ -581,10 +581,10 @@ MonoBehaviour:
   Size: 2
   InvalidNodeTypes: 00000000010000000700000008000000
   Models:
-  - {fileID: 4875567195395189726, guid: e78fcf80f6e198c4199781e7cbc9f5ff, type: 3}
-  - {fileID: 8436850478240173345, guid: b637b0c89b20c954c8de5256f945baf7, type: 3}
-  - {fileID: 3989203539446070319, guid: 303601e0a1065a04f876fa6c88a572e7, type: 3}
-  - {fileID: 5504346094306199422, guid: b4cc777d11dc189489d48b6b57518af3, type: 3}
+  - {fileID: 461324823070731037, guid: 7604c6417d6322a41826ead7e76ebd85, type: 3}
+  - {fileID: 830158818256336126, guid: 7582aebf7f389aa40adca9818cdcf0f8, type: 3}
+  - {fileID: 4243843613992603775, guid: 868d859ab9ccafa46821080bf664fbc9, type: 3}
+  - {fileID: 3840625200791511951, guid: 397d088b61294464eadb64b1922b1597, type: 3}
   - {fileID: 1122533751775853360, guid: b697278d85000904f981496fb1f08641, type: 3}
   Materials:
   - {fileID: 2100000, guid: 01bc4bdde611f724090777b042eb92ea, type: 2}
@@ -596,6 +596,8 @@ MonoBehaviour:
   pfnode: {fileID: 2419314783476966323}
   buildCont: {fileID: 1743696623371903341}
   interactingWithCanvas: 0
+  newBuildingAnchor: {fileID: 2419314783361579698}
+  constructionAnchor: {fileID: 6986734673900992660}
 --- !u!114 &2419314783476966323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -612,6 +614,7 @@ MonoBehaviour:
   ConnectedNodes: []
   HeadingToConnectedNode: 
   ShortestPathCollection: []
+  SP_Destinations: 
   PathCostCollection: []
   rayLength: 0.05
   rayOffset: -0.001
@@ -1971,6 +1974,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CONSTRUCCION
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 4b12720203c0d8c4885438ffe124d3ad,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -3362863087836377926, guid: 4b12720203c0d8c4885438ffe124d3ad,
         type: 3}

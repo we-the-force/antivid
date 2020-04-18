@@ -124,7 +124,7 @@ public class NeedPercentage
 
     public float PercentageDifference()
     {
-        if (CurrentPercentage > PercentageToCompare)
+        /*if (CurrentPercentage > PercentageToCompare)
         {
             _quarter += 0.25f;
 
@@ -135,9 +135,9 @@ public class NeedPercentage
             }
         }
         else
-        {
+        {*/
             CurrentPercentage += TicValue;
-        }
+       // }
 
         return (CurrentPercentage - PercentageToCompare);
     }

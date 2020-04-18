@@ -105,7 +105,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 830158818256336126}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 19, y: 0, z: 6}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2383596411039142915}
@@ -129,6 +129,7 @@ MonoBehaviour:
   ConnectedNodes: []
   HeadingToConnectedNode: 
   ShortestPathCollection: []
+  SP_Destinations: 
   PathCostCollection: []
   rayLength: 0.05
   rayOffset: -0.001
@@ -145,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1570f164b9443f45af3e99d32a1c444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MainNeedCovered: 0
+  BaseNeedCovered: 0
   TimeToCoverNeed: 2.5
   BaseTicsToCoverNeed: 100
   BasePercentageRestored: 100
@@ -156,6 +157,9 @@ MonoBehaviour:
   CurrentAgentCount: 0
   AssociatedNode: {fileID: 0}
   UpkeepCost: 750
+  myWarehouse: {fileID: 0}
+  myBuildingRandomizer: {fileID: 0}
+  _currentNeedCovered: 0
   _ticsToCoverNeed: 0
   _percentageRecovered: 0
   _agentCapacity: 0

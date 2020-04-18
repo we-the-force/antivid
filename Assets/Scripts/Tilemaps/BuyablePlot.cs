@@ -14,6 +14,8 @@ public class BuyablePlot : MonoBehaviour
 
     public float TicsToBuild = 15;
 
+    private int modelId;
+
     public float Cost = 5f;
     public float UpkeepCost = 1000;
     public bool IsBuyable = true;
@@ -33,6 +35,8 @@ public class BuyablePlot : MonoBehaviour
     GameObject canvas;
     [SerializeField]
     bool interactingWithCanvas = false;
+
+
 
     BuyBuildingWindow buyBuildingWindow;
     //BuyBuildingWindow
@@ -70,7 +74,7 @@ public class BuyablePlot : MonoBehaviour
     public void Buy(NodeType type)
     {
         WorldManager.TicDelegate -= TicReceived;
-        UnderConstruction = false;
+        //UnderConstruction = false;
 
         canvas.SetActive(false);
 
@@ -78,7 +82,9 @@ public class BuyablePlot : MonoBehaviour
         IsBought = true;
         AssignedNode = type;
         UpdateCost();
+
         HandleModel();
+
         interactingWithCanvas = false;
         buildCont.BaseTicsToCoverNeed = type == NodeType.HealthCare ? 200 : 100;
         WorldAgentController.instance.CalculateBuildingUpkeepCost();
@@ -93,6 +99,18 @@ public class BuyablePlot : MonoBehaviour
         HandleModel();
         WorldAgentController.instance.CalculateBuildingUpkeepCost();
     }
+
+    public Transform newBuildingAnchor;
+    public Transform constructionAnchor;
+
+    /*IEnumerator rotateModel()
+    {
+        yield return new WaitForFixedUpdate();
+        AssignedModel.transform.localPosition = Vector3.zero;
+        AssignedModel.transform.localEulerAngles = Vector3.zero;
+        AssignedModel.SetActive(true);
+    }*/
+
     public void HandleModel()
     {
         if (IsBought)
@@ -100,26 +118,45 @@ public class BuyablePlot : MonoBehaviour
             if (!InvalidNodeTypes.Contains(AssignedNode))
             {
                 DestroyAssignedModel();
-                AssignedModel = Instantiate(Models[(int)Size], transform.GetChild(1));
+
+                Debug.LogError("MODEL ID " + modelId);
+                AssignedModel = Instantiate(Models[modelId], newBuildingAnchor);
+
+                AssignedModel.transform.localPosition = Vector3.zero;
+                AssignedModel.transform.localEulerAngles = Vector3.zero;
+                AssignedModel.SetActive(true);
+
+                //StartCoroutine("rotateModel");
+
+                constructionAnchor.gameObject.SetActive(false);
+                //AssignedModel = Instantiate(Models[(int)Size], transform.GetChild(1));
+
                 ChangeAssignedNodeType();
             }
             else
             {
                 DestroyAssignedModel();
-                AssignedModel = Instantiate(Models[4], transform.GetChild(1));
+                AssignedModel = Instantiate(Models[4], newBuildingAnchor);
+
+                StartCoroutine("rotateModel");
+
+                constructionAnchor.gameObject.SetActive(false);
+                //AssignedModel = Instantiate(Models[4], transform.GetChild(1));
                 ChangeAssignedNodeType();
             }
         }
         else
         {
             DestroyAssignedModel();
-            AssignedModel = Instantiate(Models[4], transform.GetChild(1));
+            AssignedModel = Instantiate(Models[4], newBuildingAnchor);
+           // constructionAnchor.gameObject.SetActive(false);
+            //AssignedModel = Instantiate(Models[4], transform.GetChild(1));
             ChangeAssignedNodeType();
         }
     }
     void ChangeAssignedNodeType()
     {
-        ChangeAssignedModelRoof();
+        //ChangeAssignedModelRoof();
         if (pfnode == null)
         {
             pfnode = GetComponent<PathFindingNode>();
@@ -150,6 +187,10 @@ public class BuyablePlot : MonoBehaviour
         }
         return GlobalObject.NeedScale.None;
     }
+    
+    
+    //--- ya no debe hacer eso por que ya son modelos finales
+    /*
     void ChangeAssignedModelRoof()
     {
         if (AssignedModel != null && AssignedModel != Models[4])
@@ -171,6 +212,7 @@ public class BuyablePlot : MonoBehaviour
             }
         }
     }
+    */
     void DestroyAssignedModel()
     {
         if (AssignedModel != null)
@@ -209,15 +251,19 @@ public class BuyablePlot : MonoBehaviour
             {
                 case 0:
                     auxNode = NodeType.HealthCare;
+                    modelId = 0;
                     break;
                 case 1:
                     auxNode = NodeType.Food;
+                    modelId = 1;
                     break;
                 case 2:
                     auxNode = NodeType.Education;
+                    modelId = 2;
                     break;
                 case 3:
                     auxNode = NodeType.Entertainment;
+                    modelId = 3;
                     break;
             }
 

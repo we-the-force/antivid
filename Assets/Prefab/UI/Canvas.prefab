@@ -802,8 +802,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 443989800}
   m_HandleRect: {fileID: 443989799}
   m_Direction: 0
-  m_Value: 1
-  m_Size: 0.99999934
+  m_Value: 0
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1991,7 +1991,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &9201387680210376484
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3502,6 +3502,7 @@ MonoBehaviour:
   EconomicPanel: {fileID: 9201387680000882599}
   ControlsPanel: {fileID: 9201387681882547568}
   InfoPanel: {fileID: 9201387680504227182}
+  PolicyPanel: {fileID: 0}
   txtTotPop: {fileID: 9201387680579861521}
   txtSick: {fileID: 9201387680654221889}
   txtDead: {fileID: 9201387681684516670}

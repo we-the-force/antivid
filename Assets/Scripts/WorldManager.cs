@@ -269,6 +269,11 @@ public class WorldManager : MonoBehaviour
                 rowObj.ShortestPathCollection.Add(lista[i]);
 
                 string[] pathIdCollection = lista[i].Split(',');
+
+                int _id = 0;
+                int.TryParse(pathIdCollection[0], out _id);
+                rowObj.SP_Destinations.Add(_id);
+
                 PathCost _pathCost = new PathCost();
 
                 _pathCost.TileID = int.Parse(pathIdCollection[0]);
@@ -313,21 +318,28 @@ public class WorldManager : MonoBehaviour
     /// <param name="somePosition">Posicion asignada a partir de la cual realiza la busqueda</param>
     /// <returns></returns>
     //public Transform GetNextTileInRoute(Transform myPosition, Transform somePosition = null)
-    public PathFindingNode GetNextTileInRoute(int myNodeID, int nextNodeID)
+    public PathFindingNode GetNextTileInRoute(int myNodeID, int nextNodeID, PathFindingNode _tileOrigin = null)
     {
         PathFindingNode result = null;
         PathFindingNode tileInfoOrigin = null;
-        PathFindingNode tileInfoDestination = null;
+       // PathFindingNode tileInfoDestination = null;
         string destinationId;
         string[] pathIdCollection;
 
-        for (int i = 0; i < NodeCollection.Count; i++)
+        if (_tileOrigin != null)
         {
-            if (NodeCollection[i].NodeID == myNodeID)
-                tileInfoOrigin = NodeCollection[i];
+            tileInfoOrigin = _tileOrigin;
+        }
+        else
+        {
+            for (int i = 0; i < NodeCollection.Count; i++)
+            {
+                if (NodeCollection[i].NodeID == myNodeID)
+                    tileInfoOrigin = NodeCollection[i];
 
-            if (NodeCollection[i].NodeID == nextNodeID)
-                tileInfoDestination = NodeCollection[i];
+                //if (NodeCollection[i].NodeID == nextNodeID)
+                //    tileInfoDestination = NodeCollection[i];
+            }
         }
 
         destinationId = nextNodeID.ToString();
@@ -352,5 +364,38 @@ public class WorldManager : MonoBehaviour
 
         return result;
     }
+
+    public string GetCompletePath(int destinationID, PathFindingNode _tileOrigin)
+    {
+        string _result = "";
+
+        for (int i = 0; i < _tileOrigin.SP_Destinations.Count; i++)
+        {
+            if (_tileOrigin.SP_Destinations[i] == destinationID)
+            {
+                _result = _tileOrigin.ShortestPathCollection[i];
+                break;
+            }
+        }
+
+        return _result;
+    }
+
+    public PathFindingNode GetNodeFromID(int pathNodeId)
+    {
+        PathFindingNode _result = null;
+
+        for (int i = 0; i < NodeCollection.Count; i++)
+        {
+            if (NodeCollection[i].NodeID == pathNodeId)
+            {
+                _result = NodeCollection[i];
+                break;
+            }
+        }
+
+        return _result;
+    }
+
 
 }
