@@ -9,15 +9,19 @@ public class CanvasControl : MonoBehaviour
 
     public BuyBuildingWindow BuildWindow;
 
-    public GameObject EconomicPanel;
-    public GameObject ControlsPanel;
-    public GameObject InfoPanel;
-    public GameObject PolicyPanel;
+    public GameObject UIElements;
+
+    public GameObject PolicyWindow;
 
     public Text txtTotPop;
     public Text txtSick;
     public Text txtDead;
     public Text txtInmune;
+
+    public GameObject policyQuarentine;
+    public GameObject policyFood;
+    public GameObject policyMoreHospitals;
+    public GameObject policyHospitalsEfficient;
 
     private void Awake()
     {
@@ -58,12 +62,33 @@ public class CanvasControl : MonoBehaviour
 
     public void ShowBuildWindow(BuyablePlot _buyablePlot)
     {
-        EconomicPanel.SetActive(false);
-        ControlsPanel.SetActive(false);
-        InfoPanel.SetActive(false);
-        PolicyPanel.SetActive(false);
-
+        ShowHideUI(false);
         BuildWindow.ShowWindow(_buyablePlot);
+    }
+
+    public void ShowPolicyWindow()
+    {
+        ShowHideUI(false);
+        PolicyWindow.SetActive(true);
+    }
+
+    public void HidePolicyWindow()
+    {
+        ShowHideUI(true);
+        PolicyWindow.SetActive(false);
+    }
+
+    public void ShowHideUI(bool show)
+    {
+        UIElements.SetActive(show);
+    }
+
+    public void ShowPolicySymbol(bool Quarantine, bool MoreFood, bool MoreHospitals, bool HospitalEfficient)
+    {
+        policyQuarentine.SetActive(Quarantine);
+        policyFood.SetActive(MoreFood);
+        policyMoreHospitals.SetActive(MoreHospitals);
+        policyHospitalsEfficient.SetActive(HospitalEfficient);
     }
 
 }
