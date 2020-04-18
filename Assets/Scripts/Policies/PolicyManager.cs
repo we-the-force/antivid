@@ -14,11 +14,17 @@ public class PolicyManager : MonoBehaviour
     GameObject viewportContent;
     [SerializeField]
     GameObject baseToggle;
+
+    [SerializeField]
+    bool _isOnQarantine;
     public static PolicyManager Instance
     {
         get { return _instance; }
     }
-
+    public bool IsOnQuarantine
+    {
+        get { return _isOnQarantine; }
+    }
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -67,6 +73,7 @@ public class PolicyManager : MonoBehaviour
         policy.Enabled = enabled;
         SendPoliciesToWorldManager();
         Debug.LogWarning(PoliciesToString());
+        _isOnQarantine = IsInQuarantine();
         //Policy aux = _policies.Find(x => x.PolicyName == policyName);
         //if (aux != null)
         //{
@@ -79,7 +86,17 @@ public class PolicyManager : MonoBehaviour
     {
         WorldAgentController.instance.ReceivePolicies(GetEnabledPolicies());
     }
-
+    bool IsInQuarantine()
+    {
+        foreach (Policy pol in GetEnabledPolicies())
+        {
+            if (pol.IsQuarantine)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
     public string PoliciesToString()
     {
         string aux = "";

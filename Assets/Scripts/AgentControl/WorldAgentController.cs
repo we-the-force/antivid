@@ -108,7 +108,7 @@ public class WorldAgentController : MonoBehaviour
                 _agent.Speed = Random.Range(1f, 2f);
 
                 _agent.myHouse = auxHouses[i];
-                _agent.InitAgent();
+                //_agent.InitAgent();
 
                 AgentCollection.Add(_agent);
             }

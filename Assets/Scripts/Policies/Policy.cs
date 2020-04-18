@@ -15,6 +15,8 @@ public class Policy : ScriptableObject
     public string PolicyName;
     public string PolicyDescription;
     public bool Enabled = false;
+    public bool IsQuarantine = false;
+
     public TransformBuilding TransformBuildingSection;
     public LimitBuilding LimitBuildingSection;
 
@@ -45,13 +47,17 @@ public class Policy : ScriptableObject
         string aux = "";
         aux += $"'{PolicyName}'        ({(Enabled ? "Enabled" : "Disabled")})\r\n\r\n{PolicyDescription.Replace(@"\r\n","\r\n")}";
         aux += "\r\n\r\n---Sections---\r\n";
+        if (IsQuarantine)
+        {
+            aux += $"••Quarantine••\r\n";
+        }
         if (TransformBuildingSection.Enabled)
         {
-            aux += $"•Transform Building\r\n    {TransformBuildingSection.ToString()}\r\n\r\n";
+            aux += $"•Transform Building\r\n    {TransformBuildingSection.ToString()}\r\n";
         }
         if (LimitBuildingSection.Enabled)
         {
-            aux += $"•Limit Building    {LimitBuildingSection.ToString()}\r\n\r\n";
+            aux += $"•Limit Building    {LimitBuildingSection.ToString()}\r\n";
         }
         if (BuildingEffectivitySection.Enabled)
         {
