@@ -210,8 +210,19 @@ public class WorldAgentController : MonoBehaviour
         //AgentCollection[0].SickIndicator.SetActive(true);
         CalculateBuildingUpkeepCost();
         CalculateAgentIncome();
-    }
 
+        //SetHouseWarehouseSupplies(750f);
+    }
+    void SetHouseWarehouseSupplies(float qty)
+    {
+        List<BuildingController> auxBCL = Buildings.FindAll(x => x.BaseNeedCovered == GlobalObject.NeedScale.Sleep);
+        foreach (BuildingController bc in auxBCL)
+        {
+            bc.myWarehouse.StoreGoods(GlobalObject.NeedScale.Hunger,        qty);
+            bc.myWarehouse.StoreGoods(GlobalObject.NeedScale.Education,     qty);
+            bc.myWarehouse.StoreGoods(GlobalObject.NeedScale.Entertainment, qty);
+        }
+    }
     public void ReceivePolicies(List<Policy> policies)
     {
         ActivePolicies.Clear();

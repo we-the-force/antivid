@@ -150,24 +150,29 @@ MonoBehaviour:
     NeedPercentageCollection:
     - Need: 0
       PercentageToCompare: 100
+      CurrentPercentage: 0
       TicsToCoverNeed: 25
-      TicValue: 1
+      TicValue: 0.5
     - Need: 1
       PercentageToCompare: 100
+      CurrentPercentage: 0
       TicsToCoverNeed: 25
-      TicValue: 1
+      TicValue: 0.5
     - Need: 2
       PercentageToCompare: 100
+      CurrentPercentage: 0
       TicsToCoverNeed: 30
-      TicValue: 1
+      TicValue: 0.5
     - Need: 4
       PercentageToCompare: 100
+      CurrentPercentage: 0
       TicsToCoverNeed: 25
-      TicValue: 1
+      TicValue: 0.5
     - Need: 5
       PercentageToCompare: 100
+      CurrentPercentage: 0
       TicsToCoverNeed: 10
-      TicValue: 1
+      TicValue: 0.5
     resourceProduction: 1
     WillAttendHospitalOnMildCase: 0
     WillRandomlyAttendHospital: 0
@@ -176,20 +181,24 @@ MonoBehaviour:
     NeedPercentageCollection:
     - Need: 0
       PercentageToCompare: 80
+      CurrentPercentage: 0
       TicsToCoverNeed: 10
-      TicValue: 1
+      TicValue: 0.5
     - Need: 1
       PercentageToCompare: 75
+      CurrentPercentage: 0
       TicsToCoverNeed: 30
-      TicValue: 1
+      TicValue: 0.5
     - Need: 2
       PercentageToCompare: 120
+      CurrentPercentage: 0
       TicsToCoverNeed: 15
-      TicValue: 1
+      TicValue: 0.5
     - Need: 5
       PercentageToCompare: 85
+      CurrentPercentage: 0
       TicsToCoverNeed: 10
-      TicValue: 1
+      TicValue: 0.5
     resourceProduction: 0.9
     WillAttendHospitalOnMildCase: 1
     WillRandomlyAttendHospital: 0
@@ -198,24 +207,29 @@ MonoBehaviour:
     NeedPercentageCollection:
     - Need: 0
       PercentageToCompare: 120
+      CurrentPercentage: 0
       TicsToCoverNeed: 10
-      TicValue: 1
+      TicValue: 0.5
     - Need: 1
       PercentageToCompare: 130
+      CurrentPercentage: 0
       TicsToCoverNeed: 40
-      TicValue: 1
+      TicValue: 0.5
     - Need: 4
       PercentageToCompare: 85
+      CurrentPercentage: 0
       TicsToCoverNeed: 25
-      TicValue: 1
+      TicValue: 0.5
     - Need: 5
       PercentageToCompare: 100
+      CurrentPercentage: 0
       TicsToCoverNeed: 10
-      TicValue: 1
+      TicValue: 0.5
     - Need: 7
       PercentageToCompare: 350
+      CurrentPercentage: 0
       TicsToCoverNeed: 10
-      TicValue: 1
+      TicValue: 0.5
     resourceProduction: 1.2
     WillAttendHospitalOnMildCase: 0
     WillRandomlyAttendHospital: 0
@@ -224,20 +238,24 @@ MonoBehaviour:
     NeedPercentageCollection:
     - Need: 0
       PercentageToCompare: 120
+      CurrentPercentage: 0
       TicsToCoverNeed: 5
-      TicValue: 1
+      TicValue: 0.5
     - Need: 1
       PercentageToCompare: 70
+      CurrentPercentage: 0
       TicsToCoverNeed: 50
-      TicValue: 1
+      TicValue: 0.5
     - Need: 2
       PercentageToCompare: 100
+      CurrentPercentage: 0
       TicsToCoverNeed: 15
-      TicValue: 1
+      TicValue: 0.5
     - Need: 4
       PercentageToCompare: 150
+      CurrentPercentage: 0
       TicsToCoverNeed: 10
-      TicValue: 1
+      TicValue: 0.5
     resourceProduction: 0.8
     WillAttendHospitalOnMildCase: 0
     WillRandomlyAttendHospital: 0
@@ -246,24 +264,29 @@ MonoBehaviour:
     NeedPercentageCollection:
     - Need: 0
       PercentageToCompare: 100
+      CurrentPercentage: 0
       TicsToCoverNeed: 25
-      TicValue: 1
+      TicValue: 0.5
     - Need: 1
       PercentageToCompare: 150
+      CurrentPercentage: 0
       TicsToCoverNeed: 10
-      TicValue: 1
+      TicValue: 0.5
     - Need: 2
       PercentageToCompare: 105
+      CurrentPercentage: 0
       TicsToCoverNeed: 25
-      TicValue: 1
+      TicValue: 0.5
     - Need: 4
       PercentageToCompare: 100
+      CurrentPercentage: 0
       TicsToCoverNeed: 25
-      TicValue: 1
+      TicValue: 0.5
     - Need: 5
       PercentageToCompare: 80
+      CurrentPercentage: 0
       TicsToCoverNeed: 5
-      TicValue: 1
+      TicValue: 0.5
     resourceProduction: 1
     WillAttendHospitalOnMildCase: 1
     WillRandomlyAttendHospital: 1
@@ -272,24 +295,29 @@ MonoBehaviour:
     NeedPercentageCollection:
     - Need: 0
       PercentageToCompare: 100
+      CurrentPercentage: 0
       TicsToCoverNeed: 25
-      TicValue: 1
+      TicValue: 0.5
     - Need: 1
       PercentageToCompare: 105
+      CurrentPercentage: 0
       TicsToCoverNeed: 35
-      TicValue: 1
+      TicValue: 0.5
     - Need: 2
       PercentageToCompare: 100
+      CurrentPercentage: 0
       TicsToCoverNeed: 25
-      TicValue: 1
+      TicValue: 0.5
     - Need: 5
       PercentageToCompare: 110
+      CurrentPercentage: 0
       TicsToCoverNeed: 10
-      TicValue: 1
+      TicValue: 0.5
     - Need: 7
       PercentageToCompare: 150
+      CurrentPercentage: 0
       TicsToCoverNeed: 35
-      TicValue: 1
+      TicValue: 0.5
     resourceProduction: 0.3
     WillAttendHospitalOnMildCase: 0
     WillRandomlyAttendHospital: 0
@@ -298,16 +326,19 @@ MonoBehaviour:
     NeedPercentageCollection:
     - Need: 0
       PercentageToCompare: 100
+      CurrentPercentage: 0
       TicsToCoverNeed: 10
-      TicValue: 1
+      TicValue: 0.5
     - Need: 1
       PercentageToCompare: 100
+      CurrentPercentage: 0
       TicsToCoverNeed: 30
-      TicValue: 1
+      TicValue: 0.5
     - Need: 7
       PercentageToCompare: 130
+      CurrentPercentage: 0
       TicsToCoverNeed: 60
-      TicValue: 1
+      TicValue: 0.5
     resourceProduction: 1.5
     WillAttendHospitalOnMildCase: 1
     WillRandomlyAttendHospital: 0
@@ -316,16 +347,19 @@ MonoBehaviour:
     NeedPercentageCollection:
     - Need: 0
       PercentageToCompare: 100
+      CurrentPercentage: 0
       TicsToCoverNeed: 10
-      TicValue: 1
+      TicValue: 0.5
     - Need: 2
       PercentageToCompare: 80
+      CurrentPercentage: 0
       TicsToCoverNeed: 20
-      TicValue: 1
+      TicValue: 0.5
     - Need: 1
       PercentageToCompare: 70
+      CurrentPercentage: 0
       TicsToCoverNeed: 60
-      TicValue: 1
+      TicValue: 0.5
     resourceProduction: 0.7
     WillAttendHospitalOnMildCase: 0
     WillRandomlyAttendHospital: 1

@@ -611,7 +611,7 @@ public class AgentController : MonoBehaviour
                 {
                     for (int i = 0; i < BackPack.Count; i++)
                     {
-                        myHouse.myWarehouse.StoreGoods(BackPack[i].Need, BackPack[i].CurrentQty);
+                        myHouse.myWarehouse.StoreGoods(BackPack[i].Need, BackPack[i].CurrentQty * 1.5f);
                         BackPack[i].CurrentQty = 0;
                     }
                 }

@@ -31500,6 +31500,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5160226374194979869, guid: f3eac50afae36f64887ea84c417fb721,
+        type: 3}
+      propertyPath: initialInfectedDudes
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3eac50afae36f64887ea84c417fb721, type: 3}
 --- !u!1001 &7442522305667468231
@@ -31599,6 +31604,16 @@ PrefabInstance:
       propertyPath: totalResourceGain
       value: 
       objectReference: {fileID: 1625108383}
+    - target: {fileID: 7442522305919376420, guid: d506d9f507a72c84facd38c600012728,
+        type: 3}
+      propertyPath: _currentCurrency
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7442522305919376420, guid: d506d9f507a72c84facd38c600012728,
+        type: 3}
+      propertyPath: initialCurrency
+      value: 1000000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d506d9f507a72c84facd38c600012728, type: 3}
 --- !u!1001 &9201387679978541176
@@ -31802,6 +31817,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 443989799, guid: 804fa6138a8088249ad6429a6f67e03f, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 443989799, guid: 804fa6138a8088249ad6429a6f67e03f, type: 3}
+      propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1492199650, guid: 804fa6138a8088249ad6429a6f67e03f, type: 3}
