@@ -10,20 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5a3657ee23f333c4fa55fb60fb430e72, type: 3}
-  m_Name: TEst4
+  m_Name: Test4
   m_EditorClassIdentifier: 
-  PolicyName: Mas hospital!
+  PolicyName: Education to houses
   PolicyDescription: 
   Enabled: 0
+  IsQuarantine: 0
+  UpkeepCost: 500
   TransformBuildingSection:
     Enabled: 0
     BuildingToChange: 6
     TargetBuilding: 6
     Percentage: 0
   LimitBuildingSection:
-    Enabled: 1
-    BuildingToChange: 3
-    Percentage: 2
+    Enabled: 0
+    BuildingToChange: 6
+    Percentage: 0
   BuildingEffectivitySection:
     Enabled: 0
     ParameterMods: []
+  DistributionEffectivitySection:
+    Enabled: 1
+    ParameterMods:
+    - Parameter: 2
+      Units: 200

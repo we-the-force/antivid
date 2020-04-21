@@ -16,32 +16,14 @@ public class Policy : ScriptableObject
     public string PolicyDescription;
     public bool Enabled = false;
     public bool IsQuarantine = false;
+    public float UpkeepCost;
 
     public TransformBuilding TransformBuildingSection;
     public LimitBuilding LimitBuildingSection;
 
     public BuildingEffectivity BuildingEffectivitySection;
+    public DistributionEffectivity DistributionEffectivitySection;
 
-    private void Awake()
-    {
-        InitSections();
-    }
-    
-    public void InitSections()
-    {
-        //if (TransformBuildingSection == null)
-        //{
-        //    TransformBuildingSection = new TransformBuilding();
-        //}
-        //if (LimitBuildingSection == null)
-        //{
-        //    LimitBuildingSection = new LimitBuilding();
-        //}
-        ////if (BuildingEffectivitySection == null)
-        ////{
-        ////    BuildingEffect
-        ////}
-    }
     public override string ToString()
     {
         string aux = "";
@@ -62,6 +44,10 @@ public class Policy : ScriptableObject
         if (BuildingEffectivitySection.Enabled)
         {
             aux += $"•Building Effectivity\r\n{BuildingEffectivitySection.ToString()}\r\n";
+        }
+        if (BuildingEffectivitySection.Enabled)
+        {
+            aux += $"•Distribution Effectivity\r\n{DistributionEffectivitySection.ToString()}\r\n";
         }
         return aux;
     }

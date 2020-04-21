@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5a3657ee23f333c4fa55fb60fb430e72, type: 3}
-  m_Name: Test0
+  m_Name: Test5
   m_EditorClassIdentifier: 
-  PolicyName: 'Cuarentena o:'
+  PolicyName: Entertainment to houses
   PolicyDescription: 
-  Enabled: 1
-  IsQuarantine: 1
-  UpkeepCost: 200
+  Enabled: 0
+  IsQuarantine: 0
+  UpkeepCost: 500
   TransformBuildingSection:
     Enabled: 0
     BuildingToChange: 6
@@ -30,5 +30,7 @@ MonoBehaviour:
     Enabled: 0
     ParameterMods: []
   DistributionEffectivitySection:
-    Enabled: 0
-    ParameterMods: []
+    Enabled: 1
+    ParameterMods:
+    - Parameter: 3
+      Units: 200

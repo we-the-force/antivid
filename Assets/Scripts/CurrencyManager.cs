@@ -74,8 +74,11 @@ public class CurrencyManager : MonoBehaviour
         {
             currentTic = 0;
             float buildingCosts = WorldAgentController.instance.TotalBuildingUpkeepCost;
+            float policyCosts = WorldAgentController.instance.TotalPolicyUpkeepCost;
             float agentIncome = WorldAgentController.instance.TotalAgentIncome;
-            float totalResource = agentIncome + extraIncome - buildingCosts;
+            float totalResource = agentIncome + extraIncome - buildingCosts - policyCosts;
+
+            Debug.Log($"b: {buildingCosts}, p: {policyCosts}, a: {agentIncome} ({agentIncome} + {extraIncome} - {buildingCosts} - {policyCosts} = {totalResource})");
 
             UpdateIncomeText(buildingCosts, agentIncome, totalResource);
 

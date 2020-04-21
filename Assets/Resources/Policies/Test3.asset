@@ -12,18 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a3657ee23f333c4fa55fb60fb430e72, type: 3}
   m_Name: Test3
   m_EditorClassIdentifier: 
-  PolicyName: Less building max limit (oxxos)
-  PolicyDescription: Lowers the max limit of people per building by 50%
+  PolicyName: Food to houses
+  PolicyDescription: 
   Enabled: 0
+  IsQuarantine: 0
+  UpkeepCost: 500
   TransformBuildingSection:
     Enabled: 0
     BuildingToChange: 6
     TargetBuilding: 6
     Percentage: 0
   LimitBuildingSection:
-    Enabled: 1
-    BuildingToChange: 0
-    Percentage: 0.5
+    Enabled: 0
+    BuildingToChange: 6
+    Percentage: 0
   BuildingEffectivitySection:
     Enabled: 0
     ParameterMods: []
+  DistributionEffectivitySection:
+    Enabled: 1
+    ParameterMods:
+    - Parameter: 1
+      Units: 200
