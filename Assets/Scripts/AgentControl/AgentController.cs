@@ -282,18 +282,18 @@ public class AgentController : MonoBehaviour
                 //--- felicidad total del agente en ese momento
                 CurrentInfectedCells -= (CellsCuredPerTic + (CellsCuredPerTic * HappinessCoeficient));
 
-                if (myStatus == GlobalObject.AgentStatus.Mild_Case)
-                {
-                    CurrencyManager.Instance.CurrentCurrency -= 200;
-                }
-                else if (myStatus == GlobalObject.AgentStatus.Serious_Case)
-                {
-                    CurrencyManager.Instance.CurrentCurrency -= 400;
-                }
-                else
-                {
-                    CurrencyManager.Instance.CurrentCurrency -= 100;
-                }
+                //if (myStatus == GlobalObject.AgentStatus.Mild_Case)
+                //{
+                //    CurrencyManager.Instance.CurrentCurrency -= 200;
+                //}
+                //else if (myStatus == GlobalObject.AgentStatus.Serious_Case)
+                //{
+                //    CurrencyManager.Instance.CurrentCurrency -= 400;
+                //}
+                //else
+                //{
+                //    CurrencyManager.Instance.CurrentCurrency -= 100;
+                //}
 
                 if (CurrentInfectedCells <= 0)
                 {
@@ -599,8 +599,9 @@ public class AgentController : MonoBehaviour
                 {
                     if (TicCounter >= _ticCounter) // myDestinationBuilding.TicsToCoverNeed)
                     {
+                        CurrencyManager.Instance.UseBuilding(NeedTakenCare);
                         //{
-                        CurrencyManager.Instance.CurrentCurrency += 500;
+                        //CurrencyManager.Instance.CurrentCurrency += 500;
                         //}
                         break;
                     }

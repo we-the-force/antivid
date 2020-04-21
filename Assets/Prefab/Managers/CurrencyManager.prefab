@@ -43,15 +43,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa504255e4b64384ebdd5781b3de903d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentCurrency: 0
-  initialCurrency: 100000
-  extraIncome: 2500
+  initialCurrency: 10000
+  foodUseCost: 200
+  entertainmentUseCost: 200
+  educationUseCost: 200
+  healthcareUseCost: -100
+  travelUseCost: 200
   currentCurrencyText: {fileID: 0}
   cycleProgressImage: {fileID: 0}
-  currentProgress: 0
   currentUpkeep: {fileID: 0}
   currentIncome: {fileID: 0}
   currentExtraIncome: {fileID: 0}
   totalResourceGain: {fileID: 0}
   ticCutout: 60
-  currentTic: 0
