@@ -34,7 +34,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-
   m_AnchoredPosition: {x: 0.00012207031, y: -0.0006957328}
   m_SizeDelta: {x: 0, y: 5}
   m_Pivot: {x: 0, y: 1}
@@ -820,7 +819,6 @@ MonoBehaviour:
   m_HandleRect: {fileID: 443989799}
   m_Direction: 0
   m_Value: 0
-
   m_Size: 0.99999994
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -2779,11 +2777,11 @@ MonoBehaviour:
   - Super divertido
   - Aqui estudian todos
   TiempoConstruccion:
-  - 15
-  - 20
-  - 30
   - 40
-  Costos: e8030000d0070000b80b0000a00f0000
+  - 40
+  - 40
+  - 40
+  Costos: 28000000280000002800000028000000
   txtTitulo: {fileID: 9201387679901683723}
   txtDescripcion: {fileID: 9201387680628511355}
   txtTiempos: {fileID: 9201387681366896070}
@@ -3831,7 +3829,7 @@ Canvas:
   m_GameObject: {fileID: 9201387680897900226}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: -10
   m_PixelPerfect: 0

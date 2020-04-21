@@ -68,12 +68,16 @@ public class CanvasControl : MonoBehaviour
 
     public void ShowPolicyWindow()
     {
+        WorldManager.instance.ChangeTimeScale(0);  
+
         ShowHideUI(false);
         PolicyWindow.SetActive(true);
     }
 
     public void HidePolicyWindow()
     {
+        WorldManager.instance.ChangeTimeScale(1);
+
         ShowHideUI(true);
         PolicyWindow.SetActive(false);
     }

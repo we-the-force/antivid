@@ -284,15 +284,15 @@ public class AgentController : MonoBehaviour
 
                 if (myStatus == GlobalObject.AgentStatus.Mild_Case)
                 {
-                    CurrencyManager.Instance.CurrentCurrency -= 200;
+                    CurrencyManager.Instance.CurrentCurrency -= 0.01f;
                 }
                 else if (myStatus == GlobalObject.AgentStatus.Serious_Case)
                 {
-                    CurrencyManager.Instance.CurrentCurrency -= 400;
+                    CurrencyManager.Instance.CurrentCurrency -= 0.03f;
                 }
                 else
                 {
-                    CurrencyManager.Instance.CurrentCurrency -= 100;
+                    CurrencyManager.Instance.CurrentCurrency -= 0.01f;
                 }
 
                 if (CurrentInfectedCells <= 0)
@@ -600,7 +600,7 @@ public class AgentController : MonoBehaviour
                     if (TicCounter >= _ticCounter) // myDestinationBuilding.TicsToCoverNeed)
                     {
                         //{
-                        CurrencyManager.Instance.CurrentCurrency += 500;
+                        CurrencyManager.Instance.CurrentCurrency += 0.075f;// 500;
                         //}
                         break;
                     }
