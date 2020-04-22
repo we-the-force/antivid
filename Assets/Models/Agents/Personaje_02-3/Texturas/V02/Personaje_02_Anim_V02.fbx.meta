@@ -18,7 +18,27 @@ ModelImporter:
   - first:
       74: -1352433009463603223
     second: metarig|Pose_descanso
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CUERPO_MAT
+    second: {fileID: 2100000, guid: 859b936eb7dbdf74cb3d0c974875a48c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MONO_MAT
+    second: {fileID: 2100000, guid: d797a90fee6b3f74fa3d62a3f83921ec, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: OJOS_MAT
+    second: {fileID: 2100000, guid: df0162d3d22c1314fa00a8a202021932, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cejas_mat
+    second: {fileID: 2100000, guid: 025db8d4f3f30c74ca5f01a872bac19f, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

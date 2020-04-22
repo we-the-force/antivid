@@ -24,7 +24,22 @@ ModelImporter:
   - first:
       74: -2775765668163360370
     second: rig|Enfermo
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CabelloMTR
+    second: {fileID: 2100000, guid: 7fd8ebfadfa851440b3b762870146228, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CaraNueva
+    second: {fileID: 2100000, guid: e1aace54299247f408d589f97f15a75d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CuerpoMTR
+    second: {fileID: 2100000, guid: f28edef6f375752469e49dade6352f57, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

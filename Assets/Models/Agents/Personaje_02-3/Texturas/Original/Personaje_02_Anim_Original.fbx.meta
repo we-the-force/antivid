@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e247dc919502d124e837392580992763
+guid: cb1b98e3cdbcf7d40ba75c2a6518b73e
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable:
@@ -16,9 +16,29 @@ ModelImporter:
       74: 6889910923819999810
     second: metarig|Movimiento
   - first:
-      74: 6910070488112648061
-    second: metarig|Posicion_descanso
-  externalObjects: {}
+      74: -1352433009463603223
+    second: metarig|Pose_descanso
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CUERPO_MAT
+    second: {fileID: 2100000, guid: df36fc8f5f39b7e40b5238c8d87fbafd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MONO_MAT
+    second: {fileID: 2100000, guid: cab8e81fa311c964384140fe7eacb418, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: OJOS_MAT
+    second: {fileID: 2100000, guid: bee49bc5c1582b8419b986d60a2f83ac, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cejas_mat
+    second: {fileID: 2100000, guid: a6ee111f090a32f429f4ab2294dc575a, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -80,7 +100,7 @@ ModelImporter:
       takeName: metarig|Estornudo
       internalID: 0
       firstFrame: 0
-      lastFrame: 29
+      lastFrame: 34
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -109,7 +129,7 @@ ModelImporter:
       takeName: metarig|Idle
       internalID: 0
       firstFrame: 0
-      lastFrame: 29
+      lastFrame: 34
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -138,7 +158,7 @@ ModelImporter:
       takeName: metarig|Movimiento
       internalID: 0
       firstFrame: 0
-      lastFrame: 31
+      lastFrame: 34
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -163,8 +183,8 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: metarig|Posicion_descanso
-      takeName: metarig|Posicion_descanso
+      name: metarig|Pose_descanso
+      takeName: metarig|Pose_descanso
       internalID: 0
       firstFrame: 0
       lastFrame: 1
@@ -194,7 +214,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 0.2
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -241,7 +261,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
+    globalScale: 0.2
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

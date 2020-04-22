@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: cb1b98e3cdbcf7d40ba75c2a6518b73e
+guid: 6e320e394b5fa2a4f87307bfbd76047f
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable:
@@ -18,7 +18,27 @@ ModelImporter:
   - first:
       74: -1352433009463603223
     second: metarig|Pose_descanso
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CUERPO_MAT
+    second: {fileID: 2100000, guid: b4751e973224d9945b3689c2bdf3c9c4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MONO_MAT
+    second: {fileID: 2100000, guid: 86de8c36949d9914893f165c21e2f3f7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: OJOS_MAT
+    second: {fileID: 2100000, guid: 16b3de198d3418945aa5ec3985616703, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cejas_mat
+    second: {fileID: 2100000, guid: 262d74acbdccf4f409efc847b35b66bd, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
