@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PolicyName: 'Cuarentena o:'
   PolicyDescription: 
-  Enabled: 1
+  Enabled: 0
   IsQuarantine: 1
-  UpkeepCost: 200
+  UpkeepCost: 2000
   TransformBuildingSection:
     Enabled: 0
     BuildingToChange: 6

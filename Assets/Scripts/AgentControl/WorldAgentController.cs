@@ -389,7 +389,8 @@ public class WorldAgentController : MonoBehaviour
             if (AgentCollection[randomIndex].myStatus == GlobalObject.AgentStatus.Healty)
             {
                 AgentCollection[randomIndex].myStatus = GlobalObject.AgentStatus.Mild_Case;
-                AgentCollection[randomIndex].SickIndicator.SetActive(true);
+                AgentCollection[randomIndex].StatusChanged();
+                //AgentCollection[randomIndex].SickIndicator.SetActive(true);
                 count++;
             }
             killswitch++;
