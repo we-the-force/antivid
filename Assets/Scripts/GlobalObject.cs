@@ -44,6 +44,18 @@ public class GlobalObject
 }
 
 [System.Serializable]
+public class BuildingCanvasEntry
+{
+    public GameObject objPrefab;
+    public string Name;
+    public string Description;
+    public float Cost;
+    public float TimeToBuild;
+    public Sprite ButtonImage;
+    public Sprite BigImage;
+}
+
+[System.Serializable]
 public class AnimationForPerk
 {
     public GlobalObject.AgentPerk Perk;

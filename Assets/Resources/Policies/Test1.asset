@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a3657ee23f333c4fa55fb60fb430e72, type: 3}
   m_Name: Test1
   m_EditorClassIdentifier: 
+  PolicyID: 1
   PolicyName: Turn schools into hospitals
   PolicyDescription: Turn schools into hospitals
   Enabled: 0

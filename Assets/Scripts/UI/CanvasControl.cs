@@ -13,15 +13,15 @@ public class CanvasControl : MonoBehaviour
 
     public GameObject PolicyWindow;
 
+    public List<BuildingCanvasEntry> BuyableBuildingsCollection;
+
     public Text txtTotPop;
     public Text txtSick;
     public Text txtDead;
     public Text txtInmune;
 
-    public GameObject policyQuarentine;
-    public GameObject policyFood;
-    public GameObject policyMoreHospitals;
-    public GameObject policyHospitalsEfficient;
+    public List<Sprite> PolicyIconSprites;
+    public List<Image> PolicyIconCollection;
 
     private void Awake()
     {
@@ -60,6 +60,27 @@ public class CanvasControl : MonoBehaviour
         txtInmune.text = totInmune.ToString();
     }
 
+    public void ShowPolicyIcon()
+    {
+        for (int i = 0; i < PolicyIconCollection.Count; i++)
+        {
+            PolicyIconCollection[i].gameObject.SetActive(false);
+        }
+
+        List<int> activePolicyIdx = new List<int>();
+        activePolicyIdx = WorldAgentController.instance.GetPolicyIdx();
+        if(activePolicyIdx.Count == 0)
+        {
+            return;
+        }
+
+        for (int i = 0; i < activePolicyIdx.Count; i++)
+        {
+            PolicyIconCollection[i].sprite = PolicyIconSprites[activePolicyIdx[i]];
+            PolicyIconCollection[i].gameObject.SetActive(true);
+        }
+    }
+
     public void ShowBuildWindow(BuyablePlot _buyablePlot)
     {
         ShowHideUI(false);
@@ -78,21 +99,14 @@ public class CanvasControl : MonoBehaviour
     {
         WorldManager.instance.ChangeTimeScale(1);
 
+        ShowPolicyIcon();
         ShowHideUI(true);
         PolicyWindow.SetActive(false);
+
     }
 
     public void ShowHideUI(bool show)
     {
         UIElements.SetActive(show);
     }
-
-    public void ShowPolicySymbol(bool Quarantine, bool MoreFood, bool MoreHospitals, bool HospitalEfficient)
-    {
-        policyQuarentine.SetActive(Quarantine);
-        policyFood.SetActive(MoreFood);
-        policyMoreHospitals.SetActive(MoreHospitals);
-        policyHospitalsEfficient.SetActive(HospitalEfficient);
-    }
-
 }

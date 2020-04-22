@@ -84,6 +84,12 @@ public class BuildingController : MonoBehaviour
         AddModAgentCapacity(1);
         //StartCoroutine(DelayedStart());
     }
+
+    public void NewBuilding()
+    {
+        Start();
+    }
+
     IEnumerator DelayedStart()
     {
         yield return null;

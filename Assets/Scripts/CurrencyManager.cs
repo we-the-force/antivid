@@ -95,7 +95,9 @@ public class CurrencyManager : MonoBehaviour
     }
     void UpdateCurrencyText()
     {
-        currentCurrencyText.text = $"${_currentCurrency}";
+        int _currencyToShow = Mathf.FloorToInt(_currentCurrency);
+
+        currentCurrencyText.text = $"${_currencyToShow}";
     }
     void UpdateCycleImage(float progress)
     {
