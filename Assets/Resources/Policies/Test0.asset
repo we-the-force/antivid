@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a3657ee23f333c4fa55fb60fb430e72, type: 3}
   m_Name: Test0
   m_EditorClassIdentifier: 
+  PolicyID: 0
   PolicyName: 'Cuarentena o:'
   PolicyDescription: 
   Enabled: 0
   IsQuarantine: 1
+  UpkeepCost: 5
   TransformBuildingSection:
     Enabled: 0
     BuildingToChange: 6
@@ -26,5 +28,8 @@ MonoBehaviour:
     BuildingToChange: 6
     Percentage: 0
   BuildingEffectivitySection:
+    Enabled: 0
+    ParameterMods: []
+  DistributionEffectivitySection:
     Enabled: 0
     ParameterMods: []

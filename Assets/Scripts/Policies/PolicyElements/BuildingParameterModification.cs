@@ -4,10 +4,10 @@ using UnityEngine;
 using System;
 using NeedScale = GlobalObject.NeedScale;
 
+public enum BuildingParameter { None, Effectivity, OperationCosts }
 [Serializable]
 public class BuildingParameterModification
 {
-    public enum BuildingParameter { None, Effectivity, OperationCosts }
     [Tooltip("Building type to affect")]
     public NeedScale BuildingType;
     [Tooltip("Parameter to change")]

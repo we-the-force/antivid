@@ -379,6 +379,7 @@ MonoBehaviour:
   AgentPrefab: {fileID: 4743075006342897453, guid: 84d2765961a894e4b9751e03153f2b21,
     type: 3}
   AgentAnchor: {fileID: 5160226373831960405}
+  TicCutout: 80
   InitialSpeed: 0.6
   SpeedStep: 0.03
   SpeedVariationQty: 15
@@ -419,6 +420,7 @@ MonoBehaviour:
   SeriousIllnessInfectionFactor: 1.6
   IncomePerAgent: 1000
   TotalBuildingUpkeepCost: 0
+  TotalPolicyUpkeepCost: 0
   TotalAgentIncome: 0
   initialInfectedDudes: 0
   ActivePolicies: []

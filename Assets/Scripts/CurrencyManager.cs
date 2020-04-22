@@ -2,23 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using NeedScale = GlobalObject.NeedScale;
+using AgentStatus = GlobalObject.AgentStatus;
 
 public class CurrencyManager : MonoBehaviour
 {
     static CurrencyManager _instance = null;
 
-    [SerializeField]
     float _currentCurrency;
     [SerializeField]
     float initialCurrency;
-    [SerializeField]
     float extraIncome;
+
+    [SerializeField]
+    float foodUseCost;
+    [SerializeField]
+    float entertainmentUseCost;
+    [SerializeField]
+    float educationUseCost;
+    [SerializeField]
+    float healthcareUseCost;
+    [SerializeField]
+    float travelUseCost;
 
     [SerializeField]
     Text currentCurrencyText;
     [SerializeField]
     Image cycleProgressImage;
-    [SerializeField]
     float currentProgress = 0;
 
     [SerializeField]
@@ -32,8 +42,9 @@ public class CurrencyManager : MonoBehaviour
 
     [SerializeField]
     int ticCutout = 30;
-    [SerializeField]
     int currentTic = 0;
+
+
 
     public float CurrentCurrency
     {
@@ -74,8 +85,11 @@ public class CurrencyManager : MonoBehaviour
         {
             currentTic = 0;
             float buildingCosts = WorldAgentController.instance.TotalBuildingUpkeepCost;
+            float policyCosts = WorldAgentController.instance.TotalPolicyUpkeepCost;
             float agentIncome = WorldAgentController.instance.TotalAgentIncome;
-            float totalResource = agentIncome + extraIncome - buildingCosts;
+            float totalResource = agentIncome + extraIncome - buildingCosts - policyCosts;
+
+            //Debug.Log($"b: {buildingCosts}, p: {policyCosts}, a: {agentIncome} ({agentIncome} + {extraIncome} - {buildingCosts} - {policyCosts} = {totalResource})");
 
             UpdateIncomeText(buildingCosts, agentIncome, totalResource);
 
@@ -102,6 +116,41 @@ public class CurrencyManager : MonoBehaviour
     void UpdateCycleImage(float progress)
     {
         cycleProgressImage.fillAmount = progress;
+    }
+    public void UseBuilding(NeedScale type, AgentStatus status = AgentStatus.Healty)
+    {
+        float auxIncome = 0;
+        switch (type)
+        {
+            case NeedScale.Hunger:
+                auxIncome = foodUseCost;
+                break;
+            case NeedScale.Entertainment:
+                auxIncome = entertainmentUseCost;
+                break;
+            case NeedScale.Education:
+                auxIncome = educationUseCost;
+                break;
+            case NeedScale.HealtCare:
+                if (status == AgentStatus.Mild_Case)
+                {
+                    auxIncome = healthcareUseCost * 2;
+                }
+                else if (status == AgentStatus.Serious_Case)
+                {
+                    auxIncome = healthcareUseCost * 4;
+                }
+                else
+                {
+                    auxIncome = healthcareUseCost;
+                }
+                break;
+            case NeedScale.Travel:
+                auxIncome = travelUseCost;
+                break;
+        }
+        Debug.Log($"Currency Changed by {auxIncome} ({CurrentCurrency} => {(CurrentCurrency - auxIncome)})");
+        CurrentCurrency += auxIncome;
     }
     void UpdateIncomeText(float buildingCost, float agentIncome, float totalResource)
     {

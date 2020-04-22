@@ -17,6 +17,7 @@ MonoBehaviour:
   PolicyDescription: Turn schools into hospitals
   Enabled: 0
   IsQuarantine: 0
+  UpkeepCost: 1
   TransformBuildingSection:
     Enabled: 1
     BuildingToChange: 4
@@ -27,5 +28,8 @@ MonoBehaviour:
     BuildingToChange: 6
     Percentage: 0
   BuildingEffectivitySection:
+    Enabled: 0
+    ParameterMods: []
+  DistributionEffectivitySection:
     Enabled: 0
     ParameterMods: []

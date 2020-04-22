@@ -8,6 +8,7 @@ public class AgentController : MonoBehaviour
 
     public float TotalCellsInBody;
     public float CellsCuredPerTic;
+    [SerializeField]
     private float CurrentInfectedCells;
 
     public float ContagioPerTic;
@@ -178,6 +179,7 @@ public class AgentController : MonoBehaviour
         //--- Le avisa al Controller que actualice la cantidad de recursos que se obtienen, ya que esta infectado/inmunizado
         if (previousStatus != myStatus)
         {
+            StatusChanged();
             //Debug.LogError($"Ay valiendo queso cambie de status     ({previousStatus}, {myStatus})");
             if (myStatus == GlobalObject.AgentStatus.Mild_Case || myStatus == GlobalObject.AgentStatus.Serious_Case || myStatus == GlobalObject.AgentStatus.Out_of_circulation || myStatus == GlobalObject.AgentStatus.Inmune)
             {
@@ -284,21 +286,26 @@ public class AgentController : MonoBehaviour
 
                 if (myStatus == GlobalObject.AgentStatus.Mild_Case)
                 {
-                    CurrencyManager.Instance.CurrentCurrency -= 0.01f;
+                    //CurrencyManager.Instance.CurrentCurrency -= 0.01f;
+                    CurrencyManager.Instance.UseBuilding(GlobalObject.NeedScale.HealtCare, GlobalObject.AgentStatus.Mild_Case);
                 }
                 else if (myStatus == GlobalObject.AgentStatus.Serious_Case)
                 {
-                    CurrencyManager.Instance.CurrentCurrency -= 0.03f;
+                    //CurrencyManager.Instance.CurrentCurrency -= 0.03f;
+                    CurrencyManager.Instance.UseBuilding(GlobalObject.NeedScale.HealtCare, GlobalObject.AgentStatus.Serious_Case);
                 }
                 else
                 {
-                    CurrencyManager.Instance.CurrentCurrency -= 0.01f;
+                    //CurrencyManager.Instance.CurrentCurrency -= 0.01f;
+                    CurrencyManager.Instance.UseBuilding(GlobalObject.NeedScale.HealtCare, GlobalObject.AgentStatus.Mild_Case);
                 }
 
                 if (CurrentInfectedCells <= 0)
                 {
                     //--- ya puede salir del hospital ya tiene inmunidad, ya puede hacer lo que sea
-                    myStatus = GlobalObject.AgentStatus.Inmune;
+                    //myStatus = GlobalObject.AgentStatus.Inmune;
+                    //--- Que siempre no tienen inmunidad
+                    myStatus = GlobalObject.AgentStatus.Healty;
 
                     ExecutingBuilding = false;
                     SetVisibility(true);
@@ -382,7 +389,8 @@ public class AgentController : MonoBehaviour
                 myNeedList[i].PercentageDifference();
             }
 
-            //TODO: Hacer que sacie sus necesidaes usando el warehouse de la casa.
+            myNeedList.Find(x => x.Need == GlobalObject.NeedScale.Sleep).CurrentPercentage = 0;
+
             foreach (NeedPercentage np in myNeedList)
             {
                 if (np.Need == GlobalObject.NeedScale.Hunger || np.Need == GlobalObject.NeedScale.Entertainment || np.Need == GlobalObject.NeedScale.Education)
@@ -493,7 +501,6 @@ public class AgentController : MonoBehaviour
         StartCoroutine("ExecuteDestiny");
     }
 
-
     IEnumerator ExecuteDestiny()
     {
         //--- Ya llego al destino; en caso de que sea Wander; espera un ratito y luego regresa a realizar sus tareas
@@ -599,9 +606,8 @@ public class AgentController : MonoBehaviour
                 {
                     if (TicCounter >= _ticCounter) // myDestinationBuilding.TicsToCoverNeed)
                     {
-                        //{
-                        CurrencyManager.Instance.CurrentCurrency += 0.075f;// 500;
-                        //}
+                        CurrencyManager.Instance.UseBuilding(NeedTakenCare);
+                        //CurrencyManager.Instance.CurrentCurrency += 0.075f;// 500;
                         break;
                     }
                     yield return new WaitForFixedUpdate();
@@ -717,7 +723,17 @@ public class AgentController : MonoBehaviour
 
         CurrentInfectedCells += _infected;
     }
-
+    public void StatusChanged()
+    {
+        if (myStatus == GlobalObject.AgentStatus.Mild_Case || myStatus == GlobalObject.AgentStatus.Serious_Case)
+        {
+            SickIndicator.SetActive(true);
+        }
+        else
+        {
+            SickIndicator.SetActive(false);
+        }
+    }
     IEnumerator Sneeze()
     {
         movementController.StopMovement();
@@ -753,7 +769,7 @@ public class AgentController : MonoBehaviour
 
         if (PorcentageContagio >= 100)
         {
-            SickIndicator.SetActive(fromSneeze);
+            //SickIndicator.SetActive(fromSneeze);
             myStatus = GlobalObject.AgentStatus.Mild_Case;
         }
     }

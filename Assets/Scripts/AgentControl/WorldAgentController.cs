@@ -7,6 +7,9 @@ public class WorldAgentController : MonoBehaviour
     public GameObject AgentPrefab;
     public Transform AgentAnchor;
 
+    public int TicCutout;
+    int currentTic = 0;
+
     public float InitialSpeed;
     public float SpeedStep;
     public int SpeedVariationQty;
@@ -20,6 +23,8 @@ public class WorldAgentController : MonoBehaviour
     public static WorldAgentController instance;
 
     public List<BuildingController> Buildings;
+    List<BuildingController> houses;
+
     public List<PathFindingNode> RoadSystem;
 
     public List<AgentController> AgentCollection;
@@ -35,12 +40,17 @@ public class WorldAgentController : MonoBehaviour
     public float IncomePerAgent;
 
     public float TotalBuildingUpkeepCost;
+    public float TotalPolicyUpkeepCost;
     public float TotalAgentIncome;
 
     public int initialInfectedDudes = 3;
 
     [SerializeField]
     List<Policy> ActivePolicies = new List<Policy>();
+
+    DistributionParameterModification foodDistribution = new DistributionParameterModification(DistributionParameter.Food, 0);
+    DistributionParameterModification enteDistribution = new DistributionParameterModification(DistributionParameter.Entertainment, 0);
+    DistributionParameterModification educDistribution = new DistributionParameterModification(DistributionParameter.Education, 0);
 
     public List<PerkQuantityForScenario> ScenarioPercentagesForPerks;
 
@@ -60,6 +70,17 @@ public class WorldAgentController : MonoBehaviour
         }
 
         StartCoroutine(DelayedStart());
+        currentTic = 0;
+    }
+
+    private void TicReceived()
+    {
+        currentTic++;
+        if (currentTic > TicCutout)
+        {
+            currentTic = 0;
+            AddHouseWarehouseSupplies();
+        }
     }
 
     public List<int> GetPolicyIdx()
@@ -108,13 +129,18 @@ public class WorldAgentController : MonoBehaviour
             }
         }
     }
-
+    void PoblateHouses()
+    {
+        houses = Buildings.FindAll(x => x.BaseNeedCovered == GlobalObject.NeedScale.Sleep);
+    }
     IEnumerator DelayedStart()
     {
         yield return null;
+        WorldManager.TicDelegate += TicReceived;
         yield return null;
         PoblateRoadSystem();
         PoblateBuildings();
+        PoblateHouses();
         List<BuildingController> auxHouses = Buildings.FindAll(x => x.BaseNeedCovered == GlobalObject.NeedScale.Sleep);
         for (int i = 0; i < auxHouses.Count; i++)
         {
@@ -220,18 +246,27 @@ public class WorldAgentController : MonoBehaviour
         ////AgentCollection[0].myStatus = GlobalObject.AgentStatus.Serious_Case;
         //AgentCollection[0].SickIndicator.SetActive(true);
         CalculateBuildingUpkeepCost();
+        CalculatePolicyUpkeepCost();
         CalculateAgentIncome();
 
         //SetHouseWarehouseSupplies(750f);
     }
     void SetHouseWarehouseSupplies(float qty)
     {
-        List<BuildingController> auxBCL = Buildings.FindAll(x => x.BaseNeedCovered == GlobalObject.NeedScale.Sleep);
-        foreach (BuildingController bc in auxBCL)
+        foreach (BuildingController bc in houses)
         {
             bc.myWarehouse.StoreGoods(GlobalObject.NeedScale.Hunger,        qty);
             bc.myWarehouse.StoreGoods(GlobalObject.NeedScale.Education,     qty);
             bc.myWarehouse.StoreGoods(GlobalObject.NeedScale.Entertainment, qty);
+        }
+    }
+    void AddHouseWarehouseSupplies()
+    {
+        foreach (BuildingController bc in houses)
+        {
+            bc.myWarehouse.StoreGoods(GlobalObject.NeedScale.Hunger, foodDistribution.Units);
+            bc.myWarehouse.StoreGoods(GlobalObject.NeedScale.Education, educDistribution.Units);
+            bc.myWarehouse.StoreGoods(GlobalObject.NeedScale.Entertainment, enteDistribution.Units);
         }
     }
     public void ReceivePolicies(List<Policy> policies)
@@ -239,13 +274,16 @@ public class WorldAgentController : MonoBehaviour
         ActivePolicies.Clear();
         ActivePolicies = policies;
 
+        ResetDistributionPolicies();
         RefreshBuildingsPolicies();
+        CalculatePolicyUpkeepCost();
     }
     public void RefreshBuildingsPolicies()
     {
         ClearAllBuildingsPolicies();
         SetNeedChangePolicies();
         SetBuildingPolicies();
+        SetDistributionPolicies();
     }
     void ClearAllBuildingsPolicies()
     {
@@ -253,6 +291,12 @@ public class WorldAgentController : MonoBehaviour
         {
             build.ResetMods();
         }
+    }
+    void ResetDistributionPolicies()
+    {
+        foodDistribution.ResetUnits();
+        enteDistribution.ResetUnits();
+        educDistribution.ResetUnits();
     }
     void SetNeedChangePolicies()
     {
@@ -318,6 +362,34 @@ public class WorldAgentController : MonoBehaviour
             }
         }
     }
+    void SetDistributionPolicies()
+    {
+        foreach (Policy pol in ActivePolicies)
+        {
+            if (pol.DistributionEffectivitySection.Enabled)
+            {
+                foreach (DistributionParameterModification dpm in pol.DistributionEffectivitySection.ParameterMods)
+                {
+                    AddDistribution(dpm.Parameter, dpm.Units);
+                }
+            }
+        }
+    }
+    void AddDistribution(DistributionParameter distPara, int units)
+    {
+        switch (distPara)
+        {
+            case DistributionParameter.Food:
+                foodDistribution.Units += units;
+                break;
+            case DistributionParameter.Entertainment:
+                enteDistribution.Units += units;
+                break;
+            case DistributionParameter.Education:
+                educDistribution.Units += units;
+                break;
+        }
+    }
     void InfectAgents(int limit)
     {
         int count = 0;
@@ -328,7 +400,8 @@ public class WorldAgentController : MonoBehaviour
             if (AgentCollection[randomIndex].myStatus == GlobalObject.AgentStatus.Healty)
             {
                 AgentCollection[randomIndex].myStatus = GlobalObject.AgentStatus.Mild_Case;
-                AgentCollection[randomIndex].SickIndicator.SetActive(true);
+                AgentCollection[randomIndex].StatusChanged();
+                //AgentCollection[randomIndex].SickIndicator.SetActive(true);
                 count++;
             }
             killswitch++;
@@ -346,6 +419,14 @@ public class WorldAgentController : MonoBehaviour
         foreach (BuildingController bc in Buildings)
         {
             TotalBuildingUpkeepCost += bc.UpkeepCost;
+        }
+    }
+    public void CalculatePolicyUpkeepCost()
+    {
+        TotalPolicyUpkeepCost = 0;
+        foreach (Policy pol in ActivePolicies)
+        {
+            TotalPolicyUpkeepCost += pol.UpkeepCost;
         }
     }
     public void CalculateAgentIncome()

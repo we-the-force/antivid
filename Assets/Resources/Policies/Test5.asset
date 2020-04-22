@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5a3657ee23f333c4fa55fb60fb430e72, type: 3}
-  m_Name: Test4
+  m_Name: Test5
   m_EditorClassIdentifier: 
-  PolicyID: 4
-  PolicyName: Education to houses
+  PolicyID: 5
+  PolicyName: Entertainment to houses
   PolicyDescription: 
-  Enabled: 0
+  Enabled: 1
   IsQuarantine: 0
   UpkeepCost: 0.75
   TransformBuildingSection:
@@ -33,5 +33,5 @@ MonoBehaviour:
   DistributionEffectivitySection:
     Enabled: 1
     ParameterMods:
-    - Parameter: 2
+    - Parameter: 3
       Units: 200
