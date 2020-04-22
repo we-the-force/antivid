@@ -13,6 +13,9 @@ public class CanvasControl : MonoBehaviour
 
     public GameObject PolicyWindow;
 
+    public GameObject VaccineWindow;
+    public GameObject VaccineIcon;
+
     public List<BuildingCanvasEntry> BuyableBuildingsCollection;
 
     public Text txtTotPop;
@@ -103,6 +106,25 @@ public class CanvasControl : MonoBehaviour
         ShowHideUI(true);
         PolicyWindow.SetActive(false);
 
+    }
+
+    public void ShowVaccineWindow()
+    {
+        WorldManager.instance.ChangeTimeScale(0);
+
+        ShowHideUI(false);
+        VaccineWindow.SetActive(true);
+    }
+    public void HideVaccineWindow()
+    {
+        WorldManager.instance.ChangeTimeScale(1);
+
+        ShowHideUI(true);
+        VaccineWindow.SetActive(false);
+    }
+    public void ShowVaccineIcon(bool show)
+    {
+        VaccineIcon.SetActive(show);
     }
 
     public void ShowHideUI(bool show)

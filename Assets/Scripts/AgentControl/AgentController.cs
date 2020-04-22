@@ -771,6 +771,8 @@ public class AgentController : MonoBehaviour
         {
             //SickIndicator.SetActive(fromSneeze);
             myStatus = GlobalObject.AgentStatus.Mild_Case;
+            CanvasControl.instance.ShowVaccineIcon(true);
+            VaccineManager.Instance.ShouldTic = true;
         }
     }
     public void RightClick()

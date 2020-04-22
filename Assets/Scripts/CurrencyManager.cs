@@ -87,7 +87,8 @@ public class CurrencyManager : MonoBehaviour
             float buildingCosts = WorldAgentController.instance.TotalBuildingUpkeepCost;
             float policyCosts = WorldAgentController.instance.TotalPolicyUpkeepCost;
             float agentIncome = WorldAgentController.instance.TotalAgentIncome;
-            float totalResource = agentIncome + extraIncome - buildingCosts - policyCosts;
+            float vaccineCost = VaccineManager.Instance.ProgressCostPerTic;
+            float totalResource = agentIncome + extraIncome - buildingCosts - policyCosts - vaccineCost;
 
             //Debug.Log($"b: {buildingCosts}, p: {policyCosts}, a: {agentIncome} ({agentIncome} + {extraIncome} - {buildingCosts} - {policyCosts} = {totalResource})");
 
@@ -149,7 +150,7 @@ public class CurrencyManager : MonoBehaviour
                 auxIncome = travelUseCost;
                 break;
         }
-        Debug.Log($"Currency Changed by {auxIncome} ({CurrentCurrency} => {(CurrentCurrency - auxIncome)})");
+        //Debug.Log($"Currency Changed by {auxIncome} ({CurrentCurrency} => {(CurrentCurrency - auxIncome)})");
         CurrentCurrency += auxIncome;
     }
     void UpdateIncomeText(float buildingCost, float agentIncome, float totalResource)
