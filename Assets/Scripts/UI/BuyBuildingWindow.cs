@@ -40,11 +40,18 @@ public class BuyBuildingWindow : MonoBehaviour
         _building = i;
 
         Debug.LogError("SELECCIONADO " + i.ToString());
-
+        
+        txtTitulo.text = CanvasControl.instance.BuyableBuildingsCollection[i].Name;
+        txtTiempos.text = CanvasControl.instance.BuyableBuildingsCollection[i].TimeToBuild.ToString();
+        txtCostos.text = CanvasControl.instance.BuyableBuildingsCollection[i].Cost.ToString();
+        txtDescripcion.text = CanvasControl.instance.BuyableBuildingsCollection[i].Description;
+                
+        /*
         txtTiempos.text = Titulos[i];
         txtDescripcion.text = Descripciones[i];
         txtTiempos.text = TiempoConstruccion[i].ToString();
         txtCostos.text = Costos[i].ToString();
+        */
     }
 
     public void BuySelected()

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a3657ee23f333c4fa55fb60fb430e72, type: 3}
   m_Name: Test2
   m_EditorClassIdentifier: 
+  PolicyID: 2
   PolicyName: Galletitas
   PolicyDescription: Creas mejores galletas de animalitos.\r\n+10% efectividad de
     comida

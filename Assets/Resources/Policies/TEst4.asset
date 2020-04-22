@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a3657ee23f333c4fa55fb60fb430e72, type: 3}
   m_Name: TEst4
   m_EditorClassIdentifier: 
+  PolicyID: 4
   PolicyName: Mas hospital!
   PolicyDescription: 
   Enabled: 0
+  IsQuarantine: 0
   TransformBuildingSection:
     Enabled: 0
     BuildingToChange: 6

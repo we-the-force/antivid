@@ -120,11 +120,25 @@ public class BuyablePlot : MonoBehaviour
                 DestroyAssignedModel();
 
                 Debug.LogError("MODEL ID " + modelId);
-                AssignedModel = Instantiate(Models[modelId], newBuildingAnchor);
+
+                //AssignedModel = Instantiate(Models[modelId], newBuildingAnchor);
+                AssignedModel = Instantiate(CanvasControl.instance.BuyableBuildingsCollection[modelId].objPrefab, newBuildingAnchor);
 
                 AssignedModel.transform.localPosition = Vector3.zero;
                 AssignedModel.transform.localEulerAngles = Vector3.zero;
                 AssignedModel.SetActive(true);
+
+                BuildingController BC = AssignedModel.GetComponent<BuildingController>();
+                buildCont.UpkeepCost = BC.UpkeepCost;
+                buildCont.BaseNeedCovered = BC.BaseNeedCovered;
+                buildCont.TimeToCoverNeed = BC.TimeToCoverNeed;
+                buildCont.BaseTicsToCoverNeed = BC.BaseTicsToCoverNeed;
+                buildCont.BasePercentageRestored = BC.BasePercentageRestored;
+                buildCont.BaseAgentCapacity = BC.BaseAgentCapacity;
+                buildCont.NewBuilding();
+
+                BC.enabled = false;
+                AssignedModel.GetComponent<PathFindingNode>().enabled = false;
 
                 //StartCoroutine("rotateModel");
 
@@ -236,6 +250,9 @@ public class BuyablePlot : MonoBehaviour
     public void BuyBuilding(int type)
     {
         Debug.LogError("Comprar el tipo  " + type.ToString());
+
+        Cost = CanvasControl.instance.BuyableBuildingsCollection[type].Cost;
+        TicsToBuild = CanvasControl.instance.BuyableBuildingsCollection[type].TimeToBuild;
 
         if (CurrencyManager.Instance.HasEnoughCurrency(Cost))
         {

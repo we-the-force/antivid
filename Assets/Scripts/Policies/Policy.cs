@@ -12,6 +12,8 @@ public enum QuarantineType { Light, Medium, Severe };
 [CreateAssetMenu(fileName = "New Policy", menuName = "Policy")]
 public class Policy : ScriptableObject
 {
+    public int PolicyID;
+
     public string PolicyName;
     public string PolicyDescription;
     public bool Enabled = false;

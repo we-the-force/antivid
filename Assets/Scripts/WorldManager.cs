@@ -5,10 +5,8 @@ using System.Linq;
 
 public class WorldManager : MonoBehaviour
 {
-
     public static WorldManager instance;
-
-
+    
     /// <summary>
     /// Determina la cantidad de porcentage de contagio que se aumenta en todos los agentes de un edificio
     /// cuando un agente cotagiado entra en ese edificio

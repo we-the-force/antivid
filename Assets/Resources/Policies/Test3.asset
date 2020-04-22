@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a3657ee23f333c4fa55fb60fb430e72, type: 3}
   m_Name: Test3
   m_EditorClassIdentifier: 
+  PolicyID: 3
   PolicyName: Less building max limit (oxxos)
   PolicyDescription: Lowers the max limit of people per building by 50%
   Enabled: 0
+  IsQuarantine: 0
   TransformBuildingSection:
     Enabled: 0
     BuildingToChange: 6

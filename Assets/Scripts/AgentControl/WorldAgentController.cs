@@ -62,6 +62,17 @@ public class WorldAgentController : MonoBehaviour
         StartCoroutine(DelayedStart());
     }
 
+    public List<int> GetPolicyIdx()
+    {
+        List<int> _list = new List<int>();
+
+        for (int i = 0; i < ActivePolicies.Count; i++)
+        {
+            _list.Add(ActivePolicies[i].PolicyID);
+        }
+        return _list;
+    }
+
     public GameObject GetAnimationForPerk(GlobalObject.AgentPerk _perk)
     {
         GameObject obj = null;
