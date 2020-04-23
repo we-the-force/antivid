@@ -81,6 +81,9 @@ public class CurrencyManager : MonoBehaviour
 
             CurrentCurrency += totalResource;
 
+            //--- Determina si va a haber un evento Random
+            CanvasControl.instance._announcementWindow.RandomEvent();
+
             //CurrentCurrency += extraIncome;
 
             //CurrentCurrency -= buildingCosts;

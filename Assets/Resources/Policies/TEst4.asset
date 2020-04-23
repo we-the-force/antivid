@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: TEst4
   m_EditorClassIdentifier: 
   PolicyID: 4
+  Available: 1
   PolicyName: Mas hospital!
   PolicyDescription: 
   Enabled: 0

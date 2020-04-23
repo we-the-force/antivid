@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Test2
   m_EditorClassIdentifier: 
   PolicyID: 2
+  Available: 1
   PolicyName: Galletitas
   PolicyDescription: Creas mejores galletas de animalitos.\r\n+10% efectividad de
     comida

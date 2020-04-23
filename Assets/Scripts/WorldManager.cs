@@ -30,6 +30,8 @@ public class WorldManager : MonoBehaviour
 
     public delegate void OnTicCall();
     public static OnTicCall TicDelegate;
+
+    public bool FirstInfectionDetected;
     
     IEnumerator TICManager()
     {
@@ -75,6 +77,7 @@ public class WorldManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        FirstInfectionDetected = false;
         StartCoroutine(DelayStart());
     }
 
