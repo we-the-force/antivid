@@ -1,0 +1,175 @@
+fileFormatVersion: 2
+guid: b0ea852b379b62a4e8fc5ea61fb3ab0b
+ModelImporter:
+  serializedVersion: 26
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BARDA_MTL
+    second: {fileID: 2100000, guid: b8d884d9a3013854eaf6ffdcfed80e76, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BASE_MTL
+    second: {fileID: 2100000, guid: 3efc1ddc7c8000c41bacb7e8de2d0834, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: COLUMPIO_MTL
+    second: {fileID: 2100000, guid: 128991cebbb827740b91b7fe6fecbd81, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: COPAS_MTL
+    second: {fileID: 2100000, guid: d9fb89c09d74bbb409bff6ff077c39b0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: EDF_BASE_MTL
+    second: {fileID: 2100000, guid: 11c05093b1128e24da1f31419ecd544f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: EDF_PISO_MTL
+    second: {fileID: 2100000, guid: 9882ff8f05a7574468fe313a249fc9ca, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TECHO_MTL
+    second: {fileID: 2100000, guid: 9dcc17b9ed7e22c49ab03e185d1f9462, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TRONCO_MTL
+    second: {fileID: 2100000, guid: 4386c8bd90e184a408d5ac521f82e94d, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: EDF_HABITACIONAL_BARDA_MTL_BaseColor
+    second: {fileID: 2800000, guid: 0b53c9e675dab76419fd3596537758aa, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: EDF_HABITACIONAL_BASE_MTL_BaseColor
+    second: {fileID: 2800000, guid: ee217528d1778314baa54753e55bb1ed, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: EDF_HABITACIONAL_COLUMPIO_MTL_BaseColor
+    second: {fileID: 2800000, guid: 16638916aacfa324386301228b92ac16, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: EDF_HABITACIONAL_COPAS_MTL_BaseColor
+    second: {fileID: 2800000, guid: 46ea7e2534e308a43a7b9be8a0e66265, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: EDF_HABITACIONAL_EDF_BASE_MTL_BaseColor
+    second: {fileID: 2800000, guid: e9e99e3a7d74c8c4bb7cccd7b7028ef4, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: EDF_HABITACIONAL_EDF_PISOS_MTL_BaseColor
+    second: {fileID: 2800000, guid: 3ba0d32ad4c5c0244b0d0fb2e77b6ca5, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: EDF_HABITACIONAL_TECHO_MTL_BaseColor
+    second: {fileID: 2800000, guid: 12fc9e19b345fe74696592b16a8f7430, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: EDF_HABITACIONAL_TRONCO_MTL_BaseColor
+    second: {fileID: 2800000, guid: 7a64f796437ae674c81ccdb66043cc24, type: 3}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.2
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 0.2
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -41,6 +41,17 @@ public class GlobalObject
         Gamer,
         Random
     }
+
+    [System.Serializable]
+    public enum SpecialEventName
+    {
+        FirstInfected,
+        StartVaccineStudy,
+        FirstStage,
+        SecondStage,
+        Vaccine40percent,
+        Vaccine50percent
+    }
 }
 
 [System.Serializable]

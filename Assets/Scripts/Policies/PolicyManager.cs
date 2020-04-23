@@ -42,18 +42,27 @@ public class PolicyManager : MonoBehaviour
         }
         CreateToggles();
     }
-    void CreateToggles()
+
+    public void CreateToggles()
     {
+        for (int i = 0; i < viewportContent.transform.childCount; i++)
+        {
+            Destroy(viewportContent.transform.GetChild(i).gameObject);
+        }        
+
         foreach (Policy pol in _policies)
         {
-            GameObject go = Instantiate(baseToggle as GameObject);
-            go.SetActive(true);
-            PolicyToggle pt = go.GetComponent<PolicyToggle>();
-            pt.SetAssignedPolicy(pol);
-            go.transform.SetParent(viewportContent.transform);
-            go.transform.localScale = Vector3.one;
-            go.transform.localRotation = Quaternion.Euler(0, 0, 0);
-            go.transform.localPosition = Vector3.zero;
+            if (pol.Available)
+            {
+                GameObject go = Instantiate(baseToggle as GameObject);
+                go.SetActive(true);
+                PolicyToggle pt = go.GetComponent<PolicyToggle>();
+                pt.SetAssignedPolicy(pol);
+                go.transform.SetParent(viewportContent.transform);
+                go.transform.localScale = Vector3.one;
+                go.transform.localRotation = Quaternion.Euler(0, 0, 0);
+                go.transform.localPosition = Vector3.zero;
+            }
         }
     }
     List<Policy> GetEnabledPolicies()
@@ -106,5 +115,18 @@ public class PolicyManager : MonoBehaviour
             aux += $"○{pol.ToString()}\r\n";
         }
         return aux;
+    }
+
+    public void EnablePolicy(int policyID)
+    {
+        for (int i = 0; i < _policies.Count; i++)
+        {
+            if (_policies[i].PolicyID == policyID)
+            {
+                _policies[i].Available = true;
+                break;
+            }
+        }
+
     }
 }

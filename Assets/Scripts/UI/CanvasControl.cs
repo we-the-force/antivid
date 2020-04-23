@@ -15,6 +15,8 @@ public class CanvasControl : MonoBehaviour
 
     public List<BuildingCanvasEntry> BuyableBuildingsCollection;
 
+    public AnnouncementWindow _announcementWindow;
+
     public Text txtTotPop;
     public Text txtSick;
     public Text txtDead;
@@ -89,7 +91,9 @@ public class CanvasControl : MonoBehaviour
 
     public void ShowPolicyWindow()
     {
-        WorldManager.instance.ChangeTimeScale(0);  
+        WorldManager.instance.ChangeTimeScale(0);
+
+        PolicyManager.Instance.CreateToggles();
 
         ShowHideUI(false);
         PolicyWindow.SetActive(true);

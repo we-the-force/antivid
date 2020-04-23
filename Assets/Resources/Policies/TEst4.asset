@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PolicyID: 4
   PolicyName: Education to houses
+  Available: 1
+  PolicyName: Mas hospital!
   PolicyDescription: 
   Enabled: 0
   IsQuarantine: 0

@@ -15,6 +15,9 @@ MonoBehaviour:
   PolicyID: 3
   PolicyName: Food to houses
   PolicyDescription: 
+  Available: 1
+  PolicyName: Less building max limit (oxxos)
+  PolicyDescription: Lowers the max limit of people per building by 50%
   Enabled: 0
   IsQuarantine: 0
   UpkeepCost: 0.75

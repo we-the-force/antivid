@@ -13,6 +13,7 @@ public enum QuarantineType { Light, Medium, Severe };
 public class Policy : ScriptableObject
 {
     public int PolicyID;
+    public bool Available;
 
     public string PolicyName;
     public string PolicyDescription;

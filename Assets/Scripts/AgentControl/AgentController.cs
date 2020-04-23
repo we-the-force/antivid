@@ -767,10 +767,21 @@ public class AgentController : MonoBehaviour
 
         PorcentageContagio += _percentage * FactorContagio;
 
+        if (PorcentageContagio < 0)
+            PorcentageContagio = 0;
+
         if (PorcentageContagio >= 100)
         {
             //SickIndicator.SetActive(fromSneeze);
             myStatus = GlobalObject.AgentStatus.Mild_Case;
+
+            //--- Ejecuta el evento especial de el primer infectado en el escenario
+            if (!WorldManager.instance.FirstInfectionDetected)
+            {
+                WorldManager.instance.FirstInfectionDetected = true;
+                CanvasControl.instance._announcementWindow.SpecialEvent(GlobalObject.SpecialEventName.FirstInfected);
+            }
+            
         }
     }
     public void RightClick()
