@@ -781,7 +781,9 @@ public class AgentController : MonoBehaviour
                 WorldManager.instance.FirstInfectionDetected = true;
                 CanvasControl.instance._announcementWindow.SpecialEvent(GlobalObject.SpecialEventName.FirstInfected);
             }
-            
+
+            //CanvasControl.instance.ShowVaccineIcon(true);
+            //VaccineManager.Instance.ShouldTic = true;
         }
     }
     public void RightClick()

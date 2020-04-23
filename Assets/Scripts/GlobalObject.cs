@@ -50,7 +50,8 @@ public class GlobalObject
         FirstStage,
         SecondStage,
         Vaccine40percent,
-        Vaccine50percent
+        Vaccine50percent,
+        VaccineCompleted
     }
 }
 

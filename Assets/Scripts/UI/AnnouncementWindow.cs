@@ -58,6 +58,9 @@ public class AnnouncementWindow : MonoBehaviour
                 switch (EventName)
                 {
                     case GlobalObject.SpecialEventName.FirstInfected:
+
+                        CanvasControl.instance.ShowVaccineIcon(true);
+                        VaccineManager.Instance.ShouldTic = true;
                         break;
                     case GlobalObject.SpecialEventName.FirstStage:
                         break;
@@ -69,8 +72,13 @@ public class AnnouncementWindow : MonoBehaviour
                         break;
                     case GlobalObject.SpecialEventName.Vaccine40percent:
                         PolicyManager.Instance.EnablePolicy(1);
+                        Debug.LogError("Vaccine40Percent");
                         break;
                     case GlobalObject.SpecialEventName.Vaccine50percent:
+                        Debug.LogError("Vaccine50Percent");
+                        break;
+                    case GlobalObject.SpecialEventName.VaccineCompleted:
+                        Debug.LogError("VaccineCompleted");
                         break;
                 }
 

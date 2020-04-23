@@ -10,10 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5a3657ee23f333c4fa55fb60fb430e72, type: 3}
-  m_Name: Test4
+  m_Name: TEst4
   m_EditorClassIdentifier: 
   PolicyID: 4
-  PolicyName: Education to houses
   Available: 1
   PolicyName: Mas hospital!
   PolicyDescription: 
