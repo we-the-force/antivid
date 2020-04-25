@@ -208,6 +208,7 @@ MonoBehaviour:
   IconController: {fileID: 6055284869750767877}
   TotalCellsInBody: 1500
   CellsCuredPerTic: 1.5
+  CurrentInfectedCells: 0
   ContagioPerTic: 0.0225
   FactorContagio: 1
   Speed: 0
@@ -241,7 +242,7 @@ MonoBehaviour:
   TakingCareOfNeed: 0
   travelResistance: 1
   SickIndicator: {fileID: 4171495921206886942}
-  resourceProduction: 1
+  resourceProduction: 0.65
   percentageHospitalOnMildCase: 0
   visitedHospitalOnMildCase: 0
   percentageHospitalRandomCase: 0

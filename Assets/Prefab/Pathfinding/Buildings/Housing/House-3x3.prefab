@@ -80,7 +80,7 @@ MonoBehaviour:
   BaseAgentCapacity: 4
   CurrentAgentCount: 0
   AssociatedNode: {fileID: 0}
-  UpkeepCost: 1
+  UpkeepCost: 0.8
   myWarehouse: {fileID: 0}
   myBuildingRandomizer: {fileID: 0}
   _currentNeedCovered: 0
@@ -234,12 +234,7 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -6392861433065882557, guid: b0ea852b379b62a4e8fc5ea61fb3ab0b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -6188678997213227352, guid: b0ea852b379b62a4e8fc5ea61fb3ab0b,
+    - target: {fileID: 5583174368119082090, guid: b0ea852b379b62a4e8fc5ea61fb3ab0b,
         type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -299,7 +294,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5583174368119082090, guid: b0ea852b379b62a4e8fc5ea61fb3ab0b,
+    - target: {fileID: -6188678997213227352, guid: b0ea852b379b62a4e8fc5ea61fb3ab0b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6392861433065882557, guid: b0ea852b379b62a4e8fc5ea61fb3ab0b,
         type: 3}
       propertyPath: m_IsActive
       value: 0

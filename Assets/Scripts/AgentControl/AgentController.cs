@@ -319,6 +319,24 @@ public class AgentController : MonoBehaviour
         return isOutOfCirculation;
     }
 
+    public void HandleCellsWithVaccine()
+    {
+        if (myStatus == GlobalObject.AgentStatus.Out_of_circulation)
+            return;
+
+        CurrentInfectedCells = 0;
+        if (myStatus == GlobalObject.AgentStatus.BeingTreated)
+        {
+            ExecutingBuilding = false;
+            SetVisibility(true);
+            myDestinationBuilding.CurrentAgentCount--;
+            myDestinationBuilding = null;
+            TakingCareOfNeed = false;
+        }
+
+        myStatus = GlobalObject.AgentStatus.Inmune;
+    }
+
     private void SetHappiness()
     {
         float _coefficient = 0;

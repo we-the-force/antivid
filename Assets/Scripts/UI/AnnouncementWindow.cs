@@ -78,6 +78,12 @@ public class AnnouncementWindow : MonoBehaviour
                         Debug.LogError("Vaccine50Percent");
                         break;
                     case GlobalObject.SpecialEventName.VaccineCompleted:
+                        //--- Curar a toda la banderola
+                        for (int a = 0; a < WorldAgentController.instance.AgentCollection.Count; a++)
+                        {
+                            WorldAgentController.instance.AgentCollection[a].HandleCellsWithVaccine();
+                        }
+
                         Debug.LogError("VaccineCompleted");
                         break;
                 }

@@ -143,6 +143,36 @@ MonoBehaviour:
   InfectionGuaranteedAfterNumberOfTravel: 3
   SecondsPerTic: 0.25
   TicScale: 1
+  FirstInfectionDetected: 0
+  StatisticMinMaxCollection:
+  - Entry: 0
+    minValue: 0
+    maxValue: 0
+  - Entry: 1
+    minValue: 0
+    maxValue: 0
+  - Entry: 2
+    minValue: 0
+    maxValue: 0
+  - Entry: 3
+    minValue: 0
+    maxValue: 0
+  - Entry: 4
+    minValue: 0
+    maxValue: 0
+  - Entry: 5
+    minValue: 0
+    maxValue: 0
+  - Entry: 6
+    minValue: 0
+    maxValue: 0
+  - Entry: 7
+    minValue: 0
+    maxValue: 0
+  - Entry: 8
+    minValue: 0
+    maxValue: 0
+  StatisticCollection: []
   NodeParent: {fileID: 6257447480022803166}
   NodeCollection: []
   NeedPercentageBaseCollection:

@@ -32,7 +32,14 @@ public class WorldManager : MonoBehaviour
     public static OnTicCall TicDelegate;
 
     public bool FirstInfectionDetected;
-    
+
+    [SerializeField]
+    public List<StatisticMinMaxObject> StatisticMinMaxCollection;
+    [SerializeField]
+    public List<StatisticObject> StatisticCollection;
+
+    public int currentTimeCycle = 0;
+
     IEnumerator TICManager()
     {
         float _seconds = 1;
@@ -79,6 +86,7 @@ public class WorldManager : MonoBehaviour
     {
         FirstInfectionDetected = false;
         StartCoroutine(DelayStart());
+
     }
 
     IEnumerator DelayStart()

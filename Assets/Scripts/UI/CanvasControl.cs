@@ -16,6 +16,8 @@ public class CanvasControl : MonoBehaviour
     public GameObject VaccineWindow;
     public GameObject VaccineIcon;
 
+    public GameObject EndGameWindow;
+
     public List<BuildingCanvasEntry> BuyableBuildingsCollection;
 
     public AnnouncementWindow _announcementWindow;
@@ -27,6 +29,8 @@ public class CanvasControl : MonoBehaviour
 
     public List<Sprite> PolicyIconSprites;
     public List<Image> PolicyIconCollection;
+
+
 
     private void Awake()
     {
@@ -134,5 +138,11 @@ public class CanvasControl : MonoBehaviour
     public void ShowHideUI(bool show)
     {
         UIElements.SetActive(show);
+    }
+
+    public void EndScenario()
+    {
+        ShowHideUI(false);
+        EndGameWindow.SetActive(true);
     }
 }

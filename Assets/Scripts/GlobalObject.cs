@@ -53,6 +53,37 @@ public class GlobalObject
         Vaccine50percent,
         VaccineCompleted
     }
+
+    [System.Serializable]
+    public enum StatisticEntry
+    {
+        HealtyPop,
+        MildSickness,
+        SeriousSickness,
+        OutOfOrder,
+        AgentIncome,
+        ExtraIncome,
+        BuildingCosts,
+        PolicyCosts,
+        VaccineCost
+    }
+}
+
+[System.Serializable]
+public class StatisticObject
+{
+    public int Type;
+    public int TimeCycle;
+    public float Value;
+    public GlobalObject.StatisticEntry Entry;
+}
+
+[System.Serializable]
+public class StatisticMinMaxObject
+{
+    public GlobalObject.StatisticEntry Entry;
+    public float minValue;
+    public float maxValue;
 }
 
 [System.Serializable]

@@ -1,0 +1,1159 @@
+fileFormatVersion: 2
+guid: f6422be47d977644aa73d93de73dfe04
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7449986200695359459
+    second: Icon_HealtyPop
+  - first:
+      213: -9120010350145299774
+    second: Icon_SickPop
+  - first:
+      213: 7129825157252304822
+    second: Icon_DeadPop
+  - first:
+      213: -1332317902430918499
+    second: BG_PopUI
+  - first:
+      213: -3615392559444636140
+    second: ButtonShowPolicy
+  - first:
+      213: 2965302998961556843
+    second: PolicyIcon_Food
+  - first:
+      213: -2164006300563894057
+    second: PolicyIcon_Quarentine
+  - first:
+      213: 6863911730192020843
+    second: PolicyIcon_Health
+  - first:
+      213: -8921329762182806185
+    second: Time_BG
+  - first:
+      213: -8747702060709884574
+    second: ButtonClose
+  - first:
+      213: 6058799227391705584
+    second: interfaz1_10
+  - first:
+      213: -5383976917115775234
+    second: Button_HalfSpeedSelected
+  - first:
+      213: -523706006563913091
+    second: CheckBox_BG
+  - first:
+      213: -648835197328929404
+    second: Button_HalfSpeed
+  - first:
+      213: -253520033801596797
+    second: Button_SpeedSelected
+  - first:
+      213: -6761885626472706697
+    second: Button_OneAndHalfSelected
+  - first:
+      213: 4307546417034821424
+    second: Button_DoubleSpeedSelected
+  - first:
+      213: -4781406489324838285
+    second: Button_PauseSelected
+  - first:
+      213: 6412872044468195123
+    second: Button_Pause
+  - first:
+      213: 1035721387080905329
+    second: Button_DoubleSpeed
+  - first:
+      213: -6271988349040802167
+    second: Button_OneAndHalfSpeed
+  - first:
+      213: 3811316472160786908
+    second: Button_Speed
+  - first:
+      213: 1337583722828001263
+    second: Time_FG
+  - first:
+      213: 6706642940484723430
+    second: ResourcesBG
+  - first:
+      213: -1765510484241919289
+    second: Button_NewBuilding
+  - first:
+      213: 2512276972981970685
+    second: NewBuilding_School
+  - first:
+      213: 5022717123071660036
+    second: NewBuilding_Cinema
+  - first:
+      213: -88150655592256897
+    second: NewBuilding_Hospital
+  - first:
+      213: 1993483458906434743
+    second: NewBuilding_Restorant
+  - first:
+      213: -4911673956207875641
+    second: CostToBuild
+  - first:
+      213: -5171581170659059877
+    second: TimeToBuild
+  - first:
+      213: 8524778196621010450
+    second: Vaccine_Progress_Icon
+  - first:
+      213: -4376915280400771550
+    second: Vaccine_Resources_Icon
+  - first:
+      213: 9152934878024165222
+    second: Slider_Handle
+  - first:
+      213: 4328461059521165150
+    second: Window_Announcement
+  - first:
+      213: 3423924588348001853
+    second: Window_Policy
+  - first:
+      213: -8783849524332784371
+    second: Buttons_BuyBuildings
+  - first:
+      213: 8350037085302186246
+    second: Announcement_Image
+  - first:
+      213: -5363108531262276796
+    second: Announcement_Text
+  - first:
+      213: 3407876192131828207
+    second: ProgressBar
+  - first:
+      213: -1115095779273063290
+    second: ProgressBarBG
+  - first:
+      213: 4885421588467887939
+    second: SliderBG
+  - first:
+      213: -8949059133168800987
+    second: Announcement_UnlockArea
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Icon_HealtyPop
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 1972
+        width: 69
+        height: 73
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 755fc1ac9db9f774dac37ee9bc4a6d92
+      internalID: 7449986200695359459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_SickPop
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 1892
+        width: 69
+        height: 73
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5382db024a01f2848a9aaf4e92b5c4cf
+      internalID: -9120010350145299774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_DeadPop
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 1811
+        width: 69
+        height: 73
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74cbef2076e06594c85ece35136365ae
+      internalID: 7129825157252304822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BG_PopUI
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 1767
+        width: 172
+        height: 273
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a30a4d72fa287034cbe2bec158c4151d
+      internalID: -1332317902430918499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ButtonShowPolicy
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 1874
+        width: 168
+        height: 167
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ed4b8e0481975242a71a8d693f3e941
+      internalID: -3615392559444636140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PolicyIcon_Food
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 1951
+        width: 89
+        height: 88
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2ac306944a94004fb620976415ddcee
+      internalID: 2965302998961556843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PolicyIcon_Quarentine
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 1860
+        width: 89
+        height: 88
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79244c1c59c0c474a8b038f4e917b938
+      internalID: -2164006300563894057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PolicyIcon_Health
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 1763
+        width: 89
+        height: 88
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b660388d26b5cbf4488ccbe67b1ac88d
+      internalID: 6863911730192020843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Time_BG
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 1779
+        width: 68
+        height: 67
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10bfaced566219043a7fea6d2f731b13
+      internalID: -8921329762182806185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ButtonClose
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 1779
+        width: 67
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed23193bae0bb684a97b7b81e1de9bcd
+      internalID: -8747702060709884574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: interfaz1_10
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 1894
+        width: 59
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14e6686895c5b6547839a1d1aaf65c9b
+      internalID: 6058799227391705584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_HalfSpeedSelected
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 1859
+        width: 75
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffd78d83f0e486544b5ffe64bead728b
+      internalID: -5383976917115775234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CheckBox_BG
+      rect:
+        serializedVersion: 2
+        x: 547
+        y: 1954
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fe1023bf81690e4e8ba8ad3f5d85ef8
+      internalID: -523706006563913091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_HalfSpeed
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 1854
+        width: 91
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecc532f948e294d4dbb0d4b461d69c46
+      internalID: -648835197328929404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_SpeedSelected
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 1921
+        width: 39
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 340c50ac2d42b334fa1918fec3c538b8
+      internalID: -253520033801596797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_OneAndHalfSelected
+      rect:
+        serializedVersion: 2
+        x: 761
+        y: 1886
+        width: 29
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ccb53cdb29fb9d448c09f543a92f166
+      internalID: -6761885626472706697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_DoubleSpeedSelected
+      rect:
+        serializedVersion: 2
+        x: 726
+        y: 1875
+        width: 29
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 707d1234e40a6894c97c8855251c7a75
+      internalID: 4307546417034821424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_PauseSelected
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 1781
+        width: 45
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a93f2396992447145bab2655df148f52
+      internalID: -4781406489324838285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_Pause
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 1758
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28d05335d71cf1143b8c89b201d209be
+      internalID: 6412872044468195123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_DoubleSpeed
+      rect:
+        serializedVersion: 2
+        x: 706
+        y: 1753
+        width: 91
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 714a6731a51566546aae715cc103d55c
+      internalID: 1035721387080905329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_OneAndHalfSpeed
+      rect:
+        serializedVersion: 2
+        x: 806
+        y: 1752
+        width: 91
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72b5ef497a2630141aa6ff32fa0771c1
+      internalID: -6271988349040802167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_Speed
+      rect:
+        serializedVersion: 2
+        x: 812
+        y: 1854
+        width: 91
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88b983370e51882409dc26c9d5c4812e
+      internalID: 3811316472160786908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Time_FG
+      rect:
+        serializedVersion: 2
+        x: 681
+        y: 1644
+        width: 97
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c27a330c6c3ca2c4087fde5cda40fa1e
+      internalID: 1337583722828001263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ResourcesBG
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 1957
+        width: 282
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a930fbbc77f63e74fbb6bd44a365cad2
+      internalID: 6706642940484723430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_NewBuilding
+      rect:
+        serializedVersion: 2
+        x: 942
+        y: 1885
+        width: 440
+        height: 152
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2115d1b75ad08ff4fa66bdd74dc1dc8a
+      internalID: -1765510484241919289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewBuilding_School
+      rect:
+        serializedVersion: 2
+        x: 1416
+        y: 1900
+        width: 210
+        height: 118
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7714396a6db512644bca1fc90fa45980
+      internalID: 2512276972981970685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewBuilding_Cinema
+      rect:
+        serializedVersion: 2
+        x: 1388
+        y: 1739
+        width: 213
+        height: 118
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a798c9234a9954459596aaa31f44e48
+      internalID: 5022717123071660036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewBuilding_Hospital
+      rect:
+        serializedVersion: 2
+        x: 1160
+        y: 1733
+        width: 198
+        height: 118
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f5ea655d9570284bbd74ece01afc251
+      internalID: -88150655592256897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewBuilding_Restorant
+      rect:
+        serializedVersion: 2
+        x: 944
+        y: 1735
+        width: 192
+        height: 118
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 450b2df14f5f5dc4bae3761402fc5c2b
+      internalID: 1993483458906434743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CostToBuild
+      rect:
+        serializedVersion: 2
+        x: 1845
+        y: 1732
+        width: 89
+        height: 298
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd6fadd486351af4886cc31b3b05f261
+      internalID: -4911673956207875641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TimeToBuild
+      rect:
+        serializedVersion: 2
+        x: 1949
+        y: 1732
+        width: 89
+        height: 298
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08892eca034333440b3d47d0471eb68d
+      internalID: -5171581170659059877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vaccine_Progress_Icon
+      rect:
+        serializedVersion: 2
+        x: 1879
+        y: 1606
+        width: 47
+        height: 118
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a14314f5c7446145bb055536ee0e12b
+      internalID: 8524778196621010450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vaccine_Resources_Icon
+      rect:
+        serializedVersion: 2
+        x: 1948
+        y: 1644
+        width: 83
+        height: 76
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e16b9c689f024c47919a68faf2f234d
+      internalID: -4376915280400771550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slider_Handle
+      rect:
+        serializedVersion: 2
+        x: 1885
+        y: 1544
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 842634c31dcf28a49b5a9682d7fad63f
+      internalID: 9152934878024165222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Window_Announcement
+      rect:
+        serializedVersion: 2
+        x: 813
+        y: 1061
+        width: 1057
+        height: 639
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8b7d1c8b16715a46a199a4416612b1e
+      internalID: 4328461059521165150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Window_Policy
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 1039
+        width: 661
+        height: 712
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a59afbe07cc892a4888c2d814dbd7981
+      internalID: 3423924588348001853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Buttons_BuyBuildings
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 1052
+        width: 115
+        height: 584
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 518de629f0737aa41851e673105b4d85
+      internalID: -8783849524332784371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Announcement_Image
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 698
+        width: 321
+        height: 332
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f119b608f199aec47b876034ebfed571
+      internalID: 8350037085302186246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Announcement_Text
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 698
+        width: 642
+        height: 332
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01301c8da5e122e48a313c6940213c68
+      internalID: -5363108531262276796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProgressBar
+      rect:
+        serializedVersion: 2
+        x: 992
+        y: 1028
+        width: 761
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 128647c594f153d42b690e69e269832c
+      internalID: 3407876192131828207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProgressBarBG
+      rect:
+        serializedVersion: 2
+        x: 992
+        y: 976
+        width: 781
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8af989a9a885b974a847d2f8dbed5ec4
+      internalID: -1115095779273063290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SliderBG
+      rect:
+        serializedVersion: 2
+        x: 993
+        y: 938
+        width: 782
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17b37b9842197d745be1be2dd88bf96f
+      internalID: 4885421588467887939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Announcement_UnlockArea
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 455
+        width: 890
+        height: 231
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3fd4e3c3c76b0442a00017da57c43a3
+      internalID: -8949059133168800987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

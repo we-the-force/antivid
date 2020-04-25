@@ -302,6 +302,9 @@ public class BuyablePlot : MonoBehaviour
 
     void ShowCanvas()
     {
+        if (!CanvasControl.instance.UIElements.gameObject.activeSelf)
+            return;
+
         if (interactingWithCanvas && buyBuildingWindow.SelectedBuyablePlot == null)
         {
             WorldManager.instance.ChangeTimeScale(0);
@@ -314,6 +317,9 @@ public class BuyablePlot : MonoBehaviour
     public void LeftClick()
     {
         if (UnderConstruction)
+            return;
+
+        if (!CanvasControl.instance.UIElements.gameObject.activeSelf)
             return;
 
         interactingWithCanvas = true;

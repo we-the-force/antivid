@@ -128,6 +128,7 @@ public class VaccineManager : MonoBehaviour
                 {
                     vaccineCompleted = true;
                     _currentProgress = 100;
+                    Debug.LogError(">>> La vacuna se ha completado, deberia mandar el evento especial");
                     FinishVaccine();
                 }
                 _currentTic = 0;
