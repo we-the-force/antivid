@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Test5
   m_EditorClassIdentifier: 
   PolicyID: 5
+  Available: 0
   PolicyName: Entertainment to houses
   PolicyDescription: 
-  Enabled: 1
+  Enabled: 0
   IsQuarantine: 0
   UpkeepCost: 0.75
   TransformBuildingSection:

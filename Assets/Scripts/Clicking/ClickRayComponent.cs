@@ -13,11 +13,11 @@ public class ClickRayComponent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonUp(0))
         {
             HandleClick(true);
         }
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonUp(1))
         {
             HandleClick(false);
         }
@@ -27,7 +27,7 @@ public class ClickRayComponent : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity))
         {
-            Debug.Log($"Hit something! ({hit.transform.name})");
+            //Debug.Log($"Hit something! ({hit.transform.name})");
             hit.transform.SendMessage(leftClick ? "LeftClick" : "RightClick", SendMessageOptions.DontRequireReceiver);
         }
     }
