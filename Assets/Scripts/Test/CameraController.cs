@@ -8,12 +8,20 @@ public class CameraController : MonoBehaviour
 {
     static CameraController _instance = null;
 
+    public bool CanFollow;
+
     [SerializeField, Tooltip("Units per second"), Range(1f, 10f)]
     float movementSpeed = 5f;
+    [SerializeField, Tooltip("The speed used when using touch controls")]
+    float _touchSpeed;
     [SerializeField, Tooltip("Units per second"), Range(1f, 100f)]
     float rotationSpeed = 5f;
     [SerializeField, Tooltip("Units per second"), Range(1f, 100f)]
     float zoomSpeed = 5f;
+    [SerializeField, Range(0.5f, 1f)]
+    float minZoom;
+    [SerializeField, Range (3f, 10f)]
+    float maxZoom;
 
     [SerializeField]
     CameraRotation currentRot;
@@ -25,7 +33,19 @@ public class CameraController : MonoBehaviour
     public GameObject objectToFollow;
     [SerializeField]
     bool isFollowing = false;
-    Camera cam;
+    Camera _cam;
+
+
+
+    public float TouchSpeed
+    {
+        get { return _touchSpeed; }
+    }
+
+    public Camera Cam
+    {
+        get { return _cam; }
+    }
 
     public static CameraController Instance
     {
@@ -40,7 +60,9 @@ public class CameraController : MonoBehaviour
         }
         _instance = this;
 
-        cam = transform.GetComponentInChildren<Camera>();
+        _cam = transform.GetComponentInChildren<Camera>();
+
+        SetTouchSpeed();
     }
     private void Update()
     {
@@ -60,10 +82,13 @@ public class CameraController : MonoBehaviour
         }
         else
         {
-            if (objectToFollow != null)
+            if (CanFollow)
             {
-                Vector2 pos = Vector2.Lerp(new Vector2(transform.position.x, transform.position.z), new Vector2(objectToFollow.transform.position.x, objectToFollow.transform.position.z), movementSpeed * Time.deltaTime);
-                transform.position = new Vector3(pos.x, 0, pos.y);
+                if (objectToFollow != null)
+                {
+                    Vector2 pos = Vector2.Lerp(new Vector2(transform.position.x, transform.position.z), new Vector2(objectToFollow.transform.position.x, objectToFollow.transform.position.z), movementSpeed * Time.deltaTime);
+                    transform.position = new Vector3(pos.x, 0, pos.y);
+                }
             }
         }
         if (Input.GetKeyDown(KeyCode.E))
@@ -84,29 +109,53 @@ public class CameraController : MonoBehaviour
         }
 
         transform.rotation = Quaternion.Euler(0, Mathf.LerpAngle(transform.rotation.eulerAngles.y, (int)currentRot, rotationSpeed * Time.deltaTime), 0);
-        cam.orthographicSize = currentZoom;
+        _cam.orthographicSize = currentZoom;
     }
-    void RotateCamera(int value)
+    public void ResetPosition()
+    {
+        transform.position = Vector3.zero;
+    }
+    public void RotateCamera(int value)
     {
         int auxRot = ((int)currentRot + 45) / 90 + value;
         auxRot = auxRot < 0 ? 3 : auxRot > 3 ? 0 : auxRot;
         currentRot = (CameraRotation)(auxRot * 90 - 45);
     }
+    public void ChangeZoom(float quantity)
+    {
+        if (currentZoom + quantity < minZoom)
+        {
+            currentZoom = minZoom;
+        }
+        else if (currentZoom + quantity > maxZoom)
+        {
+            currentZoom = maxZoom;
+        }
+        else
+        {
+            currentZoom += quantity;
+        }
+        SetTouchSpeed();
+    }
     void ZoomCamera(int zoom)
     {
         float zoomFactor = zoomSpeed * Time.deltaTime * zoom;
-        if (currentZoom + zoomFactor < 0.75f)
+        if (currentZoom + zoomFactor < minZoom)
         {
-            currentZoom = 0.75f;
+            currentZoom = minZoom;
         }
-        else if (currentZoom + zoomFactor > 15f)
+        else if (currentZoom + zoomFactor > maxZoom)
         {
-            currentZoom = 15f;
+            currentZoom = maxZoom;
         }
         else
         {
             currentZoom += zoomFactor;
         }
+    }
+    void SetTouchSpeed()
+    {
+        _touchSpeed = 1f / maxZoom * (currentZoom);
     }
     public void SetObjectToFollow(GameObject toFollow)
     {

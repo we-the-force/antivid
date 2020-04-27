@@ -431,9 +431,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6aa5731e4c3bcc642a3ad89c80ce3d95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CanFollow: 0
   movementSpeed: 5
+  _touchSpeed: 0
   rotationSpeed: 2
   zoomSpeed: 5
+  minZoom: 0.75
+  maxZoom: 7.5
   currentRot: -45
   currentZoom: 10
   freeMovement: 0

@@ -110,9 +110,9 @@ public class CanvasControl : MonoBehaviour
     {
         WorldManager.instance.ChangeTimeScale(1);
 
+        PolicyWindow.SetActive(false);
         ShowPolicyIcon();
         ShowHideUI(true);
-        PolicyWindow.SetActive(false);
 
     }
 

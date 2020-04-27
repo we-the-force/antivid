@@ -40,9 +40,16 @@ public class PolicyManager : MonoBehaviour
         {
             _policies.Add(ObjectToPolicy(ob));
         }
+        DisableAllPolicies();
         CreateToggles();
     }
-
+    void DisableAllPolicies()
+    {
+        foreach (Policy pol in _policies)
+        {
+            pol.Enabled = false;
+        }
+    }
     public void CreateToggles()
     {
         for (int i = 0; i < viewportContent.transform.childCount; i++)
