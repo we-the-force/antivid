@@ -641,7 +641,7 @@ MonoBehaviour:
   BaseAgentCapacity: 10
   CurrentAgentCount: 0
   AssociatedNode: {fileID: 0}
-  UpkeepCost: 0
+  UpkeepCost: 0.1
   myWarehouse: {fileID: 0}
   myBuildingRandomizer: {fileID: 0}
   _currentNeedCovered: 0

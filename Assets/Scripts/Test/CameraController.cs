@@ -62,8 +62,18 @@ public class CameraController : MonoBehaviour
 
         _cam = transform.GetComponentInChildren<Camera>();
 
+        Invoke("SetUI", 0.2f);
+
         SetTouchSpeed();
     }
+
+    private void SetUI()
+    {
+        Debug.LogError("CAMERA ASPECT RATIO: " + _cam.aspect);
+        CanvasControl.instance.RearangeElements(_cam.aspect);
+    }
+
+
     private void Update()
     {
         playerInput = new Vector3(Input.GetAxisRaw("Horizontal"), /*Input.GetButton("Fire1") ? -1 : Input.GetButton("Fire2") ? 1 :*/ 0, Input.GetAxisRaw("Vertical"));

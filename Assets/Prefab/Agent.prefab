@@ -207,7 +207,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IconController: {fileID: 6055284869750767877}
   TotalCellsInBody: 1500
-  CellsCuredPerTic: 1.5
+  CellsCuredPerTic: 12
   CurrentInfectedCells: 0
   ContagioPerTic: 0.0225
   FactorContagio: 1

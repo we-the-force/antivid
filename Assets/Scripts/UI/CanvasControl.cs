@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class CanvasControl : MonoBehaviour
 {
+    public Text txtHappiness;
+
     public static CanvasControl instance;
 
     public BuyBuildingWindow BuildWindow;
@@ -21,6 +23,9 @@ public class CanvasControl : MonoBehaviour
     public List<BuildingCanvasEntry> BuyableBuildingsCollection;
 
     public AnnouncementWindow _announcementWindow;
+    
+    public GameObject GraphWindow;
+    public GraphController GraphWindowController;
 
     public Text txtTotPop;
     public Text txtSick;
@@ -30,11 +35,41 @@ public class CanvasControl : MonoBehaviour
     public List<Sprite> PolicyIconSprites;
     public List<Image> PolicyIconCollection;
 
+    public List<GameObject> speedControlSelectedImage;
 
 
     private void Awake()
     {
         instance = this;
+    }
+    
+    public RectTransform panelPopInfo;
+    public RectTransform panelCurrencyInfo;
+    public RectTransform panelSpeedControl;
+    public RectTransform panelCameraControl;
+    public RectTransform panelButtons;
+    public void RearangeElements(float _aspect)
+    {
+        if (_aspect < 2f)
+        {
+            panelPopInfo.anchoredPosition = new Vector2(23, -22);
+            panelCurrencyInfo.anchoredPosition = new Vector2(-27, -24);
+            panelSpeedControl.anchoredPosition = new Vector2(136, 47);
+            //panelCameraControl.anchoredPosition = new Vector2(0, 0);
+            panelButtons.anchoredPosition = new Vector2(-60, 30);
+        }
+    }
+
+
+    public void SpeedActiveButton(int idx)
+    {
+        for (int i = 0; i < speedControlSelectedImage.Count; i++)
+        {
+            if (idx == i)
+                speedControlSelectedImage[i].SetActive(true);
+            else
+                speedControlSelectedImage[i].SetActive(false);
+        }
     }
 
     public void Statistic(List<AgentController> fromPopulation)
@@ -88,6 +123,23 @@ public class CanvasControl : MonoBehaviour
             PolicyIconCollection[i].sprite = PolicyIconSprites[activePolicyIdx[i]];
             PolicyIconCollection[i].gameObject.SetActive(true);
         }
+    }
+
+    public void ShowStatisticWindow()
+    {
+        ShowHideUI(false);
+        WorldManager.instance.ChangeTimeScale(0);
+
+        GraphWindowController.InitGraph();
+        GraphWindow.SetActive(true);
+    }
+
+    public void HideStatisticWindow()
+    {
+        GraphWindow.SetActive(false);
+        GraphWindowController.DisableWindow();
+        ShowHideUI(true);
+        WorldManager.instance.ChangeTimeScale(1);
     }
 
     public void ShowBuildWindow(BuyablePlot _buyablePlot)

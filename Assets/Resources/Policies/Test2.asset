@@ -17,9 +17,9 @@ MonoBehaviour:
   PolicyName: Galletitas
   PolicyDescription: Creas mejores galletas de animalitos.\r\n+10% efectividad de
     comida
-  Enabled: 0
+  Enabled: 1
   IsQuarantine: 0
-  UpkeepCost: 0.5
+  UpkeepCost: 10
   TransformBuildingSection:
     Enabled: 0
     BuildingToChange: 6

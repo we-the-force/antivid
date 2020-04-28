@@ -16,9 +16,9 @@ MonoBehaviour:
   Available: 1
   PolicyName: Mas hospital!
   PolicyDescription: 
-  Enabled: 0
+  Enabled: 1
   IsQuarantine: 0
-  UpkeepCost: 0.75
+  UpkeepCost: 6
   TransformBuildingSection:
     Enabled: 0
     BuildingToChange: 6

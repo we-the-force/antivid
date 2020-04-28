@@ -18,7 +18,7 @@ MonoBehaviour:
   PolicyDescription: 
   Enabled: 0
   IsQuarantine: 0
-  UpkeepCost: 0.75
+  UpkeepCost: 3
   TransformBuildingSection:
     Enabled: 0
     BuildingToChange: 6
