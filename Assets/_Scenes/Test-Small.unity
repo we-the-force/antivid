@@ -1788,6 +1788,11 @@ PrefabInstance:
       propertyPath: _resourceSlider
       value: 
       objectReference: {fileID: 1323647967}
+    - target: {fileID: 5072206408726819545, guid: ae3e5b41e0a5caf4ba12a1572902b824,
+        type: 3}
+      propertyPath: _baseProgressPerTic
+      value: 0.02
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae3e5b41e0a5caf4ba12a1572902b824, type: 3}
 --- !u!1001 &1137176225
@@ -2341,14 +2346,6 @@ PrefabInstance:
     - target: {fileID: 5584120424534346709, guid: df2b705b261be0e409b22a59fcf1895d,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 996875609, guid: df2b705b261be0e409b22a59fcf1895d, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 996875610, guid: df2b705b261be0e409b22a59fcf1895d, type: 3}
-      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -13068,7 +13065,7 @@ PrefabInstance:
     - target: {fileID: 5160226374194979869, guid: f3eac50afae36f64887ea84c417fb721,
         type: 3}
       propertyPath: IncomePerAgent
-      value: 0.65
+      value: 0.35
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3eac50afae36f64887ea84c417fb721, type: 3}
@@ -13172,7 +13169,32 @@ PrefabInstance:
     - target: {fileID: 7442522305919376420, guid: d506d9f507a72c84facd38c600012728,
         type: 3}
       propertyPath: travelUseCost
-      value: 0.8
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 7442522305919376420, guid: d506d9f507a72c84facd38c600012728,
+        type: 3}
+      propertyPath: foodUseCost
+      value: 0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 7442522305919376420, guid: d506d9f507a72c84facd38c600012728,
+        type: 3}
+      propertyPath: sleepUseCost
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7442522305919376420, guid: d506d9f507a72c84facd38c600012728,
+        type: 3}
+      propertyPath: entertainmentUseCost
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 7442522305919376420, guid: d506d9f507a72c84facd38c600012728,
+        type: 3}
+      propertyPath: educationUseCost
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7442522305919376420, guid: d506d9f507a72c84facd38c600012728,
+        type: 3}
+      propertyPath: initialCurrency
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d506d9f507a72c84facd38c600012728, type: 3}
@@ -13187,6 +13209,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 9201387680897900226, guid: 804fa6138a8088249ad6429a6f67e03f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9201387680897900230, guid: 804fa6138a8088249ad6429a6f67e03f,
         type: 3}
@@ -13362,6 +13389,16 @@ PrefabInstance:
     - target: {fileID: 1686561738, guid: 804fa6138a8088249ad6429a6f67e03f, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4208118423228894728, guid: 804fa6138a8088249ad6429a6f67e03f,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9144859913249801300, guid: 804fa6138a8088249ad6429a6f67e03f,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 804fa6138a8088249ad6429a6f67e03f, type: 3}

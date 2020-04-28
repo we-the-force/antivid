@@ -21,6 +21,9 @@ public class CanvasControl : MonoBehaviour
     public List<BuildingCanvasEntry> BuyableBuildingsCollection;
 
     public AnnouncementWindow _announcementWindow;
+    
+    public GameObject GraphWindow;
+    public GraphController GraphWindowController;
 
     public Text txtTotPop;
     public Text txtSick;
@@ -88,6 +91,23 @@ public class CanvasControl : MonoBehaviour
             PolicyIconCollection[i].sprite = PolicyIconSprites[activePolicyIdx[i]];
             PolicyIconCollection[i].gameObject.SetActive(true);
         }
+    }
+
+    public void ShowStatisticWindow()
+    {
+        ShowHideUI(false);
+        WorldManager.instance.ChangeTimeScale(0);
+
+        GraphWindowController.InitGraph();
+        GraphWindow.SetActive(true);
+    }
+
+    public void HideStatisticWindow()
+    {
+        GraphWindow.SetActive(false);
+        GraphWindowController.DisableWindow();
+        ShowHideUI(true);
+        WorldManager.instance.ChangeTimeScale(1);
     }
 
     public void ShowBuildWindow(BuyablePlot _buyablePlot)

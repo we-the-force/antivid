@@ -76,10 +76,10 @@ MonoBehaviour:
   ModTicsToCoverNeed: 1
   ModPercentageRestored: 1
   ModAgentCapacity: 1
-  BaseAgentCapacity: 30
+  BaseAgentCapacity: 25
   CurrentAgentCount: 0
   AssociatedNode: {fileID: 0}
-  UpkeepCost: 6
+  UpkeepCost: 3.8
   myWarehouse: {fileID: 0}
   myBuildingRandomizer: {fileID: 0}
   _currentNeedCovered: 0

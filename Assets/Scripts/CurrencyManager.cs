@@ -15,6 +15,8 @@ public class CurrencyManager : MonoBehaviour
     float extraIncome;
 
     [SerializeField]
+    float sleepUseCost;
+    [SerializeField]
     float foodUseCost;
     [SerializeField]
     float entertainmentUseCost;
@@ -78,8 +80,24 @@ public class CurrencyManager : MonoBehaviour
         UpdateIncomeText(buildingCosts, agentIncome, totalResource);
     }
 
-    public int FinalCycleCounter { get; set; }
+    private float GetMinMaxValue(List<float> valueList, out float MaxValue)
+    {
+        float minValue = 0;
+        MaxValue = 0;
 
+        for (int i = 0; i < valueList.Count; i++)
+        {
+            if (valueList[i] < minValue)
+                minValue = valueList[i];
+
+            if (valueList[i] > MaxValue)
+                MaxValue = valueList[i];
+        }
+        return minValue;
+    }
+
+
+    public int FinalCycleCounter { get; set; }
     public void OnWorldTic()
     {
         currentTic++;
@@ -97,6 +115,9 @@ public class CurrencyManager : MonoBehaviour
 
             WorldManager.instance.currentTimeCycle++;
 
+            UpdateIncomeText(buildingCosts, agentIncome, totalResource);
+            CurrentCurrency += totalResource;
+
             //--- Contar la poblacion 
             int healtyPop = 0;
             int mildPop = 0;
@@ -113,9 +134,9 @@ public class CurrencyManager : MonoBehaviour
                         healtyPop++;
                         break;
                     case AgentStatus.Mild_Case:
-                    case AgentStatus.BeingTreated:
                         mildPop++;
                         break;
+                    case AgentStatus.BeingTreated:
                     case AgentStatus.Serious_Case:
                         seriousPop++;
                         break;
@@ -124,7 +145,44 @@ public class CurrencyManager : MonoBehaviour
                         break;
                 }
             }
-                       
+
+            GraphController statWindow = CanvasControl.instance.GraphWindowController;
+
+            statWindow.HealtyPopList.Add(healtyPop);
+            statWindow.MildSicknessList.Add(mildPop);
+            statWindow.SeriousSicknessList.Add(seriousPop);
+            statWindow.OutofOrderList.Add(outPop);
+
+            List<float> economyList = new List<float>();
+
+            statWindow.AgentIncomeList.Add(Mathf.RoundToInt(agentIncome));
+            economyList.Add(agentIncome);
+
+            statWindow.ExtraIncomeList.Add(Mathf.RoundToInt(extraIncome));
+            economyList.Add(extraIncome);
+
+            statWindow.BuildingCost.Add(Mathf.RoundToInt(buildingCosts));
+            economyList.Add(buildingCosts);
+
+            statWindow.VaccioneCosts.Add(Mathf.RoundToInt(vaccineCost));
+            economyList.Add(vaccineCost);
+
+            statWindow.PolicyCosts.Add(Mathf.RoundToInt(policyCosts));
+            economyList.Add(policyCosts);
+
+            statWindow.TotalIncomeList.Add(Mathf.RoundToInt(CurrentCurrency));
+            economyList.Add(CurrentCurrency);
+
+            float minValue = 0;
+            float maxValue = 0;
+            minValue = GetMinMaxValue(economyList, out maxValue);
+
+            if (minValue < statWindow.MinEconomy)
+                statWindow.MinEconomy = minValue;
+            if (maxValue > statWindow.MaxEconomy)
+                statWindow.MaxEconomy = maxValue;  
+            
+            /*
             for (int i = 0; i < WorldManager.instance.StatisticMinMaxCollection.Count; i++)
             {
                 StatisticMinMaxObject stat = WorldManager.instance.StatisticMinMaxCollection[i];
@@ -234,10 +292,8 @@ public class CurrencyManager : MonoBehaviour
                 WorldManager.instance.StatisticCollection.Add(statObj);
             }
             
+    */
             //Debug.Log($"b: {buildingCosts}, p: {policyCosts}, a: {agentIncome} ({agentIncome} + {extraIncome} - {buildingCosts} - {policyCosts} = {totalResource})");
-
-            UpdateIncomeText(buildingCosts, agentIncome, totalResource);
-            CurrentCurrency += totalResource;
 
             extraIncome = 0;
 
@@ -283,6 +339,9 @@ public class CurrencyManager : MonoBehaviour
         float auxIncome = 0;
         switch (type)
         {
+            case NeedScale.Sleep:
+                auxIncome = sleepUseCost;
+                break;
             case NeedScale.Hunger:
                 auxIncome = foodUseCost;
                 break;
