@@ -34,7 +34,7 @@ TextureImporter:
     second: ButtonClose
   - first:
       213: 6058799227391705584
-    second: interfaz1_10
+    second: Toggle_check
   - first:
       213: -5383976917115775234
     second: Button_HalfSpeedSelected
@@ -131,6 +131,27 @@ TextureImporter:
   - first:
       213: -8949059133168800987
     second: Announcement_UnlockArea
+  - first:
+      213: -4215731569061604297
+    second: Button_VaccineWindow
+  - first:
+      213: 2629474722291211199
+    second: SpecialEvent_Alert
+  - first:
+      213: -2931839649792393152
+    second: Button_Statistic
+  - first:
+      213: -7277296753422218442
+    second: buttonRotate
+  - first:
+      213: -2531230550172595245
+    second: buttonCenterCamera
+  - first:
+      213: -7499322994625707038
+    second: ButtonCenterCamera_white
+  - first:
+      213: -1647133752078907659
+    second: ButtonRotateCameraWhite
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -449,7 +470,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: interfaz1_10
+      name: Toggle_check
       rect:
         serializedVersion: 2
         x: 558
@@ -1137,6 +1158,153 @@ TextureImporter:
       bones: []
       spriteID: f3fd4e3c3c76b0442a00017da57c43a3
       internalID: -8949059133168800987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_VaccineWindow
+      rect:
+        serializedVersion: 2
+        x: 1876
+        y: 1366
+        width: 169
+        height: 169
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cfa43a7e3b74d64caa70eadb9e83439
+      internalID: -4215731569061604297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpecialEvent_Alert
+      rect:
+        serializedVersion: 2
+        x: 1641
+        y: 1714
+        width: 177
+        height: 172
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6dc50d119562ed448cab9d6e463b0ae
+      internalID: 2629474722291211199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_Statistic
+      rect:
+        serializedVersion: 2
+        x: 1876
+        y: 1193
+        width: 169
+        height: 169
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d52642a6e1c16994ca96a768ae67acf4
+      internalID: -2931839649792393152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: buttonRotate
+      rect:
+        serializedVersion: 2
+        x: 991
+        y: 835
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e29c749a7a815424aaab4bcf376c4401
+      internalID: -7277296753422218442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: buttonCenterCamera
+      rect:
+        serializedVersion: 2
+        x: 1102
+        y: 835
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e95303ac58635cf4eb6a48faee8b1bc8
+      internalID: -2531230550172595245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ButtonCenterCamera_white
+      rect:
+        serializedVersion: 2
+        x: 1201
+        y: 860
+        width: 73
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 164c709248fcca2488ba9eb5a89fb76b
+      internalID: -7499322994625707038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ButtonRotateCameraWhite
+      rect:
+        serializedVersion: 2
+        x: 1005
+        y: 765
+        width: 59
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93e9217ce04f1de4492e77ac19e12d27
+      internalID: -1647133752078907659
       vertices: []
       indices: 
       edges: []

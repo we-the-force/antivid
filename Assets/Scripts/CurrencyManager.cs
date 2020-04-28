@@ -108,6 +108,9 @@ public class CurrencyManager : MonoBehaviour
         {
             currentTic = 0;
             float buildingCosts = WorldAgentController.instance.TotalBuildingUpkeepCost;
+
+            buildingCosts += costToCure;
+
             float policyCosts = WorldAgentController.instance.TotalPolicyUpkeepCost;
             float agentIncome = WorldAgentController.instance.TotalAgentIncome;
             float vaccineCost = VaccineManager.Instance.ProgressCostPerTic;
@@ -123,9 +126,18 @@ public class CurrencyManager : MonoBehaviour
             int mildPop = 0;
             int seriousPop = 0;
             int outPop = 0;
+
+            float happiness = 0;
+            float totPop = 0;
             for (int i = 0; i < WorldAgentController.instance.AgentCollection.Count; i++)
             {
                 AgentStatus _status = WorldAgentController.instance.AgentCollection[i].myStatus;
+
+                if (_status != AgentStatus.Out_of_circulation)
+                {
+                    happiness += WorldAgentController.instance.AgentCollection[i].HappinessCoeficient;
+                    totPop++;
+                }               
 
                 switch (_status)
                 {
@@ -145,6 +157,9 @@ public class CurrencyManager : MonoBehaviour
                         break;
                 }
             }
+
+            happiness = happiness / totPop;
+            CanvasControl.instance.txtHappiness.text = happiness.ToString();
 
             GraphController statWindow = CanvasControl.instance.GraphWindowController;
 
@@ -181,118 +196,6 @@ public class CurrencyManager : MonoBehaviour
                 statWindow.MinEconomy = minValue;
             if (maxValue > statWindow.MaxEconomy)
                 statWindow.MaxEconomy = maxValue;  
-            
-            /*
-            for (int i = 0; i < WorldManager.instance.StatisticMinMaxCollection.Count; i++)
-            {
-                StatisticMinMaxObject stat = WorldManager.instance.StatisticMinMaxCollection[i];
-
-                StatisticObject statObj = new StatisticObject();
-                statObj.Entry = stat.Entry;
-                statObj.TimeCycle = WorldManager.instance.currentTimeCycle;
-
-                switch (stat.Entry)
-                {
-                    case GlobalObject.StatisticEntry.AgentIncome:
-                        if (agentIncome < stat.minValue)
-                            stat.minValue = agentIncome;
-
-                        if (agentIncome > stat.maxValue)
-                            stat.maxValue = agentIncome;
-
-                        statObj.Type = 0;
-                        statObj.Value = agentIncome;
-                        break;
-
-                    case GlobalObject.StatisticEntry.BuildingCosts:
-                        if (buildingCosts < stat.minValue)
-                            stat.minValue = buildingCosts;
-
-                        if (buildingCosts > stat.maxValue)
-                            stat.maxValue = buildingCosts;
-
-                        statObj.Type = 0;
-                        statObj.Value = buildingCosts;
-
-                        break;
-
-                    case GlobalObject.StatisticEntry.ExtraIncome:
-                        if (extraIncome < stat.minValue)
-                            stat.minValue = extraIncome;
-
-                        if (extraIncome > stat.maxValue)
-                            stat.maxValue = extraIncome;
-
-                        statObj.Type = 0;
-                        statObj.Value = extraIncome;
-
-                        break;
-
-                    case GlobalObject.StatisticEntry.HealtyPop:
-                        if (healtyPop < stat.minValue)
-                            stat.minValue = healtyPop;
-
-                        if (healtyPop > stat.maxValue)
-                            stat.maxValue = healtyPop;
-                        statObj.Type = 1;
-                        statObj.Value = healtyPop;
-                        break;
-
-                    case GlobalObject.StatisticEntry.MildSickness:
-                        if (mildPop < stat.minValue)
-                            stat.minValue = mildPop;
-
-                        if (mildPop > stat.maxValue)
-                            stat.maxValue = mildPop;
-                        statObj.Type = 1;
-                        statObj.Value = mildPop;
-                        break;
-
-                    case GlobalObject.StatisticEntry.OutOfOrder:
-                        if (outPop < stat.minValue)
-                            stat.minValue = outPop;
-
-                        if (outPop > stat.maxValue)
-                            stat.maxValue = outPop;
-                        statObj.Type = 1;
-                        statObj.Value = outPop;
-                        break;
-
-                    case GlobalObject.StatisticEntry.PolicyCosts:
-                        if (policyCosts < stat.minValue)
-                            stat.minValue = policyCosts;
-
-                        if (policyCosts > stat.maxValue)
-                            stat.maxValue = policyCosts;
-                        statObj.Type = 0;
-                        statObj.Value = policyCosts;
-                        break;
-
-                    case GlobalObject.StatisticEntry.SeriousSickness:
-                        if (seriousPop < stat.minValue)
-                            stat.minValue = seriousPop;
-
-                        if (seriousPop > stat.maxValue)
-                            stat.maxValue = seriousPop;
-                        statObj.Type = 1;
-                        statObj.Value = seriousPop;
-                        break;
-
-                    case GlobalObject.StatisticEntry.VaccineCost:
-                        if (vaccineCost < stat.minValue)
-                            stat.minValue = vaccineCost;
-
-                        if (vaccineCost > stat.maxValue)
-                            stat.maxValue = vaccineCost;
-                        statObj.Type = 0;
-                        statObj.Value = vaccineCost;
-                        break;
-                }
-
-                WorldManager.instance.StatisticCollection.Add(statObj);
-            }
-            
-    */
             //Debug.Log($"b: {buildingCosts}, p: {policyCosts}, a: {agentIncome} ({agentIncome} + {extraIncome} - {buildingCosts} - {policyCosts} = {totalResource})");
 
             extraIncome = 0;
@@ -334,44 +237,46 @@ public class CurrencyManager : MonoBehaviour
     {
         cycleProgressImage.fillAmount = progress;
     }
+
+    private float costToCure = 0;
     public void UseBuilding(NeedScale type, AgentStatus status = AgentStatus.Healty)
     {
-        float auxIncome = 0;
+        //float auxIncome = 0;
         switch (type)
         {
             case NeedScale.Sleep:
-                auxIncome = sleepUseCost;
+                extraIncome += sleepUseCost;
                 break;
             case NeedScale.Hunger:
-                auxIncome = foodUseCost;
+                extraIncome += foodUseCost;
                 break;
             case NeedScale.Entertainment:
-                auxIncome = entertainmentUseCost;
+                extraIncome += entertainmentUseCost;
                 break;
             case NeedScale.Education:
-                auxIncome = educationUseCost;
+                extraIncome += educationUseCost;
                 break;
             case NeedScale.HealtCare:
                 if (status == AgentStatus.Mild_Case)
                 {
-                    auxIncome = healthcareUseCost * 2;
+                    costToCure += healthcareUseCost * 2;
                 }
                 else if (status == AgentStatus.Serious_Case)
                 {
-                    auxIncome = healthcareUseCost * 4;
+                    costToCure += healthcareUseCost * 4;
                 }
                 else
                 {
-                    auxIncome = healthcareUseCost;
+                    costToCure += healthcareUseCost;
                 }
                 break;
             case NeedScale.Travel:
-                auxIncome = travelUseCost;
+                extraIncome += travelUseCost;
                 break;
         }
         //Debug.Log($"Currency Changed by {auxIncome} ({CurrentCurrency} => {(CurrentCurrency - auxIncome)})");
 
-        extraIncome += auxIncome;
+        //extraIncome += auxIncome;
 
         //CurrentCurrency += auxIncome;
     }

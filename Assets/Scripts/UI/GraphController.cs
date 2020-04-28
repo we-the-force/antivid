@@ -10,11 +10,12 @@ public class GraphController : MonoBehaviour
     public GameObject PanelLegendEconomy;
     public GameObject PanelLegendPopulation;
 
+    private float xSize;
     public float xSeparation = 35f;
     public float lineWidth = 6f;
 
     [SerializeField] private Sprite circleSprite;
-    private RectTransform graphContainer;
+    public RectTransform graphContainer;
     private RectTransform labelTemplateX;
     private RectTransform labelTemplateY;
 
@@ -74,7 +75,7 @@ public class GraphController : MonoBehaviour
 
     public void InitGraph()
     {
-        graphContainer = transform.Find("graphContainer").GetComponent<RectTransform>();
+        //graphContainer = transform.Find("graphContainer").GetComponent<RectTransform>();
         labelTemplateX = graphContainer.Find("labelTemplateX").GetComponent<RectTransform>();
         labelTemplateY = graphContainer.Find("labelTemplateY").GetComponent<RectTransform>();
         dashTemplateX = graphContainer.Find("dashTemplateX").GetComponent<RectTransform>();
@@ -217,7 +218,9 @@ public class GraphController : MonoBehaviour
         if (currentPanel == 0)
             yMaximum = MaxEconomy;
 
-        float xSize = xSeparation;
+        xSize = graphContainer.sizeDelta.x / valueList.Count;
+        if(xSize > xSeparation)
+            xSize = xSeparation;
 
         for (int i = 0; i < valueList.Count; i++)
         {
@@ -263,7 +266,9 @@ public class GraphController : MonoBehaviour
         if (currentPanel == 0)
             yMaximum = MaxEconomy;
 
-        float xSize = xSeparation;
+        xSize = graphContainer.sizeDelta.x / valueList.Count;
+        if (xSize > xSeparation)
+            xSize = xSeparation;
 
         GameObject lastCircleGameObject = null;
 

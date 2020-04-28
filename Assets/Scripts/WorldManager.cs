@@ -69,6 +69,9 @@ public class WorldManager : MonoBehaviour
         //--- Si la _scale es igual a 0; ahi se hace la pausa;
         //---
         TicScale = _scale;
+
+        int idx = Mathf.RoundToInt(_scale * 2);
+        CanvasControl.instance.SpeedActiveButton(idx);
     }
     //-----
     

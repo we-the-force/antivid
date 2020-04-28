@@ -13,7 +13,7 @@ public class AgentController : MonoBehaviour
 
     public float ContagioPerTic;
 
-    private float HappinessCoeficient;
+    public float HappinessCoeficient;
 
     public float FactorContagio = 1.0f;
     public float PorcentageContagio { get; set; }
@@ -165,6 +165,8 @@ public class AgentController : MonoBehaviour
         //--- para que pueda regresar a su casa
         if (myStatus == GlobalObject.AgentStatus.Out_of_circulation)
             return;
+
+        SetHappiness();
 
         //--- Ejecuta la logica de contagio, solo aplica en caso de tener 
         //--- Porcentage de Contagio mayor a 0, pero menor que 100. Llegando a 100, ya pasa a la siguiente etapa de contagio (Caso Leve de enfermedad)
@@ -346,6 +348,8 @@ public class AgentController : MonoBehaviour
         {
             float currPercentage = Mathf.Clamp(myNeedList[i].CurrentPercentage, 0, 200);
             _coefficient = currPercentage / 200.0f;
+
+            if (_coefficient < 0.4f) _coefficient = 0;
 
             _happiness -= _coefficient;
         }

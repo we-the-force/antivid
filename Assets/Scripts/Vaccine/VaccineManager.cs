@@ -36,6 +36,8 @@ public class VaccineManager : MonoBehaviour
     Slider _resourceSlider;
 
     bool vaccineStarted;
+    bool vaccine5Percent;
+    bool vaccine20Percent;
     bool vaccine40Percent;
     bool vaccine50Percent;
     bool vaccineCompleted;
@@ -91,6 +93,8 @@ public class VaccineManager : MonoBehaviour
         _currentTic = 0;
 
         vaccineStarted = false;
+        vaccine5Percent = false;
+        vaccine20Percent = false;
         vaccine40Percent = false;
         vaccine50Percent = false;
         vaccineCompleted = false;
@@ -114,6 +118,16 @@ public class VaccineManager : MonoBehaviour
                 _currentProgress += _currentProgressPerTic;
                 ShowProgressInUI();
 
+                if (_currentProgress >= 5f && !vaccine5Percent)
+                {
+                    vaccine5Percent = true;
+                    CanvasControl.instance._announcementWindow.SpecialEvent(GlobalObject.SpecialEventName.FirstStage);
+                }
+                if (_currentProgress >= 20f && !vaccine20Percent)
+                {
+                    vaccine20Percent = true;
+                    CanvasControl.instance._announcementWindow.SpecialEvent(GlobalObject.SpecialEventName.SecondStage);
+                }
                 if (_currentProgress >= 40f && !vaccine40Percent)
                 {
                     vaccine40Percent = true;
