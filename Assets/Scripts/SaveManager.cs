@@ -24,13 +24,28 @@ public class SaveManager : MonoBehaviour
             //Directory.CreateDirectory(Application.persistentDataPath + "/Data");
         }
         dataPath += "/Data";
+
+        LoadData();
     }
     private void Start()
     {
         Debug.Log("Starting thingie.");
-        SaveData();
+        //LoadData
+        LoadTempData();
+        //SaveData();
     }
+    public void WriteAuxTempData()
+    {
+        string id = gsd.scenarioData[UnityEngine.Random.Range(0, gsd.scenarioData.Count - 1)].scenarioID;
+        ScenarioSaveData auxData = new ScenarioSaveData() { scenarioID = id, grades = new List<string> { "X" } };
+        Debug.Log($"Writing to tempData\r\n{auxData.ToString()}");
 
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream file = File.Create(dataPath + "/Temp/result.dat");
+        Debug.Log($"File created at {dataPath}/Data.dat");
+        bf.Serialize(file, auxData);
+        file.Close();
+    }
     public void SaveData()
     {
         BinaryFormatter bf = new BinaryFormatter();
@@ -45,10 +60,11 @@ public class SaveManager : MonoBehaviour
     {
         if (File.Exists(dataPath + "/Data.dat"))
         {
-            BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open(dataPath + "/Data.dat", FileMode.Open);
-            GameSaveData data = (GameSaveData)bf.Deserialize(file);
-            file.Close();
+            //BinaryFormatter bf = new BinaryFormatter();
+            //FileStream file = File.Open(dataPath + "/Data.dat", FileMode.Open);
+            //GameSaveData data = (GameSaveData)bf.Deserialize(file);
+            //file.Close();
+            GameSaveData data = (GameSaveData)ReadFile(dataPath + "/Data.dat");
 
             gsd = data;
         }
@@ -57,15 +73,55 @@ public class SaveManager : MonoBehaviour
             Debug.Log($"File didn't exist ({dataPath}/Data.dat)");
         }
     }
+    public void LoadTempData()
+    {
+        if (File.Exists(dataPath + "/Temp/result.dat"))
+        {
+            ScenarioSaveData data = (ScenarioSaveData)ReadFile(dataPath + "/Temp/result.dat");
+
+            AddResultToScenario(data);
+
+            File.Delete(dataPath + "/Temp/result.dat");
+        }
+    }
+
+    void AddResultToScenario(ScenarioSaveData toAdd)
+    {
+        if (gsd.ContainsScenario(toAdd.scenarioID))
+        {
+            gsd.scenarioData.Find(x => x.scenarioID == toAdd.scenarioID).grades.Add(toAdd.grades[0]);
+        }
+        else
+        {
+            Debug.LogError($"Temp scenario result (id: {toAdd.scenarioID} doesn't exist in local scenarios!)");
+        }
+    }
+    object ReadFile(string path)
+    {
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream file = File.Open(path, FileMode.Open);
+        object aux = bf.Deserialize(file);
+        file.Close();
+
+        return aux;
+    }
     bool AuxFolderExists()
     {
         return Directory.Exists(dataPath + "/Data");
     }
     void CreateFileStructure()
     {
-        string initialPath = dataPath;
-        Directory.CreateDirectory(initialPath + "/Data");
-        Directory.CreateDirectory(initialPath + "/Data" + "/Temp");
+        Directory.CreateDirectory(dataPath + "/Data");
+
+        if (!Directory.Exists(dataPath + "/Data/Temp"))
+        {
+            Debug.Log($"Directory 'Temp' doesn't exist");
+            Directory.CreateDirectory(dataPath + "/Data" + "/Temp");
+        }
+        else
+        {
+            Debug.Log($"Directory 'Temp' exists");
+        }
     }
     public void ResetSavedata()
     {
@@ -94,6 +150,10 @@ public class GameSaveData
         aux.scenarioData = scenarioData;
         return aux;
     }
+    public bool ContainsScenario(string id)
+    {
+        return scenarioData.Find(x => x.scenarioID == id) != null;
+    }
 }
 
 [Serializable]
@@ -107,6 +167,17 @@ public class ScenarioSaveData
         ScenarioSaveData aux = new ScenarioSaveData();
         aux.scenarioID = scenarioID;
         aux.grades = grades;
+        return aux;
+    }
+
+    public override string ToString()
+    {
+        string aux = $"Scenario '{scenarioID}'\r\n";
+        aux += " ";
+        for (int i = 0; i < grades.Count; i++)
+        {
+            aux += i < grades.Count - 1 ? $"{grades[i]}." : $"{grades[i]}, ";
+        }
         return aux;
     }
 }
