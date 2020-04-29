@@ -12,6 +12,19 @@ public class SaveManager : MonoBehaviour
     //List<ScenarioSaveData> scenarioData = new List<ScenarioSaveData>();
     GameSaveData gsd = new GameSaveData();
 
+    string dataPath;
+    private void Awake()
+    {
+        dataPath = Application.persistentDataPath;
+
+        if (!AuxFolderExists())
+        {
+            Debug.Log($"Folder didn't exist  ({dataPath}/Data)");
+            CreateFileStructure();
+            //Directory.CreateDirectory(Application.persistentDataPath + "/Data");
+        }
+        dataPath += "/Data";
+    }
     private void Start()
     {
         Debug.Log("Starting thingie.");
@@ -21,8 +34,8 @@ public class SaveManager : MonoBehaviour
     public void SaveData()
     {
         BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create(Application.persistentDataPath + "/Data.dat");
-        Debug.Log($"File created at {Application.persistentDataPath}/Data.dat");
+        FileStream file = File.Create(dataPath + "/Data.dat");
+        Debug.Log($"File created at {dataPath}/Data.dat");
         GameSaveData data = new GameSaveData();
         data = gsd.Clone();
         bf.Serialize(file, data);
@@ -30,10 +43,10 @@ public class SaveManager : MonoBehaviour
     }
     public void LoadData()
     {
-        if (File.Exists(Application.persistentDataPath + "/Data.dat"))
+        if (File.Exists(dataPath + "/Data.dat"))
         {
             BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open(Application.persistentDataPath+"/Data.dat", FileMode.Open);
+            FileStream file = File.Open(dataPath + "/Data.dat", FileMode.Open);
             GameSaveData data = (GameSaveData)bf.Deserialize(file);
             file.Close();
 
@@ -41,9 +54,18 @@ public class SaveManager : MonoBehaviour
         }
         else
         {
-            Debug.Log($"File didn't exist ({Application.persistentDataPath}/Data.dat)");
+            Debug.Log($"File didn't exist ({dataPath}/Data.dat)");
         }
-
+    }
+    bool AuxFolderExists()
+    {
+        return Directory.Exists(dataPath + "/Data");
+    }
+    void CreateFileStructure()
+    {
+        string initialPath = dataPath;
+        Directory.CreateDirectory(initialPath + "/Data");
+        Directory.CreateDirectory(initialPath + "/Data" + "/Temp");
     }
     public void ResetSavedata()
     {
