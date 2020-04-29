@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1546355636}
-  m_IndirectSpecularColor: {r: 0.29183477, g: 0.2869864, b: 0.656403, a: 1}
+  m_IndirectSpecularColor: {r: 0.30191922, g: 0.31493893, b: 0.6527771, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1436,7 +1436,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &912888613 stripped
 MonoBehaviour:
@@ -1924,6 +1924,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae3e5b41e0a5caf4ba12a1572902b824, type: 3}
+--- !u!114 &1088404752 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5072206408726819545, guid: ae3e5b41e0a5caf4ba12a1572902b824,
+    type: 3}
+  m_PrefabInstance: {fileID: 1088404751}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6351dfe76c64a54882707deb0b34668, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1137176225
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13359,6 +13371,21 @@ PrefabInstance:
     - target: {fileID: 9201387680897900226, guid: 804fa6138a8088249ad6429a6f67e03f,
         type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 698946161296552289, guid: 804fa6138a8088249ad6429a6f67e03f,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1088404752}
+    - target: {fileID: 698946161296552289, guid: 804fa6138a8088249ad6429a6f67e03f,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeExtraTicPerFrame
+      objectReference: {fileID: 0}
+    - target: {fileID: 698946161296552289, guid: 804fa6138a8088249ad6429a6f67e03f,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9201387680897900230, guid: 804fa6138a8088249ad6429a6f67e03f,

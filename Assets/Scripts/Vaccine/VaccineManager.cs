@@ -19,6 +19,7 @@ public class VaccineManager : MonoBehaviour
     [SerializeField]
     float _currentProgressPerTic;
     float _extraProgressPerTic;
+    [SerializeField]
     float _progressCostPerTic;
     bool _shouldTic = false;
     bool _vaccineGenerated = false;
@@ -149,7 +150,7 @@ public class VaccineManager : MonoBehaviour
             }
         }
     }
-    public void ChangeExtraTicPerFrame(float newValue)
+    public void ChangeExtraTicPerFrame()
     {
         _extraProgressPerTic = _resourceSlider.value * _progressPerSliderLevel;
         _progressCostPerTic = _resourceSlider.value * _costPerSliderLevel;
