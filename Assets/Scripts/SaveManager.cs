@@ -33,12 +33,18 @@ public class SaveManager : MonoBehaviour
         //LoadData
         LoadTempData();
         //SaveData();
+
+        Debug.LogError("Printing scenarios");
+        foreach (ScenarioSaveData ssd in gsd.scenarioData)
+        {
+            Debug.LogError(ssd.ToString());
+        }
     }
     public void WriteAuxTempData()
     {
         string id = gsd.scenarioData[UnityEngine.Random.Range(0, gsd.scenarioData.Count - 1)].scenarioID;
         ScenarioSaveData auxData = new ScenarioSaveData() { scenarioID = id, grades = new List<string> { "X" } };
-        Debug.Log($"Writing to tempData\r\n{auxData.ToString()}");
+        Debug.LogError($"Writing to tempData\r\n{auxData.ToString()}");
 
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(dataPath + "/Temp/result.dat");
@@ -82,6 +88,8 @@ public class SaveManager : MonoBehaviour
             AddResultToScenario(data);
 
             File.Delete(dataPath + "/Temp/result.dat");
+
+            SaveData();
         }
     }
 
@@ -136,6 +144,11 @@ public class SaveManager : MonoBehaviour
         gsd.scenarioData.Add(new ScenarioSaveData() { scenarioID = "5-e", grades = new List<string>() { "C" } });
         gsd.scenarioData.Add(new ScenarioSaveData() { scenarioID = "6-f", grades = new List<string>() });
     }
+
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene(0);
+    }
 }
 
 
@@ -172,12 +185,13 @@ public class ScenarioSaveData
 
     public override string ToString()
     {
-        string aux = $"Scenario '{scenarioID}'\r\n";
+        string aux = $"Scenario '{scenarioID}'    (";
         aux += " ";
         for (int i = 0; i < grades.Count; i++)
         {
             aux += i < grades.Count - 1 ? $"{grades[i]}." : $"{grades[i]}, ";
         }
+        aux += ")";
         return aux;
     }
 }
