@@ -6,26 +6,31 @@ using UnityEngine.UI;
 public class PolicyToggle : MonoBehaviour
 {
     [SerializeField]
-    Policy assignedPolicy;
+    Policy _assignedPolicy;
     public Text policyNameText;
     public Toggle policyToggle;
 
+    public Policy AssignedPolicy
+    {
+        get { return _assignedPolicy; }
+    }
+
     private void Start()
     {
-        assignedPolicy.Enabled = false;
-        policyToggle.isOn = assignedPolicy.Enabled;
+        _assignedPolicy.Enabled = false;
+        policyToggle.isOn = _assignedPolicy.Enabled;
         SetPolicyName();
     }
     public void SetAssignedPolicy(Policy pol)
     {
-        assignedPolicy = pol;
+        _assignedPolicy = pol;
     }
     public void SetPolicyName()
     {
-        policyNameText.text = assignedPolicy.PolicyName;
+        policyNameText.text = _assignedPolicy.PolicyName;
     }
     public void Toggle()
     {
-        PolicyManager.Instance.TogglePolicy(assignedPolicy, policyToggle.isOn);
+        PolicyManager.Instance.TogglePolicy(_assignedPolicy, policyToggle.isOn);
     }
 }

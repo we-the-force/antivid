@@ -9,6 +9,7 @@ public class CurrencyManager : MonoBehaviour
 {
     static CurrencyManager _instance = null;
 
+    [SerializeField]
     float _currentCurrency;
     [SerializeField]
     float initialCurrency;

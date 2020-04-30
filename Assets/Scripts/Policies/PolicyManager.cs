@@ -52,14 +52,10 @@ public class PolicyManager : MonoBehaviour
     }
     public void CreateToggles()
     {
-        for (int i = 0; i < viewportContent.transform.childCount; i++)
-        {
-            Destroy(viewportContent.transform.GetChild(i).gameObject);
-        }        
-
+        DestroyUnavailablePolicyToggles();
         foreach (Policy pol in _policies)
         {
-            if (pol.Available)
+            if (pol.Available && !ViewportContainsPolicy(pol))
             {
                 GameObject go = Instantiate(baseToggle as GameObject);
                 go.SetActive(true);
@@ -71,6 +67,30 @@ public class PolicyManager : MonoBehaviour
                 go.transform.localPosition = Vector3.zero;
             }
         }
+    }
+    void DestroyUnavailablePolicyToggles()
+    {
+        for (int i = 0; i < viewportContent.transform.childCount; i++)
+        {
+            if (!viewportContent.transform.GetChild(i).GetComponent<PolicyToggle>().AssignedPolicy.Available)
+            {
+                Destroy(viewportContent.transform.GetChild(i).gameObject);
+            }
+            //Destroy(viewportContent.transform.GetChild(i).gameObject);
+        }
+    }
+    bool ViewportContainsPolicy(Policy toCheck)
+    {
+        for (int i = 0; i < viewportContent.transform.childCount; i++)
+        {
+            if (viewportContent.transform.GetChild(i).GetComponent<PolicyToggle>().AssignedPolicy == toCheck)
+            {
+                Debug.Log($"Policy was contained {toCheck.ToString()}");
+                return true;
+            }
+        }
+        Debug.Log($"Policy wasn't contained {toCheck.ToString()}");
+        return false;
     }
     List<Policy> GetEnabledPolicies()
     {
@@ -90,6 +110,7 @@ public class PolicyManager : MonoBehaviour
         SendPoliciesToWorldManager();
         Debug.LogWarning(PoliciesToString());
         _isOnQarantine = IsInQuarantine();
+        Debug.Log($"Changed policy {policy.PolicyName} to {enabled}");
         //Policy aux = _policies.Find(x => x.PolicyName == policyName);
         //if (aux != null)
         //{

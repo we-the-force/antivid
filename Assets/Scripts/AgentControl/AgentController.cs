@@ -16,7 +16,8 @@ public class AgentController : MonoBehaviour
     public float HappinessCoeficient;
 
     public float FactorContagio = 1.0f;
-    public float PorcentageContagio { get; set; }
+    //public float PorcentageContagio { get; set; }
+    public float PorcentageContagio;
 
     public int HasTraveledQuantity { get; set; }
 
@@ -314,6 +315,11 @@ public class AgentController : MonoBehaviour
                     myDestinationBuilding.CurrentAgentCount--;
                     myDestinationBuilding = null;
                     TakingCareOfNeed = false;
+                    if (!VaccineManager.Instance.IsVaccineGenerated)
+                    {
+                        //CurrentInfectedCells = 1;
+                        PorcentageContagio = 0.1f;
+                    }
                 }
                 break;
         }
