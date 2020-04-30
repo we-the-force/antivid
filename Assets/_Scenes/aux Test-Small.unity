@@ -2506,6 +2506,11 @@ PrefabInstance:
       propertyPath: m_Shadows.m_Strength
       value: 0.7
       objectReference: {fileID: 0}
+    - target: {fileID: 5584120423926732393, guid: df2b705b261be0e409b22a59fcf1895d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df2b705b261be0e409b22a59fcf1895d, type: 3}
 --- !u!1 &1278674929
