@@ -138,7 +138,7 @@ public class CurrencyManager : MonoBehaviour
                 {
                     happiness += WorldAgentController.instance.AgentCollection[i].HappinessCoeficient;
                     totPop++;
-                }               
+                }
 
                 switch (_status)
                 {
@@ -196,7 +196,7 @@ public class CurrencyManager : MonoBehaviour
             if (minValue < statWindow.MinEconomy)
                 statWindow.MinEconomy = minValue;
             if (maxValue > statWindow.MaxEconomy)
-                statWindow.MaxEconomy = maxValue;  
+                statWindow.MaxEconomy = maxValue;
             //Debug.Log($"b: {buildingCosts}, p: {policyCosts}, a: {agentIncome} ({agentIncome} + {extraIncome} - {buildingCosts} - {policyCosts} = {totalResource})");
 
             extraIncome = 0;
@@ -208,7 +208,8 @@ public class CurrencyManager : MonoBehaviour
                 if (FinalCycleCounter == 2)
                 {
                     //--- END THIS SCENARIO
-                    WorldManager.instance.ChangeTimeScale(0);
+                    //WorldManager.instance.ChangeTimeScale(0);
+                    WorldManager.instance.Pause(true);
                     CanvasControl.instance.EndScenario();
                     return;
                 }

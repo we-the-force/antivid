@@ -163,7 +163,7 @@ public class BuyablePlot : MonoBehaviour
         {
             DestroyAssignedModel();
             AssignedModel = Instantiate(Models[4], newBuildingAnchor);
-           // constructionAnchor.gameObject.SetActive(false);
+            // constructionAnchor.gameObject.SetActive(false);
             //AssignedModel = Instantiate(Models[4], transform.GetChild(1));
             ChangeAssignedNodeType();
         }
@@ -201,8 +201,8 @@ public class BuyablePlot : MonoBehaviour
         }
         return GlobalObject.NeedScale.None;
     }
-    
-    
+
+
     //--- ya no debe hacer eso por que ya son modelos finales
     /*
     void ChangeAssignedModelRoof()
@@ -295,7 +295,8 @@ public class BuyablePlot : MonoBehaviour
     }
     public void CanvasCancelButton()
     {
-        WorldManager.instance.ChangeTimeScale(1);
+        //WorldManager.instance.ChangeTimeScale(1);
+        WorldManager.instance.Pause(false);
         interactingWithCanvas = false;
         //ShowCanvas();
     }
@@ -307,7 +308,8 @@ public class BuyablePlot : MonoBehaviour
 
         if (interactingWithCanvas && buyBuildingWindow.SelectedBuyablePlot == null)
         {
-            WorldManager.instance.ChangeTimeScale(0);
+            //WorldManager.instance.ChangeTimeScale(0);
+            WorldManager.instance.Pause(true);
             CanvasControl.instance.ShowBuildWindow(this);
         }
         Debug.Log($"Tried to do the thing but couldn do it lmao ({interactingWithCanvas} && {(buyBuildingWindow.SelectedBuyablePlot == null)})");

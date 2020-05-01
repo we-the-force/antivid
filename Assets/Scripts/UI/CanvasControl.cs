@@ -128,7 +128,8 @@ public class CanvasControl : MonoBehaviour
     public void ShowStatisticWindow()
     {
         ShowHideUI(false);
-        WorldManager.instance.ChangeTimeScale(0);
+        //WorldManager.instance.ChangeTimeScale(0);
+        WorldManager.instance.Pause(true);
 
         GraphWindowController.InitGraph();
         GraphWindow.SetActive(true);
@@ -139,7 +140,8 @@ public class CanvasControl : MonoBehaviour
         GraphWindow.SetActive(false);
         GraphWindowController.DisableWindow();
         ShowHideUI(true);
-        WorldManager.instance.ChangeTimeScale(1);
+        //WorldManager.instance.ChangeTimeScale(1);
+        WorldManager.instance.Pause(false);
     }
 
     public void ShowBuildWindow(BuyablePlot _buyablePlot)
@@ -150,7 +152,8 @@ public class CanvasControl : MonoBehaviour
 
     public void ShowPolicyWindow()
     {
-        WorldManager.instance.ChangeTimeScale(0);
+        //WorldManager.instance.ChangeTimeScale(0);
+        WorldManager.instance.Pause(true);
 
         PolicyManager.Instance.CreateToggles();
 
@@ -160,7 +163,8 @@ public class CanvasControl : MonoBehaviour
 
     public void HidePolicyWindow()
     {
-        WorldManager.instance.ChangeTimeScale(1);
+        //WorldManager.instance.ChangeTimeScale(1);
+        WorldManager.instance.Pause(false);
 
         PolicyWindow.SetActive(false);
         ShowPolicyIcon();
@@ -170,14 +174,16 @@ public class CanvasControl : MonoBehaviour
 
     public void ShowVaccineWindow()
     {
-        WorldManager.instance.ChangeTimeScale(0);
+        //WorldManager.instance.ChangeTimeScale(0);
+        WorldManager.instance.Pause(true);
 
         ShowHideUI(false);
         VaccineWindow.SetActive(true);
     }
     public void HideVaccineWindow()
     {
-        WorldManager.instance.ChangeTimeScale(1);
+        //WorldManager.instance.ChangeTimeScale(1);
+        WorldManager.instance.Pause(false);
 
         ShowHideUI(true);
         VaccineWindow.SetActive(false);

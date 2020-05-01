@@ -6,7 +6,7 @@ using System.Linq;
 public class WorldManager : MonoBehaviour
 {
     public static WorldManager instance;
-    
+
     /// <summary>
     /// Determina la cantidad de porcentage de contagio que se aumenta en todos los agentes de un edificio
     /// cuando un agente cotagiado entra en ese edificio
@@ -27,6 +27,7 @@ public class WorldManager : MonoBehaviour
     //--- World Time (tic) logic declaration
     public float SecondsPerTic;
     public float TicScale = 1.0f;
+    public float PreviousTicScale = 0.0f;
 
     public delegate void OnTicCall();
     public static OnTicCall TicDelegate;
@@ -63,6 +64,25 @@ public class WorldManager : MonoBehaviour
             }
         }
     }
+    public void Pause(bool pause)
+    {
+        if (pause)
+        {
+            if (PreviousTicScale == 0)
+            {
+                PreviousTicScale = TicScale;
+                ChangeTimeScale(0);
+            }
+        }
+        else
+        {
+            if (PreviousTicScale != 0)
+            {
+                ChangeTimeScale(PreviousTicScale);
+                PreviousTicScale = 0;
+            }
+        }
+    }
 
     public void ChangeTimeScale(float _scale)
     {
@@ -74,7 +94,7 @@ public class WorldManager : MonoBehaviour
         CanvasControl.instance.SpeedActiveButton(idx);
     }
     //-----
-    
+
     private void Awake()
     {
         instance = this;
@@ -295,7 +315,7 @@ public class WorldManager : MonoBehaviour
             }
         }
 
-        
+
         StartCoroutine("TICManager");
     }
 
@@ -334,7 +354,7 @@ public class WorldManager : MonoBehaviour
     {
         PathFindingNode result = null;
         PathFindingNode tileInfoOrigin = null;
-       // PathFindingNode tileInfoDestination = null;
+        // PathFindingNode tileInfoDestination = null;
         string destinationId;
         string[] pathIdCollection;
 

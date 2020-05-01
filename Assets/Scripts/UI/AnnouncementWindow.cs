@@ -42,7 +42,8 @@ public class AnnouncementWindow : MonoBehaviour
     public void CloseWindow()
     {
         gameObject.SetActive(false);
-        WorldManager.instance.ChangeTimeScale(1);
+        //WorldManager.instance.ChangeTimeScale(1);
+        WorldManager.instance.Pause(false);
         CanvasControl.instance.ShowHideUI(true);
     }
 
@@ -88,7 +89,8 @@ public class AnnouncementWindow : MonoBehaviour
                         break;
                 }
 
-                WorldManager.instance.ChangeTimeScale(0);
+                //WorldManager.instance.ChangeTimeScale(0);
+                WorldManager.instance.Pause(true);
 
                 SpecialEventsCollection[i].done = true;
 
@@ -129,7 +131,8 @@ public class AnnouncementWindow : MonoBehaviour
 
         //--- a partir de aqui si muestra y aplica la ventana del evento
         //--- Se pone el juego en pausa
-        WorldManager.instance.ChangeTimeScale(0);
+        //WorldManager.instance.ChangeTimeScale(0);
+        WorldManager.instance.Pause(true);
 
         currentCooldown = 0;
 
