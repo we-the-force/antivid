@@ -44,6 +44,48 @@ TextureImporter:
   - first:
       213: -1725980309758945567
     second: Logo_BG
+  - first:
+      213: 2556831910848183544
+    second: BG_WindowScenario
+  - first:
+      213: 8364169177240026146
+    second: Scenario_Portrait
+  - first:
+      213: -6692505356708615954
+    second: Scenario_Button
+  - first:
+      213: -1966338653868890389
+    second: Scenario_Element
+  - first:
+      213: 4659132310050327954
+    second: Scenario_Button_Slider
+  - first:
+      213: -5184356124174148067
+    second: Scenario_BGElement_Yellow
+  - first:
+      213: 6795827144581760363
+    second: Scenario_BGElement_Purple
+  - first:
+      213: -1289418925028010040
+    second: Scenario_BGElement_Green
+  - first:
+      213: 736645726570549652
+    second: Scenario_BGElement_Red
+  - first:
+      213: -5770770560438961318
+    second: Scenario_BGElement_Shadow
+  - first:
+      213: -4578469898019376110
+    second: Scenario_BGElementMask
+  - first:
+      213: -6831733948987416263
+    second: Scenario_Portrait_Mask
+  - first:
+      213: 1314067815213032389
+    second: Scenario_Portrait_Shadow
+  - first:
+      213: -7613073183122086192
+    second: ScenarioElementBG_notsliced
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -73,7 +115,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -429,9 +471,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 23
-        y: 462
+        y: 476
         width: 465
-        height: 1001
+        height: 987
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -441,6 +483,300 @@ TextureImporter:
       bones: []
       spriteID: b6c1be54b9f4c6c48ad097b9421073f4
       internalID: -1725980309758945567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BG_WindowScenario
+      rect:
+        serializedVersion: 2
+        x: 1453
+        y: 15
+        width: 566
+        height: 1239
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b6e8ecf2b4f63b429945a24e190b9db
+      internalID: 2556831910848183544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scenario_Portrait
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 19
+        width: 445
+        height: 456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fd13f2ccb8e3cb478650290c02d9449
+      internalID: 8364169177240026146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scenario_Button
+      rect:
+        serializedVersion: 2
+        x: 594
+        y: 481
+        width: 446
+        height: 110
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75e0f1a8296dfbb4c9492bbf417017bf
+      internalID: -6692505356708615954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scenario_Element
+      rect:
+        serializedVersion: 2
+        x: 1057
+        y: 500
+        width: 251
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 33, y: 29, z: 36, w: 30}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 219003a7268fa614baec22ff98d2a432
+      internalID: -1966338653868890389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scenario_Button_Slider
+      rect:
+        serializedVersion: 2
+        x: 989
+        y: 611
+        width: 366
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 151b79b946fd4e34196b2c098a4ce28b
+      internalID: 4659132310050327954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scenario_BGElement_Yellow
+      rect:
+        serializedVersion: 2
+        x: 1381
+        y: 1302
+        width: 269
+        height: 359
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16f2923682da9784eb5b6bdf470efbcd
+      internalID: -5184356124174148067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scenario_BGElement_Purple
+      rect:
+        serializedVersion: 2
+        x: 1690
+        y: 1302
+        width: 269
+        height: 359
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8b7b8e23eeb35a498e02c8ff8d907dd
+      internalID: 6795827144581760363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scenario_BGElement_Green
+      rect:
+        serializedVersion: 2
+        x: 1689
+        y: 1685
+        width: 269
+        height: 359
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fcabbe2daed2ff4fb5296bf8678161f
+      internalID: -1289418925028010040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scenario_BGElement_Red
+      rect:
+        serializedVersion: 2
+        x: 1379
+        y: 1685
+        width: 269
+        height: 359
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b9d65e6ceb697e4396fb3ac230d8ea6
+      internalID: 736645726570549652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scenario_BGElement_Shadow
+      rect:
+        serializedVersion: 2
+        x: 1197
+        y: 747
+        width: 249
+        height: 202
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00329c589da35e8428516fef804d8c46
+      internalID: -5770770560438961318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scenario_BGElementMask
+      rect:
+        serializedVersion: 2
+        x: 1202
+        y: 962
+        width: 238
+        height: 190
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fd1e3e1d0f8ee2499b4e31ee48abc1e
+      internalID: -4578469898019376110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scenario_Portrait_Mask
+      rect:
+        serializedVersion: 2
+        x: 473
+        y: 71
+        width: 385
+        height: 376
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e2cb307fca2ccc478538f152375537f
+      internalID: -6831733948987416263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scenario_Portrait_Shadow
+      rect:
+        serializedVersion: 2
+        x: 870
+        y: 52
+        width: 387
+        height: 379
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f0043fa00bfdfb44976c9a5440647d9
+      internalID: 1314067815213032389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ScenarioElementBG_notsliced
+      rect:
+        serializedVersion: 2
+        x: 1057
+        y: 500
+        width: 251
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 123818814bf1e3d4cb5c6c64babce21d
+      internalID: -7613073183122086192
       vertices: []
       indices: 
       edges: []
