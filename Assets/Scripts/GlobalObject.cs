@@ -165,6 +165,8 @@ public class ScenarioInfo
     public int StartingEducationBuildings;
     public float StartingCapital;
     public float MaxScore;
+
+    public Sprite ScenarioImg;
 }
 
 
