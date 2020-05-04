@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 public class CanvasControl : MonoBehaviour
 {
@@ -23,7 +26,7 @@ public class CanvasControl : MonoBehaviour
     public List<BuildingCanvasEntry> BuyableBuildingsCollection;
 
     public AnnouncementWindow _announcementWindow;
-    
+
     public GameObject GraphWindow;
     public GraphController GraphWindowController;
 
@@ -42,12 +45,18 @@ public class CanvasControl : MonoBehaviour
     {
         instance = this;
     }
-    
+
     public RectTransform panelPopInfo;
     public RectTransform panelCurrencyInfo;
     public RectTransform panelSpeedControl;
     public RectTransform panelCameraControl;
     public RectTransform panelButtons;
+
+    [SerializeField, Range(0.01f, 5f)]
+    float incapWeight = 1;
+    [SerializeField, Range(0.005f, 0.5f)]
+    float moneyWeight = 1;
+
     public void RearangeElements(float _aspect)
     {
         if (_aspect < 2f)
@@ -113,7 +122,7 @@ public class CanvasControl : MonoBehaviour
 
         List<int> activePolicyIdx = new List<int>();
         activePolicyIdx = WorldAgentController.instance.GetPolicyIdx();
-        if(activePolicyIdx.Count == 0)
+        if (activePolicyIdx.Count == 0)
         {
             return;
         }
@@ -201,6 +210,100 @@ public class CanvasControl : MonoBehaviour
     public void EndScenario()
     {
         ShowHideUI(false);
+
+        float normalPoints = CalcPoints();
+        float percentPoints = CalcScorePercentage();
+        string rank = GetRank(percentPoints);
+
+        WriteTempData(rank);
         EndGameWindow.SetActive(true);
+    }
+
+    float CalcPoints()
+    {
+        List<AgentController> auxAgentList = WorldAgentController.instance.AgentCollection;
+        int totalPop = auxAgentList.Count;
+        int incap = auxAgentList.FindAll(x => x.myStatus == GlobalObject.AgentStatus.Out_of_circulation).Count;
+
+        int validPop = totalPop - incap;
+
+        float positivePoints = (validPop * 100) + (CurrencyManager.Instance.CurrentCurrency * 50);
+        float negativePoints = (incap * 150);
+
+        float totalPoints = (positivePoints - negativePoints);
+
+        return totalPoints;
+    }
+    float CalcScorePercentage()
+    {
+        List<AgentController> auxAgentList = WorldAgentController.instance.AgentCollection;
+        int totalPop = auxAgentList.Count;
+        int incap = auxAgentList.FindAll(x => x.myStatus == GlobalObject.AgentStatus.Out_of_circulation).Count;
+
+        float weightPerDude = 100f / totalPop;
+        float negativeScore = incap * weightPerDude * incapWeight;
+        float moneyScore = CurrencyManager.Instance.CurrentCurrency * moneyWeight;
+
+        float totalScore = 100f + moneyScore - negativeScore;
+
+        return totalScore;
+    }
+    string GetRank(float percentScore)
+    {
+        //50  60  70  80  90  95  100 >100
+        //F,  E,  D,  C,  B,  A,  S,  SS,
+        //F     [  0,  50)
+        //E     [ 50,  60)
+        //D     [ 60,  70)
+        //C     [ 70,  80)
+        //B     [ 80,  90)
+        //A     [ 90,  98)
+        //S     [ 98, 102.5)
+        //SS    100+
+
+        if (percentScore <= 50f)
+        {
+            return "F";
+        }
+        else if (percentScore < 60f)
+        {
+            return "E";
+        }
+        else if (percentScore < 70f)
+        {
+            return "D";
+        }
+        else if (percentScore < 80f)
+        {
+            return "C";
+        }
+        else if (percentScore < 90f)
+        {
+            return "B";
+        }
+        else if (percentScore < 98f)
+        {
+            return "A";
+        }
+        else if (percentScore < 102.5f)
+        {
+            return "S";
+        }
+        else
+        {
+            return "SS";
+        }
+    }
+    public void WriteTempData(string rank)
+    {
+        string id = SceneManager.GetActiveScene().name;
+        ScenarioSaveData auxData = new ScenarioSaveData() { scenarioID = id, grades = new List<string> { rank } };
+        Debug.LogError($"Writing to tempData\r\n{auxData.ToString()}");
+
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream file = File.Create(Application.persistentDataPath + "/Data/Temp/result.dat");
+        Debug.Log($"File created at {Application.persistentDataPath}/Data/Temp/Data.dat");
+        bf.Serialize(file, auxData);
+        file.Close();
     }
 }

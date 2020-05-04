@@ -427,6 +427,4 @@ public class WorldManager : MonoBehaviour
 
         return _result;
     }
-
-
 }
