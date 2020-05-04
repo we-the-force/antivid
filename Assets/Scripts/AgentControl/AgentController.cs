@@ -450,13 +450,13 @@ public class AgentController : MonoBehaviour
     {
         //--- Si ya se esta atendiendo una necesidad, no cambia de necesidad, pero si va 
         //--- sumando porcentaje de necesidad
-        SetVisibility(true);
-
         if (TakingCareOfNeed)
             return;
 
         if (_need == GlobalObject.NeedScale.None)
             return;
+
+        SetVisibility(true);
 
         TakingCareOfNeed = true;
         NeedTakenCare = _need;

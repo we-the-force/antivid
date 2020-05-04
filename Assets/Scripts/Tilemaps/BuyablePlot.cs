@@ -282,6 +282,14 @@ public class BuyablePlot : MonoBehaviour
                     auxNode = NodeType.Entertainment;
                     modelId = 3;
                     break;
+                case 5:
+                    auxNode = NodeType.Entertainment;
+                    modelId = 5;
+                    break;
+                case 6:
+                    auxNode = NodeType.Food;
+                    modelId = 6;
+                    break;
             }
 
             WorldManager.TicDelegate += TicReceived;

@@ -10,6 +10,9 @@ public class GraphController : MonoBehaviour
     public GameObject PanelLegendEconomy;
     public GameObject PanelLegendPopulation;
 
+    public GameObject bgButtonEconomy;
+    public GameObject bgButtonPopulation;
+
     private float xSize;
     public float xSeparation = 35f;
     public float lineWidth = 6f;
@@ -109,6 +112,9 @@ public class GraphController : MonoBehaviour
         bool isEconomy = true;
         if (_panel != 0)
             isEconomy = false;
+
+        bgButtonEconomy.SetActive(isEconomy);
+        bgButtonPopulation.SetActive(!isEconomy);
         
         panelEconomy.gameObject.SetActive(isEconomy);
         panelPopulation.gameObject.SetActive(!isEconomy);
@@ -230,13 +236,13 @@ public class GraphController : MonoBehaviour
             RectTransform labelX = Instantiate(labelTemplateX);
             labelX.SetParent(_parent, false);
             labelX.gameObject.SetActive(true);
-            labelX.anchoredPosition = new Vector2(xPosition, -6f);
+            labelX.anchoredPosition = new Vector2(xPosition, -15f);
             labelX.GetComponent<Text>().text = i.ToString();
 
             RectTransform dashX = Instantiate(dashTemplateY);
             dashX.SetParent(_parent, false);
             dashX.gameObject.SetActive(true);
-            dashX.anchoredPosition = new Vector2(xPosition, -6f);
+            dashX.anchoredPosition = new Vector2(xPosition, -15f);
         }
 
         int separatorCount = 10;

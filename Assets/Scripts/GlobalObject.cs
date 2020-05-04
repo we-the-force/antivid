@@ -153,6 +153,22 @@ public class WarehouseItemObject
 
 
 [System.Serializable]
+public class ScenarioInfo
+{
+    public string ScenarioName;
+    public string ScenarioDescription;
+    public string ScenarioSceneName;
+    public int TotalPopulation;
+    public int StartingHospitals;
+    public int StartingFoodBuildings;
+    public int StartingEntertainmentBuildings;
+    public int StartingEducationBuildings;
+    public float StartingCapital;
+    public float MaxScore;
+}
+
+
+[System.Serializable]
 public class NeedPercentage
 {
     public GlobalObject.NeedScale Need;

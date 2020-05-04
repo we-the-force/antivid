@@ -40,7 +40,7 @@ public class WorldManager : MonoBehaviour
 
     public int currentTimeCycle = 0;
 
-    IEnumerator TICManager()
+     IEnumerator TICManager()
     {
         float _seconds = 1;
 
@@ -56,7 +56,7 @@ public class WorldManager : MonoBehaviour
             {
                 _seconds = SecondsPerTic / TicScale;
                 yield return new WaitForSeconds(_seconds);
-
+               
                 TicDelegate();
 
                 CanvasControl.instance.Statistic(WorldAgentController.instance.AgentCollection);
@@ -295,7 +295,6 @@ public class WorldManager : MonoBehaviour
             }
         }
 
-        
         StartCoroutine("TICManager");
     }
 
