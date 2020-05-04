@@ -152,6 +152,36 @@ TextureImporter:
   - first:
       213: -1647133752078907659
     second: ButtonRotateCameraWhite
+  - first:
+      213: -1206765288307672832
+    second: Stat_ChkboxBG
+  - first:
+      213: 1004341142354474319
+    second: Stat_ConnectedLine
+  - first:
+      213: -1779546067626247925
+    second: Stat_Bullet
+  - first:
+      213: -2129831440904588875
+    second: Stat_ChkBox
+  - first:
+      213: 6268814000520829177
+    second: Stat_ChkBoxSelected
+  - first:
+      213: -2854035035619293835
+    second: Stat_Tab2
+  - first:
+      213: 816053924819828638
+    second: Stat_Tab1
+  - first:
+      213: -6325547116146684001
+    second: Stat_WindowBG
+  - first:
+      213: 848652051160376181
+    second: NewBuilding_Bar
+  - first:
+      213: 8659749458814007194
+    second: NewBuilding_GasStation
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -1234,7 +1264,7 @@ TextureImporter:
         width: 92
         height: 92
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1255,7 +1285,7 @@ TextureImporter:
         width: 92
         height: 92
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1276,7 +1306,7 @@ TextureImporter:
         width: 73
         height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1297,7 +1327,7 @@ TextureImporter:
         width: 59
         height: 59
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1305,6 +1335,216 @@ TextureImporter:
       bones: []
       spriteID: 93e9217ce04f1de4492e77ac19e12d27
       internalID: -1647133752078907659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stat_ChkboxBG
+      rect:
+        serializedVersion: 2
+        x: 1892
+        y: 1153
+        width: 128
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 17, y: 14, z: 17, w: 14}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83135473ac5a0e04e825fdc68980550f
+      internalID: -1206765288307672832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stat_ConnectedLine
+      rect:
+        serializedVersion: 2
+        x: 1892
+        y: 1089
+        width: 128
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e6dbe0572d1d604c9b75558b3810950
+      internalID: 1004341142354474319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stat_Bullet
+      rect:
+        serializedVersion: 2
+        x: 1890
+        y: 1072
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c5c448b4858ec847b976a96fd2dab66
+      internalID: -1779546067626247925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stat_ChkBox
+      rect:
+        serializedVersion: 2
+        x: 1909
+        y: 1049
+        width: 34
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e5653123b42a114b9c2cf1f18d88566
+      internalID: -2129831440904588875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stat_ChkBoxSelected
+      rect:
+        serializedVersion: 2
+        x: 1953
+        y: 1057
+        width: 24
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21781af57f59b8546b6228cfaf98d29e
+      internalID: 6268814000520829177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stat_Tab2
+      rect:
+        serializedVersion: 2
+        x: 1041
+        y: 4
+        width: 79
+        height: 624
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33d5dcccab001c648b518cb0a1825031
+      internalID: -2854035035619293835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stat_Tab1
+      rect:
+        serializedVersion: 2
+        x: 1547
+        y: 4
+        width: 79
+        height: 624
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6aea0607a09b6440bc16db4f6d3fdc9
+      internalID: 816053924819828638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stat_WindowBG
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 4
+        width: 416
+        height: 624
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d57ca42fdc07fb40af1a4fe9bd8a2bc
+      internalID: -6325547116146684001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewBuilding_Bar
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 811
+        width: 228
+        height: 118
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ccaa190a9446b6429cdb3833cec6920
+      internalID: 848652051160376181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewBuilding_GasStation
+      rect:
+        serializedVersion: 2
+        x: 1521
+        y: 811
+        width: 221
+        height: 118
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b8b3206fa4c67b48acf5662e4d6779e
+      internalID: 8659749458814007194
       vertices: []
       indices: 
       edges: []

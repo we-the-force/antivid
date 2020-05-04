@@ -33,12 +33,27 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: CabelloMTR.003
+    second: {fileID: 2100000, guid: 0da8dcf04984bfb4ca1ace51908d4b9b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: CaraNueva
     second: {fileID: 2100000, guid: 41110a4f18265f0448aff42134f77bac, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: CaraNueva.003
+    second: {fileID: 2100000, guid: 41110a4f18265f0448aff42134f77bac, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: CuerpoMTR
+    second: {fileID: 2100000, guid: 1874f27f4a9a47843a2699d7f779688d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CuerpoMTR.003
     second: {fileID: 2100000, guid: 1874f27f4a9a47843a2699d7f779688d, type: 2}
   materials:
     importMaterials: 1
@@ -273,7 +288,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 0.2
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -320,7 +335,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
+    globalScale: 0.002
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
