@@ -61,6 +61,7 @@ public class CameraController : MonoBehaviour
         _instance = this;
 
         _cam = transform.GetComponentInChildren<Camera>();
+        currentZoom = maxZoom;
 
         Invoke("SetUI", 0.2f);
 
