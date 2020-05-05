@@ -18,7 +18,7 @@ public class VideoController : MonoBehaviour
 
     private void Awake()
     {
-        fadeImage.CrossFadeAlpha(0, transitionDuration, true);
+        fadeImage.CrossFadeAlpha(0, transitionDuration * 3f, true);
     }
 
     private void Start()

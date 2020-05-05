@@ -6,6 +6,10 @@ public class AudioManager : MonoBehaviour
 {
     static AudioManager _instance;
 
+    public AudioClip bgmClip;
+    [SerializeField]
+    bool startBGMOnAwake;
+
     AudioSource BGMSource;
     List<AudioSource> audioSourceList = new List<AudioSource>();
     [SerializeField]
@@ -30,7 +34,11 @@ public class AudioManager : MonoBehaviour
             audioSourceList.Add(transform.GetChild(i).GetComponent<AudioSource>());
             audioSourceIsPlaying.Add(audioSourceList[i - 1].isPlaying);
         }
-        BGMSource.Play();
+        BGMSource.clip = bgmClip;
+        if (startBGMOnAwake)
+        {
+            BGMSource.Play();
+        }
     }
 
     private void Update()
