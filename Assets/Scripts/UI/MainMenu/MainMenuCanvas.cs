@@ -26,8 +26,20 @@ public class MainMenuCanvas : MonoBehaviour
 
     public GameObject SeleccionadorDeEscenarios;
 
+    public AudioClip menuClick;
+    public AudioClip menuBack;
+    public AudioClip menuOpen;
+    public AudioClip menuClose;
+
     private void Start()
     {
+        StartCoroutine(SetupScenarioButtons());
+    }
+
+    IEnumerator SetupScenarioButtons()
+    {
+        yield return null;
+
         for (int i = 0; i < ScenarioCollection.Count; i++)
         {
             GameObject obj = Instantiate(ScenarioButtonPrefab, ScenarioAnchor);
@@ -39,6 +51,9 @@ public class MainMenuCanvas : MonoBehaviour
 
             selector.myCanvas = this;
 
+            Button objButt = obj.transform.GetChild(0).Find("Button").GetComponent<Button>();
+            objButt.onClick.AddListener(delegate { AudioManager.Instance.Play(menuClick); });
+            //obj.transform.GetChild(i).GetChild(0).Find("Button").GetComponent<Button>().onClick.AddListener(delegate { AudioManager.Instance.Play(menuOpen); });
 
             RectTransform rct = obj.GetComponent<RectTransform>();
             rct.anchoredPosition = new Vector2(35 + (rct.sizeDelta.x * i) + (60 * i), 0);
