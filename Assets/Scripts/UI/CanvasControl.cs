@@ -319,7 +319,7 @@ public class CanvasControl : MonoBehaviour
 
 
         //--- mostrar mi ventana de tutorial
-
+        myTutorialWindow.ShowWindow(item);
     }
 
 

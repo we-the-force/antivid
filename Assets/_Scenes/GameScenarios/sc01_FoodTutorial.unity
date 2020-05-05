@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1546355636}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.30272996, g: 0.31720892, b: 0.6524141, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7905,6 +7905,11 @@ PrefabInstance:
         type: 3}
       propertyPath: NeedPercentageBaseCollection.Array.data[0].PercentageForBackPack
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5160226374194979871, guid: f3eac50afae36f64887ea84c417fb721,
+        type: 3}
+      propertyPath: IsTutorial
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5160226374194979870, guid: f3eac50afae36f64887ea84c417fb721,
         type: 3}

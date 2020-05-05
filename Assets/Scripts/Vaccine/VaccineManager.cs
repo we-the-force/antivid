@@ -113,6 +113,9 @@ public class VaccineManager : MonoBehaviour
             {
                 vaccineStarted = true;
                 CanvasControl.instance._announcementWindow.SpecialEvent(GlobalObject.SpecialEventName.StartVaccineStudy);
+
+                CurrencyManager.Instance.nextTutorial = 3;
+                CurrencyManager.Instance.playTutorial = true;
             }
             if (_currentTic <= _ticCutout)
             {
@@ -128,6 +131,9 @@ public class VaccineManager : MonoBehaviour
                 {
                     vaccine20Percent = true;
                     CanvasControl.instance._announcementWindow.SpecialEvent(GlobalObject.SpecialEventName.SecondStage);
+
+                    CurrencyManager.Instance.nextTutorial = 2;
+                    CurrencyManager.Instance.playTutorial = true;
                 }
                 if (_currentProgress >= 40f && !vaccine40Percent)
                 {
@@ -137,7 +143,7 @@ public class VaccineManager : MonoBehaviour
                 if (_currentProgress >= 50f && !vaccine50Percent)
                 {
                     vaccine50Percent = true;
-                    CanvasControl.instance._announcementWindow.SpecialEvent(GlobalObject.SpecialEventName.Vaccine40percent);
+                    CanvasControl.instance._announcementWindow.SpecialEvent(GlobalObject.SpecialEventName.Vaccine50percent);
                 }
                 if (_currentProgress >= 100f && !vaccineCompleted)
                 {

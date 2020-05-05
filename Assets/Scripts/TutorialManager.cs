@@ -17,6 +17,4 @@ public class TutorialManager : MonoBehaviour
     {
         CanvasControl.instance.ShowTutorial(TutorialItemCollection[id]);
     }
-
-
 }
