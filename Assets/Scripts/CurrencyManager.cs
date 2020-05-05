@@ -97,6 +97,7 @@ public class CurrencyManager : MonoBehaviour
         return minValue;
     }
 
+    public int currentCycle = 0;
 
     public int FinalCycleCounter { get; set; }
     public void OnWorldTic()
@@ -107,21 +108,18 @@ public class CurrencyManager : MonoBehaviour
         //--- Tambien aqui se actualizan los datos estadisticos
         if (currentTic > ticCutout)
         {
+            currentCycle++;
+
             currentTic = 0;
             float buildingCosts = WorldAgentController.instance.TotalBuildingUpkeepCost;
 
             buildingCosts += costToCure;
 
-
             WorldManager.instance.currentTimeCycle++;
-
-
-
-
+                                 
             float policyCosts = WorldAgentController.instance.TotalPolicyUpkeepCost;
             float agentIncome = WorldAgentController.instance.TotalAgentIncome;
             float vaccineCost = VaccineManager.Instance.ProgressCostPerTic;
-
 
 //            float totalResource = agentIncome + extraIncome - buildingCosts - policyCosts - vaccineCost;
  //           UpdateIncomeText(buildingCosts, agentIncome, totalResource);
@@ -257,12 +255,36 @@ public class CurrencyManager : MonoBehaviour
                 //--- Determina si va a haber un evento Random
                 CanvasControl.instance._announcementWindow.RandomEvent();
             }
+
+            if (WorldManager.instance.IsTutorial)
+            {
+                if (currentCycle == 1)
+                {
+                    nextTutorial = 0;
+                    playTutorial = true;
+                }
+                else if (currentCycle == 2)
+                {
+                    nextTutorial = 1;
+                    playTutorial = true;
+                }
+
+                if (playTutorial)
+                {
+                    playTutorial = false;
+                    TutorialManager.instance.ShowTutorial(nextTutorial);
+                }
+            }
         }
 
 
         currentProgress = 1f / ticCutout * currentTic;
         UpdateCycleImage(currentProgress);
     }
+
+    public int nextTutorial { get; set; }
+    public bool playTutorial { get; set; }
+
     public bool HasEnoughCurrency(float toCompare)
     {
         return CurrentCurrency >= toCompare;
