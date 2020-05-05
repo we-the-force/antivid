@@ -24,6 +24,8 @@ public class WorldManager : MonoBehaviour
     /// </summary>
     public int InfectionGuaranteedAfterNumberOfTravel;
 
+    public bool IsTutorial;
+
     //--- World Time (tic) logic declaration
     public float SecondsPerTic;
     public float TicScale = 1.0f;

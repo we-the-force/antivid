@@ -75,7 +75,7 @@ MonoBehaviour:
   ModTicsToCoverNeed: 1
   ModPercentageRestored: 1
   ModAgentCapacity: 1
-  BaseAgentCapacity: 15
+  BaseAgentCapacity: 5
   CurrentAgentCount: 0
   AssociatedNode: {fileID: 0}
   UpkeepCost: 1.3

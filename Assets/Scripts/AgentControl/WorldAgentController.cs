@@ -433,11 +433,12 @@ public class WorldAgentController : MonoBehaviour
     {
         TotalAgentIncome = 0;
         List<GlobalObject.AgentStatus> invalidStatus = new List<GlobalObject.AgentStatus>() { GlobalObject.AgentStatus.Serious_Case, GlobalObject.AgentStatus.Out_of_circulation };
+
         foreach (AgentController ac in AgentCollection)
         {
             if (ac.myStatus == GlobalObject.AgentStatus.Mild_Case)
             {
-                TotalAgentIncome += IncomePerAgent / 1.5f;
+                TotalAgentIncome += IncomePerAgent * 0.4f;
             }
             else if (!invalidStatus.Contains(ac.myStatus))
             {
