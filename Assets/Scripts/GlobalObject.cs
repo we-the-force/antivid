@@ -169,6 +169,15 @@ public class ScenarioInfo
     public Sprite ScenarioImg;
 }
 
+[System.Serializable]
+public class TutorialItem
+{
+    public string Descripcion;
+    public Sprite image1;
+    public Sprite image2;
+    public Sprite image3;
+}
+
 
 [System.Serializable]
 public class NeedPercentage

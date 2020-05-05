@@ -112,15 +112,20 @@ public class CurrencyManager : MonoBehaviour
 
             buildingCosts += costToCure;
 
-            float policyCosts = WorldAgentController.instance.TotalPolicyUpkeepCost;
-            float agentIncome = WorldAgentController.instance.TotalAgentIncome;
-            float vaccineCost = VaccineManager.Instance.ProgressCostPerTic;
-            float totalResource = agentIncome + extraIncome - buildingCosts - policyCosts - vaccineCost;
 
             WorldManager.instance.currentTimeCycle++;
 
-            UpdateIncomeText(buildingCosts, agentIncome, totalResource);
-            CurrentCurrency += totalResource;
+
+
+
+            float policyCosts = WorldAgentController.instance.TotalPolicyUpkeepCost;
+            float agentIncome = WorldAgentController.instance.TotalAgentIncome;
+            float vaccineCost = VaccineManager.Instance.ProgressCostPerTic;
+
+
+//            float totalResource = agentIncome + extraIncome - buildingCosts - policyCosts - vaccineCost;
+ //           UpdateIncomeText(buildingCosts, agentIncome, totalResource);
+  //          CurrentCurrency += totalResource;
 
             //--- Contar la poblacion 
             int healtyPop = 0;
@@ -158,9 +163,42 @@ public class CurrencyManager : MonoBehaviour
                         break;
                 }
             }
-
+                                 
             happiness = happiness / totPop;
-            CanvasControl.instance.txtHappiness.text = happiness.ToString();
+            string _happinessText = "";
+
+            //---- se tiene que actualizar el agentIncome despues de calcular el happiness
+            if (happiness > 0.85f)
+            {
+                _happinessText = ":D";
+                agentIncome = agentIncome * 3.5f;
+            }
+            else if (happiness > 0.7f)
+            {
+                _happinessText = ":)";
+                agentIncome = agentIncome * 1.95f;
+            }
+            else if (happiness > 0.5f)
+            {
+                _happinessText = ":|";
+                agentIncome = agentIncome * 1.6f;
+            }
+            else if (happiness > 0.4f)
+            {
+                _happinessText = ":(";
+                agentIncome = agentIncome * 0.85f;
+            }
+            else
+            {
+                _happinessText = ">:C";
+                agentIncome = agentIncome * 0.4f;
+            }
+
+            CanvasControl.instance.txtHappiness.text = _happinessText;
+
+            float totalResource = agentIncome + extraIncome - buildingCosts - policyCosts - vaccineCost;
+            UpdateIncomeText(buildingCosts, agentIncome, totalResource);
+            CurrentCurrency += totalResource;
 
             GraphController statWindow = CanvasControl.instance.GraphWindowController;
 

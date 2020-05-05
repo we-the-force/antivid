@@ -2496,11 +2496,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 996875609, guid: df2b705b261be0e409b22a59fcf1895d, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 996875610, guid: df2b705b261be0e409b22a59fcf1895d, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1546355636, guid: df2b705b261be0e409b22a59fcf1895d, type: 3}
       propertyPath: m_Shadows.m_Strength

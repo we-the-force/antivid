@@ -306,4 +306,22 @@ public class CanvasControl : MonoBehaviour
         bf.Serialize(file, auxData);
         file.Close();
     }
+
+    public TutorialWindow myTutorialWindow;
+
+    public void ShowTutorial(TutorialItem item)
+    {
+        if (myTutorialWindow == null)
+            return;
+
+        WorldManager.instance.Pause(true);
+        ShowHideUI(false);
+
+
+        //--- mostrar mi ventana de tutorial
+
+    }
+
+
+
 }
