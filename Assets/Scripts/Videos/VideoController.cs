@@ -42,7 +42,7 @@ public class VideoController : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         do
         {
-            Debug.Log($"Playing video: {videoPlayer.isPlaying} ({videoPlayer.time}/{videoPlayer.clip.length})");
+            //Debug.Log($"Playing video: {videoPlayer.isPlaying} ({videoPlayer.time}/{videoPlayer.clip.length})");
             yield return null;
         } while (videoPlayer.time < 175f);
         //Debug.Log($"Finished playing video");
@@ -77,6 +77,6 @@ public class VideoController : MonoBehaviour
         } while (currentTime < transitionDuration + 0.15f);
         //yield return new WaitForSeconds(transitionDuration + 0.15f);
 
-        //Debug.Log($"Thingie {fadeImage.color.a}, limit {transitionDuration + 0.15f}");
+        Debug.Log($"Thingie {fadeImage.color.a}, limit {transitionDuration + 0.15f}");
     }
 }
