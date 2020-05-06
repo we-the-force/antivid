@@ -129,6 +129,8 @@ public class BuyablePlot : MonoBehaviour
                 AssignedModel.SetActive(true);
 
                 BuildingController BC = AssignedModel.GetComponent<BuildingController>();
+
+                buildCont.ocupantAnchor = BC.ocupantAnchor;
                 buildCont.UpkeepCost = BC.UpkeepCost;
                 buildCont.BaseNeedCovered = BC.BaseNeedCovered;
                 buildCont.TimeToCoverNeed = BC.TimeToCoverNeed;
@@ -311,8 +313,11 @@ public class BuyablePlot : MonoBehaviour
 
     void ShowCanvas()
     {
-        if (!CanvasControl.instance.UIElements.gameObject.activeSelf)
+        if (CanvasControl.instance.WindowOpen)
             return;
+
+        //if (!CanvasControl.instance.UIElements.gameObject.activeSelf)
+        //    return;
 
         if (interactingWithCanvas && buyBuildingWindow.SelectedBuyablePlot == null)
         {
@@ -329,8 +334,11 @@ public class BuyablePlot : MonoBehaviour
         if (UnderConstruction)
             return;
 
-        if (!CanvasControl.instance.UIElements.gameObject.activeSelf)
+        if (CanvasControl.instance.WindowOpen)
             return;
+
+        //if (!CanvasControl.instance.UIElements.gameObject.activeSelf)
+        //    return;
 
         interactingWithCanvas = true;
         ShowCanvas();

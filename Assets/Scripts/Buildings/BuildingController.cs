@@ -5,6 +5,10 @@ using UnityEngine.Serialization;
 
 public class BuildingController : MonoBehaviour
 {
+    public Transform ocupantAnchor;
+    public GameObject prefab;
+    public List<GameObject> ocupantIconList = new List<GameObject>();
+
     public GlobalObject.NeedScale BaseNeedCovered;
     public float TimeToCoverNeed;
 
@@ -55,6 +59,36 @@ public class BuildingController : MonoBehaviour
     {
         get { return _currentNeedCovered; }
     }
+
+    public void ResetOccupants()
+    {
+        int diff = Mathf.Abs(CurrentAgentCount - ocupantIconList.Count);
+
+        if (CurrentAgentCount > ocupantIconList.Count)
+        {
+            //--- Agregar ocupantes
+            for (int i = 0; i < diff; i++)
+            {
+                GameObject obj = Instantiate(prefab, ocupantAnchor);
+                obj.transform.localPosition = new Vector3(0, ocupantIconList.Count * 0.5f, 0);
+
+                ocupantIconList.Insert(0, obj);
+            }
+
+        }
+        else if (CurrentAgentCount < ocupantIconList.Count)
+        {
+            //--- Eliminar Ocupantes
+            for (int i = 0; i < diff; i++)
+            {
+                GameObject obj = ocupantIconList[0];
+                ocupantIconList.RemoveAt(0);
+                Destroy(obj);
+            }
+        }
+    }
+
+
 
     private void Start()
     {

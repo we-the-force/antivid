@@ -456,7 +456,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8970810664585279480}
-  - component: {fileID: 1011170049805276115}
   m_Layer: 0
   m_Name: IconoActividad
   m_TagString: Untagged
@@ -479,26 +478,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1011170049805276115
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6084210936409682764}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd8430ce573cbd941935e96dd9abe852, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IconGameObject:
-  - {fileID: 5679237735235351658}
-  - {fileID: 1440052752569235692}
-  - {fileID: 2692931894123428778}
-  - {fileID: 8085235315226329074}
-  - {fileID: 8852574159251577650}
-  - {fileID: 1979527721359148317}
-  - {fileID: 651492859189962007}
 --- !u!1 &8085235315226329074
 GameObject:
   m_ObjectHideFlags: 0

@@ -106,6 +106,11 @@ public class PolicyManager : MonoBehaviour
 
     public void TogglePolicy(Policy policy, bool enabled)
     {
+        if (enabled)
+        {
+            CurrencyManager.Instance.CurrentCurrency -= policy.InitialCost;
+        }
+
         policy.Enabled = enabled;
         SendPoliciesToWorldManager();
         Debug.LogWarning(PoliciesToString());

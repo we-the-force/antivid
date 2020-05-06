@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: Test1
   m_EditorClassIdentifier: 
   PolicyID: 1
+  Available: 0
   PolicyName: Turn schools into hospitals
   PolicyDescription: Turn schools into hospitals
   Enabled: 0
   IsQuarantine: 0
-  UpkeepCost: 1
+  UpkeepCost: 0
+  InitialCost: 20
   TransformBuildingSection:
     Enabled: 1
     BuildingToChange: 4

@@ -8,7 +8,9 @@ using System.IO;
 
 public class CanvasControl : MonoBehaviour
 {
-    public Text txtHappiness;
+    public Image happinessImage;
+
+    public List<Sprite> happinessFaces;
 
     public static CanvasControl instance;
 
@@ -40,10 +42,24 @@ public class CanvasControl : MonoBehaviour
 
     public List<GameObject> speedControlSelectedImage;
 
+    public bool WindowOpen { get; set; }
+
 
     private void Awake()
     {
         instance = this;
+
+        WindowOpen = false;
+    }
+
+    private void Start()
+    {
+        SetHappinessFace(0);
+    }
+
+    public void SetHappinessFace(int i)
+    {
+        happinessImage.sprite = happinessFaces[i];
     }
 
     public RectTransform panelPopInfo;
@@ -204,8 +220,20 @@ public class CanvasControl : MonoBehaviour
 
     public void ShowHideUI(bool show)
     {
+        if (!show)
+            WindowOpen = true;
+        else
+            Invoke("ChangeWindowOpenStatus", 0.04f);
+
         UIElements.SetActive(show);
     }
+
+    private void ChangeWindowOpenStatus()
+    {
+        Debug.LogError("Entrando a cambair el statos de la ventanta");
+        WindowOpen = false;
+    }
+
 
     public void EndScenario()
     {
@@ -322,6 +350,10 @@ public class CanvasControl : MonoBehaviour
         myTutorialWindow.ShowWindow(item);
     }
 
+    public void GoToMenu()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
+    }
 
 
 }

@@ -14,12 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PolicyID: 2
   Available: 1
-  PolicyName: Galletitas
+  PolicyName: 10% Efectividad en Alimento
   PolicyDescription: Creas mejores galletas de animalitos.\r\n+10% efectividad de
     comida
-  Enabled: 1
+  Enabled: 0
   IsQuarantine: 0
-  UpkeepCost: 10
+  UpkeepCost: 0
+  InitialCost: 30
   TransformBuildingSection:
     Enabled: 0
     BuildingToChange: 6

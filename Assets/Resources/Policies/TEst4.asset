@@ -14,25 +14,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PolicyID: 4
   Available: 1
-  PolicyName: Mas hospital!
+  PolicyName: Mas atencion en hospital 50%
   PolicyDescription: 
-  Enabled: 1
+  Enabled: 0
   IsQuarantine: 0
   UpkeepCost: 6
+  InitialCost: 0
   TransformBuildingSection:
     Enabled: 0
-    BuildingToChange: 6
+    BuildingToChange: 3
     TargetBuilding: 6
     Percentage: 0
   LimitBuildingSection:
     Enabled: 0
-    BuildingToChange: 6
+    BuildingToChange: 3
     Percentage: 0
   BuildingEffectivitySection:
-    Enabled: 0
-    ParameterMods: []
-  DistributionEffectivitySection:
     Enabled: 1
+    ParameterMods:
+    - BuildingType: 3
+      ParameterToChange: 1
+      Percentage: 1.5
+  DistributionEffectivitySection:
+    Enabled: 0
     ParameterMods:
     - Parameter: 2
       Units: 200
