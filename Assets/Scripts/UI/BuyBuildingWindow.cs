@@ -57,7 +57,6 @@ public class BuyBuildingWindow : MonoBehaviour
     public void BuySelected()
     {
         Debug.LogError("COMPRANDO " + _building.ToString());
-
         _selectedBuyablePlot.BuyBuilding(_building);
         CloseWindow();
     }

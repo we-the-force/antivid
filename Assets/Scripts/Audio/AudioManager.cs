@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class AudioManager : MonoBehaviour
 {
     static AudioManager _instance;
+
+    public UnityAction PlayClick;
 
     public AudioClip bgmClip;
     [SerializeField]
@@ -12,8 +15,121 @@ public class AudioManager : MonoBehaviour
 
     AudioSource BGMSource;
     List<AudioSource> audioSourceList = new List<AudioSource>();
+
+    [SerializeField]
+    GameObject audioSourceObject;
+
+    [SerializeField]
+    int audioSourceCount;
     [SerializeField]
     List<bool> audioSourceIsPlaying = new List<bool>();
+
+    [SerializeField, Range(0f, 2f)]
+    float transitionDuration = 0.5f;
+    [SerializeField]
+    bool isTransitioningBGM = false;
+
+    /// <summary>
+    /// Lista con los sonidos
+    ///  0: Menu Click
+    ///  1: Menu Click2
+    ///  2: Show Window
+    ///  3: Hide window
+    ///  4: Evento Quincena
+    ///  5: Evento Normal
+    ///  6: Construir edificio
+    ///  7: Edificio Completado
+    ///  8: Evento Alerta Virus
+    ///  9: Open Window
+    /// 10: CHK BOX Click
+    /// 11: Game Over
+    /// 12: Vaccine Found
+    /// 13: Random Enfermos
+    /// </summary>
+    [SerializeField]
+    List<AudioClip> sfxList = new List<AudioClip>();
+    /// <summary>
+    /// 0: Plateau
+    /// 1: Diamond Dust
+    /// 2: AlpenRose
+    /// 3: OnYourWayBack
+    /// </summary>
+    [SerializeField]
+    List<AudioClip> bgmList = new List<AudioClip>();
+
+    public AudioClip MenuClick
+    {
+        get { return sfxList[0]; }
+    }
+    public AudioClip MenuBack
+    {
+        get { return sfxList[1]; }
+    }
+    public AudioClip ShowWindow
+    {
+        get { return sfxList[2]; }
+    }
+    public AudioClip HideWindow
+    {
+        get { return sfxList[3]; }
+    }
+    public AudioClip EventQuincena
+    {
+        get { return sfxList[4]; }
+    }
+    public AudioClip EventNormal
+    {
+        get { return sfxList[5]; }
+    }
+    public AudioClip BuildStart
+    {
+        get { return sfxList[6]; }
+    }
+    public AudioClip BuildFinish
+    {
+        get { return sfxList[7]; }
+    }
+    public AudioClip EventVirusAlert
+    {
+        get { return sfxList[8]; }
+    }
+    public AudioClip OpenWindow
+    {
+        get { return sfxList[9]; }
+    }
+    public AudioClip ChkBoxClick
+    {
+        get { return sfxList[10]; }
+    }
+    public AudioClip GameOver
+    {
+        get { return sfxList[11]; }
+    }
+    public AudioClip VaccineFound
+    {
+        get { return sfxList[12]; }
+    }
+    public AudioClip RandomSick
+    {
+        get { return sfxList[13]; }
+    }
+
+    public AudioClip Plateau
+    {
+        get { return bgmList[0]; }
+    }
+    public AudioClip DiamondDust
+    {
+        get { return bgmList[1]; }
+    }
+    public AudioClip AlpenRose
+    {
+        get { return bgmList[2]; }
+    }
+    public AudioClip OnYourWayBack
+    {
+        get { return bgmList[3]; }
+    }
 
     public static AudioManager Instance
     {
@@ -27,6 +143,9 @@ public class AudioManager : MonoBehaviour
             Destroy(gameObject);
         }
         _instance = this;
+        DontDestroyOnLoad(gameObject);
+
+        AddAudioSources();
 
         BGMSource = transform.GetChild(0).GetComponent<AudioSource>();
         for (int i = 1; i < transform.childCount; i++)
@@ -39,6 +158,17 @@ public class AudioManager : MonoBehaviour
         {
             BGMSource.Play();
         }
+
+        //PlayClick += Play(MenuClick);
+    }
+
+    void AddAudioSources()
+    {
+        for (int i = 0; i < audioSourceCount; i++)
+        {
+            GameObject obj = GameObject.Instantiate(audioSourceObject, transform);
+            obj.name = $"AudioSource{i + 1}";
+        }
     }
 
     private void Update()
@@ -47,6 +177,46 @@ public class AudioManager : MonoBehaviour
         {
             audioSourceIsPlaying[i] = audioSourceList[i].isPlaying;
         }
+    }
+
+    public void StopBGM()
+    {
+        BGMSource.Stop();
+    }
+    public void PlayBGM()
+    {
+        BGMSource.Play();
+    }
+    public void ChangeBGM(AudioClip newBGM)
+    {
+        if (!isTransitioningBGM)
+        {
+            StartCoroutine(SwitchBGM(newBGM));
+        }
+    }
+
+    IEnumerator SwitchBGM(AudioClip newBGM)
+    {
+        yield return fadeSource(BGMSource, BGMSource.volume, 0);
+        StopBGM();
+        BGMSource.clip = newBGM;
+        PlayBGM();
+        yield return fadeSource(BGMSource, BGMSource.volume, 1);
+    }
+
+    IEnumerator fadeSource(AudioSource toFade, float initialValue, float targetValue)
+    {
+        float currentTime = 0;
+        float currentProgress = 0;
+        do
+        {
+            currentProgress = currentTime / transitionDuration;
+
+            toFade.volume = Mathf.SmoothStep(initialValue, targetValue, currentProgress);
+
+            currentTime += Time.unscaledDeltaTime;
+            yield return null;
+        }while(currentTime < transitionDuration + 0.1f);
     }
 
     public void Play(AudioClip auClip)

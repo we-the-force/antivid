@@ -108,6 +108,8 @@ public class CurrencyManager : MonoBehaviour
         //--- Tambien aqui se actualizan los datos estadisticos
         if (currentTic > ticCutout)
         {
+            AudioManager.Instance.Play(AudioManager.Instance.EventQuincena);
+
             currentCycle++;
 
             currentTic = 0;

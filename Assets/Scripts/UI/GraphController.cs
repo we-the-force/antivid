@@ -34,7 +34,7 @@ public class GraphController : MonoBehaviour
 
     public float MinEconomy;
     public float MaxEconomy;
-    
+
     public RectTransform layerHealtyPop;
     public RectTransform layerSeriousPop;
     public RectTransform layerMildPop;
@@ -83,7 +83,7 @@ public class GraphController : MonoBehaviour
         labelTemplateY = graphContainer.Find("labelTemplateY").GetComponent<RectTransform>();
         dashTemplateX = graphContainer.Find("dashTemplateX").GetComponent<RectTransform>();
         dashTemplateY = graphContainer.Find("dashTemplateY").GetComponent<RectTransform>();
-        
+
         currentPanel = 0;
 
         ShowGraph(AgentIncomeList, layerAgentIncome, colorAgentIncome);
@@ -104,6 +104,11 @@ public class GraphController : MonoBehaviour
 
     public void ShowPanel(int _panel)
     {
+        if (currentPanel != _panel)
+        {
+            AudioManager.Instance.Play(AudioManager.Instance.OpenWindow);
+        }
+
         currentPanel = _panel;
 
         RemoveObjects(Grid);
@@ -115,25 +120,25 @@ public class GraphController : MonoBehaviour
 
         bgButtonEconomy.SetActive(isEconomy);
         bgButtonPopulation.SetActive(!isEconomy);
-        
+
         panelEconomy.gameObject.SetActive(isEconomy);
         panelPopulation.gameObject.SetActive(!isEconomy);
         PanelLegendEconomy.SetActive(isEconomy);
         PanelLegendPopulation.SetActive(!isEconomy);
-/*
-        if (currentPanel == 0)
-        {
-            panelEconomy.gameObject.SetActive(true);
-            panelPopulation.gameObject.SetActive(false);
-            PanelLegendEconomy.SetActive(true);
-            PanelLegendPopulation.SetActive(false);
-        }
-        else
-        {
-            panelEconomy.gameObject.SetActive(false);
-            panelPopulation.gameObject.SetActive(true);
-        }
-        */
+        /*
+                if (currentPanel == 0)
+                {
+                    panelEconomy.gameObject.SetActive(true);
+                    panelPopulation.gameObject.SetActive(false);
+                    PanelLegendEconomy.SetActive(true);
+                    PanelLegendPopulation.SetActive(false);
+                }
+                else
+                {
+                    panelEconomy.gameObject.SetActive(false);
+                    panelPopulation.gameObject.SetActive(true);
+                }
+                */
     }
 
 
@@ -179,6 +184,8 @@ public class GraphController : MonoBehaviour
 
     public void LayerCheckbox(Toggle _toggleChange)
     {
+        AudioManager.Instance.Play(_toggleChange.isOn ? AudioManager.Instance.ChkBoxClick : AudioManager.Instance.HideWindow);
+
         switch (_toggleChange.name)
         {
             case "AgentIncome":
@@ -225,7 +232,7 @@ public class GraphController : MonoBehaviour
             yMaximum = MaxEconomy;
 
         xSize = graphContainer.sizeDelta.x / valueList.Count;
-        if(xSize > xSeparation)
+        if (xSize > xSeparation)
             xSize = xSeparation;
 
         for (int i = 0; i < valueList.Count; i++)
@@ -263,7 +270,7 @@ public class GraphController : MonoBehaviour
 
         _parent.gameObject.SetActive(true);
     }
-    
+
     private void ShowGraph(List<int> valueList, Transform _parent, Color _color)
     {
         float graphHeight = graphContainer.sizeDelta.y;
@@ -286,9 +293,9 @@ public class GraphController : MonoBehaviour
             GameObject circleGameObject = CreateCircle(new Vector2(xPosition, yPosition), _parent);
             if (lastCircleGameObject != null)
             {
-                CreateDotConnection(lastCircleGameObject.GetComponent<RectTransform>().anchoredPosition, 
-                                    circleGameObject.GetComponent<RectTransform>().anchoredPosition, 
-                                    _parent,  
+                CreateDotConnection(lastCircleGameObject.GetComponent<RectTransform>().anchoredPosition,
+                                    circleGameObject.GetComponent<RectTransform>().anchoredPosition,
+                                    _parent,
                                     _color);
             }
 

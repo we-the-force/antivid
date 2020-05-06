@@ -66,6 +66,7 @@ public class BuyablePlot : MonoBehaviour
 
         if (currentTics == TicsToBuild)
         {
+            AudioManager.Instance.Play(AudioManager.Instance.BuildFinish);
             Buy(auxNode);
         }
     }
@@ -256,7 +257,11 @@ public class BuyablePlot : MonoBehaviour
 
         if (CurrencyManager.Instance.HasEnoughCurrency(Cost))
         {
+            AudioManager.Instance.Play(AudioManager.Instance.MenuClick);
+
             canvas.SetActive(true);
+
+            AudioManager.Instance.Play(AudioManager.Instance.BuildStart);
 
             UnderConstruction = true;
             currentTics = 0;
@@ -297,6 +302,7 @@ public class BuyablePlot : MonoBehaviour
         }
         else
         {
+            AudioManager.Instance.Play(AudioManager.Instance.MenuBack);
             Debug.LogError("No tiene dinero " + Cost.ToString());
         }
 

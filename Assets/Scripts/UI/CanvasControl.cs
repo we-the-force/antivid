@@ -5,9 +5,14 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class CanvasControl : MonoBehaviour
 {
+    public AudioManager audioManager;
+
     public Text txtHappiness;
 
     public static CanvasControl instance;
@@ -46,6 +51,10 @@ public class CanvasControl : MonoBehaviour
         instance = this;
     }
 
+    private void Start()
+    {
+        SetupCanvasSounds();
+    }
     public RectTransform panelPopInfo;
     public RectTransform panelCurrencyInfo;
     public RectTransform panelSpeedControl;
@@ -115,6 +124,7 @@ public class CanvasControl : MonoBehaviour
 
     public void ShowPolicyIcon()
     {
+        //PlayShowMenu();
         for (int i = 0; i < PolicyIconCollection.Count; i++)
         {
             PolicyIconCollection[i].gameObject.SetActive(false);
@@ -136,6 +146,7 @@ public class CanvasControl : MonoBehaviour
 
     public void ShowStatisticWindow()
     {
+        PlayShowMenu();
         ShowHideUI(false);
         //WorldManager.instance.ChangeTimeScale(0);
         WorldManager.instance.Pause(true);
@@ -146,6 +157,8 @@ public class CanvasControl : MonoBehaviour
 
     public void HideStatisticWindow()
     {
+        Debug.Log("Playing HideStatisticsWindow");
+        PlayHideMenu();
         GraphWindow.SetActive(false);
         GraphWindowController.DisableWindow();
         ShowHideUI(true);
@@ -161,6 +174,7 @@ public class CanvasControl : MonoBehaviour
 
     public void ShowPolicyWindow()
     {
+        PlayShowMenu();
         //WorldManager.instance.ChangeTimeScale(0);
         WorldManager.instance.Pause(true);
 
@@ -172,6 +186,7 @@ public class CanvasControl : MonoBehaviour
 
     public void HidePolicyWindow()
     {
+        PlayHideMenu();
         //WorldManager.instance.ChangeTimeScale(1);
         WorldManager.instance.Pause(false);
 
@@ -183,6 +198,7 @@ public class CanvasControl : MonoBehaviour
 
     public void ShowVaccineWindow()
     {
+        PlayShowMenu();
         //WorldManager.instance.ChangeTimeScale(0);
         WorldManager.instance.Pause(true);
 
@@ -191,6 +207,7 @@ public class CanvasControl : MonoBehaviour
     }
     public void HideVaccineWindow()
     {
+        PlayHideMenu();
         //WorldManager.instance.ChangeTimeScale(1);
         WorldManager.instance.Pause(false);
 
@@ -322,6 +339,98 @@ public class CanvasControl : MonoBehaviour
         myTutorialWindow.ShowWindow(item);
     }
 
+    public void SetupCanvasSounds()
+    {
+        SetupSpeedControls();
+        SetupCameraControls();
+        SetupBuyBuildingControls();
+        SetupStatsControls();
+    }
+    void SetupSpeedControls()
+    {
+        Transform speed = UIElements.transform.Find("SpeedModifier");
+        for (int i = 0; i < speed.childCount; i++)
+        {
+            Button asd = speed.GetChild(i).GetComponent<Button>();
+            asd.onClick.AddListener(() => audioManager.Play(audioManager.MenuClick));
+        }
+    }
+    void SetupCameraControls()
+    {
+        Transform cameraControls = UIElements.transform.Find("TouchControls");
+
+        //AudioManager.Instance.ChangeBGM(AudioManager.Instance.OnYourWayBack);
 
 
+        cameraControls.GetChild(0).GetComponent<Button>().onClick.AddListener(() => audioManager.Play(audioManager.MenuBack));
+        //cameraControls.GetChild(1).GetComponent<Button>().onClick.AddListener(() => audioManager.Play(audioManager.ChkBoxClick));
+        cameraControls.GetChild(1).GetComponent<Button>().onClick.AddListener(() => audioManager.ChangeBGM(audioManager.OnYourWayBack));
+        cameraControls.GetChild(2).GetComponent<Button>().onClick.AddListener(() => audioManager.Play(audioManager.MenuClick));
+    }
+    void SetupBuyBuildingControls()
+    {
+        Transform bbPanel = transform.Find("BuyBuildingWindow").Find("Panel");
+        Transform bbScrView = transform.Find("BuyBuildingWindow").Find("Scroll View").Find("Viewport").Find("Content");
+
+        //bbPanel.Find("btnBuy").GetComponent<Button>().onClick.AddListener(() => audioManager.Play(audioManager.MenuClick));
+        //bbPanel.Find("btnBuy").GetComponent<Button>().onClick.AddListener(() => audioManager.Play(audioManager.BuildStart));
+        bbPanel.Find("btnClose").GetComponent<Button>().onClick.AddListener(() => audioManager.Play(audioManager.MenuBack));
+
+        for (int i = 0; i < bbScrView.childCount; i++)
+        {
+            bbScrView.GetChild(i).GetComponent<Button>().onClick.AddListener(() => audioManager.Play(audioManager.MenuClick));
+        }
+    }
+    void SetupStatsControls()
+    {
+        Transform stats = transform.Find("StatisticWindow");
+        Transform economyToggles = stats.Find("PanelLegendEconomy");
+        Transform populationToggles = stats.Find("PanelLegendPopulation");
+
+        //stats.Find("EconomyPanelButton").GetComponent<Button>().onClick.AddListener(() => audioManager.Play(audioManager.OpenWindow));
+        //stats.Find("PopulationPanelButton").GetComponent<Button>().onClick.AddListener(() => audioManager.Play(audioManager.OpenWindow));
+
+        for (int i = 0; i < economyToggles.childCount; i++)
+        {
+            //economyToggles.GetChild(i).GetComponent<Button>().onClick.AddListener(() => audioManager.Play(audioManager.ChkBoxClick));
+        }
+        for (int i = 0; i < populationToggles.childCount; i++)
+        {
+            //populationToggles.GetChild(i).GetComponent<Button>().onClick.AddListener(() => audioManager.Play(audioManager.ChkBoxClick));
+        }
+    }
+
+    void PlayMenuClick()
+    {
+        audioManager.Play(audioManager.MenuClick);
+    }
+    void PlayMenuBack()
+    {
+        audioManager.Play(audioManager.MenuBack);
+    }
+    void PlayShowMenu()
+    {
+        audioManager.Play(audioManager.ShowWindow);
+    }
+    void PlayHideMenu()
+    {
+        audioManager.Play(audioManager.HideWindow);
+    }
 }
+
+#if UNITY_EDITOR
+[CustomEditor(typeof(CanvasControl), true)]
+public class CanvasControlEditor : Editor
+{
+    private CanvasControl control { get { return (target as CanvasControl); } }
+    public override void OnInspectorGUI()
+    {
+        base.OnInspectorGUI();
+
+        if (GUILayout.Button("Setup Sounds"))
+        {
+            control.SetupCanvasSounds();
+        }
+    }
+}
+#endif

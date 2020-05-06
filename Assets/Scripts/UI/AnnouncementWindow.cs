@@ -42,6 +42,7 @@ public class AnnouncementWindow : MonoBehaviour
     public void CloseWindow()
     {
         gameObject.SetActive(false);
+        AudioManager.Instance.Play(AudioManager.Instance.HideWindow);
         //WorldManager.instance.ChangeTimeScale(1);
         WorldManager.instance.Pause(false);
         CanvasControl.instance.ShowHideUI(true);
@@ -61,12 +62,17 @@ public class AnnouncementWindow : MonoBehaviour
                     case GlobalObject.SpecialEventName.FirstInfected:
 
                         CanvasControl.instance.ShowVaccineIcon(true);
+                        AudioManager.Instance.Play(AudioManager.Instance.EventVirusAlert);
+                        AudioManager.Instance.ChangeBGM(AudioManager.Instance.OnYourWayBack);
+
                         VaccineManager.Instance.ShouldTic = true;
                         break;
                     case GlobalObject.SpecialEventName.FirstStage:
+                        AudioManager.Instance.Play(AudioManager.Instance.EventVirusAlert);
                         break;
                     case GlobalObject.SpecialEventName.SecondStage:
                         //--- Habilita la politica de cuarentena
+                        AudioManager.Instance.Play(AudioManager.Instance.EventVirusAlert);
                         PolicyManager.Instance.EnablePolicy(0);
                         break;
                     case GlobalObject.SpecialEventName.StartVaccineStudy:
@@ -79,6 +85,7 @@ public class AnnouncementWindow : MonoBehaviour
                         Debug.LogError("Vaccine50Percent");
                         break;
                     case GlobalObject.SpecialEventName.VaccineCompleted:
+                        AudioManager.Instance.Play(AudioManager.Instance.VaccineFound);
                         //--- Curar a toda la banderola
                         for (int a = 0; a < WorldAgentController.instance.AgentCollection.Count; a++)
                         {
@@ -171,6 +178,8 @@ public class AnnouncementWindow : MonoBehaviour
         SpecialEventIcon.SetActive(false);
 
         gameObject.SetActive(true);
+        AudioManager.Instance.Play(AudioManager.Instance.EventNormal);
+
     }
 }
 

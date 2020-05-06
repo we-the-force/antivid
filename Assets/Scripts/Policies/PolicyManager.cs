@@ -111,6 +111,14 @@ public class PolicyManager : MonoBehaviour
         Debug.LogWarning(PoliciesToString());
         _isOnQarantine = IsInQuarantine();
         Debug.Log($"Changed policy {policy.PolicyName} to {enabled}");
+        if (enabled)
+        {
+            AudioManager.Instance.Play(AudioManager.Instance.ChkBoxClick);
+        }
+        else
+        {
+            AudioManager.Instance.Play(AudioManager.Instance.MenuBack);
+        }
         //Policy aux = _policies.Find(x => x.PolicyName == policyName);
         //if (aux != null)
         //{
