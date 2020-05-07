@@ -57,11 +57,6 @@ public class CanvasControl : MonoBehaviour
         WindowOpen = false;
     }
 
-    private void Start()
-    {
-        SetHappinessFace(0);
-    }
-
     public void SetHappinessFace(int i)
     {
         happinessImage.sprite = happinessFaces[i];
@@ -69,6 +64,9 @@ public class CanvasControl : MonoBehaviour
 
     private void Start()
     {
+        //--- Inicializa el icono de felicidad en el mas alto nivel
+        SetHappinessFace(0);
+
         SetupCanvasSounds();
         audioManager.ChangeBGM(audioManager.DiamondDust);
     }
