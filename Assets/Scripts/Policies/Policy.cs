@@ -20,6 +20,7 @@ public class Policy : ScriptableObject
     public bool Enabled = false;
     public bool IsQuarantine = false;
     public float UpkeepCost;
+    public float InitialCost;
 
     public TransformBuilding TransformBuildingSection;
     public LimitBuilding LimitBuildingSection;

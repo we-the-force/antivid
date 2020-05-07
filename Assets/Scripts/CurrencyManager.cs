@@ -46,9 +46,7 @@ public class CurrencyManager : MonoBehaviour
     [SerializeField]
     int ticCutout = 30;
     int currentTic = 0;
-
-
-
+       
     public float CurrentCurrency
     {
         get { return _currentCurrency; }
@@ -141,6 +139,9 @@ public class CurrencyManager : MonoBehaviour
 
                 if (_status != AgentStatus.Out_of_circulation)
                 {
+                    //--- comienza la animacion del canvas de agente donde muestra infeccion y contagio por cada ciclo
+                    WorldAgentController.instance.AgentCollection[i].CanvasAnim.StartAnim();
+
                     happiness += WorldAgentController.instance.AgentCollection[i].HappinessCoeficient;
                     totPop++;
                 }
@@ -165,36 +166,36 @@ public class CurrencyManager : MonoBehaviour
             }
                                  
             happiness = happiness / totPop;
-            string _happinessText = "";
+            int _happinessImg = 0;
 
             //---- se tiene que actualizar el agentIncome despues de calcular el happiness
-            if (happiness > 0.85f)
+            if (happiness > 0.82f)
             {
-                _happinessText = ":D";
+                _happinessImg = 0;
                 agentIncome = agentIncome * 3.5f;
             }
-            else if (happiness > 0.7f)
+            else if (happiness > 0.72f)
             {
-                _happinessText = ":)";
+                _happinessImg = 1;
                 agentIncome = agentIncome * 1.95f;
             }
-            else if (happiness > 0.5f)
+            else if (happiness > 0.63f)
             {
-                _happinessText = ":|";
+                _happinessImg = 2;
                 agentIncome = agentIncome * 1.6f;
             }
-            else if (happiness > 0.4f)
+            else if (happiness > 0.51f)
             {
-                _happinessText = ":(";
+                _happinessImg = 3;
                 agentIncome = agentIncome * 0.85f;
             }
             else
             {
-                _happinessText = ">:C";
+                _happinessImg = 4;
                 agentIncome = agentIncome * 0.4f;
             }
 
-            CanvasControl.instance.txtHappiness.text = _happinessText;
+            CanvasControl.instance.SetHappinessFace(_happinessImg);
 
             float totalResource = agentIncome + extraIncome - buildingCosts - policyCosts - vaccineCost;
             UpdateIncomeText(buildingCosts, agentIncome, totalResource);

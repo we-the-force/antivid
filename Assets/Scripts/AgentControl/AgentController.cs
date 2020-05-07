@@ -6,6 +6,8 @@ public class AgentController : MonoBehaviour
 {
     public AgentIcon IconController;
 
+    public agentAnimController CanvasAnim;
+
     public float TotalCellsInBody;
     public float CellsCuredPerTic;
     [SerializeField]
@@ -78,6 +80,8 @@ public class AgentController : MonoBehaviour
     public void InitAgent(GlobalObject.AgentPerk useThisPerk = GlobalObject.AgentPerk.Random)
     {
         WorldManager.TicDelegate += TicReceived;
+
+        CanvasAnim.myCanvas.worldCamera = CameraController.Instance.Cam;
 
         CurrentInfectedCells = 0;
 
@@ -285,7 +289,7 @@ public class AgentController : MonoBehaviour
                 //--- En este caso, ya esta en el hospital, y no saldra de ahi hasta que la cantidad de sus celulas curadas sea la 
                 //--- totalidad de las celulas en el cuerpo, la cura progresara dependiendo de el coeficiente de 
                 //--- felicidad total del agente en ese momento
-                CurrentInfectedCells -= (CellsCuredPerTic + (CellsCuredPerTic * HappinessCoeficient));
+                CurrentInfectedCells -= (CellsCuredPerTic * HappinessCoeficient); // (CellsCuredPerTic + (CellsCuredPerTic * HappinessCoeficient));
 
                 if (myStatus == GlobalObject.AgentStatus.Mild_Case)
                 {
@@ -596,6 +600,8 @@ public class AgentController : MonoBehaviour
                 ExecutingBuilding = true;
                 myDestinationBuilding.CurrentAgentCount++;
 
+                myDestinationBuilding.ResetOccupants();
+
                 //--- Agrega contagio a la gente que esta en el edificio
                 //--- En caso de que existan politicas de distanciamiento y asi, aqui se colocara 
                 //--- un porcentaje de que suceda un contagio
@@ -641,6 +647,8 @@ public class AgentController : MonoBehaviour
                     yield return new WaitForFixedUpdate();
                 }
 
+
+
                 if (NeedTakenCare == GlobalObject.NeedScale.Sleep)
                 {
                     for (int i = 0; i < BackPack.Count; i++)
@@ -679,8 +687,10 @@ public class AgentController : MonoBehaviour
                 ExecuteBuildingAction(myDestinationBuilding.MainNeedCovered);
 
                 ExecutingBuilding = false;
+
                 SetVisibility(true);
                 myDestinationBuilding.CurrentAgentCount--;
+                myDestinationBuilding.ResetOccupants();
                 //   myDestinationBuilding = null;
 
                 if (myStatus == GlobalObject.AgentStatus.Mild_Case || myStatus == GlobalObject.AgentStatus.Serious_Case)
@@ -734,12 +744,19 @@ public class AgentController : MonoBehaviour
 
     public void SetVisibility(bool visible)
     {
+        IconController.gameObject.SetActive(visible);
+
         AnimationObject.SetActive(visible);
     }
 
+    
+    public float totalInfectedCellsThisCycle { get; set; }
     private void AddInfectedCells(bool fromSneeze)
     {
-        float _infected = WorldAgentController.instance.InfectedCellPerTic + (WorldAgentController.instance.InfectedCellPerTic * (1.0f - HappinessCoeficient));
+        //float _infected = WorldAgentController.instance.InfectedCellPerTic + (WorldAgentController.instance.InfectedCellPerTic * (1.0f - HappinessCoeficient));
+
+        float _infected = WorldAgentController.instance.InfectedCellPerTic / HappinessCoeficient;
+        totalInfectedCellsThisCycle += _infected;
 
         if (fromSneeze)
             _infected *= 2;
@@ -751,6 +768,8 @@ public class AgentController : MonoBehaviour
 
         CurrentInfectedCells += _infected;
     }
+
+
     public void StatusChanged()
     {
         if (myStatus == GlobalObject.AgentStatus.Mild_Case || myStatus == GlobalObject.AgentStatus.Serious_Case)
@@ -783,6 +802,8 @@ public class AgentController : MonoBehaviour
         Sneezing = false;
     }
 
+
+    public float TotalContagionPerCycle { get; set; }
     public void AddContagion(float _percentage, bool fromSneeze)
     {
         if (myStatus == GlobalObject.AgentStatus.Inmune)
@@ -793,7 +814,10 @@ public class AgentController : MonoBehaviour
         if (PorcentageContagio < 0 || PorcentageContagio > 100)
             return;
 
-        PorcentageContagio += _percentage * FactorContagio;
+
+        float addContagio = _percentage * FactorContagio;
+        TotalContagionPerCycle += addContagio;
+        PorcentageContagio += addContagio;
 
         if (PorcentageContagio < 0)
             PorcentageContagio = 0;

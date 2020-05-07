@@ -182,6 +182,24 @@ TextureImporter:
   - first:
       213: 8659749458814007194
     second: NewBuilding_GasStation
+  - first:
+      213: 8227203982403822351
+    second: CostResizable
+  - first:
+      213: 3863922292492478669
+    second: happiness0
+  - first:
+      213: 2249572623500073370
+    second: happiness3
+  - first:
+      213: 8215099938825450210
+    second: happiness1
+  - first:
+      213: 6822456675893744436
+    second: happiness2
+  - first:
+      213: 9053365921937351480
+    second: happiness4
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -1034,7 +1052,7 @@ TextureImporter:
         height: 712
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 100, y: 100, z: 100, w: 100}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1545,6 +1563,132 @@ TextureImporter:
       bones: []
       spriteID: 0b8b3206fa4c67b48acf5662e4d6779e
       internalID: 8659749458814007194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CostResizable
+      rect:
+        serializedVersion: 2
+        x: 1845
+        y: 1732
+        width: 89
+        height: 298
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 32, z: 0, w: 94}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c33af3bc3a7b22f4284cb2c534948a01
+      internalID: 8227203982403822351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: happiness0
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 350
+        width: 95
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5efba9651093c924f98109d3dfd8ebfb
+      internalID: 3863922292492478669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: happiness3
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 350
+        width: 95
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 845ae4eb1c883db4f81726a4841ed19c
+      internalID: 2249572623500073370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: happiness1
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 350
+        width: 95
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ff30e262127c524aa6888608f383c49
+      internalID: 8215099938825450210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: happiness2
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 350
+        width: 95
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 396ffc62d8b856347aa86b428627de0b
+      internalID: 6822456675893744436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: happiness4
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 350
+        width: 95
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 082db94c084d897459ddf508708eafb3
+      internalID: 9053365921937351480
       vertices: []
       indices: 
       edges: []

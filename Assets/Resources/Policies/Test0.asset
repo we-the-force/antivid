@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: Test0
   m_EditorClassIdentifier: 
   PolicyID: 0
-  PolicyName: 'Cuarentena o:'
+  Available: 0
+  PolicyName: Cuarentena Total
   PolicyDescription: 
   Enabled: 0
   IsQuarantine: 1
-  UpkeepCost: 5
+  UpkeepCost: 3
+  InitialCost: 0
   TransformBuildingSection:
     Enabled: 0
     BuildingToChange: 6

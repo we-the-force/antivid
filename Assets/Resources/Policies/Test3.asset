@@ -14,11 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PolicyID: 3
   Available: 1
-  PolicyName: Less building max limit (oxxos)
+  PolicyName: Food upkeep %50 less
   PolicyDescription: Lowers the max limit of people per building by 50%
-  Enabled: 1
+  Enabled: 0
   IsQuarantine: 0
-  UpkeepCost: 7
+  UpkeepCost: 0
+  InitialCost: 30
   TransformBuildingSection:
     Enabled: 0
     BuildingToChange: 6
@@ -29,10 +30,13 @@ MonoBehaviour:
     BuildingToChange: 6
     Percentage: 0
   BuildingEffectivitySection:
-    Enabled: 0
-    ParameterMods: []
-  DistributionEffectivitySection:
     Enabled: 1
+    ParameterMods:
+    - BuildingType: 0
+      ParameterToChange: 2
+      Percentage: 0.5
+  DistributionEffectivitySection:
+    Enabled: 0
     ParameterMods:
     - Parameter: 1
       Units: 200

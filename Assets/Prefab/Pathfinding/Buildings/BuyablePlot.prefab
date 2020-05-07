@@ -633,6 +633,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1570f164b9443f45af3e99d32a1c444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ocupantAnchor: {fileID: 0}
+  prefab: {fileID: 1372174390703518527, guid: 34f975634b272854d84a21fb90c23fc5, type: 3}
+  ocupantIconList: []
   BaseNeedCovered: 6
   TimeToCoverNeed: 2.5
   BaseTicsToCoverNeed: 100

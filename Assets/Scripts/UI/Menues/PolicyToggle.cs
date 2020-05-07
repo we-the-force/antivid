@@ -10,6 +10,9 @@ public class PolicyToggle : MonoBehaviour
     public Text policyNameText;
     public Toggle policyToggle;
 
+    public Text txtInitialCost;
+    public Text txtUpkeepCost;
+
     public Policy AssignedPolicy
     {
         get { return _assignedPolicy; }
@@ -28,6 +31,9 @@ public class PolicyToggle : MonoBehaviour
     public void SetPolicyName()
     {
         policyNameText.text = _assignedPolicy.PolicyName;
+
+        txtInitialCost.text = _assignedPolicy.InitialCost.ToString();
+        txtUpkeepCost.text = _assignedPolicy.UpkeepCost.ToString();
     }
     public void Toggle()
     {
