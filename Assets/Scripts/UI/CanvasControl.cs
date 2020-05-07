@@ -54,6 +54,7 @@ public class CanvasControl : MonoBehaviour
     private void Start()
     {
         SetupCanvasSounds();
+        audioManager.ChangeBGM(audioManager.DiamondDust);
     }
     public RectTransform panelPopInfo;
     public RectTransform panelCurrencyInfo;
@@ -359,12 +360,9 @@ public class CanvasControl : MonoBehaviour
     {
         Transform cameraControls = UIElements.transform.Find("TouchControls");
 
-        //AudioManager.Instance.ChangeBGM(AudioManager.Instance.OnYourWayBack);
-
-
         cameraControls.GetChild(0).GetComponent<Button>().onClick.AddListener(() => audioManager.Play(audioManager.MenuBack));
-        //cameraControls.GetChild(1).GetComponent<Button>().onClick.AddListener(() => audioManager.Play(audioManager.ChkBoxClick));
-        cameraControls.GetChild(1).GetComponent<Button>().onClick.AddListener(() => audioManager.ChangeBGM(audioManager.OnYourWayBack));
+        cameraControls.GetChild(1).GetComponent<Button>().onClick.AddListener(() => audioManager.Play(audioManager.ChkBoxClick));
+        //cameraControls.GetChild(1).GetComponent<Button>().onClick.AddListener(() => audioManager.ChangeBGM(audioManager.OnYourWayBack));
         cameraControls.GetChild(2).GetComponent<Button>().onClick.AddListener(() => audioManager.Play(audioManager.MenuClick));
     }
     void SetupBuyBuildingControls()

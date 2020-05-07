@@ -49,10 +49,11 @@ public class AudioManager : MonoBehaviour
     [SerializeField]
     List<AudioClip> sfxList = new List<AudioClip>();
     /// <summary>
-    /// 0: Plateau
-    /// 1: Diamond Dust
-    /// 2: AlpenRose
-    /// 3: OnYourWayBack
+    /// 0: Main Menu
+    /// 1: Plateau
+    /// 2: Diamond Dust
+    /// 3: AlpenRose
+    /// 4: OnYourWayBack
     /// </summary>
     [SerializeField]
     List<AudioClip> bgmList = new List<AudioClip>();
@@ -114,21 +115,26 @@ public class AudioManager : MonoBehaviour
         get { return sfxList[13]; }
     }
 
-    public AudioClip Plateau
+    public AudioClip MainMenu
     {
         get { return bgmList[0]; }
     }
-    public AudioClip DiamondDust
+
+    public AudioClip Plateau
     {
         get { return bgmList[1]; }
     }
-    public AudioClip AlpenRose
+    public AudioClip DiamondDust
     {
         get { return bgmList[2]; }
     }
-    public AudioClip OnYourWayBack
+    public AudioClip AlpenRose
     {
         get { return bgmList[3]; }
+    }
+    public AudioClip OnYourWayBack
+    {
+        get { return bgmList[4]; }
     }
 
     public static AudioManager Instance
@@ -143,7 +149,7 @@ public class AudioManager : MonoBehaviour
             Destroy(gameObject);
         }
         _instance = this;
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
 
         AddAudioSources();
 
@@ -187,36 +193,46 @@ public class AudioManager : MonoBehaviour
     {
         BGMSource.Play();
     }
-    public void ChangeBGM(AudioClip newBGM)
+    public void ChangeBGM(AudioClip newBGM, float durationOverride = -1)
     {
         if (!isTransitioningBGM)
         {
-            StartCoroutine(SwitchBGM(newBGM));
+            Debug.Log($"Changing BGM from {BGMSource.clip.name} to {newBGM.name}");
+            StartCoroutine(SwitchBGM(newBGM, durationOverride != -1 ? durationOverride : transitionDuration));
         }
     }
 
-    IEnumerator SwitchBGM(AudioClip newBGM)
+    IEnumerator SwitchBGM(AudioClip newBGM, float duration)
     {
-        yield return fadeSource(BGMSource, BGMSource.volume, 0);
+        isTransitioningBGM = true;
+        yield return fadeSource(BGMSource, BGMSource.volume, 0, duration);
         StopBGM();
         BGMSource.clip = newBGM;
         PlayBGM();
-        yield return fadeSource(BGMSource, BGMSource.volume, 1);
+        yield return fadeSource(BGMSource, BGMSource.volume, 1, duration);
+        isTransitioningBGM = false;
     }
 
-    IEnumerator fadeSource(AudioSource toFade, float initialValue, float targetValue)
+    IEnumerator fadeSource(AudioSource toFade, float initialValue, float targetValue, float duration)
     {
         float currentTime = 0;
         float currentProgress = 0;
         do
         {
-            currentProgress = currentTime / transitionDuration;
+            if (duration != 0)
+            {
+                currentProgress = currentTime / duration;
+            }
+            else
+            {
+                currentProgress = 1;
+            }
 
             toFade.volume = Mathf.SmoothStep(initialValue, targetValue, currentProgress);
 
             currentTime += Time.unscaledDeltaTime;
             yield return null;
-        }while(currentTime < transitionDuration + 0.1f);
+        } while (currentTime < duration + 0.1f);
     }
 
     public void Play(AudioClip auClip)

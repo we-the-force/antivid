@@ -72,7 +72,7 @@ public class VideoController : MonoBehaviour
                 videoPlayer.SetDirectAudioVolume(0, Mathf.SmoothStep(videoPlayer.GetDirectAudioVolume(0), 0, currentProgress));
             }
             currentTime += Time.unscaledDeltaTime;
-            Debug.Log($"CurrentVolume: {videoPlayer.GetDirectAudioVolume(0)}");
+            //Debug.Log($"CurrentVolume: {videoPlayer.GetDirectAudioVolume(0)}");
             yield return null;
         } while (currentTime < transitionDuration + 0.15f);
         //yield return new WaitForSeconds(transitionDuration + 0.15f);

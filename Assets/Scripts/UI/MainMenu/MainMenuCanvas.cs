@@ -35,7 +35,6 @@ public class MainMenuCanvas : MonoBehaviour
     {
         StartCoroutine(SetupScenarioButtons());
     }
-
     IEnumerator SetupScenarioButtons()
     {
         yield return null;
