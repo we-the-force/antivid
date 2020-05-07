@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -2592,20 +2592,20 @@ MonoBehaviour:
   ScenarioButtonPrefab: {fileID: 8323723103814987816, guid: fe20c06a15ee03d4e81770fd530137cc,
     type: 3}
   ScenarioCollection:
-  - ScenarioName: Little Town
-    ScenarioDescription: A small rural town with every need covered
-    ScenarioSceneName: Test-Small
-    TotalPopulation: 68
+  - ScenarioName: Pueblo Tutorial
+    ScenarioDescription: Esta es tu primer prueba, aprende a manejar los controles
+    ScenarioSceneName: sc01_FoodTutorial
+    TotalPopulation: 32
     StartingHospitals: 1
-    StartingFoodBuildings: 1
-    StartingEntertainmentBuildings: 1
-    StartingEducationBuildings: 1
+    StartingFoodBuildings: 0
+    StartingEntertainmentBuildings: 0
+    StartingEducationBuildings: 0
     StartingCapital: 100
     MaxScore: 0
     ScenarioImg: {fileID: 21300000, guid: 9201ddf8d6260ae4180d3494c7b51500, type: 3}
   - ScenarioName: Small Town
     ScenarioDescription: A small rural town with every need covered
-    ScenarioSceneName: Test-Small
+    ScenarioSceneName: Small-ConSonidos
     TotalPopulation: 68
     StartingHospitals: 1
     StartingFoodBuildings: 1
@@ -4831,6 +4831,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7738361139627731860, guid: 90deb1780c6823d41b3cf044eec6cf53,
+        type: 3}
+      propertyPath: bgmClip
+      value: 
+      objectReference: {fileID: 8300000, guid: bd866e06966ec2d44b91157285f8d619, type: 3}
+    - target: {fileID: 7738361139627731860, guid: 90deb1780c6823d41b3cf044eec6cf53,
+        type: 3}
+      propertyPath: startBGMOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7738361139627731863, guid: 90deb1780c6823d41b3cf044eec6cf53,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4885,16 +4895,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7738361139627731860, guid: 90deb1780c6823d41b3cf044eec6cf53,
-        type: 3}
-      propertyPath: bgmClip
-      value: 
-      objectReference: {fileID: 8300000, guid: bd866e06966ec2d44b91157285f8d619, type: 3}
-    - target: {fileID: 7738361139627731860, guid: 90deb1780c6823d41b3cf044eec6cf53,
-        type: 3}
-      propertyPath: startBGMOnAwake
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7738361139577112433, guid: 90deb1780c6823d41b3cf044eec6cf53,
         type: 3}

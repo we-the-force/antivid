@@ -89,6 +89,7 @@ public class StatisticMinMaxObject
 [System.Serializable]
 public class BuildingCanvasEntry
 {
+    public bool ActiveForScenario;
     public GameObject objPrefab;
     public string Name;
     public string Description;
