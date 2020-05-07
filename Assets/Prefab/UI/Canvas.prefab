@@ -18533,6 +18533,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79d0fab37a9c3a8499e19e57a0ab3bc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioManager: {fileID: 0}
   happinessImage: {fileID: 2649926857328506317}
   happinessFaces:
   - {fileID: 3863922292492478669, guid: f6422be47d977644aa73d93de73dfe04, type: 3}
@@ -18617,8 +18618,6 @@ MonoBehaviour:
   panelSpeedControl: {fileID: 9201387681882547569}
   panelCameraControl: {fileID: 3905399633810686813}
   panelButtons: {fileID: 4186907967122507678}
-  incapWeight: 1
-  moneyWeight: 1
   myTutorialWindow: {fileID: 3385317131591796686}
 --- !u!1 &9201387680950762565
 GameObject:
