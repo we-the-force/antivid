@@ -19,6 +19,7 @@ public class CanvasControl : MonoBehaviour
 
     public static CanvasControl instance;
 
+    public GameObject BuyBuildingOptionOBJ;
     public BuyBuildingWindow BuildWindow;
 
     public GameObject UIElements;
@@ -67,6 +68,47 @@ public class CanvasControl : MonoBehaviour
     {
         //--- Inicializa el icono de felicidad en el mas alto nivel
         SetHappinessFace(0);
+
+        //--- Inicializar los botones de la ventana de compra de edificios
+        //--- para mostrar solo los botones de los edificios activos para el escenario
+
+        //-- primero limpiamos el contenedor
+        for (int i = 0; i < BuildWindow.optionContainer.childCount; i++)
+        {
+            Destroy(BuildWindow.optionContainer.GetChild(i).gameObject);
+        }
+
+        int btnC = 0;
+        float posY = 0;
+
+        for (int i = 0; i < BuyableBuildingsCollection.Count; i++)
+        {
+            BuildingCanvasEntry building = BuyableBuildingsCollection[i];
+            if (building.ActiveForScenario)
+            {
+                //--- aqui se generan ya los botones
+                GameObject obj = Instantiate(BuyBuildingOptionOBJ, BuildWindow.optionContainer);
+                RectTransform rect = obj.GetComponent<RectTransform>();
+
+                rect.anchoredPosition = new Vector2(40f, posY);
+                btnC++;
+
+                posY = (rect.sizeDelta.y * rect.localScale.y * btnC) * -1f;
+
+                //posY = (rect.sizeDelta.y * rect.localScale.y * btnC) * -1f;
+                
+                BuyBuildingOption buyOption = obj.GetComponent<BuyBuildingOption>();
+                buyOption.myID = i;
+                buyOption.buildingText.text = building.Name;
+                buyOption.buildingImage.sprite = building.ButtonImage;
+                buyOption.parentWindow = BuildWindow;
+            }
+        }
+
+        BuildWindow.optionContainer.sizeDelta = new Vector2(BuildWindow.optionContainer.sizeDelta.x, posY);
+        
+        //----
+
 
         SetupCanvasSounds();
         audioManager.ChangeBGM(audioManager.DiamondDust);

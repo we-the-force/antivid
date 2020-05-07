@@ -41,6 +41,10 @@ public class WorldManager : MonoBehaviour
     [SerializeField]
     public List<StatisticObject> StatisticCollection;
 
+
+
+
+
     public int currentTimeCycle = 0;
 
      IEnumerator TICManager()

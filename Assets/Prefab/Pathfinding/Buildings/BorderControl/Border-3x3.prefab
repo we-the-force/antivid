@@ -74,7 +74,7 @@ MonoBehaviour:
   ocupantIconList: []
   BaseNeedCovered: 7
   TimeToCoverNeed: 10
-  BaseTicsToCoverNeed: 35
+  BaseTicsToCoverNeed: 25
   BasePercentageRestored: 100
   ModTicsToCoverNeed: 1
   ModPercentageRestored: 1

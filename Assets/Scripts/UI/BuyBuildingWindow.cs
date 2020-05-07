@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class BuyBuildingWindow : MonoBehaviour
 {
+    public RectTransform optionContainer;
+
     // Start is called before the first frame update
     public List<string> Titulos;
     public List<string> Descripciones;
