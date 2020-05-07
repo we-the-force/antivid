@@ -49,6 +49,7 @@ public class CanvasControl : MonoBehaviour
 
     public bool WindowOpen { get; set; }
 
+    bool statisticReturnToResultScreen = false;
 
     private void Awake()
     {
@@ -76,10 +77,6 @@ public class CanvasControl : MonoBehaviour
     public RectTransform panelCameraControl;
     public RectTransform panelButtons;
 
-    [SerializeField, Range(0.01f, 5f)]
-    float incapWeight = 1;
-    [SerializeField, Range(0.005f, 0.5f)]
-    float moneyWeight = 1;
 
     public void RearangeElements(float _aspect)
     {
@@ -159,26 +156,49 @@ public class CanvasControl : MonoBehaviour
         }
     }
 
-    public void ShowStatisticWindow()
+    public void ShowStatisticWindow(bool gotToResultScreen = false)
     {
-        PlayShowMenu();
-        ShowHideUI(false);
-        //WorldManager.instance.ChangeTimeScale(0);
-        WorldManager.instance.Pause(true);
+        statisticReturnToResultScreen = gotToResultScreen;
+        if (!gotToResultScreen)
+        {
+            PlayShowMenu();
+            ShowHideUI(false);
+            //WorldManager.instance.ChangeTimeScale(0);
+            WorldManager.instance.Pause(true);
 
-        GraphWindowController.InitGraph();
-        GraphWindow.SetActive(true);
+            GraphWindowController.InitGraph();
+            GraphWindow.SetActive(true);
+        }
+        else
+        {
+            PlayShowMenu();
+            EndGameWindow.SetActive(false);
+            GraphWindowController.InitGraph();
+            GraphWindow.SetActive(true);
+        }
     }
 
     public void HideStatisticWindow()
     {
-        Debug.Log("Playing HideStatisticsWindow");
-        PlayHideMenu();
-        GraphWindow.SetActive(false);
-        GraphWindowController.DisableWindow();
-        ShowHideUI(true);
-        //WorldManager.instance.ChangeTimeScale(1);
-        WorldManager.instance.Pause(false);
+        if (!statisticReturnToResultScreen)
+        {
+            Debug.Log("Playing HideStatisticsWindow");
+            PlayHideMenu();
+            GraphWindow.SetActive(false);
+            GraphWindowController.DisableWindow();
+            ShowHideUI(true);
+            //WorldManager.instance.ChangeTimeScale(1);
+            WorldManager.instance.Pause(false);
+        }
+        else
+        {
+            PlayHideMenu();
+            GraphWindow.SetActive(false);
+            GraphWindowController.DisableWindow();
+
+            statisticReturnToResultScreen = false;
+            EndGameWindow.SetActive(true);
+        }
     }
 
     public void ShowBuildWindow(BuyablePlot _buyablePlot)
@@ -250,106 +270,18 @@ public class CanvasControl : MonoBehaviour
         WindowOpen = false;
     }
 
-
     public void EndScenario()
     {
         ShowHideUI(false);
 
-        float normalPoints = CalcPoints();
-        float percentPoints = CalcScorePercentage();
-        string rank = GetRank(percentPoints);
-
-        WriteTempData(rank);
         EndGameWindow.SetActive(true);
+        EndGameWindow.GetComponent<ResultWindow>().CalcScores();
     }
 
-    float CalcPoints()
-    {
-        List<AgentController> auxAgentList = WorldAgentController.instance.AgentCollection;
-        int totalPop = auxAgentList.Count;
-        int incap = auxAgentList.FindAll(x => x.myStatus == GlobalObject.AgentStatus.Out_of_circulation).Count;
-
-        int validPop = totalPop - incap;
-
-        float positivePoints = (validPop * 100) + (CurrencyManager.Instance.CurrentCurrency * 50);
-        float negativePoints = (incap * 150);
-
-        float totalPoints = (positivePoints - negativePoints);
-
-        return totalPoints;
-    }
-    float CalcScorePercentage()
-    {
-        List<AgentController> auxAgentList = WorldAgentController.instance.AgentCollection;
-        int totalPop = auxAgentList.Count;
-        int incap = auxAgentList.FindAll(x => x.myStatus == GlobalObject.AgentStatus.Out_of_circulation).Count;
-
-        float weightPerDude = 100f / totalPop;
-        float negativeScore = incap * weightPerDude * incapWeight;
-        float moneyScore = CurrencyManager.Instance.CurrentCurrency * moneyWeight;
-
-        float totalScore = 100f + moneyScore - negativeScore;
-
-        return totalScore;
-    }
-    string GetRank(float percentScore)
-    {
-        //50  60  70  80  90  95  100 >100
-        //F,  E,  D,  C,  B,  A,  S,  SS,
-        //F     [  0,  50)
-        //E     [ 50,  60)
-        //D     [ 60,  70)
-        //C     [ 70,  80)
-        //B     [ 80,  90)
-        //A     [ 90,  98)
-        //S     [ 98, 102.5)
-        //SS    100+
-
-        if (percentScore <= 50f)
-        {
-            return "F";
-        }
-        else if (percentScore < 60f)
-        {
-            return "E";
-        }
-        else if (percentScore < 70f)
-        {
-            return "D";
-        }
-        else if (percentScore < 80f)
-        {
-            return "C";
-        }
-        else if (percentScore < 90f)
-        {
-            return "B";
-        }
-        else if (percentScore < 98f)
-        {
-            return "A";
-        }
-        else if (percentScore < 102.5f)
-        {
-            return "S";
-        }
-        else
-        {
-            return "SS";
-        }
-    }
-    public void WriteTempData(string rank)
-    {
-        string id = SceneManager.GetActiveScene().name;
-        ScenarioSaveData auxData = new ScenarioSaveData() { scenarioID = id, grades = new List<string> { rank } };
-        Debug.LogError($"Writing to tempData\r\n{auxData.ToString()}");
-
-        BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create(Application.persistentDataPath + "/Data/Temp/result.dat");
-        Debug.Log($"File created at {Application.persistentDataPath}/Data/Temp/Data.dat");
-        bf.Serialize(file, auxData);
-        file.Close();
-    }
+   
+    
+    
+    
 
     public TutorialWindow myTutorialWindow;
 
