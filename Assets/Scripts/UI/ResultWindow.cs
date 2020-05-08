@@ -159,7 +159,7 @@ public class ResultWindow : MonoBehaviour
     public void WriteTempData(string rank)
     {
         string id = SceneManager.GetActiveScene().name;
-        ScenarioSaveData auxData = new ScenarioSaveData() { scenarioID = id, grades = new List<string> { rank } };
+        ScenarioSaveData auxData = new ScenarioSaveData() { scenarioID = id, scores = new List<RunScore> { new RunScore() { score = percentPoints, rank = this.rank } } };
         Debug.LogError($"Writing to tempData\r\n{auxData.ToString()}");
 
         BinaryFormatter bf = new BinaryFormatter();

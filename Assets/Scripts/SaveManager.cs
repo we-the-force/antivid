@@ -5,6 +5,7 @@ using System;
 using System.IO;
 using UnityEngine.SceneManagement;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Linq;
 
 public class SaveManager : MonoBehaviour
 {
@@ -40,10 +41,19 @@ public class SaveManager : MonoBehaviour
             Debug.LogError(ssd.ToString());
         }
     }
+
+    public bool ContainsScenario(string id)
+    {
+        return gsd.ContainsScenario(id);
+    }
+    public ScenarioSaveData GetScenario(string id)
+    {
+        return gsd.GetScenario(id);
+    }
     public void WriteAuxTempData()
     {
         string id = gsd.scenarioData[UnityEngine.Random.Range(0, gsd.scenarioData.Count - 1)].scenarioID;
-        ScenarioSaveData auxData = new ScenarioSaveData() { scenarioID = id, grades = new List<string> { "X" } };
+        ScenarioSaveData auxData = new ScenarioSaveData() { scenarioID = id, scores = new List<RunScore> { new RunScore() { score = 150f, rank = "X" } } };
         Debug.LogError($"Writing to tempData\r\n{auxData.ToString()}");
 
         BinaryFormatter bf = new BinaryFormatter();
@@ -66,13 +76,22 @@ public class SaveManager : MonoBehaviour
     {
         if (File.Exists(dataPath + "/Data.dat"))
         {
+            Debug.Log("Loading data!");
             //BinaryFormatter bf = new BinaryFormatter();
             //FileStream file = File.Open(dataPath + "/Data.dat", FileMode.Open);
             //GameSaveData data = (GameSaveData)bf.Deserialize(file);
             //file.Close();
-            GameSaveData data = (GameSaveData)ReadFile(dataPath + "/Data.dat");
+            try
+            {
+                GameSaveData data = (GameSaveData)ReadFile(dataPath + "/Data.dat");
+                gsd = data;
+            }
+            catch (Exception e)
+            {
+                Debug.LogError($"Error loading data:\r\n{e.Message}");
 
-            gsd = data;
+            }
+
         }
         else
         {
@@ -97,7 +116,8 @@ public class SaveManager : MonoBehaviour
     {
         if (gsd.ContainsScenario(toAdd.scenarioID))
         {
-            gsd.scenarioData.Find(x => x.scenarioID == toAdd.scenarioID).grades.Add(toAdd.grades[0]);
+            //gsd.scenarioData.Find(x => x.scenarioID == toAdd.scenarioID).scores.Add(toAdd.scores[0]);
+            gsd.scenarioData.Find(x => x.scenarioID == toAdd.scenarioID).AddRunResult(toAdd.scores[0]);
         }
         else
         {
@@ -137,12 +157,12 @@ public class SaveManager : MonoBehaviour
     }
     public void InitDummySavedata()
     {
-        gsd.scenarioData.Add(new ScenarioSaveData() { scenarioID = "1-a", grades = new List<string>() { "A", "B" } });
-        gsd.scenarioData.Add(new ScenarioSaveData() { scenarioID = "2-b", grades = new List<string>() { "B", "D" } });
-        gsd.scenarioData.Add(new ScenarioSaveData() { scenarioID = "3-c", grades = new List<string>() { "B" } });
-        gsd.scenarioData.Add(new ScenarioSaveData() { scenarioID = "4-d", grades = new List<string>() { "D" } });
-        gsd.scenarioData.Add(new ScenarioSaveData() { scenarioID = "5-e", grades = new List<string>() { "C" } });
-        gsd.scenarioData.Add(new ScenarioSaveData() { scenarioID = "6-f", grades = new List<string>() });
+        gsd.scenarioData.Add(new ScenarioSaveData() { scenarioID = "1-a", scores = new List<RunScore>() { new RunScore() { score = 100f, rank = "A" }, new RunScore() { score = 90f, rank = "B" } } });
+        gsd.scenarioData.Add(new ScenarioSaveData() { scenarioID = "2-b", scores = new List<RunScore>() { new RunScore() { score = 80f, rank = "C" }, new RunScore() { score = 75.4f, rank = "D" } } });
+        gsd.scenarioData.Add(new ScenarioSaveData() { scenarioID = "3-c", scores = new List<RunScore>() { new RunScore() { score = 78f, rank = "B" } } });
+        gsd.scenarioData.Add(new ScenarioSaveData() { scenarioID = "4-d", scores = new List<RunScore>() { new RunScore() { score = 95f, rank = "A" } } });
+        gsd.scenarioData.Add(new ScenarioSaveData() { scenarioID = "5-e", scores = new List<RunScore>() { new RunScore() { score = 110f, rank = "SS" } } });
+        gsd.scenarioData.Add(new ScenarioSaveData() { scenarioID = "6-f", scores = new List<RunScore>() });
     }
 
     public void ReloadScene()
@@ -167,31 +187,84 @@ public class GameSaveData
     {
         return scenarioData.Find(x => x.scenarioID == id) != null;
     }
+    public ScenarioSaveData GetScenario(string id)
+    {
+        return scenarioData.Find(x => x.scenarioID == id);
+    }
 }
 
 [Serializable]
 public class ScenarioSaveData
 {
     public string scenarioID;
-    public List<string> grades;
+    public List<RunScore> scores = new List<RunScore>();
+    //public List<string> grades;
+
+    public bool Cleared()
+    {
+        return scores.Count > 0;
+    }
+    public void AddRunResult(RunScore toAdd)
+    {
+        scores.Add(toAdd);
+        ReOrderScores();
+    }
+    public RunScore GetBestRun()
+    {
+        if (Cleared())
+        {
+            return scores[0];
+        }
+        else
+        {
+            //return new RunScore() { score = 0, rank = "-" }       //Por si quieres regresar un resultado a fuerzas
+            return null;
+        }
+    }
+    public void ReOrderScores()
+    {
+        scores = scores.OrderByDescending(x => x.score).ToList();
+    }
 
     public ScenarioSaveData Clone()
     {
-        ScenarioSaveData aux = new ScenarioSaveData();
-        aux.scenarioID = scenarioID;
-        aux.grades = grades;
-        return aux;
+        return new ScenarioSaveData()
+        {
+            scenarioID = this.scenarioID,
+            scores = this.scores
+        };
     }
 
     public override string ToString()
     {
         string aux = $"Scenario '{scenarioID}'    (";
         aux += " ";
-        for (int i = 0; i < grades.Count; i++)
+        for (int i = 0; i < scores.Count; i++)
         {
-            aux += i < grades.Count - 1 ? $"{grades[i]}." : $"{grades[i]}, ";
+            aux += i < scores.Count - 1 ? $"{scores[i].ToString()}." : $"{scores[i].ToString()}, ";
         }
         aux += ")";
         return aux;
+    }
+}
+
+[Serializable]
+public class RunScore
+{
+    public float score;
+    public string rank;
+
+    public RunScore Clone()
+    {
+        return new RunScore()
+        {
+            score = this.score,
+            rank = this.rank
+        };
+    }
+
+    public override string ToString()
+    {
+        return $"Score: {score}, rank: {rank}";
     }
 }
