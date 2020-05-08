@@ -6,6 +6,9 @@ using System.IO;
 using UnityEngine.SceneManagement;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Linq;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class SaveManager : MonoBehaviour
 {
@@ -151,6 +154,21 @@ public class SaveManager : MonoBehaviour
     {
         return gsd.ContainsScenario(id);
     }
+    RunScore GetBestRun(string sceneID)
+    {
+        if (ContainsScenario(sceneID))
+        {
+            return GetScenario(sceneID).GetBestRun();
+        }
+        else
+        {
+            return new RunScore()
+            {
+                score = 0,
+                rank = "-"
+            };
+        }
+    }
     public ScenarioSaveData GetScenario(string id)
     {
         return gsd.GetScenario(id);
@@ -169,7 +187,7 @@ public class SaveManager : MonoBehaviour
             Debug.Log($"Directory 'Temp' exists");
         }
     }
-    public void ResetSavedata()
+    public void ClearSaveData()
     {
         gsd.scenarioData.Clear();
     }
@@ -262,7 +280,11 @@ public class ScenarioSaveData
         else
         {
             //return new RunScore() { score = 0, rank = "-" }       //Por si quieres regresar un resultado a fuerzas
-            return null;
+            return new RunScore()
+            {
+                score = 0,
+                rank = "-"
+            };
         }
     }
     public void ReOrderScores()
@@ -312,3 +334,28 @@ public class RunScore
         return $"Score: {score}, rank: {rank}";
     }
 }
+
+#if UNITY_EDITOR
+[CustomEditor(typeof(SaveManager), true)]
+public class SaveManagerEditor : Editor
+{
+    SaveManager saveMan { get { return (target as SaveManager); } }
+    public override void OnInspectorGUI()
+    {
+        base.OnInspectorGUI();
+
+        if (GUILayout.Button("Save Data"))
+        {
+            saveMan.SaveData();
+        }
+        if (GUILayout.Button("Load Data"))
+        {
+            saveMan.LoadData();
+        }
+        if (GUILayout.Button("Clear Data"))
+        {
+            saveMan.ClearSaveData();
+        }
+    }
+}
+#endif
