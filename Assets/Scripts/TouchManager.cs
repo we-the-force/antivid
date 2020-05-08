@@ -76,7 +76,7 @@ public class TouchManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
 
         isTouchActive = new bool[touchQuantity];
         for (int i = 0; i < isTouchActive.Length; i++)

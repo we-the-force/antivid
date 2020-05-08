@@ -64,7 +64,7 @@ public class CurrencyManager : MonoBehaviour
         }
 
         _instance = this;
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
     }
     void Start()
     {

@@ -33,7 +33,7 @@ public class PolicyManager : MonoBehaviour
         }
         _instance = this;
 
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
 
         object[] objects = Resources.LoadAll("Policies", typeof(Policy));
         foreach (object ob in objects)

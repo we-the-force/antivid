@@ -9,13 +9,27 @@ using System.Linq;
 
 public class SaveManager : MonoBehaviour
 {
+    static SaveManager _instance;
+
     [SerializeField]
     //List<ScenarioSaveData> scenarioData = new List<ScenarioSaveData>();
     GameSaveData gsd = new GameSaveData();
 
     string dataPath;
+
+    public SaveManager Instance
+    {
+        get { return _instance; }
+    }
+
     private void Awake()
     {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(gameObject);
+        }
+        _instance = this;
+
         dataPath = Application.persistentDataPath;
 
         if (!AuxFolderExists())
@@ -27,6 +41,9 @@ public class SaveManager : MonoBehaviour
         dataPath += "/Data";
 
         LoadData();
+
+        CreateScenarios();
+        SaveData();
     }
     private void Start()
     {
@@ -40,15 +57,6 @@ public class SaveManager : MonoBehaviour
         {
             Debug.LogError(ssd.ToString());
         }
-    }
-
-    public bool ContainsScenario(string id)
-    {
-        return gsd.ContainsScenario(id);
-    }
-    public ScenarioSaveData GetScenario(string id)
-    {
-        return gsd.GetScenario(id);
     }
     public void WriteAuxTempData()
     {
@@ -91,7 +99,6 @@ public class SaveManager : MonoBehaviour
                 Debug.LogError($"Error loading data:\r\n{e.Message}");
 
             }
-
         }
         else
         {
@@ -111,7 +118,6 @@ public class SaveManager : MonoBehaviour
             SaveData();
         }
     }
-
     void AddResultToScenario(ScenarioSaveData toAdd)
     {
         if (gsd.ContainsScenario(toAdd.scenarioID))
@@ -137,6 +143,18 @@ public class SaveManager : MonoBehaviour
     {
         return Directory.Exists(dataPath + "/Data");
     }
+    bool HasScenarios()
+    {
+        return gsd.HasScenarios();
+    }
+    bool ContainsScenario(string id)
+    {
+        return gsd.ContainsScenario(id);
+    }
+    public ScenarioSaveData GetScenario(string id)
+    {
+        return gsd.GetScenario(id);
+    }
     void CreateFileStructure()
     {
         Directory.CreateDirectory(dataPath + "/Data");
@@ -155,6 +173,22 @@ public class SaveManager : MonoBehaviour
     {
         gsd.scenarioData.Clear();
     }
+    public void CreateScenarios()
+    {
+        MainMenuCanvas aux = GameObject.Find("Canvas").GetComponent<MainMenuCanvas>();
+        if (aux != null)
+        {
+            List<ScenarioInfo> scenes = aux.ScenarioCollection;
+            foreach (ScenarioInfo scIn in scenes)
+            {
+                gsd.AddScenario(scIn.ScenarioSceneName);
+            }
+        }
+        else
+        {
+            Debug.LogError("Couldn't find MainMenuCanvas component!");
+        }
+    }
     public void InitDummySavedata()
     {
         gsd.scenarioData.Add(new ScenarioSaveData() { scenarioID = "1-a", scores = new List<RunScore>() { new RunScore() { score = 100f, rank = "A" }, new RunScore() { score = 90f, rank = "B" } } });
@@ -164,7 +198,6 @@ public class SaveManager : MonoBehaviour
         gsd.scenarioData.Add(new ScenarioSaveData() { scenarioID = "5-e", scores = new List<RunScore>() { new RunScore() { score = 110f, rank = "SS" } } });
         gsd.scenarioData.Add(new ScenarioSaveData() { scenarioID = "6-f", scores = new List<RunScore>() });
     }
-
     public void ReloadScene()
     {
         SceneManager.LoadScene(0);
@@ -183,9 +216,20 @@ public class GameSaveData
         aux.scenarioData = scenarioData;
         return aux;
     }
+    public void AddScenario(string id)
+    {
+        if (!ContainsScenario(id))
+        {
+            scenarioData.Add(new ScenarioSaveData { scenarioID = id });
+        }
+    }
     public bool ContainsScenario(string id)
     {
         return scenarioData.Find(x => x.scenarioID == id) != null;
+    }
+    public bool HasScenarios()
+    {
+        return scenarioData.Count > 0;
     }
     public ScenarioSaveData GetScenario(string id)
     {

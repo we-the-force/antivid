@@ -85,7 +85,7 @@ public class VaccineManager : MonoBehaviour
             Destroy(gameObject);
         }
         _instance = this;
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
 
         _currentProgress = 0;
         _shouldTic = false;
