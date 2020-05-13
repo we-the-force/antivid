@@ -106,7 +106,7 @@ MonoBehaviour:
   BaseNeedCovered: 3
   TimeToCoverNeed: 2.5
   BaseTicsToCoverNeed: 200
-  BasePercentageRestored: 100
+  BasePercentageRestored: 50
   ModTicsToCoverNeed: 1
   ModPercentageRestored: 1
   ModAgentCapacity: 1

@@ -103,16 +103,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ocupantAnchor: {fileID: 8669552630479022043}
-  prefab: {fileID: 6084210936409682764, guid: cd87e256010612d4fa4a240bfa670d8f, type: 3}
+  prefab: {fileID: 1372174390703518527, guid: 34f975634b272854d84a21fb90c23fc5, type: 3}
   ocupantIconList: []
   BaseNeedCovered: 4
   TimeToCoverNeed: 2.5
-  BaseTicsToCoverNeed: 100
+  BaseTicsToCoverNeed: 25
   BasePercentageRestored: 100
   ModTicsToCoverNeed: 1
   ModPercentageRestored: 1
   ModAgentCapacity: 1
-  BaseAgentCapacity: 18
+  BaseAgentCapacity: 10
   CurrentAgentCount: 0
   AssociatedNode: {fileID: 0}
   UpkeepCost: 2

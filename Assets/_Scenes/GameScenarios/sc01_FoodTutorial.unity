@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -2068,7 +2068,12 @@ PrefabInstance:
     - target: {fileID: 5072206408726819545, guid: ae3e5b41e0a5caf4ba12a1572902b824,
         type: 3}
       propertyPath: _baseProgressPerTic
-      value: 0.03
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 5072206408726819545, guid: ae3e5b41e0a5caf4ba12a1572902b824,
+        type: 3}
+      propertyPath: TicsToStart
+      value: 360
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae3e5b41e0a5caf4ba12a1572902b824, type: 3}
@@ -8208,22 +8213,22 @@ PrefabInstance:
     - target: {fileID: 7442522305919376420, guid: d506d9f507a72c84facd38c600012728,
         type: 3}
       propertyPath: foodUseCost
-      value: 0.65
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 7442522305919376420, guid: d506d9f507a72c84facd38c600012728,
         type: 3}
       propertyPath: sleepUseCost
-      value: 0.15
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 7442522305919376420, guid: d506d9f507a72c84facd38c600012728,
         type: 3}
       propertyPath: entertainmentUseCost
-      value: 0.35
+      value: 0.45
       objectReference: {fileID: 0}
     - target: {fileID: 7442522305919376420, guid: d506d9f507a72c84facd38c600012728,
         type: 3}
       propertyPath: educationUseCost
-      value: 0.4
+      value: 0.45
       objectReference: {fileID: 0}
     - target: {fileID: 7442522305919376420, guid: d506d9f507a72c84facd38c600012728,
         type: 3}
@@ -8268,6 +8273,195 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
+        type: 3}
+      propertyPath: BuyableBuildingsCollection.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
+        type: 3}
+      propertyPath: BuyableBuildingsCollection.Array.data[4].objPrefab
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
+        type: 3}
+      propertyPath: BuyableBuildingsCollection.Array.data[4].Name
+      value: Nothing
+      objectReference: {fileID: 0}
+    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
+        type: 3}
+      propertyPath: BuyableBuildingsCollection.Array.data[4].Description
+      value: '-'
+      objectReference: {fileID: 0}
+    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
+        type: 3}
+      propertyPath: BuyableBuildingsCollection.Array.data[4].Cost
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
+        type: 3}
+      propertyPath: BuyableBuildingsCollection.Array.data[4].TimeToBuild
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
+        type: 3}
+      propertyPath: BuyableBuildingsCollection.Array.data[5].objPrefab
+      value: 
+      objectReference: {fileID: 3840625200791511951, guid: 17c41dd4564695c4bb1d314a5f8836da,
+        type: 3}
+    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
+        type: 3}
+      propertyPath: BuyableBuildingsCollection.Array.data[5].Name
+      value: Bar
+      objectReference: {fileID: 0}
+    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
+        type: 3}
+      propertyPath: BuyableBuildingsCollection.Array.data[5].Description
+      value: El lugar para relajarse y descansar preferido del pueblo
+      objectReference: {fileID: 0}
+    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
+        type: 3}
+      propertyPath: BuyableBuildingsCollection.Array.data[5].Cost
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
+        type: 3}
+      propertyPath: BuyableBuildingsCollection.Array.data[5].TimeToBuild
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
+        type: 3}
+      propertyPath: BuyableBuildingsCollection.Array.data[6].objPrefab
+      value: 
+      objectReference: {fileID: 830158818256336126, guid: 497e021c45842ed41a67861f64e1b34f,
+        type: 3}
+    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
+        type: 3}
+      propertyPath: BuyableBuildingsCollection.Array.data[6].Name
+      value: Estacion de Gasolina
+      objectReference: {fileID: 0}
+    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
+        type: 3}
+      propertyPath: BuyableBuildingsCollection.Array.data[6].Description
+      value: "En la peque\xF1a tienda junto a la estacion de gasolina podras encontrar
+        los productos esenciales"
+      objectReference: {fileID: 0}
+    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
+        type: 3}
+      propertyPath: BuyableBuildingsCollection.Array.data[6].Cost
+      value: 65
+      objectReference: {fileID: 0}
+    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
+        type: 3}
+      propertyPath: BuyableBuildingsCollection.Array.data[6].TimeToBuild
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
+        type: 3}
+      propertyPath: BuyableBuildingsCollection.Array.data[3].Cost
+      value: 110
+      objectReference: {fileID: 0}
+    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
+        type: 3}
+      propertyPath: BuyableBuildingsCollection.Array.data[3].TimeToBuild
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
+        type: 3}
+      propertyPath: BuyableBuildingsCollection.Array.data[1].Cost
+      value: 130
+      objectReference: {fileID: 0}
+    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
+        type: 3}
+      propertyPath: BuyableBuildingsCollection.Array.data[1].TimeToBuild
+      value: 135
+      objectReference: {fileID: 0}
+    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
+        type: 3}
+      propertyPath: BuyableBuildingsCollection.Array.data[0].Cost
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
+        type: 3}
+      propertyPath: BuyableBuildingsCollection.Array.data[0].TimeToBuild
+      value: 110
+      objectReference: {fileID: 0}
+    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
+        type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 2088378030}
+    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
+        type: 3}
+      propertyPath: BuyableBuildingsCollection.Array.data[0].ActiveForScenario
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
+        type: 3}
+      propertyPath: BuyableBuildingsCollection.Array.data[0].ButtonImage
+      value: 
+      objectReference: {fileID: -88150655592256897, guid: f6422be47d977644aa73d93de73dfe04,
+        type: 3}
+    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
+        type: 3}
+      propertyPath: BuyableBuildingsCollection.Array.data[1].ButtonImage
+      value: 
+      objectReference: {fileID: 1993483458906434743, guid: f6422be47d977644aa73d93de73dfe04,
+        type: 3}
+    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
+        type: 3}
+      propertyPath: BuyableBuildingsCollection.Array.data[2].ButtonImage
+      value: 
+      objectReference: {fileID: 2512276972981970685, guid: f6422be47d977644aa73d93de73dfe04,
+        type: 3}
+    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
+        type: 3}
+      propertyPath: BuyableBuildingsCollection.Array.data[3].ButtonImage
+      value: 
+      objectReference: {fileID: 5022717123071660036, guid: f6422be47d977644aa73d93de73dfe04,
+        type: 3}
+    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
+        type: 3}
+      propertyPath: BuyableBuildingsCollection.Array.data[5].ButtonImage
+      value: 
+      objectReference: {fileID: 848652051160376181, guid: f6422be47d977644aa73d93de73dfe04,
+        type: 3}
+    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
+        type: 3}
+      propertyPath: BuyableBuildingsCollection.Array.data[6].ButtonImage
+      value: 
+      objectReference: {fileID: 8659749458814007194, guid: f6422be47d977644aa73d93de73dfe04,
+        type: 3}
+    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
+        type: 3}
+      propertyPath: BuyableBuildingsCollection.Array.data[6].ActiveForScenario
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
+        type: 3}
+      propertyPath: BuyableBuildingsCollection.Array.data[1].ActiveForScenario
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
+        type: 3}
+      propertyPath: BuyableBuildingsCollection.Array.data[2].ActiveForScenario
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
+        type: 3}
+      propertyPath: BuyableBuildingsCollection.Array.data[4].ActiveForScenario
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
+        type: 3}
+      propertyPath: BuyableBuildingsCollection.Array.data[5].ActiveForScenario
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
+        type: 3}
+      propertyPath: BuyableBuildingsCollection.Array.data[3].ActiveForScenario
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9201387680897900230, guid: 804fa6138a8088249ad6429a6f67e03f,
         type: 3}
@@ -8529,195 +8723,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
-        type: 3}
-      propertyPath: BuyableBuildingsCollection.Array.size
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
-        type: 3}
-      propertyPath: BuyableBuildingsCollection.Array.data[4].objPrefab
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
-        type: 3}
-      propertyPath: BuyableBuildingsCollection.Array.data[4].Name
-      value: Nothing
-      objectReference: {fileID: 0}
-    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
-        type: 3}
-      propertyPath: BuyableBuildingsCollection.Array.data[4].Description
-      value: '-'
-      objectReference: {fileID: 0}
-    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
-        type: 3}
-      propertyPath: BuyableBuildingsCollection.Array.data[4].Cost
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
-        type: 3}
-      propertyPath: BuyableBuildingsCollection.Array.data[4].TimeToBuild
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
-        type: 3}
-      propertyPath: BuyableBuildingsCollection.Array.data[5].objPrefab
-      value: 
-      objectReference: {fileID: 3840625200791511951, guid: 17c41dd4564695c4bb1d314a5f8836da,
-        type: 3}
-    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
-        type: 3}
-      propertyPath: BuyableBuildingsCollection.Array.data[5].Name
-      value: Bar
-      objectReference: {fileID: 0}
-    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
-        type: 3}
-      propertyPath: BuyableBuildingsCollection.Array.data[5].Description
-      value: El lugar para relajarse y descansar preferido del pueblo
-      objectReference: {fileID: 0}
-    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
-        type: 3}
-      propertyPath: BuyableBuildingsCollection.Array.data[5].Cost
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
-        type: 3}
-      propertyPath: BuyableBuildingsCollection.Array.data[5].TimeToBuild
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
-        type: 3}
-      propertyPath: BuyableBuildingsCollection.Array.data[6].objPrefab
-      value: 
-      objectReference: {fileID: 830158818256336126, guid: 497e021c45842ed41a67861f64e1b34f,
-        type: 3}
-    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
-        type: 3}
-      propertyPath: BuyableBuildingsCollection.Array.data[6].Name
-      value: Estacion de Gasolina
-      objectReference: {fileID: 0}
-    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
-        type: 3}
-      propertyPath: BuyableBuildingsCollection.Array.data[6].Description
-      value: "En la peque\xF1a tienda junto a la estacion de gasolina podras encontrar
-        los productos esenciales"
-      objectReference: {fileID: 0}
-    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
-        type: 3}
-      propertyPath: BuyableBuildingsCollection.Array.data[6].Cost
-      value: 65
-      objectReference: {fileID: 0}
-    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
-        type: 3}
-      propertyPath: BuyableBuildingsCollection.Array.data[6].TimeToBuild
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
-        type: 3}
-      propertyPath: BuyableBuildingsCollection.Array.data[3].Cost
-      value: 110
-      objectReference: {fileID: 0}
-    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
-        type: 3}
-      propertyPath: BuyableBuildingsCollection.Array.data[3].TimeToBuild
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
-        type: 3}
-      propertyPath: BuyableBuildingsCollection.Array.data[1].Cost
-      value: 130
-      objectReference: {fileID: 0}
-    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
-        type: 3}
-      propertyPath: BuyableBuildingsCollection.Array.data[1].TimeToBuild
-      value: 135
-      objectReference: {fileID: 0}
-    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
-        type: 3}
-      propertyPath: BuyableBuildingsCollection.Array.data[0].Cost
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
-        type: 3}
-      propertyPath: BuyableBuildingsCollection.Array.data[0].TimeToBuild
-      value: 110
-      objectReference: {fileID: 0}
-    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
-        type: 3}
-      propertyPath: audioManager
-      value: 
-      objectReference: {fileID: 2088378030}
-    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
-        type: 3}
-      propertyPath: BuyableBuildingsCollection.Array.data[0].ActiveForScenario
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
-        type: 3}
-      propertyPath: BuyableBuildingsCollection.Array.data[0].ButtonImage
-      value: 
-      objectReference: {fileID: -88150655592256897, guid: f6422be47d977644aa73d93de73dfe04,
-        type: 3}
-    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
-        type: 3}
-      propertyPath: BuyableBuildingsCollection.Array.data[1].ButtonImage
-      value: 
-      objectReference: {fileID: 1993483458906434743, guid: f6422be47d977644aa73d93de73dfe04,
-        type: 3}
-    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
-        type: 3}
-      propertyPath: BuyableBuildingsCollection.Array.data[2].ButtonImage
-      value: 
-      objectReference: {fileID: 2512276972981970685, guid: f6422be47d977644aa73d93de73dfe04,
-        type: 3}
-    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
-        type: 3}
-      propertyPath: BuyableBuildingsCollection.Array.data[3].ButtonImage
-      value: 
-      objectReference: {fileID: 5022717123071660036, guid: f6422be47d977644aa73d93de73dfe04,
-        type: 3}
-    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
-        type: 3}
-      propertyPath: BuyableBuildingsCollection.Array.data[5].ButtonImage
-      value: 
-      objectReference: {fileID: 848652051160376181, guid: f6422be47d977644aa73d93de73dfe04,
-        type: 3}
-    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
-        type: 3}
-      propertyPath: BuyableBuildingsCollection.Array.data[6].ButtonImage
-      value: 
-      objectReference: {fileID: 8659749458814007194, guid: f6422be47d977644aa73d93de73dfe04,
-        type: 3}
-    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
-        type: 3}
-      propertyPath: BuyableBuildingsCollection.Array.data[6].ActiveForScenario
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
-        type: 3}
-      propertyPath: BuyableBuildingsCollection.Array.data[1].ActiveForScenario
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
-        type: 3}
-      propertyPath: BuyableBuildingsCollection.Array.data[2].ActiveForScenario
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
-        type: 3}
-      propertyPath: BuyableBuildingsCollection.Array.data[4].ActiveForScenario
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
-        type: 3}
-      propertyPath: BuyableBuildingsCollection.Array.data[5].ActiveForScenario
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
-        type: 3}
-      propertyPath: BuyableBuildingsCollection.Array.data[3].ActiveForScenario
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 9201387680210376483, guid: 804fa6138a8088249ad6429a6f67e03f,
         type: 3}
       propertyPath: m_IsActive
@@ -8842,6 +8847,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1304290226360547389, guid: 804fa6138a8088249ad6429a6f67e03f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8522395562793851408, guid: 804fa6138a8088249ad6429a6f67e03f,
         type: 3}

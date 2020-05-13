@@ -136,15 +136,15 @@ MonoBehaviour:
   ocupantIconList: []
   BaseNeedCovered: 2
   TimeToCoverNeed: 2.5
-  BaseTicsToCoverNeed: 100
-  BasePercentageRestored: 100
+  BaseTicsToCoverNeed: 15
+  BasePercentageRestored: 60
   ModTicsToCoverNeed: 1
   ModPercentageRestored: 1
   ModAgentCapacity: 1
   BaseAgentCapacity: 15
   CurrentAgentCount: 0
   AssociatedNode: {fileID: 0}
-  UpkeepCost: 2.6
+  UpkeepCost: 2.1
   myWarehouse: {fileID: 0}
   myBuildingRandomizer: {fileID: 0}
   _currentNeedCovered: 0

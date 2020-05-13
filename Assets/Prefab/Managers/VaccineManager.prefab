@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 5072206408726819526}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -43,12 +43,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6351dfe76c64a54882707deb0b34668, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _progressPerSliderLevel: 0.1
-  _costPerSliderLevel: 2.5
+  _progressPerSliderLevel: 0.005
+  _costPerSliderLevel: 0.04
   _currentProgress: 0
-  _baseProgressPerTic: 0.2
+  _baseProgressPerTic: 0.02
   _currentProgressPerTic: 0
+  _progressCostPerTic: 0
   _ticCutout: 80
+  TicsToStart: 360
   _progressText: {fileID: 0}
   _progressFill: {fileID: 0}
   _resourceSlider: {fileID: 0}

@@ -50,6 +50,8 @@ public class AnnouncementWindow : MonoBehaviour
 
     public void SpecialEvent(GlobalObject.SpecialEventName EventName)
     {
+        string txtExtra = "";
+
         for(int i=0;i<SpecialEventsCollection.Count;i++)
         {
             if (SpecialEventsCollection[i].specialEventName == EventName)
@@ -60,10 +62,11 @@ public class AnnouncementWindow : MonoBehaviour
                 switch (EventName)
                 {
                     case GlobalObject.SpecialEventName.FirstInfected:
-
-                        CanvasControl.instance.ShowVaccineIcon(true);
                         AudioManager.Instance.Play(AudioManager.Instance.EventVirusAlert);
                         AudioManager.Instance.ChangeBGM(AudioManager.Instance.OnYourWayBack);
+
+                        int _ciclos = Mathf.CeilToInt(VaccineManager.Instance.TicsToStart / CurrencyManager.Instance.ticCutout);
+                        txtExtra = " " + _ciclos.ToString() + " ciclos";
 
                         VaccineManager.Instance.ShouldTic = true;
                         break;
@@ -101,7 +104,7 @@ public class AnnouncementWindow : MonoBehaviour
 
                 SpecialEventsCollection[i].done = true;
 
-                EventDescription.text = SpecialEventsCollection[i].Description;
+                EventDescription.text = SpecialEventsCollection[i].Description + txtExtra;
 
                 CanvasControl.instance.ShowHideUI(false);
 

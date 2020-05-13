@@ -141,6 +141,7 @@ MonoBehaviour:
   buildingInfectionPercentage: 7
   TravelInfectionPercentage: 5
   InfectionGuaranteedAfterNumberOfTravel: 3
+  IsTutorial: 0
   SecondsPerTic: 0.25
   TicScale: 1
   PreviousTicScale: 0
@@ -448,7 +449,7 @@ MonoBehaviour:
   RoadSystem: []
   AgentCollection: []
   NeedTreshhold: 120
-  InfectedCellPerTic: 0.42
+  InfectedCellPerTic: 0.3
   SeriousIllnessInfectionFactor: 1.6
   IncomePerAgent: 1000
   TotalBuildingUpkeepCost: 0

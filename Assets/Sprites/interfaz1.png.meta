@@ -200,6 +200,42 @@ TextureImporter:
   - first:
       213: 9053365921937351480
     second: happiness4
+  - first:
+      213: 3673690497650939722
+    second: BuyBuilding_ScrollButton
+  - first:
+      213: 2392446034296491340
+    second: Button_Skip
+  - first:
+      213: -4824498215718402274
+    second: PagoUnico
+  - first:
+      213: -1292759281839723172
+    second: PagoCiclico
+  - first:
+      213: -4171140358275194797
+    second: Scroll_BG
+  - first:
+      213: 2628150351329841533
+    second: Ranking_C
+  - first:
+      213: 7449986200695359459
+    second: interfaz1_0
+  - first:
+      213: 8275210077803774138
+    second: Button_Back
+  - first:
+      213: 5854438671871573569
+    second: ranking_B
+  - first:
+      213: 3735413877506401142
+    second: ranking_A
+  - first:
+      213: -1336485100998994066
+    second: Ranking_S
+  - first:
+      213: 2588032157956458333
+    second: Ranking_SS
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -1194,9 +1230,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 17
-        y: 455
+        y: 459
         width: 890
-        height: 231
+        height: 227
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1597,7 +1633,7 @@ TextureImporter:
         width: 95
         height: 101
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1618,7 +1654,7 @@ TextureImporter:
         width: 95
         height: 101
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1639,7 +1675,7 @@ TextureImporter:
         width: 95
         height: 101
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1660,7 +1696,7 @@ TextureImporter:
         width: 95
         height: 101
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1681,7 +1717,7 @@ TextureImporter:
         width: 95
         height: 101
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1689,6 +1725,258 @@ TextureImporter:
       bones: []
       spriteID: 082db94c084d897459ddf508708eafb3
       internalID: 9053365921937351480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuyBuilding_ScrollButton
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 317
+        width: 258
+        height: 132
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 46, y: 51, z: 39, w: 36}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 150d541aa21b5814ca078b523baf8336
+      internalID: 3673690497650939722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_Skip
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 277
+        width: 162
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eab431b01e72d4f469f8a6353f742d26
+      internalID: 2392446034296491340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PagoUnico
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 274
+        width: 94
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12edbf0d31de8f642822abc67baa949c
+      internalID: -4824498215718402274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PagoCiclico
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 275
+        width: 77
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b844053181058641b1a1939eaf4bd79
+      internalID: -1292759281839723172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scroll_BG
+      rect:
+        serializedVersion: 2
+        x: 1090
+        y: 755
+        width: 495
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8b3f658e792cf44bb99b17f396b1b12
+      internalID: -4171140358275194797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranking_C
+      rect:
+        serializedVersion: 2
+        x: 1794
+        y: 649
+        width: 254
+        height: 246
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f11bdb3d0d58964409d36adf93211ea3
+      internalID: 2628150351329841533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: interfaz1_0
+      rect:
+        serializedVersion: 2
+        x: 1306
+        y: 707
+        width: 29
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7951c41287552e943bfc38c11a9d6b17
+      internalID: 7449986200695359459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_Back
+      rect:
+        serializedVersion: 2
+        x: 822
+        y: 289
+        width: 173
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82bf62d5ec9418c428c4f30d7403fbd2
+      internalID: 8275210077803774138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ranking_B
+      rect:
+        serializedVersion: 2
+        x: 807
+        y: 0
+        width: 234
+        height: 233
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8ff05bddccc779469f4f8e9c45ad9cb
+      internalID: 5854438671871573569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ranking_A
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 0
+        width: 263
+        height: 244
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5758f27268c8346488d720e777037946
+      internalID: 3735413877506401142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranking_S
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 0
+        width: 197
+        height: 259
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cc43cc6f1c1d5343bfe651cbc0bc34a
+      internalID: -1336485100998994066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranking_SS
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 0
+        width: 322
+        height: 267
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7fa2b855e778aa4096690b479d428cd
+      internalID: 2588032157956458333
       vertices: []
       indices: 
       edges: []

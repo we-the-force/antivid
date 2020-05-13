@@ -184,6 +184,24 @@ public class WorldAgentController : MonoBehaviour
 
         Debug.LogError("TotalAgentes: " + AgentCollection.Count + " >>> TotalPerks " + _perksToCreate.Count);
 
+        /*
+        int dif = Mathf.Abs(_perksToCreate.Count - AgentCollection.Count);
+
+        if (_perksToCreate.Count > AgentCollection.Count)
+        {
+            for (int i = 0; i < dif; i++)
+            {
+                _perksToCreate.RemoveAt(0);
+            }
+        }
+        else if (_perksToCreate.Count < AgentCollection.Count)
+        {
+            for (int i = 0; i < dif; i++)
+            {
+                _perksToCreate.Add(GlobalObject.AgentPerk.Random);
+            }
+        }*/
+
         //--- Randomiza la lista de perks
         for (int i = 0; i < _perksToCreate.Count; i++)
         {
@@ -230,7 +248,7 @@ public class WorldAgentController : MonoBehaviour
 
         for (int i = 0; i < AgentCollection.Count; i++)
         {
-            if (_perksToCreate.Count == i)
+            if (_perksToCreate.Count <= i)
             {
                 AgentCollection[i].InitAgent(GlobalObject.AgentPerk.Random);
             }

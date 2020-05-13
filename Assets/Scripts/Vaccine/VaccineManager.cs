@@ -29,6 +29,9 @@ public class VaccineManager : MonoBehaviour
     [SerializeField]
     int _ticCutout = 80;
 
+    int _ticsToStart = 0;
+    public int TicsToStart = 160;
+
     [SerializeField]
     Text _progressText;
     [SerializeField]
@@ -109,57 +112,80 @@ public class VaccineManager : MonoBehaviour
     {
         if (_shouldTic)
         {
-            if (!vaccineStarted)
+            if (_ticsToStart < TicsToStart)
             {
-                vaccineStarted = true;
-                CanvasControl.instance._announcementWindow.SpecialEvent(GlobalObject.SpecialEventName.StartVaccineStudy);
-
-                CurrencyManager.Instance.nextTutorial = 3;
-                CurrencyManager.Instance.playTutorial = true;
+                _ticsToStart++;
             }
-            if (_currentTic <= _ticCutout)
+            else
             {
-                _currentProgress += _currentProgressPerTic;
-                ShowProgressInUI();
-
-                if (_currentProgress >= 5f && !vaccine5Percent)
+                if (!vaccineStarted)
                 {
-                    vaccine5Percent = true;
-                    CanvasControl.instance._announcementWindow.SpecialEvent(GlobalObject.SpecialEventName.FirstStage);
-                }
-                if (_currentProgress >= 20f && !vaccine20Percent)
-                {
-                    vaccine20Percent = true;
-                    CanvasControl.instance._announcementWindow.SpecialEvent(GlobalObject.SpecialEventName.SecondStage);
+                    vaccineStarted = true;
+                    CanvasControl.instance.ShowVaccineIcon(true);
+                    CanvasControl.instance._announcementWindow.SpecialEvent(GlobalObject.SpecialEventName.StartVaccineStudy);
 
-                    CurrencyManager.Instance.nextTutorial = 2;
+                    CurrencyManager.Instance.nextTutorial = 3;
                     CurrencyManager.Instance.playTutorial = true;
                 }
-                if (_currentProgress >= 40f && !vaccine40Percent)
+                if (_currentTic <= _ticCutout)
                 {
-                    vaccine40Percent = true;
-                    CanvasControl.instance._announcementWindow.SpecialEvent(GlobalObject.SpecialEventName.Vaccine40percent);
+                    _currentProgress += _currentProgressPerTic;
+                    ShowProgressInUI();
+
+                    if (_currentProgress >= 5f && !vaccine5Percent)
+                    {
+                        vaccine5Percent = true;
+                        CanvasControl.instance._announcementWindow.SpecialEvent(GlobalObject.SpecialEventName.FirstStage);
+                    }
+                    if (_currentProgress >= 20f && !vaccine20Percent)
+                    {
+                        vaccine20Percent = true;
+                        CanvasControl.instance._announcementWindow.SpecialEvent(GlobalObject.SpecialEventName.SecondStage);
+
+                        CurrencyManager.Instance.nextTutorial = 2;
+                        CurrencyManager.Instance.playTutorial = true;
+                    }
+                    if (_currentProgress >= 40f && !vaccine40Percent)
+                    {
+                        vaccine40Percent = true;
+                        CanvasControl.instance._announcementWindow.SpecialEvent(GlobalObject.SpecialEventName.Vaccine40percent);
+                    }
+                    if (_currentProgress >= 50f && !vaccine50Percent)
+                    {
+                        vaccine50Percent = true;
+                        CanvasControl.instance._announcementWindow.SpecialEvent(GlobalObject.SpecialEventName.Vaccine50percent);
+                    }
+                    if (_currentProgress >= 100f && !vaccineCompleted)
+                    {
+                        vaccineCompleted = true;
+                        _currentProgress = 100;
+                        Debug.LogError(">>> La vacuna se ha completado, deberia mandar el evento especial");
+                        FinishVaccine();
+                    }
+                    _currentTic = 0;
                 }
-                if (_currentProgress >= 50f && !vaccine50Percent)
-                {
-                    vaccine50Percent = true;
-                    CanvasControl.instance._announcementWindow.SpecialEvent(GlobalObject.SpecialEventName.Vaccine50percent);
-                }
-                if (_currentProgress >= 100f && !vaccineCompleted)
-                {
-                    vaccineCompleted = true;
-                    _currentProgress = 100;
-                    Debug.LogError(">>> La vacuna se ha completado, deberia mandar el evento especial");
-                    FinishVaccine();
-                }
-                _currentTic = 0;
             }
         }
     }
+
+    public float vaccineCost()
+    {
+        float _cost = 0;
+
+        _cost = (_resourceSlider.value * _costPerSliderLevel) * WorldAgentController.instance.AgentCollection.Count;
+
+        _cost = Mathf.Round(_cost * 100f) / 100f;
+
+        return _cost;
+    }
+
     public void ChangeExtraTicPerFrame()
     {
         _extraProgressPerTic = _resourceSlider.value * _progressPerSliderLevel;
-        _progressCostPerTic = _resourceSlider.value * _costPerSliderLevel;
+
+        _progressCostPerTic = vaccineCost(); // _resourceSlider.value * _costPerSliderLevel;
+
+        CanvasControl.instance.OnVaccineCostChange();
 
         _currentProgressPerTic = _baseProgressPerTic + _extraProgressPerTic;
     }
