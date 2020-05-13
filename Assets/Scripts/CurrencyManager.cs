@@ -43,8 +43,8 @@ public class CurrencyManager : MonoBehaviour
     [SerializeField]
     Text totalResourceGain;
 
-    [SerializeField]
-    int ticCutout = 30;
+
+    public int ticCutout = 30;
     int currentTic = 0;
        
     public float CurrentCurrency
@@ -106,6 +106,9 @@ public class CurrencyManager : MonoBehaviour
         //--- Tambien aqui se actualizan los datos estadisticos
         if (currentTic > ticCutout)
         {
+            if(PanelNeeds.instance != null)
+                PanelNeeds.instance.UpdateAllNeeds();
+
             AudioManager.Instance.Play(AudioManager.Instance.EventQuincena);
 
             currentCycle++;

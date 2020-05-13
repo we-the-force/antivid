@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PolicyID: 3
   Available: 1
-  PolicyName: Food upkeep %50 less
-  PolicyDescription: Lowers the max limit of people per building by 50%
+  PolicyName: Atencion mejorada en hospital
+  PolicyDescription: Reduce el tiempo de curacion en 40%
   Enabled: 0
   IsQuarantine: 0
   UpkeepCost: 0
-  InitialCost: 30
+  InitialCost: 60
   TransformBuildingSection:
     Enabled: 0
     BuildingToChange: 6
@@ -32,9 +32,9 @@ MonoBehaviour:
   BuildingEffectivitySection:
     Enabled: 1
     ParameterMods:
-    - BuildingType: 0
+    - BuildingType: 3
       ParameterToChange: 2
-      Percentage: 0.5
+      Percentage: 2
   DistributionEffectivitySection:
     Enabled: 0
     ParameterMods:

@@ -73,7 +73,7 @@ MonoBehaviour:
   prefab: {fileID: 1372174390703518527, guid: 34f975634b272854d84a21fb90c23fc5, type: 3}
   ocupantIconList: []
   BaseNeedCovered: 7
-  TimeToCoverNeed: 10
+  TimeToCoverNeed: 8
   BaseTicsToCoverNeed: 25
   BasePercentageRestored: 100
   ModTicsToCoverNeed: 1
@@ -82,7 +82,7 @@ MonoBehaviour:
   BaseAgentCapacity: 15
   CurrentAgentCount: 0
   AssociatedNode: {fileID: 0}
-  UpkeepCost: 4
+  UpkeepCost: 3.5
   myWarehouse: {fileID: 0}
   myBuildingRandomizer: {fileID: 0}
   _currentNeedCovered: 0

@@ -301,7 +301,7 @@ public class CanvasControl : MonoBehaviour
         if (!show)
             WindowOpen = true;
         else
-            Invoke("ChangeWindowOpenStatus", 0.04f);
+            Invoke("ChangeWindowOpenStatus", 0.1f);
 
         UIElements.SetActive(show);
     }
@@ -320,10 +320,13 @@ public class CanvasControl : MonoBehaviour
         EndGameWindow.GetComponent<ResultWindow>().CalcScores();
     }
 
-   
-    
-    
-    
+    [SerializeField]
+    Text _costoTXT;
+
+    public void OnVaccineCostChange()
+    {
+        _costoTXT.text = VaccineManager.Instance.vaccineCost().ToString();
+    }
 
     public TutorialWindow myTutorialWindow;
 

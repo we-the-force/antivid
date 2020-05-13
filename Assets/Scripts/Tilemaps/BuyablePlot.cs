@@ -14,6 +14,8 @@ public class BuyablePlot : MonoBehaviour
 
     public float TicsToBuild = 15;
 
+    public GameObject DollarSign;
+
     private int modelId;
 
     public float Cost = 5f;
@@ -260,6 +262,8 @@ public class BuyablePlot : MonoBehaviour
         if (CurrencyManager.Instance.HasEnoughCurrency(Cost))
         {
             AudioManager.Instance.Play(AudioManager.Instance.MenuClick);
+
+            DollarSign.SetActive(false);
 
             canvas.SetActive(true);
 

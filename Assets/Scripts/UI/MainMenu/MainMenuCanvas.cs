@@ -35,6 +35,7 @@ public class MainMenuCanvas : MonoBehaviour
     {
         StartCoroutine(SetupScenarioButtons());
     }
+
     IEnumerator SetupScenarioButtons()
     {
         yield return null;
@@ -93,5 +94,74 @@ public class MainMenuCanvas : MonoBehaviour
         SeleccionadorDeEscenarios.SetActive(true);
     }
 
+    public float maxLeft = -1590f;
+    public float step = 265f;
+    public float timeToMove = 1f;
+
+    private int _heading;
+
+    public bool moving = false;
+    public void MovePanel(int heading)
+    {
+        if (moving)
+            return;
+
+        _heading = heading;
+        moving = true;
+        StartCoroutine("doMove");
+    }
+
+    IEnumerator doMove()
+    {
+        RectTransform rect = ScenarioAnchor.GetComponent<RectTransform>();
+        Vector2 scenarioAnchorPos = rect.anchoredPosition;
+
+        Vector2 scenarioNextAnchorPos = scenarioAnchorPos;
+        Vector2 scenarioEndAnchorPos = scenarioAnchorPos;
+
+        if ((_heading == -1 && scenarioAnchorPos.x <= maxLeft) || (_heading == 1 && scenarioAnchorPos.x >= 0))
+        {
+            moving = false;
+            yield break;
+        }
+
+        float movePortion = step * 4f;
+        if (_heading == -1)
+        {
+            if ((scenarioAnchorPos.x - movePortion) < maxLeft)
+            {
+                movePortion = Mathf.Abs(scenarioAnchorPos.x - maxLeft);
+            }
+        }
+        if (_heading == 1)
+        {
+            if ((scenarioAnchorPos.x + movePortion) > 0)
+            {
+                movePortion = Mathf.Abs(scenarioAnchorPos.x);
+            }
+        }
+
+        scenarioEndAnchorPos.x += movePortion * _heading;
+
+        float seconds = 0;
+
+        while (true)
+        {
+            if (seconds >= timeToMove)
+            {
+                rect.anchoredPosition = scenarioEndAnchorPos;
+                moving = false;
+                break;
+            }
+
+            yield return new WaitForFixedUpdate();
+
+            scenarioNextAnchorPos.x += (movePortion * Time.fixedDeltaTime) * _heading;
+            rect.anchoredPosition = scenarioNextAnchorPos;
+            seconds += Time.fixedDeltaTime;
+            Debug.LogError("SECONDS  : " + seconds);
+
+        }
+    }
 
 }

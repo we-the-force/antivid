@@ -246,7 +246,7 @@ public class AgentController : MonoBehaviour
         {
             case GlobalObject.AgentStatus.Mild_Case:
                 AddInfectedCells(false);
-                float cellTreshold = TotalCellsInBody * 0.75f;
+                float cellTreshold = TotalCellsInBody * 0.65f;
 
                 //--- En caso de que las celulas infectadas en el cuerpo del agente sobrepasen
                 //--- un limite establecido, el agente obtiene un caso serio de enfermedad
@@ -289,7 +289,9 @@ public class AgentController : MonoBehaviour
                 //--- En este caso, ya esta en el hospital, y no saldra de ahi hasta que la cantidad de sus celulas curadas sea la 
                 //--- totalidad de las celulas en el cuerpo, la cura progresara dependiendo de el coeficiente de 
                 //--- felicidad total del agente en ese momento
-                CurrentInfectedCells -= (CellsCuredPerTic * HappinessCoeficient); // (CellsCuredPerTic + (CellsCuredPerTic * HappinessCoeficient));
+
+                //CurrentInfectedCells -= (CellsCuredPerTic * HappinessCoeficient); // (CellsCuredPerTic + (CellsCuredPerTic * HappinessCoeficient));
+                CurrentInfectedCells -= (myDestinationBuilding.PercentageRestored * HappinessCoeficient); // (CellsCuredPerTic + (CellsCuredPerTic * HappinessCoeficient));
 
                 if (myStatus == GlobalObject.AgentStatus.Mild_Case)
                 {
@@ -352,19 +354,32 @@ public class AgentController : MonoBehaviour
     private void SetHappiness()
     {
         float _coefficient = 0;
-        float _happiness = myNeedList.Count;
+
+        float _coefficientTotal = 0;
+        float _happiness = 0;//  myNeedList.Count;
 
         for (int i = 0; i < myNeedList.Count; i++)
         {
-            float currPercentage = Mathf.Clamp(myNeedList[i].CurrentPercentage, 0, 200);
-            _coefficient = currPercentage / 200.0f;
+            if (myNeedList[i].Need != GlobalObject.NeedScale.Wander)
+           {
+                float currPercentage = Mathf.Clamp(myNeedList[i].CurrentPercentage, 0, 200);
+                _coefficient = currPercentage / 200.0f;
 
-            if (_coefficient < 0.4f) _coefficient = 0;
+                if (_coefficient < 0.55f) _coefficient = 0;
 
-            _happiness -= _coefficient;
+                _coefficientTotal += _coefficient;
+
+                _happiness++;
+
+                //_happiness -= _coefficient;
+            }
         }
 
-        HappinessCoeficient = _happiness / myNeedList.Count;
+        float totHappiness = _happiness;
+         _happiness -= _coefficientTotal;
+
+        //HappinessCoeficient = _happiness / myNeedList.Count;
+        HappinessCoeficient = _happiness / totHappiness;
     }
 
     private GlobalObject.NeedScale NextNeed()
@@ -511,7 +526,6 @@ public class AgentController : MonoBehaviour
             return;
         }
 
-
         IconController.ShowIconFor(NeedTakenCare);
 
         movementController.MoveAgent(myDestinationNodeID);
@@ -604,16 +618,19 @@ public class AgentController : MonoBehaviour
 
                 //--- Agrega contagio a la gente que esta en el edificio
                 //--- En caso de que existan politicas de distanciamiento y asi, aqui se colocara 
-                //--- un porcentaje de que suceda un contagio
-                if (myStatus == GlobalObject.AgentStatus.Mild_Case || myStatus == GlobalObject.AgentStatus.Serious_Case)
+                //--- un porcentaje de que suceda un contagio (Pero solo si no es hospital)
+                if (myDestinationBuilding.MainNeedCovered != GlobalObject.NeedScale.HealtCare)
                 {
-                    for (int i = 0; i < WorldAgentController.instance.AgentCollection.Count; i++)
+                    if (myStatus == GlobalObject.AgentStatus.Mild_Case || myStatus == GlobalObject.AgentStatus.Serious_Case)
                     {
-                        AgentController _agent = WorldAgentController.instance.AgentCollection[i];
-
-                        if (_agent.ExecutingBuilding && _agent.currentNodeId == currentNodeId)
+                        for (int i = 0; i < WorldAgentController.instance.AgentCollection.Count; i++)
                         {
-                            _agent.AddContagion(WorldManager.instance.buildingInfectionPercentage, false);
+                            AgentController _agent = WorldAgentController.instance.AgentCollection[i];
+
+                            if (_agent.ExecutingBuilding && _agent.currentNodeId == currentNodeId)
+                            {
+                                _agent.AddContagion(WorldManager.instance.buildingInfectionPercentage, false);
+                            }
                         }
                     }
                 }
@@ -635,6 +652,8 @@ public class AgentController : MonoBehaviour
                     yield break;
                 }
 
+
+                _ticCounter = myDestinationBuilding.TicsToCoverNeed;
                 TicCounter = 0;
                 while (true)
                 {

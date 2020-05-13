@@ -27,8 +27,8 @@ public class ResultWindow : MonoBehaviour
 
     [SerializeField]
     Text scoreText;
-    [SerializeField]
-    Text rankText;
+   // [SerializeField]
+   // Text rankText;
 
     [SerializeField]
     float normalPoints;
@@ -53,7 +53,7 @@ public class ResultWindow : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         yield return WritePoints();
-        rankText.text = rank;
+        //rankText.text = rank;
         AudioManager.Instance.Play(AudioManager.Instance.EventNormal);
         yield return null;
     }
@@ -110,6 +110,10 @@ public class ResultWindow : MonoBehaviour
         Debug.Log($"Percentual score:\r\nTotPop: {totalPop} ({totalPop - incap}/{incap})\r\n\r\nNegative score: {negativeScore}\r\nMoney score: {moneyScore}\r\nTotal Score: {totalScore}");
         return totalScore;
     }
+
+
+    public List<GameObject> RankImages;
+
     string GetRank(float percentScore)
     {
         //50  60  70  80  90  95  100 >100
@@ -122,37 +126,45 @@ public class ResultWindow : MonoBehaviour
         //A     [ 90,  98)
         //S     [ 98, 102.5)
         //SS    100+
-
+        
         if (percentScore <= 50f)
         {
+            RankImages[7].SetActive(true);
             return "F";
         }
         else if (percentScore < 60f)
         {
+            RankImages[6].SetActive(true);
             return "E";
         }
         else if (percentScore < 70f)
         {
+            RankImages[5].SetActive(true);
             return "D";
         }
         else if (percentScore < 80f)
         {
+            RankImages[4].SetActive(true);
             return "C";
         }
         else if (percentScore < 90f)
         {
+            RankImages[3].SetActive(true);
             return "B";
         }
         else if (percentScore < 98f)
         {
+            RankImages[2].SetActive(true);
             return "A";
         }
         else if (percentScore < 102.5f)
         {
+            RankImages[1].SetActive(true);
             return "S";
         }
         else
         {
+            RankImages[0].SetActive(true);
             return "SS";
         }
     }

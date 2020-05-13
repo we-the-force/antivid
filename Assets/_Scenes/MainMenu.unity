@@ -213,6 +213,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 913627119}
+        m_MethodName: MovePanel
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: -1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &39341860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -340,8 +351,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000038146973, y: -4.4}
-  m_SizeDelta: {x: 465, y: 465}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 640, y: 455}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &70443205
 MonoBehaviour:
@@ -1973,7 +1984,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &651086870
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2592,61 +2603,118 @@ MonoBehaviour:
   ScenarioButtonPrefab: {fileID: 8323723103814987816, guid: fe20c06a15ee03d4e81770fd530137cc,
     type: 3}
   ScenarioCollection:
-  - ScenarioName: Pueblo Tutorial
+  - ScenarioName: Pueblo inicial
     ScenarioDescription: Esta es tu primer prueba, aprende a manejar los controles
     ScenarioSceneName: sc01_FoodTutorial
-    TotalPopulation: 32
+    TotalPopulation: 40
     StartingHospitals: 1
     StartingFoodBuildings: 0
     StartingEntertainmentBuildings: 0
     StartingEducationBuildings: 0
     StartingCapital: 100
     MaxScore: 0
-    ScenarioImg: {fileID: 21300000, guid: 9201ddf8d6260ae4180d3494c7b51500, type: 3}
-  - ScenarioName: Small Town
-    ScenarioDescription: A small rural town with every need covered
-    ScenarioSceneName: Small-ConSonidos
-    TotalPopulation: 68
+    ScenarioImg: {fileID: 21300000, guid: cac075b1be2c37345bca7fa58f0fd19f, type: 3}
+  - ScenarioName: Pueblo apacible
+    ScenarioDescription: "Un peque\xF1o pueblo donde todo es tranquilo"
+    ScenarioSceneName: sc10_SmallTown
+    TotalPopulation: 45
     StartingHospitals: 1
     StartingFoodBuildings: 1
     StartingEntertainmentBuildings: 1
     StartingEducationBuildings: 1
     StartingCapital: 100
     MaxScore: 0
-    ScenarioImg: {fileID: 21300000, guid: 9201ddf8d6260ae4180d3494c7b51500, type: 3}
-  - ScenarioName: Small Town
-    ScenarioDescription: A small rural town with every need covered
-    ScenarioSceneName: Test-Small
-    TotalPopulation: 68
+    ScenarioImg: {fileID: 21300000, guid: 47294a40766146547bb04cf03cbc8822, type: 3}
+  - ScenarioName: Distrito Escolar
+    ScenarioDescription: Un distrito de estudiantes
+    ScenarioSceneName: sc02_SchoolDistrict
+    TotalPopulation: 70
     StartingHospitals: 1
     StartingFoodBuildings: 1
     StartingEntertainmentBuildings: 1
     StartingEducationBuildings: 1
     StartingCapital: 100
     MaxScore: 0
-    ScenarioImg: {fileID: 21300000, guid: 9201ddf8d6260ae4180d3494c7b51500, type: 3}
-  - ScenarioName: Small Town
-    ScenarioDescription: A small rural town with every need covered
-    ScenarioSceneName: Test-Small
-    TotalPopulation: 68
+    ScenarioImg: {fileID: 21300000, guid: b971c4d9c5f92eb43954f8cef1d0a1bc, type: 3}
+  - ScenarioName: Dos Hospitales
+    ScenarioDescription: Un pueblo mediano con dos hospitales en competencia
+    ScenarioSceneName: sc03_TwoHosptial
+    TotalPopulation: 90
     StartingHospitals: 1
     StartingFoodBuildings: 1
     StartingEntertainmentBuildings: 1
     StartingEducationBuildings: 1
     StartingCapital: 100
     MaxScore: 0
-    ScenarioImg: {fileID: 21300000, guid: 9201ddf8d6260ae4180d3494c7b51500, type: 3}
-  - ScenarioName: Small Town
-    ScenarioDescription: A small rural town with every need covered
-    ScenarioSceneName: Test-Small
-    TotalPopulation: 68
+    ScenarioImg: {fileID: 21300000, guid: 24e61750a3c1ca940b3da68d3ee40bb8, type: 3}
+  - ScenarioName: Centro historico
+    ScenarioDescription: Los servicios estan centrados en este pueblo
+    ScenarioSceneName: sc05_Centric
+    TotalPopulation: 105
     StartingHospitals: 1
     StartingFoodBuildings: 1
     StartingEntertainmentBuildings: 1
     StartingEducationBuildings: 1
     StartingCapital: 100
     MaxScore: 0
-    ScenarioImg: {fileID: 21300000, guid: 9201ddf8d6260ae4180d3494c7b51500, type: 3}
+    ScenarioImg: {fileID: 21300000, guid: caaa717621d8c6349992de6607e17b74, type: 3}
+  - ScenarioName: Pueblo anillado
+    ScenarioDescription: La calle principal recorre el pueblo como un anillo
+    ScenarioSceneName: sc04_RingWorld
+    TotalPopulation: 90
+    StartingHospitals: 1
+    StartingFoodBuildings: 1
+    StartingEntertainmentBuildings: 1
+    StartingEducationBuildings: 1
+    StartingCapital: 100
+    MaxScore: 0
+    ScenarioImg: {fileID: 21300000, guid: fc592867183c4aa49a23bdcc1f3ebbeb, type: 3}
+  - ScenarioName: Calle Central
+    ScenarioDescription: 'El pueblo con una gran parte inicial '
+    ScenarioSceneName: sc07_Boulevard
+    TotalPopulation: 110
+    StartingHospitals: 1
+    StartingFoodBuildings: 1
+    StartingEntertainmentBuildings: 1
+    StartingEducationBuildings: 1
+    StartingCapital: 100
+    MaxScore: 0
+    ScenarioImg: {fileID: 21300000, guid: 7ea9693f5c30ca64cb4f04067f5b2591, type: 3}
+  - ScenarioName: Pueblo Cruce
+    ScenarioDescription: El cruce de caminos marca este pueblo
+    ScenarioSceneName: sc06_Cross
+    TotalPopulation: 90
+    StartingHospitals: 1
+    StartingFoodBuildings: 1
+    StartingEntertainmentBuildings: 1
+    StartingEducationBuildings: 1
+    StartingCapital: 100
+    MaxScore: 0
+    ScenarioImg: {fileID: 21300000, guid: 872341d5117a9674aab9c607f32a3aef, type: 3}
+  - ScenarioName: Cuatro Distritos
+    ScenarioDescription: "Estos cuatro peque\xF1os pueblos estan conectados entre
+      si"
+    ScenarioSceneName: sc08_Islas
+    TotalPopulation: 80
+    StartingHospitals: 1
+    StartingFoodBuildings: 1
+    StartingEntertainmentBuildings: 1
+    StartingEducationBuildings: 1
+    StartingCapital: 100
+    MaxScore: 0
+    ScenarioImg: {fileID: 21300000, guid: ced986cf5d2126a45a12e083e2ee2ca3, type: 3}
+  - ScenarioName: Pueblo mediano
+    ScenarioDescription: Esta es la prueba final, un pueblo con una poblacion mas
+      exigente
+    ScenarioSceneName: sc09_Distrito1
+    TotalPopulation: 160
+    StartingHospitals: 1
+    StartingFoodBuildings: 1
+    StartingEntertainmentBuildings: 1
+    StartingEducationBuildings: 1
+    StartingCapital: 100
+    MaxScore: 0
+    ScenarioImg: {fileID: 21300000, guid: bf2adac51e12d05468c6eecef6f0827c, type: 3}
   ScenarioAnchor: {fileID: 1179240998}
   InfoWindow: {fileID: 475427707}
   txtTotalPopulation: {fileID: 356973349}
@@ -2662,6 +2730,10 @@ MonoBehaviour:
   menuBack: {fileID: 8300000, guid: 67ee5c71f80c43545b0ba5ace2a59258, type: 3}
   menuOpen: {fileID: 8300000, guid: 716dfd767492d164e85f7d1471cf15bc, type: 3}
   menuClose: {fileID: 8300000, guid: 41f8a3ff77694c7469bd9d6d87406499, type: 3}
+  maxLeft: -1590
+  step: 265
+  timeToMove: 0.8
+  moving: 0
 --- !u!1 &916314259
 GameObject:
   m_ObjectHideFlags: 0
@@ -3003,10 +3075,10 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 280.8}
-  m_Pivot: {x: 0.5, y: 0}
+  m_SizeDelta: {x: 1078, y: 280.8}
+  m_Pivot: {x: 0, y: 0}
 --- !u!1 &1203959856
 GameObject:
   m_ObjectHideFlags: 0
@@ -3513,6 +3585,17 @@ MonoBehaviour:
             type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 913627119}
+        m_MethodName: MovePanel
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -4831,16 +4914,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
-    - target: {fileID: 7738361139627731860, guid: 90deb1780c6823d41b3cf044eec6cf53,
-        type: 3}
-      propertyPath: bgmClip
-      value: 
-      objectReference: {fileID: 8300000, guid: bd866e06966ec2d44b91157285f8d619, type: 3}
-    - target: {fileID: 7738361139627731860, guid: 90deb1780c6823d41b3cf044eec6cf53,
-        type: 3}
-      propertyPath: startBGMOnAwake
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7738361139627731863, guid: 90deb1780c6823d41b3cf044eec6cf53,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4895,6 +4968,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7738361139627731860, guid: 90deb1780c6823d41b3cf044eec6cf53,
+        type: 3}
+      propertyPath: bgmClip
+      value: 
+      objectReference: {fileID: 8300000, guid: bd866e06966ec2d44b91157285f8d619, type: 3}
+    - target: {fileID: 7738361139627731860, guid: 90deb1780c6823d41b3cf044eec6cf53,
+        type: 3}
+      propertyPath: startBGMOnAwake
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7738361139577112433, guid: 90deb1780c6823d41b3cf044eec6cf53,
         type: 3}
