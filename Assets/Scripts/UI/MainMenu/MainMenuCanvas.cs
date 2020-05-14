@@ -5,6 +5,20 @@ using UnityEngine.UI;
 
 public class MainMenuCanvas : MonoBehaviour
 {
+    public GameObject RankingObject;
+    public List<GameObject> RankingList;
+
+    public GameObject IconHospital;
+    public GameObject IconEntertainment;
+    public GameObject IconFood;
+    public GameObject IconEducation;
+    public Text txtHospital;
+    public Text txtEntertainment;
+    public Text txtFood;
+    public Text txtEducation;
+
+    public Text txtVersion;
+
     public GameObject ScenarioButtonPrefab;
 
     public List<ScenarioInfo> ScenarioCollection;
@@ -33,12 +47,23 @@ public class MainMenuCanvas : MonoBehaviour
 
     private void Start()
     {
+        txtVersion.text = "ver. " + Application.version.ToString();
+
         StartCoroutine(SetupScenarioButtons());
     }
 
     IEnumerator SetupScenarioButtons()
     {
-        yield return null;
+        yield return new WaitForFixedUpdate();
+
+        while(true)
+        {
+            if (SaveManager.Instance.DataLoaded)
+            {
+                break;
+            }
+        }
+
 
         for (int i = 0; i < ScenarioCollection.Count; i++)
         {
@@ -47,6 +72,11 @@ public class MainMenuCanvas : MonoBehaviour
             ScenarioSelector selector = obj.GetComponent<ScenarioSelector>();
             selector.scenarioName.text = ScenarioCollection[i].ScenarioName;
             selector.picture.sprite = ScenarioCollection[i].ScenarioImg;
+
+            RunScore _runScore = SaveManager.Instance.GetBestRun(ScenarioCollection[i].ScenarioSceneName);
+            ScenarioCollection[i].MaxScore = _runScore.score;
+            ScenarioCollection[i].MaxRanking = _runScore.rank;
+
             selector.ID = i;
 
             selector.myCanvas = this;
@@ -60,6 +90,16 @@ public class MainMenuCanvas : MonoBehaviour
         }
     }
 
+    private void SetIcon(GameObject obj, Text txt, int qty)
+    {
+        obj.SetActive(false);
+        if (qty > 0)
+        {
+            txt.text = qty.ToString();
+            obj.SetActive(true);
+        }
+    }
+
     public void ShowInfo(int _id)
     {
         SelectedID = _id;
@@ -68,9 +108,53 @@ public class MainMenuCanvas : MonoBehaviour
 
         txtTotalPopulation.text = ScenarioCollection[_id].TotalPopulation.ToString();
         txtCapitalInicial.text = ScenarioCollection[_id].StartingCapital.ToString();
-        txtPuntuacion.text = ScenarioCollection[_id].MaxScore.ToString();
+        txtPuntuacion.text = Mathf.FloorToInt(ScenarioCollection[_id].MaxScore).ToString();
+
+        bool _showRankingObj = true;
+        for (int i = 0; i < RankingList.Count; i++)
+        {
+            RankingList[i].SetActive(false);
+        }
+
+        switch (ScenarioCollection[_id].MaxRanking)
+        {
+            case "SS":
+                RankingList[0].SetActive(true);
+                break;
+            case "S":
+                RankingList[1].SetActive(true);
+                break;
+            case "A":
+                RankingList[2].SetActive(true);
+                break;
+            case "B":
+                RankingList[3].SetActive(true);
+                break;
+            case "C":
+                RankingList[4].SetActive(true);
+                break;
+            case "D":
+                RankingList[5].SetActive(true);
+                break;
+            case "E":
+                RankingList[6].SetActive(true);
+                break;
+            case "F":
+                RankingList[7].SetActive(true);
+                break;
+            default:
+                _showRankingObj = false;
+                break;
+        }
+
+        RankingObject.SetActive(_showRankingObj);
 
         infoProfileImage.sprite = ScenarioCollection[_id].ScenarioImg;
+
+        SetIcon(IconHospital, txtHospital, ScenarioCollection[_id].StartingHospitals);
+        SetIcon(IconEntertainment, txtEntertainment, ScenarioCollection[_id].StartingEntertainmentBuildings);
+        SetIcon(IconFood, txtFood, ScenarioCollection[_id].StartingFoodBuildings);
+        SetIcon(IconEducation, txtEducation, ScenarioCollection[_id].StartingEducationBuildings);
 
         InfoWindow.SetActive(true);
     }
@@ -82,7 +166,7 @@ public class MainMenuCanvas : MonoBehaviour
 
     public void InitScenario()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(ScenarioCollection[SelectedID].ScenarioSceneName);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(ScenarioCollection[SelectedID].ScenarioSceneName, UnityEngine.SceneManagement.LoadSceneMode.Single);
     }
 
 

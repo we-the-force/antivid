@@ -131,6 +131,8 @@ public class PolicyManager : MonoBehaviour
         //    SendPoliciesToWorldManager();
         //    Debug.LogWarning(PoliciesToString());
         //}
+
+        WorldAgentController.instance.CalculateBuildingUpkeepCost();
     }
     public void SendPoliciesToWorldManager()
     {

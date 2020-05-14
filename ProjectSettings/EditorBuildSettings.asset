@@ -12,9 +12,33 @@ EditorBuildSettings:
     path: Assets/_Scenes/MainMenu.unity
     guid: 72b808030a2a26743b981b7cad697c44
   - enabled: 1
-    path: Assets/_Scenes/Small-ConSonidos.unity
-    guid: 9eed323d02d7412439897c0b346bd703
+    path: Assets/_Scenes/GameScenarios/sc01_FoodTutorial.unity
+    guid: b7ee073508de1114fa17f89bfcbecb57
   - enabled: 1
-    path: Assets/_Scenes/Test-Small.unity
-    guid: fd7074ade48989d4c9d43abc578c02e3
+    path: Assets/_Scenes/GameScenarios/sc02_SchoolDistrict.unity
+    guid: f3b2486b2144849478ed5f457a98425f
+  - enabled: 1
+    path: Assets/_Scenes/GameScenarios/sc03_TwoHospital.unity
+    guid: 126e581df19a3b24ca6ca5dcb8e918b6
+  - enabled: 1
+    path: Assets/_Scenes/GameScenarios/sc04_RingWorld.unity
+    guid: 62c164dc98d48da40b682c292bf6f176
+  - enabled: 1
+    path: Assets/_Scenes/GameScenarios/sc05_Centric.unity
+    guid: ea4f65e6d9b7ba149a3b52d43a4a0d9b
+  - enabled: 1
+    path: Assets/_Scenes/GameScenarios/sc06_Cross.unity
+    guid: 413eb8769e1eee049adbd771116704a4
+  - enabled: 1
+    path: Assets/_Scenes/GameScenarios/sc07_Boulevard.unity
+    guid: 624ccb6c5203c21439ac66236db7c20f
+  - enabled: 1
+    path: Assets/_Scenes/GameScenarios/sc08_Islas.unity
+    guid: 0056aa18baa683744b464f80899a20f5
+  - enabled: 1
+    path: Assets/_Scenes/GameScenarios/sc09_Distrito1.unity
+    guid: 8d9bded565a732a4a93e1feffc0a29b6
+  - enabled: 1
+    path: Assets/_Scenes/GameScenarios/sc10_SmallTown.unity
+    guid: fd6a42e6ec2a6a542ac687f3db158c3d
   m_configObjects: {}

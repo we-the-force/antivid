@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Test0
   m_EditorClassIdentifier: 
   PolicyID: 0
-  Available: 0
+  Available: 1
   PolicyName: Cuarentena Total
   PolicyDescription: 
-  Enabled: 0
+  Enabled: 1
   IsQuarantine: 1
   UpkeepCost: 3
   InitialCost: 0
@@ -30,8 +30,23 @@ MonoBehaviour:
     BuildingToChange: 6
     Percentage: 0
   BuildingEffectivitySection:
-    Enabled: 0
-    ParameterMods: []
+    Enabled: 1
+    ParameterMods:
+    - BuildingType: 0
+      ParameterToChange: 2
+      Percentage: 0.1
+    - BuildingType: 2
+      ParameterToChange: 2
+      Percentage: 0.1
+    - BuildingType: 4
+      ParameterToChange: 2
+      Percentage: 0.1
+    - BuildingType: 7
+      ParameterToChange: 2
+      Percentage: 0.1
+    - BuildingType: 3
+      ParameterToChange: 2
+      Percentage: 0.6
   DistributionEffectivitySection:
     Enabled: 0
     ParameterMods: []

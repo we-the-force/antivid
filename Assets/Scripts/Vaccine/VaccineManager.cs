@@ -108,6 +108,11 @@ public class VaccineManager : MonoBehaviour
         WorldManager.TicDelegate += OnWorldTic;
     }
 
+    private void OnDestroy()
+    {
+        WorldManager.TicDelegate -= OnWorldTic;
+    }
+
     public void OnWorldTic()
     {
         if (_shouldTic)

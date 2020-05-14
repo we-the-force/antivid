@@ -17,6 +17,8 @@ public class BuildingController : MonoBehaviour
     [FormerlySerializedAs("PercentageRestored")]
     public float BasePercentageRestored;
 
+
+
     [SerializeField]
     float ModTicsToCoverNeed = 1;
     [SerializeField]
@@ -28,6 +30,11 @@ public class BuildingController : MonoBehaviour
     public int BaseAgentCapacity;
     public int CurrentAgentCount;
     public PathFindingNode AssociatedNode;
+
+    public float BaseUpkeepCost;
+
+    [SerializeField]
+    float ModUpkeepCost = 1;
 
     public float UpkeepCost;
 
@@ -116,6 +123,8 @@ public class BuildingController : MonoBehaviour
         AddModTicsToCoverNeed(1);
         AddModPercentageRestored(1);
         AddModAgentCapacity(1);
+        AddModUpkeepCost(1);
+
         //StartCoroutine(DelayedStart());
     }
 
@@ -135,6 +144,7 @@ public class BuildingController : MonoBehaviour
         ModTicsToCoverNeed = 1;
         ModPercentageRestored = 1;
         ModAgentCapacity = 1;
+        ModUpkeepCost = 1;
         ResetMainNeed();
         RecalcValues();
     }
@@ -144,7 +154,15 @@ public class BuildingController : MonoBehaviour
         _ticsToCoverNeed = (int)(BaseTicsToCoverNeed * ModTicsToCoverNeed);
         _percentageRecovered = BasePercentageRestored * ModPercentageRestored;
         _agentCapacity = (int)(BaseAgentCapacity * ModAgentCapacity);
+        UpkeepCost = BaseUpkeepCost * ModUpkeepCost;
     }
+
+    public void AddModUpkeepCost(float amount)
+    {
+        ModUpkeepCost += (amount - 1);
+        UpkeepCost = BaseUpkeepCost * ModUpkeepCost;
+    }
+
     public void AddModTicsToCoverNeed(float amount)
     {
         ModTicsToCoverNeed += (amount - 1);

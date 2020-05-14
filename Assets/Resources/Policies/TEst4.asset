@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PolicyID: 4
   Available: 1
-  PolicyName: Mas atencion en hospital 50%
+  PolicyName: Subsidio a servicios de entretenimiento
   PolicyDescription: 
-  Enabled: 0
+  Enabled: 1
   IsQuarantine: 0
-  UpkeepCost: 6
+  UpkeepCost: 0.85
   InitialCost: 0
   TransformBuildingSection:
     Enabled: 0
@@ -32,9 +32,12 @@ MonoBehaviour:
   BuildingEffectivitySection:
     Enabled: 1
     ParameterMods:
-    - BuildingType: 3
+    - BuildingType: 2
       ParameterToChange: 1
-      Percentage: 1.5
+      Percentage: 0.85
+    - BuildingType: 2
+      ParameterToChange: 2
+      Percentage: 0.5
   DistributionEffectivitySection:
     Enabled: 0
     ParameterMods:

@@ -8286,7 +8286,7 @@ PrefabInstance:
     - target: {fileID: 7442522305919376420, guid: d506d9f507a72c84facd38c600012728,
         type: 3}
       propertyPath: initialCurrency
-      value: 200
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 7442522305919376420, guid: d506d9f507a72c84facd38c600012728,
         type: 3}

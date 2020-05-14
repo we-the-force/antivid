@@ -13,25 +13,31 @@ MonoBehaviour:
   m_Name: Test1
   m_EditorClassIdentifier: 
   PolicyID: 1
-  Available: 0
-  PolicyName: Turn schools into hospitals
+  Available: 1
+  PolicyName: Subsidio a escuelas
   PolicyDescription: Turn schools into hospitals
   Enabled: 0
   IsQuarantine: 0
-  UpkeepCost: 0
-  InitialCost: 20
+  UpkeepCost: 0.5
+  InitialCost: 0
   TransformBuildingSection:
-    Enabled: 1
-    BuildingToChange: 4
-    TargetBuilding: 3
+    Enabled: 0
+    BuildingToChange: 6
+    TargetBuilding: 6
     Percentage: 1
   LimitBuildingSection:
     Enabled: 0
     BuildingToChange: 6
     Percentage: 0
   BuildingEffectivitySection:
-    Enabled: 0
-    ParameterMods: []
+    Enabled: 1
+    ParameterMods:
+    - BuildingType: 4
+      ParameterToChange: 1
+      Percentage: 0.85
+    - BuildingType: 4
+      ParameterToChange: 2
+      Percentage: 0.5
   DistributionEffectivitySection:
     Enabled: 0
     ParameterMods: []

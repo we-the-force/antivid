@@ -76,6 +76,10 @@ public class AgentController : MonoBehaviour
     public float percentageHospitalRandomCase = 0;
     public bool visitedHospitalOnRandomCase;
 
+    private void OnDestroy()
+    {
+        WorldManager.TicDelegate -= TicReceived;
+    }
 
     public void InitAgent(GlobalObject.AgentPerk useThisPerk = GlobalObject.AgentPerk.Random)
     {
@@ -126,6 +130,8 @@ public class AgentController : MonoBehaviour
         {
             myPerk = useThisPerk;
         }
+
+
 
         GameObject animObj = Instantiate(WorldAgentController.instance.GetAnimationForPerk(myPerk), AnimationObject.transform);
         AnimatorController = animObj.GetComponent<Animator>();
@@ -246,7 +252,7 @@ public class AgentController : MonoBehaviour
         {
             case GlobalObject.AgentStatus.Mild_Case:
                 AddInfectedCells(false);
-                float cellTreshold = TotalCellsInBody * 0.65f;
+                float cellTreshold = TotalCellsInBody * 0.55f;
 
                 //--- En caso de que las celulas infectadas en el cuerpo del agente sobrepasen
                 //--- un limite establecido, el agente obtiene un caso serio de enfermedad

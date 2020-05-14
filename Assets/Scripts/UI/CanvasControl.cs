@@ -345,7 +345,7 @@ public class CanvasControl : MonoBehaviour
 
     public void GoToMenu()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }
 
     public void SetupCanvasSounds()

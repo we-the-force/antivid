@@ -43,6 +43,12 @@ public class BuyablePlot : MonoBehaviour
     BuyBuildingWindow buyBuildingWindow;
     //BuyBuildingWindow
 
+
+    private void OnDestroy()
+    {
+        WorldManager.TicDelegate -= TicReceived;
+    }
+
     private void Awake()
     {
         pfnode = GetComponent<PathFindingNode>();
@@ -90,8 +96,8 @@ public class BuyablePlot : MonoBehaviour
 
         interactingWithCanvas = false;
         buildCont.BaseTicsToCoverNeed = type == NodeType.HealthCare ? 200 : 100;
-        WorldAgentController.instance.CalculateBuildingUpkeepCost();
         WorldAgentController.instance.RefreshBuildingsPolicies();
+        WorldAgentController.instance.CalculateBuildingUpkeepCost();
     }
     public void UnBuy()
     {
@@ -134,6 +140,7 @@ public class BuyablePlot : MonoBehaviour
                 BuildingController BC = AssignedModel.GetComponent<BuildingController>();
 
                 buildCont.ocupantAnchor = BC.ocupantAnchor;
+                buildCont.BaseUpkeepCost = BC.BaseUpkeepCost;
                 buildCont.UpkeepCost = BC.UpkeepCost;
                 buildCont.BaseNeedCovered = BC.BaseNeedCovered;
                 buildCont.TimeToCoverNeed = BC.TimeToCoverNeed;

@@ -58,6 +58,7 @@ public class CurrencyManager : MonoBehaviour
     }
     private void Awake()
     {
+        
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
@@ -66,6 +67,12 @@ public class CurrencyManager : MonoBehaviour
         _instance = this;
         //DontDestroyOnLoad(gameObject);
     }
+
+    private void OnDestroy()
+    {
+        WorldManager.TicDelegate -= OnWorldTic;
+    }
+
     void Start()
     {
         WorldManager.TicDelegate += OnWorldTic;

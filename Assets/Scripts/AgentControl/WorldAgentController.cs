@@ -133,6 +133,12 @@ public class WorldAgentController : MonoBehaviour
     {
         houses = Buildings.FindAll(x => x.BaseNeedCovered == GlobalObject.NeedScale.Sleep);
     }
+
+    private void OnDestroy()
+    {
+        WorldManager.TicDelegate -= TicReceived;
+    }
+
     IEnumerator DelayedStart()
     {
         yield return null;
@@ -365,7 +371,14 @@ public class WorldAgentController : MonoBehaviour
                     {
                         if (auxBE.ParameterMods[i].BuildingType == build.MainNeedCovered && auxBE.ParameterMods[i].BuildingType != GlobalObject.NeedScale.None)
                         {
-                            build.AddModPercentageRestored(auxBE.ParameterMods[i].Percentage);
+                            if (auxBE.ParameterMods[i].ParameterToChange == BuildingParameter.Effectivity)
+                            {
+                                build.AddModPercentageRestored(auxBE.ParameterMods[i].Percentage);
+                            }
+                            else
+                            {
+                                build.AddModUpkeepCost(auxBE.ParameterMods[i].Percentage);   
+                            }                            
                             //Debug.Log("Set some property to a building!");
                         }
                     }

@@ -20,17 +20,22 @@ public class SaveManager : MonoBehaviour
 
     string dataPath;
 
-    public SaveManager Instance
+    public bool DataLoaded = false;
+
+    public static SaveManager Instance
     {
         get { return _instance; }
     }
 
     private void Awake()
     {
+        DataLoaded = false;
+
         if (_instance != null && _instance != this)
         {
             Destroy(gameObject);
         }
+
         _instance = this;
 
         dataPath = Application.persistentDataPath;
@@ -48,6 +53,7 @@ public class SaveManager : MonoBehaviour
         CreateScenarios();
         SaveData();
     }
+
     private void Start()
     {
         Debug.Log("Starting thingie.");
@@ -60,7 +66,23 @@ public class SaveManager : MonoBehaviour
         {
             Debug.LogError(ssd.ToString());
         }
+
+        DataLoaded = true;
     }
+
+    /*
+    public float GetScore(string scenarioName)
+    {
+        float _score = 0;
+
+        foreach (ScenarioSaveData ssd in gsd.scenarioData)
+        {
+            Debug.LogError(ssd.ToString());
+        }
+
+        return _score;
+    }*/
+
     public void WriteAuxTempData()
     {
         string id = gsd.scenarioData[UnityEngine.Random.Range(0, gsd.scenarioData.Count - 1)].scenarioID;
@@ -154,7 +176,8 @@ public class SaveManager : MonoBehaviour
     {
         return gsd.ContainsScenario(id);
     }
-    RunScore GetBestRun(string sceneID)
+
+    public RunScore GetBestRun(string sceneID)
     {
         if (ContainsScenario(sceneID))
         {

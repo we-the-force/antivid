@@ -20,6 +20,11 @@ public class SneezeController : MonoBehaviour
 
     public Collider myCollider;
 
+    private void OnDestroy()
+    {
+        WorldManager.TicDelegate -= TicReceived;
+    }
+
     public void Init()
     {
         if (sneezeEffectMildCase == null)
@@ -69,7 +74,7 @@ public class SneezeController : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
 
-        WorldManager.TicDelegate -= TicReceived;
+//        WorldManager.TicDelegate -= TicReceived;
         Destroy(gameObject);
     }
 

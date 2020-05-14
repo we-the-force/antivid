@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PolicyID: 2
   Available: 1
-  PolicyName: 10% Efectividad en Alimento
+  PolicyName: Subsidio a empresas alimenticias
   PolicyDescription: Creas mejores galletas de animalitos.\r\n+10% efectividad de
     comida
-  Enabled: 0
+  Enabled: 1
   IsQuarantine: 0
-  UpkeepCost: 0
-  InitialCost: 30
+  UpkeepCost: 0.85
+  InitialCost: 0
   TransformBuildingSection:
     Enabled: 0
     BuildingToChange: 6
@@ -28,14 +28,17 @@ MonoBehaviour:
     Percentage: 0
   LimitBuildingSection:
     Enabled: 0
-    BuildingToChange: 6
+    BuildingToChange: 0
     Percentage: 0
   BuildingEffectivitySection:
     Enabled: 1
     ParameterMods:
     - BuildingType: 0
+      ParameterToChange: 2
+      Percentage: 0.5
+    - BuildingType: 0
       ParameterToChange: 1
-      Percentage: 3
+      Percentage: 0.85
   DistributionEffectivitySection:
     Enabled: 0
     ParameterMods: []
