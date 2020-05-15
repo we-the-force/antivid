@@ -104,7 +104,9 @@ public class CanvasControl : MonoBehaviour
                 buyOption.myID = i;
                 buyOption.buildingText.text = building.Name;
                 buyOption.buildingImage.sprite = building.ButtonImage;
+                buyOption.buildingType.sprite = building.BigImage;
                 buyOption.parentWindow = BuildWindow;
+
             }
         }
 

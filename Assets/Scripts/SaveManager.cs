@@ -56,6 +56,8 @@ public class SaveManager : MonoBehaviour
 
     private void Start()
     {
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
+
         Debug.Log("Starting thingie.");
         //LoadData
         LoadTempData();

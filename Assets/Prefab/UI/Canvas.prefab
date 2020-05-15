@@ -20928,17 +20928,19 @@ MonoBehaviour:
     TimeToBuild: 110
     ButtonImage: {fileID: -88150655592256897, guid: f6422be47d977644aa73d93de73dfe04,
       type: 3}
-    BigImage: {fileID: 0}
+    BigImage: {fileID: 6863911730192020843, guid: f6422be47d977644aa73d93de73dfe04,
+      type: 3}
   - ActiveForScenario: 0
     objPrefab: {fileID: 830158818256336126, guid: 7582aebf7f389aa40adca9818cdcf0f8,
       type: 3}
-    Name: Tienda de abarrotes
+    Name: Restaurante
     Description: Esta tienda tiene todo lo que una persona necesita para ser feliz
     Cost: 130
     TimeToBuild: 135
     ButtonImage: {fileID: 1993483458906434743, guid: f6422be47d977644aa73d93de73dfe04,
       type: 3}
-    BigImage: {fileID: 0}
+    BigImage: {fileID: 2965302998961556843, guid: f6422be47d977644aa73d93de73dfe04,
+      type: 3}
   - ActiveForScenario: 0
     objPrefab: {fileID: 4243843613992603775, guid: 868d859ab9ccafa46821080bf664fbc9,
       type: 3}
@@ -20948,7 +20950,8 @@ MonoBehaviour:
     TimeToBuild: 80
     ButtonImage: {fileID: 2512276972981970685, guid: f6422be47d977644aa73d93de73dfe04,
       type: 3}
-    BigImage: {fileID: 0}
+    BigImage: {fileID: -3594844101945926441, guid: f6422be47d977644aa73d93de73dfe04,
+      type: 3}
   - ActiveForScenario: 0
     objPrefab: {fileID: 3840625200791511951, guid: 397d088b61294464eadb64b1922b1597,
       type: 3}
@@ -20959,7 +20962,8 @@ MonoBehaviour:
     TimeToBuild: 120
     ButtonImage: {fileID: 5022717123071660036, guid: f6422be47d977644aa73d93de73dfe04,
       type: 3}
-    BigImage: {fileID: 0}
+    BigImage: {fileID: 2583988419935035853, guid: f6422be47d977644aa73d93de73dfe04,
+      type: 3}
   - ActiveForScenario: 0
     objPrefab: {fileID: 0}
     Name: Nothing
@@ -20977,18 +20981,20 @@ MonoBehaviour:
     TimeToBuild: 80
     ButtonImage: {fileID: 848652051160376181, guid: f6422be47d977644aa73d93de73dfe04,
       type: 3}
-    BigImage: {fileID: 0}
+    BigImage: {fileID: 2583988419935035853, guid: f6422be47d977644aa73d93de73dfe04,
+      type: 3}
   - ActiveForScenario: 1
     objPrefab: {fileID: 830158818256336126, guid: 497e021c45842ed41a67861f64e1b34f,
       type: 3}
-    Name: Estacion de Gasolina
+    Name: Tienda de abarrotes
     Description: "En la peque\xF1a tienda junto a la estacion de gasolina podras encontrar
       los productos esenciales"
     Cost: 65
     TimeToBuild: 80
     ButtonImage: {fileID: 8659749458814007194, guid: f6422be47d977644aa73d93de73dfe04,
       type: 3}
-    BigImage: {fileID: 0}
+    BigImage: {fileID: 2965302998961556843, guid: f6422be47d977644aa73d93de73dfe04,
+      type: 3}
   _announcementWindow: {fileID: 3621977696167502690}
   GraphWindow: {fileID: 8209362837903252657}
   GraphWindowController: {fileID: 471286135237027894}

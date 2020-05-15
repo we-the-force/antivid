@@ -9595,7 +9595,7 @@ PrefabInstance:
     - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
         type: 3}
       propertyPath: BuyableBuildingsCollection.Array.data[6].Name
-      value: Estacion de Gasolina
+      value: Tienda de Abarrotes
       objectReference: {fileID: 0}
     - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
         type: 3}

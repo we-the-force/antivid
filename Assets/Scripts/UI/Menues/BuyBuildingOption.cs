@@ -7,6 +7,7 @@ public class BuyBuildingOption : MonoBehaviour
 {
     public int myID;
     public Image buildingImage;
+    public Image buildingType;
     public Text buildingText;
 
     public BuyBuildingWindow parentWindow;
