@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -662,6 +662,8 @@ MonoBehaviour:
   BaseAgentCapacity: 5
   CurrentAgentCount: 0
   AssociatedNode: {fileID: 439933533}
+  BaseUpkeepCost: 0
+  ModUpkeepCost: 1
   UpkeepCost: 0
   myWarehouse: {fileID: 0}
   myBuildingRandomizer: {fileID: 0}
@@ -1435,6 +1437,8 @@ MonoBehaviour:
   BaseAgentCapacity: 5
   CurrentAgentCount: 0
   AssociatedNode: {fileID: 760272506}
+  BaseUpkeepCost: 0
+  ModUpkeepCost: 1
   UpkeepCost: 0
   myWarehouse: {fileID: 0}
   myBuildingRandomizer: {fileID: 0}
@@ -1550,25 +1554,27 @@ MonoBehaviour:
   TutorialItemCollection:
   - Descripcion: La poblacion tiene necesidades por cubrir, y esto afecta su indice
       de felicidad. Al bajar el indice de felicidad, baja el ingreso cada ciclo
-    image1: {fileID: 21300000, guid: fb1d2ab5a8f452944b4ec8d087829f6f, type: 3}
+    image1: {fileID: 878737281325443256, guid: f6422be47d977644aa73d93de73dfe04, type: 3}
     image2: {fileID: 0}
     image3: {fileID: 0}
   - Descripcion: Es necesario construir un edificio de comida para cubrir la necesidad
       de la poblacion
-    image1: {fileID: 21300000, guid: a9fa121dce017a44dbadded9489dd388, type: 3}
+    image1: {fileID: 314444427710798593, guid: f6422be47d977644aa73d93de73dfe04, type: 3}
     image2: {fileID: 0}
     image3: {fileID: 0}
   - Descripcion: "Utilice las p\xF3liticas para ajustar los efectos econ\xF3micos
       y de salud. Las p\xF3liticas tienen un costo de mantenimiento, toma eso en cuenta"
-    image1: {fileID: 21300000, guid: e4be64b207d23e644ab843b02d9cb782, type: 3}
+    image1: {fileID: 6668582300839355378, guid: f6422be47d977644aa73d93de73dfe04,
+      type: 3}
     image2: {fileID: 0}
     image3: {fileID: 0}
   - Descripcion: "Un virus ha sido encontrado, la poblaci\xF3n esta enfermandose a
       prisa. Pero una vacuna ya esta siendo desarrollada. Puedes ajustar cuanto presupuesto
       se le va a asignar a la investigaci\xF3n"
-    image1: {fileID: 21300000, guid: 09ada7d27b1f7d0439723e2c14dacdfd, type: 3}
-    image2: {fileID: 21300000, guid: 02eea7e42fdcf3944beba5faf06919eb, type: 3}
-    image3: {fileID: 21300000, guid: 49d36b167aeecdb49b7e2d9c2d89771a, type: 3}
+    image1: {fileID: -7658167737318539152, guid: f6422be47d977644aa73d93de73dfe04,
+      type: 3}
+    image2: {fileID: 0}
+    image3: {fileID: 0}
 --- !u!4 &887206398
 Transform:
   m_ObjectHideFlags: 0
@@ -1937,6 +1943,8 @@ MonoBehaviour:
   BaseAgentCapacity: 5
   CurrentAgentCount: 0
   AssociatedNode: {fileID: 1042247929}
+  BaseUpkeepCost: 0
+  ModUpkeepCost: 1
   UpkeepCost: 0
   myWarehouse: {fileID: 0}
   myBuildingRandomizer: {fileID: 0}
@@ -2553,6 +2561,8 @@ MonoBehaviour:
   BaseAgentCapacity: 4
   CurrentAgentCount: 0
   AssociatedNode: {fileID: 1218068736}
+  BaseUpkeepCost: 0
+  ModUpkeepCost: 1
   UpkeepCost: 0
   myWarehouse: {fileID: 0}
   myBuildingRandomizer: {fileID: 0}
@@ -2919,6 +2929,8 @@ MonoBehaviour:
   BaseAgentCapacity: 5
   CurrentAgentCount: 0
   AssociatedNode: {fileID: 1349641375}
+  BaseUpkeepCost: 0
+  ModUpkeepCost: 1
   UpkeepCost: 0
   myWarehouse: {fileID: 0}
   myBuildingRandomizer: {fileID: 0}
@@ -3169,6 +3181,8 @@ MonoBehaviour:
   BaseAgentCapacity: 10
   CurrentAgentCount: 0
   AssociatedNode: {fileID: 1475932767}
+  BaseUpkeepCost: 0
+  ModUpkeepCost: 1
   UpkeepCost: 0
   myWarehouse: {fileID: 0}
   myBuildingRandomizer: {fileID: 0}
@@ -3643,6 +3657,8 @@ MonoBehaviour:
   BaseAgentCapacity: 5
   CurrentAgentCount: 0
   AssociatedNode: {fileID: 4346686273798638322}
+  BaseUpkeepCost: 0
+  ModUpkeepCost: 1
   UpkeepCost: 0
   myWarehouse: {fileID: 0}
   myBuildingRandomizer: {fileID: 0}
@@ -3900,6 +3916,8 @@ MonoBehaviour:
   BaseAgentCapacity: 8
   CurrentAgentCount: 0
   AssociatedNode: {fileID: 1894677173}
+  BaseUpkeepCost: 0
+  ModUpkeepCost: 1
   UpkeepCost: 0
   myWarehouse: {fileID: 0}
   myBuildingRandomizer: {fileID: 0}

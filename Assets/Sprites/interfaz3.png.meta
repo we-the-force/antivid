@@ -11,6 +11,9 @@ TextureImporter:
   - first:
       213: -5708450358673024739
     second: Score_BG
+  - first:
+      213: 1539154803388521832
+    second: Ranking_E
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -127,7 +130,7 @@ TextureImporter:
         width: 248
         height: 243
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -148,7 +151,7 @@ TextureImporter:
         width: 211
         height: 239
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -169,7 +172,7 @@ TextureImporter:
         width: 737
         height: 876
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -177,6 +180,27 @@ TextureImporter:
       bones: []
       spriteID: 37120dfa5a352144e8dfc0700e0c6f00
       internalID: -5708450358673024739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranking_E
+      rect:
+        serializedVersion: 2
+        x: 776
+        y: 119
+        width: 211
+        height: 252
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b48f239b2b329b34f8cce5642c5bc7c0
+      internalID: 1539154803388521832
       vertices: []
       indices: 
       edges: []

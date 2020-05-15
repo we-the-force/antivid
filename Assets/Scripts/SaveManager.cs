@@ -42,7 +42,7 @@ public class SaveManager : MonoBehaviour
 
         if (!AuxFolderExists())
         {
-            Debug.Log($"Folder didn't exist  ({dataPath}/Data)");
+            //Debug.Log($"Folder didn't exist  ({dataPath}/Data)");
             CreateFileStructure();
             //Directory.CreateDirectory(Application.persistentDataPath + "/Data");
         }
@@ -61,11 +61,11 @@ public class SaveManager : MonoBehaviour
         LoadTempData();
         //SaveData();
 
-        Debug.LogError("Printing scenarios");
-        foreach (ScenarioSaveData ssd in gsd.scenarioData)
-        {
-            Debug.LogError(ssd.ToString());
-        }
+     //   Debug.LogError("Printing scenarios");
+      //  foreach (ScenarioSaveData ssd in gsd.scenarioData)
+       // {
+           // Debug.LogError(ssd.ToString());
+       // }
 
         DataLoaded = true;
     }

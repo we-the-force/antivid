@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -6548,7 +6548,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 4.7000027, y: 2.4}
-  m_SizeDelta: {x: 253.20001, y: 286.80002}
+  m_SizeDelta: {x: 253.20001, y: 302.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2072208550
 MonoBehaviour:
@@ -6568,7 +6568,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 5410926939964142581, guid: 74e9c6cb67e22e540a76e4c68bf44eae,
+  m_Sprite: {fileID: 1539154803388521832, guid: 74e9c6cb67e22e540a76e4c68bf44eae,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 0

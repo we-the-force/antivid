@@ -2178,7 +2178,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0.1, y: 0.39}
-  m_SizeDelta: {x: 88.21, y: 74.01}
+  m_SizeDelta: {x: 90, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1142983225544011517
 CanvasRenderer:
@@ -6856,7 +6856,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0.1, y: 0.39}
-  m_SizeDelta: {x: 88.21, y: 74.01}
+  m_SizeDelta: {x: 90, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2589526223730769541
 CanvasRenderer:
@@ -12797,7 +12797,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 5410926939964142581, guid: 74e9c6cb67e22e540a76e4c68bf44eae,
+  m_Sprite: {fileID: 1539154803388521832, guid: 74e9c6cb67e22e540a76e4c68bf44eae,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -15140,7 +15140,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0.1, y: 0.39}
-  m_SizeDelta: {x: 88.21, y: 74.01}
+  m_SizeDelta: {x: 90, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &779729221497198413
 CanvasRenderer:
@@ -20788,12 +20788,12 @@ MonoBehaviour:
   txtDead: {fileID: 9201387681684516670}
   txtInmune: {fileID: 9201387680384145776}
   PolicyIconSprites:
-  - {fileID: 21300000, guid: c74b8a3bc263cc34d97ff7f48797c4f9, type: 3}
-  - {fileID: 21300000, guid: 1feaa4670b8a9f94aba188a6e352b3c6, type: 3}
-  - {fileID: 21300000, guid: a6272297f5219c44eb206c6a4c573cf3, type: 3}
-  - {fileID: 21300000, guid: 1738afb6644eecb4fa1ee627bef9bc1c, type: 3}
-  - {fileID: -3036245729970887288, guid: 353231cd0827ab5449391a89a2b071fb, type: 3}
-  - {fileID: 21300000, guid: 1738afb6644eecb4fa1ee627bef9bc1c, type: 3}
+  - {fileID: -2164006300563894057, guid: f6422be47d977644aa73d93de73dfe04, type: 3}
+  - {fileID: -3594844101945926441, guid: f6422be47d977644aa73d93de73dfe04, type: 3}
+  - {fileID: 2965302998961556843, guid: f6422be47d977644aa73d93de73dfe04, type: 3}
+  - {fileID: 6863911730192020843, guid: f6422be47d977644aa73d93de73dfe04, type: 3}
+  - {fileID: 2583988419935035853, guid: f6422be47d977644aa73d93de73dfe04, type: 3}
+  - {fileID: 2583988419935035853, guid: f6422be47d977644aa73d93de73dfe04, type: 3}
   PolicyIconCollection:
   - {fileID: 7487689806336847787}
   - {fileID: 2258974749529111409}

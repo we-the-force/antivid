@@ -242,6 +242,24 @@ TextureImporter:
   - first:
       213: 79176883012306614
     second: IconBuildingTXT
+  - first:
+      213: 2583988419935035853
+    second: PolicyIcon_Entertainment
+  - first:
+      213: -3594844101945926441
+    second: PolicyIcon_Education
+  - first:
+      213: 314444427710798593
+    second: Tutorial_Buy
+  - first:
+      213: 6668582300839355378
+    second: Tutorial_Policy
+  - first:
+      213: -7658167737318539152
+    second: Tutorial_Vacuna
+  - first:
+      213: 878737281325443256
+    second: Tutorial_Happiness
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -2025,6 +2043,132 @@ TextureImporter:
       bones: []
       spriteID: e758b96c84f462e4a9555966d643627b
       internalID: 79176883012306614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PolicyIcon_Entertainment
+      rect:
+        serializedVersion: 2
+        x: 1593
+        y: 706
+        width: 89
+        height: 88
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a59f6fab4cf54d478e6ea3d115226bd
+      internalID: 2583988419935035853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PolicyIcon_Education
+      rect:
+        serializedVersion: 2
+        x: 1682
+        y: 706
+        width: 89
+        height: 88
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37a248ba80c451049a7430bd6fa165a5
+      internalID: -3594844101945926441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tutorial_Buy
+      rect:
+        serializedVersion: 2
+        x: 1479
+        y: 665
+        width: 96
+        height: 75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddd63b15e7e09074c9be8e980da76986
+      internalID: 314444427710798593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tutorial_Policy
+      rect:
+        serializedVersion: 2
+        x: 1371
+        y: 665
+        width: 96
+        height: 75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1baf2d36a3a6c0546baeacde639f8592
+      internalID: 6668582300839355378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tutorial_Vacuna
+      rect:
+        serializedVersion: 2
+        x: 1263
+        y: 665
+        width: 96
+        height: 75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c40d7643b22b60c46a6ce8eb99d4da10
+      internalID: -7658167737318539152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tutorial_Happiness
+      rect:
+        serializedVersion: 2
+        x: 1155
+        y: 665
+        width: 96
+        height: 75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1864e638c9a43d5498273096f4973885
+      internalID: 878737281325443256
       vertices: []
       indices: 
       edges: []
