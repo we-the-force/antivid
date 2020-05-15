@@ -41,4 +41,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/GameScenarios/sc10_SmallTown.unity
     guid: fd6a42e6ec2a6a542ac687f3db158c3d
+  - enabled: 1
+    path: Assets/_Scenes/OutroScene.unity
+    guid: b335f8fc0d3fff04b8827422939fb02d
   m_configObjects: {}

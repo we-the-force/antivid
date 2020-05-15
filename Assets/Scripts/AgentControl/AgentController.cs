@@ -194,10 +194,10 @@ public class AgentController : MonoBehaviour
         {
             StatusChanged();
             //Debug.LogError($"Ay valiendo queso cambie de status     ({previousStatus}, {myStatus})");
-            if (myStatus == GlobalObject.AgentStatus.Mild_Case || myStatus == GlobalObject.AgentStatus.Serious_Case || myStatus == GlobalObject.AgentStatus.Out_of_circulation || myStatus == GlobalObject.AgentStatus.Inmune)
-            {
+            //if (myStatus == GlobalObject.AgentStatus.Mild_Case || myStatus == GlobalObject.AgentStatus.Serious_Case || myStatus == GlobalObject.AgentStatus.Out_of_circulation || myStatus == GlobalObject.AgentStatus.Inmune)
+            //{
                 WorldAgentController.instance.CalculateAgentIncome();
-            }
+            //}
         }
         previousStatus = myStatus;
 
@@ -601,6 +601,7 @@ public class AgentController : MonoBehaviour
             {
                 TakingCareOfNeed = false;
 
+                /*
                 //-- En caso de que este lleno el edificio pero este muy enfermo el agente
                 //--- debera regresar a casa a dormir un rato
                 if (myStatus == GlobalObject.AgentStatus.Serious_Case)
@@ -611,6 +612,7 @@ public class AgentController : MonoBehaviour
                 //--- En caso de que sea un Building, pero este lleno;  se va a deambular un rato.
                 Debug.LogError($"Building was full Need: {NeedTakenCare} [AgentController.ExecuteDestiny()]");
                 TakeCareOfNeed(GlobalObject.NeedScale.Wander);
+                */
                 yield break;
             }
             else
@@ -658,11 +660,23 @@ public class AgentController : MonoBehaviour
                     yield break;
                 }
 
-
                 _ticCounter = myDestinationBuilding.TicsToCoverNeed;
                 TicCounter = 0;
                 while (true)
                 {
+                    if (myStatus == GlobalObject.AgentStatus.Serious_Case)
+                    {
+                        //--- Ya se enfermo bien pasado, necesita irse al hospital de una vez
+                        ExecutingBuilding = false;
+
+                        SetVisibility(true);
+                        myDestinationBuilding.CurrentAgentCount--;
+                        myDestinationBuilding.ResetOccupants();
+                        StartCoroutine("Sneeze");
+                        TakingCareOfNeed = false;
+                        yield break;
+                    }
+
                     if (TicCounter >= _ticCounter) // myDestinationBuilding.TicsToCoverNeed)
                     {
                         CurrencyManager.Instance.UseBuilding(NeedTakenCare);
@@ -670,9 +684,7 @@ public class AgentController : MonoBehaviour
                         break;
                     }
                     yield return new WaitForFixedUpdate();
-                }
-
-
+                }                
 
                 if (NeedTakenCare == GlobalObject.NeedScale.Sleep)
                 {
@@ -784,7 +796,7 @@ public class AgentController : MonoBehaviour
         totalInfectedCellsThisCycle += _infected;
 
         if (fromSneeze)
-            _infected *= 2;
+            _infected *= 1.5f;
 
         if (myStatus == GlobalObject.AgentStatus.Serious_Case)
         {

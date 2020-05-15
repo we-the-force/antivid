@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -662,6 +662,8 @@ MonoBehaviour:
   BaseAgentCapacity: 5
   CurrentAgentCount: 0
   AssociatedNode: {fileID: 439933533}
+  BaseUpkeepCost: 0
+  ModUpkeepCost: 1
   UpkeepCost: 0
   myWarehouse: {fileID: 0}
   myBuildingRandomizer: {fileID: 0}
@@ -1435,6 +1437,8 @@ MonoBehaviour:
   BaseAgentCapacity: 5
   CurrentAgentCount: 0
   AssociatedNode: {fileID: 760272506}
+  BaseUpkeepCost: 0
+  ModUpkeepCost: 1
   UpkeepCost: 0
   myWarehouse: {fileID: 0}
   myBuildingRandomizer: {fileID: 0}
@@ -1937,6 +1941,8 @@ MonoBehaviour:
   BaseAgentCapacity: 5
   CurrentAgentCount: 0
   AssociatedNode: {fileID: 1042247929}
+  BaseUpkeepCost: 0
+  ModUpkeepCost: 1
   UpkeepCost: 0
   myWarehouse: {fileID: 0}
   myBuildingRandomizer: {fileID: 0}
@@ -2528,6 +2534,8 @@ MonoBehaviour:
   BaseAgentCapacity: 4
   CurrentAgentCount: 0
   AssociatedNode: {fileID: 1218068736}
+  BaseUpkeepCost: 0
+  ModUpkeepCost: 1
   UpkeepCost: 0
   myWarehouse: {fileID: 0}
   myBuildingRandomizer: {fileID: 0}
@@ -2894,6 +2902,8 @@ MonoBehaviour:
   BaseAgentCapacity: 5
   CurrentAgentCount: 0
   AssociatedNode: {fileID: 1349641375}
+  BaseUpkeepCost: 0
+  ModUpkeepCost: 1
   UpkeepCost: 0
   myWarehouse: {fileID: 0}
   myBuildingRandomizer: {fileID: 0}
@@ -3144,6 +3154,8 @@ MonoBehaviour:
   BaseAgentCapacity: 10
   CurrentAgentCount: 0
   AssociatedNode: {fileID: 1475932767}
+  BaseUpkeepCost: 0
+  ModUpkeepCost: 1
   UpkeepCost: 0
   myWarehouse: {fileID: 0}
   myBuildingRandomizer: {fileID: 0}
@@ -3618,6 +3630,8 @@ MonoBehaviour:
   BaseAgentCapacity: 5
   CurrentAgentCount: 0
   AssociatedNode: {fileID: 4346686273798638322}
+  BaseUpkeepCost: 0
+  ModUpkeepCost: 1
   UpkeepCost: 0
   myWarehouse: {fileID: 0}
   myBuildingRandomizer: {fileID: 0}
@@ -3875,6 +3889,8 @@ MonoBehaviour:
   BaseAgentCapacity: 8
   CurrentAgentCount: 0
   AssociatedNode: {fileID: 1894677173}
+  BaseUpkeepCost: 0
+  ModUpkeepCost: 1
   UpkeepCost: 0
   myWarehouse: {fileID: 0}
   myBuildingRandomizer: {fileID: 0}
@@ -10888,7 +10904,7 @@ PrefabInstance:
     - target: {fileID: 5160226374194979869, guid: f3eac50afae36f64887ea84c417fb721,
         type: 3}
       propertyPath: IncomePerAgent
-      value: 0.35
+      value: 0.38
       objectReference: {fileID: 0}
     - target: {fileID: 5160226374194979869, guid: f3eac50afae36f64887ea84c417fb721,
         type: 3}
@@ -11321,6 +11337,16 @@ PrefabInstance:
         type: 3}
       propertyPath: BuyableBuildingsCollection.Array.data[3].ActiveForScenario
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
+        type: 3}
+      propertyPath: ShowVideoAtEnd
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9201387680897900231, guid: 804fa6138a8088249ad6429a6f67e03f,
+        type: 3}
+      propertyPath: VideoScene
+      value: OutroScene
       objectReference: {fileID: 0}
     - target: {fileID: 9201387680897900230, guid: 804fa6138a8088249ad6429a6f67e03f,
         type: 3}

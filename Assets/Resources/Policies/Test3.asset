@@ -18,8 +18,8 @@ MonoBehaviour:
   PolicyDescription: Reduce el tiempo de curacion en 40%
   Enabled: 0
   IsQuarantine: 0
-  UpkeepCost: 0
-  InitialCost: 60
+  UpkeepCost: 1
+  InitialCost: 0
   TransformBuildingSection:
     Enabled: 0
     BuildingToChange: 6

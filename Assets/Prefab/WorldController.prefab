@@ -448,10 +448,10 @@ MonoBehaviour:
   Buildings: []
   RoadSystem: []
   AgentCollection: []
-  NeedTreshhold: 120
+  NeedTreshhold: 220
   InfectedCellPerTic: 0.3
-  SeriousIllnessInfectionFactor: 1.6
-  IncomePerAgent: 1000
+  SeriousIllnessInfectionFactor: 1.25
+  IncomePerAgent: 0.38
   TotalBuildingUpkeepCost: 0
   TotalPolicyUpkeepCost: 0
   TotalAgentIncome: 0

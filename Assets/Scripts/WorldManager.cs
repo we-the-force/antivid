@@ -23,7 +23,7 @@ public class WorldManager : MonoBehaviour
     /// Determina despues de cuantos viajes un agente se contagia; si no ha recibido contagio de manera natural
     /// </summary>
     public int InfectionGuaranteedAfterNumberOfTravel;
-
+         
     public bool IsTutorial;
 
     //--- World Time (tic) logic declaration

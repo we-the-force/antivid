@@ -38,6 +38,8 @@ public class VideoController : MonoBehaviour
 
     IEnumerator PlayVideo()
     {
+        Debug.LogError("dentro de la escena del video ");
+
         videoPlayer.Play();
         yield return new WaitForSeconds(0.1f);
         do

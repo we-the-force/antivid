@@ -11,6 +11,9 @@ using UnityEditor;
 
 public class CanvasControl : MonoBehaviour
 {
+    public bool ShowVideoAtEnd;
+    public string VideoScene;
+
     public AudioManager audioManager;
 
     public Image happinessImage;
@@ -146,6 +149,7 @@ public class CanvasControl : MonoBehaviour
 
     public void Statistic(List<AgentController> fromPopulation)
     {
+        int totHealty = 0;
         int totSick = 0;
         int totDead = 0;
         int totInmune = 0;
@@ -155,8 +159,8 @@ public class CanvasControl : MonoBehaviour
             switch (fromPopulation[i].myStatus)
             {
                 case GlobalObject.AgentStatus.Healty:
-                    break;
                 case GlobalObject.AgentStatus.Inmune:
+                    totHealty++;
                     totInmune++;
                     break;
                 case GlobalObject.AgentStatus.Mild_Case:
@@ -170,7 +174,7 @@ public class CanvasControl : MonoBehaviour
             }
         }
 
-        txtTotPop.text = fromPopulation.Count.ToString();
+        txtTotPop.text = totHealty.ToString(); // fromPopulation.Count.ToString();
         txtDead.text = totDead.ToString();
         txtSick.text = totSick.ToString();
         txtInmune.text = totInmune.ToString();
@@ -345,7 +349,24 @@ public class CanvasControl : MonoBehaviour
 
     public void GoToMenu()
     {
-        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+        Debug.LogError("GotoMenu: " + ShowVideoAtEnd + " :: " + VideoScene);
+
+        if (ShowVideoAtEnd)
+        {
+            if (string.IsNullOrEmpty(VideoScene))
+            {
+                SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+            }
+            else
+            {
+                Debug.LogError("Va a cargar la escena del outro");
+                SceneManager.LoadScene(VideoScene, LoadSceneMode.Single);
+            }
+        }
+        else
+        {
+            SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+        }        
     }
 
     public void SetupCanvasSounds()
