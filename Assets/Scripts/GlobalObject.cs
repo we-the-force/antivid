@@ -25,7 +25,8 @@ public class GlobalObject
         Education,
         Wander, //--- Esta necesidad activa una accion idle del agente que lo lleva a deambular por las calles nomas asi, selecciona un tile de camino al azar y se mueve para alla
         None,
-        Travel
+        Travel,
+        Currency_Not_a_need
     }
 
     [System.Serializable]
@@ -51,7 +52,8 @@ public class GlobalObject
         SecondStage,
         Vaccine40percent,
         Vaccine50percent,
-        VaccineCompleted
+        VaccineCompleted,
+        None
     }
 
     [System.Serializable]

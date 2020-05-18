@@ -12,6 +12,7 @@ public class AnnouncementWindow : MonoBehaviour
     public List<SpecialEventObject> SpecialEventsCollection;
 
     public Text EventDescription;
+    public Text EventEffectDescription;
 
     public GameObject SpecialEventIcon;
 
@@ -138,40 +139,54 @@ public class AnnouncementWindow : MonoBehaviour
         }
 
         currentRandomEventChance = randomEventChance;
-
-        //--- a partir de aqui si muestra y aplica la ventana del evento
-        //--- Se pone el juego en pausa
-        //WorldManager.instance.ChangeTimeScale(0);
-        WorldManager.instance.Pause(true);
-
         currentCooldown = 0;
 
         int rnd = Random.Range(0, EventsCollection.Count);
 
-        EventDescription.text = EventsCollection[rnd].Description;
-
-        //-- Se aplican los valores relacionados al evento
-        for (int i = 0; i < WorldAgentController.instance.AgentCollection.Count; i++)
+        if (!EventsCollection[rnd].RandomEventIsActive)
         {
-            if (EventsCollection[rnd].Need == GlobalObject.NeedScale.HealtCare)
-            {
-                WorldAgentController.instance.AgentCollection[i].AddContagion(EventsCollection[rnd].Value, false);
-            }
-            else
+            return;
+        }
+        //--- a partir de aqui si muestra y aplica la ventana del evento
+        //--- Se pone el juego en pausa
+        //WorldManager.instance.ChangeTimeScale(0);
+        WorldManager.instance.Pause(true);
+        
+        EventDescription.text = EventsCollection[rnd].Description;
+        EventEffectDescription.text = EventsCollection[rnd].EffectDescrption;
+        //-- Se aplican los valores relacionados al evento
+               
+        if (EventsCollection[rnd].Need == GlobalObject.NeedScale.Currency_Not_a_need)
+        {
+            CurrencyManager.Instance.CurrentCurrency += EventsCollection[rnd].Value;
+        }
+        else
+        {
+            for (int i = 0; i < WorldAgentController.instance.AgentCollection.Count; i++)
             {
                 AgentController _agent = WorldAgentController.instance.AgentCollection[i];
-                for (int j = 0; j < _agent.myNeedList.Count; j++)
+
+                if (EventsCollection[rnd].Need == GlobalObject.NeedScale.HealtCare)
                 {
-                    if (_agent.myNeedList[j].Need == EventsCollection[rnd].Need)
+                    float _healthValue = _agent.PorcentageContagio * EventsCollection[rnd].Value;
+                    WorldAgentController.instance.AgentCollection[i].AddContagion(EventsCollection[rnd].Value, false);
+                }
+                else
+                {
+                    for (int j = 0; j < _agent.myNeedList.Count; j++)
                     {
-                        _agent.myNeedList[j].CurrentPercentage -= EventsCollection[rnd].Value;
-                        if (_agent.myNeedList[j].CurrentPercentage < 0)
-                            _agent.myNeedList[j].CurrentPercentage = 0;
-                        break;
+                        if (_agent.myNeedList[j].Need == EventsCollection[rnd].Need)
+                        {
+                            _agent.myNeedList[j].CurrentPercentage -= EventsCollection[rnd].Value;
+                            if (_agent.myNeedList[j].CurrentPercentage < 0)
+                                _agent.myNeedList[j].CurrentPercentage = 0;
+                            break;
+                        }
                     }
                 }
             }
         }
+
 
         //--- Escondiendo la UI
         CanvasControl.instance.ShowHideUI(false);
@@ -189,11 +204,15 @@ public class AnnouncementWindow : MonoBehaviour
 [System.Serializable]
 public class SpecialEventObject
 {
+    public bool RandomEventIsActive = true;
+
     public GlobalObject.SpecialEventName specialEventName;
     public GlobalObject.NeedScale Need;
     public string Name;
+    public string EffectDescrption;
     public string Description;
     public float Value;
+    public bool isPercentage;
     public bool done;
     public bool availableOnQuarentine;
 

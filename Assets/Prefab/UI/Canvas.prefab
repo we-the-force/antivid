@@ -3562,7 +3562,7 @@ RectTransform:
   - {fileID: 3490577459621149422}
   - {fileID: 5270187932297811000}
   m_Father: {fileID: 1502108266312050019}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6171,7 +6171,7 @@ RectTransform:
   - {fileID: 463336579962937876}
   - {fileID: 7194676814275074279}
   m_Father: {fileID: 1502108266312050019}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8230,6 +8230,7 @@ RectTransform:
   - {fileID: 4993383252064793914}
   - {fileID: 4037036681112441032}
   - {fileID: 8232320897240557742}
+  - {fileID: 6413541571532704853}
   - {fileID: 1367779663450238136}
   - {fileID: 5673882637659907902}
   - {fileID: 1974960828098941971}
@@ -8264,30 +8265,80 @@ MonoBehaviour:
   - {fileID: 6894237346403712549}
   - {fileID: 9121948741851166665}
   EventsCollection:
-  - specialEventName: 0
+  - specialEventName: 7
     Need: 3
     Name: Maraton
-    Description: Se ha realizado el maraton mas grande en la historia de nuestra ciudad.
-      La gente esta mas saludable que nunca!
-    Value: 20
+    EffectDescrption: 20% de reduccion de avance de contagio
+    Description: Una oleada de entusiasmo a impulsado a realizar ejercicio en casa,
+      reforzando la salud general
+    Value: 0.2
+    isPercentage: 1
     done: 0
     availableOnQuarentine: 0
     NewAvailablePolicieID: 
-  - specialEventName: 0
+  - specialEventName: 7
     Need: 2
     Name: Cine
-    Description: Los estudios de cine Miniwood estaran proyectando su catalogo a traves
-      de la red
-    Value: 70
+    EffectDescrption: Necesidad de entretenimiento reducida en 70% durante este ciclo
+    Description: "Los principales canales estar\xE1n transmitiendo sus catalogos de
+      peliculas de manera gratuita"
+    Value: 0.7
+    isPercentage: 1
     done: 0
     availableOnQuarentine: 1
     NewAvailablePolicieID: 
-  - specialEventName: 0
+  - specialEventName: 7
     Need: 4
     Name: Cursos Online
+    EffectDescrption: Necesidad de educacion reducida en 60%
     Description: La Universidad Estatal esta regalando cursos online en diversos temas.
       Es el mejor momento para aprender
+    Value: 0.6
+    isPercentage: 1
+    done: 0
+    availableOnQuarentine: 1
+    NewAvailablePolicieID: 
+  - specialEventName: 7
+    Need: 7
+    Name: Viajes
+    EffectDescrption: Necesidad de viajar reducida en 80%
+    Description: La popularizacion de tecnologias de realidad virtual ha permitido
+      realizar viajes virtuales
+    Value: 0.8
+    isPercentage: 1
+    done: 0
+    availableOnQuarentine: 1
+    NewAvailablePolicieID: 
+  - specialEventName: 7
+    Need: 8
+    Name: Currency
+    EffectDescrption: Recepcion de $150
+    Description: Un esfuerzo de donativos ha resultado en una inyeccion de capital
+      inesperada
+    Value: 150
+    isPercentage: 0
+    done: 0
+    availableOnQuarentine: 1
+    NewAvailablePolicieID: 
+  - specialEventName: 7
+    Need: 8
+    Name: Currency
+    EffectDescrption: Recepcion de $50
+    Description: Un esfuerzo de donativos ha resultado en una inyeccion de capital
+      inesperada
     Value: 50
+    isPercentage: 0
+    done: 0
+    availableOnQuarentine: 1
+    NewAvailablePolicieID: 
+  - specialEventName: 7
+    Need: 8
+    Name: Currency
+    EffectDescrption: Perdida de $25 en capital
+    Description: Se ha registrado una perdida de capital debido a un aumento de precio
+      de diversos insumos
+    Value: -25
+    isPercentage: 0
     done: 0
     availableOnQuarentine: 1
     NewAvailablePolicieID: 
@@ -8295,68 +8346,83 @@ MonoBehaviour:
   - specialEventName: 0
     Need: 6
     Name: PrimerInfectado
+    EffectDescrption: 
     Description: "Hoy ha sido descubierto un caso de enfermedad que no se habia visto
       antes, Se estima que los investigadores podr\xE1n comenzar a desarrollar una
       vacuna en"
     Value: 0
+    isPercentage: 0
     done: 0
     availableOnQuarentine: 0
     NewAvailablePolicieID: 
   - specialEventName: 1
     Need: 6
     Name: InicioVacuna
+    EffectDescrption: 
     Description: Un grupo de investigadores esta realizando estudios para crear la
       vacuna que dara fin a esta enfermedad
     Value: 0
+    isPercentage: 0
     done: 0
     availableOnQuarentine: 0
     NewAvailablePolicieID: 
   - specialEventName: 2
     Need: 6
     Name: PrimerEtapa
+    EffectDescrption: 
     Description: Se recomienda a las personas tener menor contacto, asi como respetar
       las medidas establecidas por los expertos
     Value: 0
+    isPercentage: 0
     done: 0
     availableOnQuarentine: 0
     NewAvailablePolicieID: 
   - specialEventName: 3
     Need: 6
     Name: SegundaEtapa
+    EffectDescrption: 
     Description: Es recomendable no salir de sus casas a menos de que sea realmente
       necesario
     Value: 0
+    isPercentage: 0
     done: 0
     availableOnQuarentine: 0
     NewAvailablePolicieID: 00000000
   - specialEventName: 5
     Need: 6
     Name: Vacuna50
+    EffectDescrption: 
     Description: La vacuna esta al 50 porciento de ser encontrada, hay mejor tratamiento
       para la enfermedad
     Value: 0
+    isPercentage: 0
     done: 0
     availableOnQuarentine: 0
     NewAvailablePolicieID: 04000000
   - specialEventName: 4
     Need: 6
     Name: Vacuna40
+    EffectDescrption: 
     Description: Las medidas implementadas han hecho posible tener hospitales improvisados
       y mejores tratamientos
     Value: 0
+    isPercentage: 0
     done: 0
     availableOnQuarentine: 0
     NewAvailablePolicieID: 01000000
   - specialEventName: 6
     Need: 6
     Name: Vacuna completada
+    EffectDescrption: 
     Description: La vacuna ha sido encontrada! En este momento se esta aplicando en
       la poblacion, hemos vencido esta enfermedad!
     Value: 0
+    isPercentage: 0
     done: 0
     availableOnQuarentine: 0
     NewAvailablePolicieID: 
   EventDescription: {fileID: 5722662597646324682}
+  EventEffectDescription: {fileID: 2422298287138034167}
   SpecialEventIcon: {fileID: 5680841419159163105}
   randomEventChance: 0.1
   CyclesCooldown: 3
@@ -11919,7 +11985,7 @@ RectTransform:
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 1502108266312050019}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -12560,7 +12626,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1502108266312050019}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -15050,7 +15116,7 @@ RectTransform:
   - {fileID: 3498790794694371866}
   - {fileID: 1002105036358590228}
   m_Father: {fileID: 1502108266312050019}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -15650,7 +15716,7 @@ RectTransform:
   - {fileID: 7027513705814076497}
   - {fileID: 7544017793324119056}
   m_Father: {fileID: 1502108266312050019}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -16664,7 +16730,7 @@ RectTransform:
   - {fileID: 3079511991959553846}
   - {fileID: 2716876510781933394}
   m_Father: {fileID: 1502108266312050019}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -17389,6 +17455,84 @@ RectTransform:
   m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &8419847107027107273
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6413541571532704853}
+  - component: {fileID: 1007970189269970632}
+  - component: {fileID: 2422298287138034167}
+  m_Layer: 5
+  m_Name: msgEffectText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &6413541571532704853
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8419847107027107273}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1502108266312050019}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -39.3, y: -121.04}
+  m_SizeDelta: {x: -426, y: -315.66}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1007970189269970632
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8419847107027107273}
+  m_CullTransparentMesh: 0
+--- !u!114 &2422298287138034167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8419847107027107273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: d04aec11f5dd0be489d37c1db4047c53, type: 3}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 1
+    m_MinSize: 10
+    m_MaxSize: 18
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "nuevo texto de anuncio nadie sabe lo que va a decir ese texto y cuanto
+    tama\xF1o va a ocupar"
 --- !u!1 &8506628080845861732
 GameObject:
   m_ObjectHideFlags: 0
