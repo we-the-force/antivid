@@ -48,7 +48,7 @@ public class WorldManager : MonoBehaviour
     public int currentTimeCycle = 0;
 
      IEnumerator TICManager()
-    {
+     {
         float _seconds = 1;
 
         while (true)
@@ -69,7 +69,8 @@ public class WorldManager : MonoBehaviour
                 CanvasControl.instance.Statistic(WorldAgentController.instance.AgentCollection);
             }
         }
-    }
+     }
+
     public void Pause(bool pause)
     {
         if (pause)
@@ -98,6 +99,15 @@ public class WorldManager : MonoBehaviour
 
         int idx = Mathf.RoundToInt(_scale * 2);
         CanvasControl.instance.SpeedActiveButton(idx);
+
+        if (_scale == 0)
+        {
+            CanvasControl.instance.BackToMenuButton.SetActive(true);
+        }
+        else
+        {
+            CanvasControl.instance.BackToMenuButton.SetActive(false);
+        }
     }
     //-----
 
@@ -324,6 +334,11 @@ public class WorldManager : MonoBehaviour
         }
 
         StartCoroutine("TICManager");
+
+        if (IsTutorial)
+        {
+            CanvasControl.instance.ShowTutorialOverlay();
+        }
     }
 
     private void ResetConnectionArray(out int[,] connectionArray, int rank)

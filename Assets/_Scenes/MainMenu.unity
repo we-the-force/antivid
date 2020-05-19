@@ -3282,7 +3282,7 @@ MonoBehaviour:
   - ScenarioName: Centro historico
     ScenarioDescription: Los servicios estan centrados en este pueblo
     ScenarioSceneName: sc05_Centric
-    TotalPopulation: 105
+    TotalPopulation: 100
     StartingHospitals: 0
     StartingFoodBuildings: 0
     StartingEntertainmentBuildings: 0
@@ -4325,7 +4325,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 202}
+  m_AnchoredPosition: {x: 0, y: 74}
   m_SizeDelta: {x: 524.4, y: 145.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1301044758
@@ -6824,16 +6824,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
-    - target: {fileID: 7738361139627731860, guid: 90deb1780c6823d41b3cf044eec6cf53,
-        type: 3}
-      propertyPath: bgmClip
-      value: 
-      objectReference: {fileID: 8300000, guid: bd866e06966ec2d44b91157285f8d619, type: 3}
-    - target: {fileID: 7738361139627731860, guid: 90deb1780c6823d41b3cf044eec6cf53,
-        type: 3}
-      propertyPath: startBGMOnAwake
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7738361139627731863, guid: 90deb1780c6823d41b3cf044eec6cf53,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6888,6 +6878,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7738361139627731860, guid: 90deb1780c6823d41b3cf044eec6cf53,
+        type: 3}
+      propertyPath: bgmClip
+      value: 
+      objectReference: {fileID: 8300000, guid: bd866e06966ec2d44b91157285f8d619, type: 3}
+    - target: {fileID: 7738361139627731860, guid: 90deb1780c6823d41b3cf044eec6cf53,
+        type: 3}
+      propertyPath: startBGMOnAwake
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7738361139577112433, guid: 90deb1780c6823d41b3cf044eec6cf53,
         type: 3}

@@ -11,6 +11,8 @@ using UnityEditor;
 
 public class CanvasControl : MonoBehaviour
 {
+    public GameObject BackToMenuButton;
+
     public bool ShowVideoAtEnd;
     public string VideoScene;
 
@@ -127,6 +129,8 @@ public class CanvasControl : MonoBehaviour
 
     public void RearangeElements(float _aspect)
     {
+        return;
+
         if (_aspect < 2f)
         {
             panelPopInfo.anchoredPosition = new Vector2(23, -22);
@@ -312,6 +316,8 @@ public class CanvasControl : MonoBehaviour
         UIElements.SetActive(show);
     }
 
+
+
     private void ChangeWindowOpenStatus()
     {
         Debug.LogError("Entrando a cambair el statos de la ventanta");
@@ -331,22 +337,12 @@ public class CanvasControl : MonoBehaviour
 
     public void OnVaccineCostChange()
     {
-        _costoTXT.text = VaccineManager.Instance.vaccineCost().ToString();
+        _costoTXT.text = "$ " + VaccineManager.Instance.vaccineCost().ToString();
     }
 
-    public TutorialWindow myTutorialWindow;
-
-    public void ShowTutorial(TutorialItem item)
+    public void BackToMenu()
     {
-        if (myTutorialWindow == null)
-            return;
-
-        WorldManager.instance.Pause(true);
-        ShowHideUI(false);
-
-
-        //--- mostrar mi ventana de tutorial
-        myTutorialWindow.ShowWindow(item);
+        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }
 
     public void GoToMenu()
@@ -443,6 +439,64 @@ public class CanvasControl : MonoBehaviour
     void PlayHideMenu()
     {
         audioManager.Play(audioManager.HideWindow);
+    }
+
+    //---- TUTORIALES
+
+    public TutorialWindow myTutorialWindow;
+    public void ShowTutorial(TutorialItem item)
+    {
+        if (myTutorialWindow == null)
+            return;
+
+        WorldManager.instance.Pause(true);
+        ShowHideUI(false);
+
+
+        //--- mostrar mi ventana de tutorial
+        myTutorialWindow.ShowWindow(item);
+    }
+
+    public GameObject TutorialOverlayWindow;
+    public List<GameObject> OverlayCollection;
+    public int CurrentOverlay;
+
+    public void ShowTutorialOverlay()
+    {
+        WindowOpen = true;
+        WorldManager.instance.Pause(true);
+
+        CurrentOverlay = 0;
+
+        TutorialOverlayWindow.SetActive(true);
+
+        ShowNextOverlay();
+    }
+
+    public void ShowNextOverlay()
+    {
+        CloseAllOverlay();
+
+        if (CurrentOverlay >= OverlayCollection.Count)
+        {
+            //--- ha llegado al ultimo overlay, cerrar
+            WorldManager.instance.Pause(false);
+            TutorialOverlayWindow.SetActive(false);
+
+            Invoke("ChangeWindowOpenStatus", 0.1f);
+            return;
+        }
+
+        OverlayCollection[CurrentOverlay].SetActive(true);
+        CurrentOverlay++;
+    }
+
+    public void CloseAllOverlay()
+    {
+        for(int i=0;i<OverlayCollection.Count;i++)
+        {
+            OverlayCollection[i].SetActive(false);
+        }
     }
 }
 
