@@ -647,6 +647,8 @@ MonoBehaviour:
   BaseAgentCapacity: 10
   CurrentAgentCount: 0
   AssociatedNode: {fileID: 0}
+  BaseUpkeepCost: 0
+  ModUpkeepCost: 1
   UpkeepCost: 0.1
   myWarehouse: {fileID: 0}
   myBuildingRandomizer: {fileID: 0}
@@ -2116,7 +2118,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 9596a5cf3afa8bd43896f9d2fd50b445,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.205
+      value: 0.23
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 9596a5cf3afa8bd43896f9d2fd50b445,
         type: 3}

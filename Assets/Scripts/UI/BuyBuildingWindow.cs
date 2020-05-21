@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class BuyBuildingWindow : MonoBehaviour
 {
+    public Text txtButtonBuy;
+    private bool CanBuy;
+
     public RectTransform optionContainer;
 
     // Start is called before the first frame update
@@ -42,12 +45,24 @@ public class BuyBuildingWindow : MonoBehaviour
         _building = i;
 
         Debug.LogError("SELECCIONADO " + i.ToString());
+
+        float _cost = CanvasControl.instance.BuyableBuildingsCollection[i].Cost;
+
+        txtButtonBuy.text = "Compar Edificio";
+        txtButtonBuy.color = Color.white;
+        CanBuy = true;
+        if (_cost > CurrencyManager.Instance.CurrentCurrency)
+        {
+            CanBuy = false;
+            txtButtonBuy.text = "Fondos Insuficientes";
+            txtButtonBuy.color = Color.red;
+        }
         
         txtTitulo.text = CanvasControl.instance.BuyableBuildingsCollection[i].Name;
         txtTiempos.text = CanvasControl.instance.BuyableBuildingsCollection[i].TimeToBuild.ToString();
-        txtCostos.text = CanvasControl.instance.BuyableBuildingsCollection[i].Cost.ToString();
+        txtCostos.text = _cost.ToString();
         txtDescripcion.text = CanvasControl.instance.BuyableBuildingsCollection[i].Description;
-                
+
         /*
         txtTiempos.text = Titulos[i];
         txtDescripcion.text = Descripciones[i];
@@ -58,6 +73,9 @@ public class BuyBuildingWindow : MonoBehaviour
 
     public void BuySelected()
     {
+        if (!CanBuy)
+            return;
+
         Debug.LogError("COMPRANDO " + _building.ToString());
         _selectedBuyablePlot.BuyBuilding(_building);
         CloseWindow();

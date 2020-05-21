@@ -113,18 +113,21 @@ public class CanvasControl : MonoBehaviour
         }
 
         BuildWindow.optionContainer.sizeDelta = new Vector2(BuildWindow.optionContainer.sizeDelta.x, posY);
-        
+
         //----
-
-
-        SetupCanvasSounds();
-        audioManager.ChangeBGM(audioManager.DiamondDust);
+        SoundsAndMusic();
     }
     public RectTransform panelPopInfo;
     public RectTransform panelCurrencyInfo;
     public RectTransform panelSpeedControl;
     public RectTransform panelCameraControl;
     public RectTransform panelButtons;
+
+    private void SoundsAndMusic()
+    {
+        SetupCanvasSounds();
+        audioManager.ChangeBGM(audioManager.DiamondDust);
+    }
 
 
     public void RearangeElements(float _aspect)
@@ -380,7 +383,10 @@ public class CanvasControl : MonoBehaviour
         for (int i = 0; i < speed.childCount; i++)
         {
             Button asd = speed.GetChild(i).GetComponent<Button>();
-            asd.onClick.AddListener(() => audioManager.Play(audioManager.MenuClick));
+            if (asd != null)
+            {
+                asd.onClick.AddListener(() => audioManager.Play(audioManager.MenuClick));
+            }            
         }
     }
     void SetupCameraControls()

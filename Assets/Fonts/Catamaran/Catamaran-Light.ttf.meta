@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d04aec11f5dd0be489d37c1db4047c53
+guid: 20578293e743b1d45876905d1e4ca639
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -8,9 +8,9 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: Berlin Sans FB Demi
+  fontName: Catamaran
   fontNames:
-  - Berlin Sans FB Demi
+  - Catamaran
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ed62799f81f12d94682e7c68204f6a1c
+guid: 35e156cce4fc5144b8725b1b96a040df
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -8,10 +8,11 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: Berlin Sans FB
+  fontName: Catamaran
   fontNames:
-  - Berlin Sans FB
-  fallbackFontReferences: []
+  - Catamaran
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 20578293e743b1d45876905d1e4ca639, type: 3}
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1
