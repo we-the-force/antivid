@@ -49,6 +49,7 @@ public class MainMenuCanvas : MonoBehaviour
     {
         txtVersion.text = "ver. " + Application.version.ToString();
 
+        currentLevel = 0;
         StartCoroutine(SetupScenarioButtons());
     }
 
@@ -72,24 +73,26 @@ public class MainMenuCanvas : MonoBehaviour
             GameObject obj = Instantiate(ScenarioButtonPrefab, ScenarioAnchor);
 
             ScenarioSelector selector = obj.GetComponent<ScenarioSelector>();
-            selector.scenarioName.text = ScenarioCollection[i].ScenarioName;
+            //selector.scenarioName.text = ScenarioCollection[i].ScenarioName;
             selector.picture.sprite = ScenarioCollection[i].ScenarioImg;
 
             RunScore _runScore = SaveManager.Instance.GetBestRun(ScenarioCollection[i].ScenarioSceneName);
             ScenarioCollection[i].MaxScore = _runScore.score;
             ScenarioCollection[i].MaxRanking = _runScore.rank;
 
-            selector.ID = i;
+            //selector.ID = i;
 
-            selector.myCanvas = this;
+            //selector.myCanvas = this;
 
-            Button objButt = obj.transform.GetChild(0).Find("Button").GetComponent<Button>();
-            objButt.onClick.AddListener(delegate { AudioManager.Instance.Play(menuClick); });
+            //Button objButt = obj.transform.GetChild(0).Find("Button").GetComponent<Button>();
+            //objButt.onClick.AddListener(delegate { AudioManager.Instance.Play(menuClick); });
             //obj.transform.GetChild(i).GetChild(0).Find("Button").GetComponent<Button>().onClick.AddListener(delegate { AudioManager.Instance.Play(menuOpen); });
 
             RectTransform rct = obj.GetComponent<RectTransform>();
-            rct.anchoredPosition = new Vector2(35 + (rct.sizeDelta.x * i) + (60 * i), 0);
+            rct.anchoredPosition = new Vector2(rct.sizeDelta.x * i, 0);
         }
+
+        ShowInfo(currentLevel);
     }
 
     private void SetIcon(GameObject obj, Text txt, int qty)
@@ -151,7 +154,7 @@ public class MainMenuCanvas : MonoBehaviour
 
         RankingObject.SetActive(_showRankingObj);
 
-        infoProfileImage.sprite = ScenarioCollection[_id].ScenarioImg;
+        //infoProfileImage.sprite = ScenarioCollection[_id].ScenarioImg;
 
         SetIcon(IconHospital, txtHospital, ScenarioCollection[_id].StartingHospitals);
         SetIcon(IconEntertainment, txtEntertainment, ScenarioCollection[_id].StartingEntertainmentBuildings);
@@ -187,12 +190,25 @@ public class MainMenuCanvas : MonoBehaviour
     private int _heading;
 
     public bool moving = false;
+
+    private int currentLevel;
+
     public void MovePanel(int heading)
     {
         if (moving)
             return;
 
+        if (heading == 1 && currentLevel == 0)
+            return;
+
+        if (heading == -1 && currentLevel == ScenarioCollection.Count - 1)
+            return;
+               
+        InfoWindow.SetActive(false);
+
         _heading = heading;
+
+        currentLevel += (_heading * -1);
         moving = true;
         StartCoroutine("doMove");
     }
@@ -205,14 +221,16 @@ public class MainMenuCanvas : MonoBehaviour
         Vector2 scenarioNextAnchorPos = scenarioAnchorPos;
         Vector2 scenarioEndAnchorPos = scenarioAnchorPos;
 
+        /*
         if ((_heading == -1 && scenarioAnchorPos.x <= maxLeft) || (_heading == 1 && scenarioAnchorPos.x >= 0))
         {
             moving = false;
             yield break;
         }
+        */
 
-        float movePortion = step * 4f;
-        if (_heading == -1)
+        float movePortion = step;
+        /*if (_heading == -1)
         {
             if ((scenarioAnchorPos.x - movePortion) < maxLeft)
             {
@@ -225,7 +243,7 @@ public class MainMenuCanvas : MonoBehaviour
             {
                 movePortion = Mathf.Abs(scenarioAnchorPos.x);
             }
-        }
+        }*/
 
         scenarioEndAnchorPos.x += movePortion * _heading;
 
@@ -237,6 +255,10 @@ public class MainMenuCanvas : MonoBehaviour
             {
                 rect.anchoredPosition = scenarioEndAnchorPos;
                 moving = false;
+
+                ShowInfo(currentLevel);
+
+                InfoWindow.SetActive(true);
                 break;
             }
 

@@ -1535,9 +1535,9 @@ TextureImporter:
       name: Stat_Tab2
       rect:
         serializedVersion: 2
-        x: 1041
+        x: 1038
         y: 4
-        width: 79
+        width: 498
         height: 624
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -1556,9 +1556,9 @@ TextureImporter:
       name: Stat_Tab1
       rect:
         serializedVersion: 2
-        x: 1547
+        x: 1544
         y: 4
-        width: 79
+        width: 498
         height: 624
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -2191,7 +2191,7 @@ TextureImporter:
         width: 150
         height: 150
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2212,7 +2212,7 @@ TextureImporter:
         width: 82
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2233,7 +2233,7 @@ TextureImporter:
         width: 82
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

@@ -86,6 +86,33 @@ TextureImporter:
   - first:
       213: -7613073183122086192
     second: ScenarioElementBG_notsliced
+  - first:
+      213: -5061160613349069182
+    second: btnIzquierda
+  - first:
+      213: -1450880396135118937
+    second: btnIzquierda_Over
+  - first:
+      213: -8519193437418547546
+    second: btnDerecha
+  - first:
+      213: 7390258450421090110
+    second: btnDerecha_Over
+  - first:
+      213: -9215475071178624023
+    second: interfaz2_0
+  - first:
+      213: -6585277021683507140
+    second: interfaz2_1
+  - first:
+      213: 7619986811584247189
+    second: interfaz2_2
+  - first:
+      213: -6581227795722644620
+    second: btnIniciar
+  - first:
+      213: -8072942904200460721
+    second: btnIniciar_Over
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -220,7 +247,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 1467
-        width: 830
+        width: 829
         height: 581
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -236,34 +263,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: btnOpciones
-      rect:
-        serializedVersion: 2
-        x: 880
-        y: 1923
-        width: 471
-        height: 121
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 63936a53e6b5ea9448c55bcca4b6ca15
-      internalID: -3301986524495060843
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: btnInicio
       rect:
         serializedVersion: 2
-        x: 877
-        y: 1769
-        width: 473
-        height: 121
+        x: 956
+        y: 1782
+        width: 304
+        height: 114
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -281,10 +287,10 @@ TextureImporter:
       name: btnInicio_Over
       rect:
         serializedVersion: 2
-        x: 864
-        y: 1660
-        width: 215
-        height: 75
+        x: 829
+        y: 1651
+        width: 304
+        height: 114
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -294,27 +300,6 @@ TextureImporter:
       bones: []
       spriteID: 333b8e65465560c4c8738b718b6bce15
       internalID: 5020638478705818464
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: btnOpciones_Over
-      rect:
-        serializedVersion: 2
-        x: 869
-        y: 1558
-        width: 271
-        height: 70
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d913eca0b208b6a48829fe3a35e1a656
-      internalID: -6491366197105945481
       vertices: []
       indices: 
       edges: []
@@ -470,9 +455,9 @@ TextureImporter:
       name: Logo_BG
       rect:
         serializedVersion: 2
-        x: 23
+        x: 1
         y: 476
-        width: 465
+        width: 508
         height: 987
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -483,279 +468,6 @@ TextureImporter:
       bones: []
       spriteID: b6c1be54b9f4c6c48ad097b9421073f4
       internalID: -1725980309758945567
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BG_WindowScenario
-      rect:
-        serializedVersion: 2
-        x: 1453
-        y: 15
-        width: 566
-        height: 1239
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5b6e8ecf2b4f63b429945a24e190b9db
-      internalID: 2556831910848183544
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Scenario_Portrait
-      rect:
-        serializedVersion: 2
-        x: 17
-        y: 19
-        width: 445
-        height: 456
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5fd13f2ccb8e3cb478650290c02d9449
-      internalID: 8364169177240026146
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Scenario_Button
-      rect:
-        serializedVersion: 2
-        x: 594
-        y: 481
-        width: 446
-        height: 110
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 75e0f1a8296dfbb4c9492bbf417017bf
-      internalID: -6692505356708615954
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Scenario_Element
-      rect:
-        serializedVersion: 2
-        x: 1057
-        y: 500
-        width: 251
-        height: 71
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 33, y: 29, z: 36, w: 30}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 219003a7268fa614baec22ff98d2a432
-      internalID: -1966338653868890389
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Scenario_Button_Slider
-      rect:
-        serializedVersion: 2
-        x: 989
-        y: 611
-        width: 366
-        height: 122
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 151b79b946fd4e34196b2c098a4ce28b
-      internalID: 4659132310050327954
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Scenario_BGElement_Yellow
-      rect:
-        serializedVersion: 2
-        x: 1381
-        y: 1302
-        width: 269
-        height: 359
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 16f2923682da9784eb5b6bdf470efbcd
-      internalID: -5184356124174148067
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Scenario_BGElement_Purple
-      rect:
-        serializedVersion: 2
-        x: 1690
-        y: 1302
-        width: 269
-        height: 359
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b8b7b8e23eeb35a498e02c8ff8d907dd
-      internalID: 6795827144581760363
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Scenario_BGElement_Green
-      rect:
-        serializedVersion: 2
-        x: 1689
-        y: 1685
-        width: 269
-        height: 359
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6fcabbe2daed2ff4fb5296bf8678161f
-      internalID: -1289418925028010040
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Scenario_BGElement_Red
-      rect:
-        serializedVersion: 2
-        x: 1379
-        y: 1685
-        width: 269
-        height: 359
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5b9d65e6ceb697e4396fb3ac230d8ea6
-      internalID: 736645726570549652
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Scenario_BGElement_Shadow
-      rect:
-        serializedVersion: 2
-        x: 1197
-        y: 747
-        width: 249
-        height: 202
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 00329c589da35e8428516fef804d8c46
-      internalID: -5770770560438961318
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Scenario_BGElementMask
-      rect:
-        serializedVersion: 2
-        x: 1202
-        y: 962
-        width: 238
-        height: 190
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4fd1e3e1d0f8ee2499b4e31ee48abc1e
-      internalID: -4578469898019376110
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Scenario_Portrait_Mask
-      rect:
-        serializedVersion: 2
-        x: 473
-        y: 71
-        width: 385
-        height: 376
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9e2cb307fca2ccc478538f152375537f
-      internalID: -6831733948987416263
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Scenario_Portrait_Shadow
-      rect:
-        serializedVersion: 2
-        x: 870
-        y: 52
-        width: 387
-        height: 379
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8f0043fa00bfdfb44976c9a5440647d9
-      internalID: 1314067815213032389
       vertices: []
       indices: 
       edges: []
@@ -777,6 +489,195 @@ TextureImporter:
       bones: []
       spriteID: 123818814bf1e3d4cb5c6c64babce21d
       internalID: -7613073183122086192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btnIzquierda
+      rect:
+        serializedVersion: 2
+        x: 1534
+        y: 1832
+        width: 209
+        height: 216
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a58d624662ed5d544a538f7d8fb33d8d
+      internalID: -5061160613349069182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btnIzquierda_Over
+      rect:
+        serializedVersion: 2
+        x: 1752
+        y: 1832
+        width: 209
+        height: 216
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aaf341974dc3db645b5cf11cb271d951
+      internalID: -1450880396135118937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btnDerecha
+      rect:
+        serializedVersion: 2
+        x: 1752
+        y: 1615
+        width: 209
+        height: 216
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1235efbc32191b642a37fb0e8c429a0b
+      internalID: -8519193437418547546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btnDerecha_Over
+      rect:
+        serializedVersion: 2
+        x: 1534
+        y: 1615
+        width: 209
+        height: 216
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 424399232949fef4c9f5ec754e890849
+      internalID: 7390258450421090110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: interfaz2_0
+      rect:
+        serializedVersion: 2
+        x: 1304
+        y: 754
+        width: 210
+        height: 1294
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e3a2735a30a2464c8d7f591e72b8a2a
+      internalID: -9215475071178624023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: interfaz2_1
+      rect:
+        serializedVersion: 2
+        x: 1558
+        y: 460
+        width: 404
+        height: 1155
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 548386557a71e9c45bff14ef4a8ff356
+      internalID: -6585277021683507140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: interfaz2_2
+      rect:
+        serializedVersion: 2
+        x: 934
+        y: 291
+        width: 614
+        height: 417
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 823a5bd3d2cdb244996ea54b1a257d3c
+      internalID: 7619986811584247189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btnIniciar
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 47
+        width: 740
+        height: 238
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9ad225fc36a1064187d053072993f92
+      internalID: -6581227795722644620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btnIniciar_Over
+      rect:
+        serializedVersion: 2
+        x: 1223
+        y: 46
+        width: 740
+        height: 238
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d1874b1e73b3ab4c9b8ee9d7f22a7e8
+      internalID: -8072942904200460721
       vertices: []
       indices: 
       edges: []

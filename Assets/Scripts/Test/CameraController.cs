@@ -20,7 +20,7 @@ public class CameraController : MonoBehaviour
     float zoomSpeed = 5f;
     [SerializeField, Range(0.5f, 1f)]
     float minZoom;
-    [SerializeField, Range (3f, 10f)]
+    [SerializeField, Range (3f, 20f)]
     float maxZoom;
 
     [SerializeField]

@@ -437,7 +437,7 @@ MonoBehaviour:
   rotationSpeed: 2
   zoomSpeed: 5
   minZoom: 0.75
-  maxZoom: 7.5
+  maxZoom: 10
   currentRot: -45
   currentZoom: 10
   freeMovement: 0
