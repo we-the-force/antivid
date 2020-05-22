@@ -2592,10 +2592,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: aa37f8954f4e35d42b7314318187011e, type: 3}
-    m_FontSize: 14
+    m_FontSize: 30
     m_FontStyle: 0
-    m_BestFit: 1
-    m_MinSize: 10
+    m_BestFit: 0
+    m_MinSize: 3
     m_MaxSize: 40
     m_Alignment: 3
     m_AlignByGeometry: 0
@@ -2603,12 +2603,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Abre la ventana de investigacion de la Vacuna. Esta opcion esta disponible
-    algunos ciclos despues de registrarse el primer infectado.
-
-
-    En esa ventana es posible controlar la cantidad de recursos que se destinan a
-    la investigacion de la vacuna.'
+  m_Text: "Ventana de Investigaci\xF3n. Esta ventana est\xE1 disponible despu\xE9s
+    despu\xE9s de registrarse el primer infectado. Aqu\xED puedes controlar la cantidad
+    de recursos destinados a la investigaci\xF3n y producci\xF3n de la vacuna."
 --- !u!1 &437901520663153629
 GameObject:
   m_ObjectHideFlags: 0
@@ -2648,8 +2645,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 37.600098, y: -167.5}
-  m_SizeDelta: {x: -375, y: -521.2}
+  m_AnchoredPosition: {x: 40, y: -159}
+  m_SizeDelta: {x: -383.3, y: -501.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2768527917875973002
 CanvasRenderer:
@@ -2752,10 +2749,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: aa37f8954f4e35d42b7314318187011e, type: 3}
-    m_FontSize: 14
+    m_FontSize: 30
     m_FontStyle: 0
-    m_BestFit: 1
-    m_MinSize: 10
+    m_BestFit: 0
+    m_MinSize: 3
     m_MaxSize: 40
     m_Alignment: 3
     m_AlignByGeometry: 0
@@ -2763,9 +2760,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Este es un terreno disponible. Al interactuar con el, se abre la ventana
-    de compra de edificio, ahi es donde se adquieren los edificios para satisfacer
-    las necesidades de los habitantes de la ciudad
+  m_Text: "Terreno disponible. Al seleccionar este espacio, puedes construir edificios
+    que te ayudar\xE1n a satisfacer o atender las necesidades de los ciudadanos."
 --- !u!1 &554416901724931458
 GameObject:
   m_ObjectHideFlags: 0
@@ -3216,10 +3212,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: aa37f8954f4e35d42b7314318187011e, type: 3}
-    m_FontSize: 14
+    m_FontSize: 30
     m_FontStyle: 0
-    m_BestFit: 1
-    m_MinSize: 10
+    m_BestFit: 0
+    m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 3
     m_AlignByGeometry: 0
@@ -3227,7 +3223,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Estos son los controles de velocidad del juego
+  m_Text: 'Controles de velocidad. Puedes apresurar, normalizar o pausar el tiempo
+    dentro del juego. '
 --- !u!1 &711744773335358714
 GameObject:
   m_ObjectHideFlags: 0
@@ -3669,10 +3666,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: aa37f8954f4e35d42b7314318187011e, type: 3}
-    m_FontSize: 14
+    m_FontSize: 30
     m_FontStyle: 0
-    m_BestFit: 1
-    m_MinSize: 10
+    m_BestFit: 0
+    m_MinSize: 3
     m_MaxSize: 40
     m_Alignment: 3
     m_AlignByGeometry: 0
@@ -3680,8 +3677,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Abre la ventana de politicas. Las politicas ayudan a mantener un control
-    mas fino sobre los costos y eficiencia de los diferentes aspectos del juego
+  m_Text: "Ventana de Pol\xEDticas. Las pol\xEDticas ayudan a mantener la ciudad en
+    control, afectando de forma positiva o negativa los recursos generados y la felicidad
+    de los ciudadanos."
 --- !u!1 &825437488735390248
 GameObject:
   m_ObjectHideFlags: 0
@@ -3721,8 +3719,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -469.8, y: 57}
-  m_SizeDelta: {x: 514.7, y: -90}
+  m_AnchoredPosition: {x: -452.4, y: 62}
+  m_SizeDelta: {x: 479.9, y: -56.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7569126370759060247
 CanvasRenderer:
@@ -5212,8 +5210,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 241.85, y: 36.3}
-  m_SizeDelta: {x: 116.91, y: -128.59}
+  m_AnchoredPosition: {x: 251, y: 41.85}
+  m_SizeDelta: {x: 128.5, y: -83.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1940427728195653507
 CanvasRenderer:
@@ -5381,7 +5379,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -2.5000076, y: 1.0899963}
+  m_AnchoredPosition: {x: -2.5, y: 1.0899963}
   m_SizeDelta: {x: -21.41, y: -13.78}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2390606600191742172
@@ -5412,10 +5410,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: aa37f8954f4e35d42b7314318187011e, type: 3}
-    m_FontSize: 14
+    m_FontSize: 30
     m_FontStyle: 0
-    m_BestFit: 1
-    m_MinSize: 10
+    m_BestFit: 0
+    m_MinSize: 3
     m_MaxSize: 40
     m_Alignment: 3
     m_AlignByGeometry: 0
@@ -5423,7 +5421,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Cantidad de poblaci\xF3n muerta en la ciudad. "
+  m_Text: Ciudadanos muertos en la ciudad.
 --- !u!1 &1347988157915788595
 GameObject:
   m_ObjectHideFlags: 0
@@ -5610,8 +5608,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -187.7, y: -215.25}
-  m_SizeDelta: {x: 278.57, y: 136.39}
+  m_AnchoredPosition: {x: -304, y: -235}
+  m_SizeDelta: {x: 457.6, y: 169.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1202831606270950595
 CanvasRenderer:
@@ -5983,8 +5981,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -139.7, y: -231.7}
-  m_SizeDelta: {x: 199.7, y: 171}
+  m_AnchoredPosition: {x: -212.6, y: -231.7}
+  m_SizeDelta: {x: 345.5, y: 171}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5121684894494313169
 CanvasRenderer:
@@ -6283,8 +6281,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -189, y: -154.21002}
-  m_SizeDelta: {x: 298.19, y: 16.08}
+  m_AnchoredPosition: {x: -188, y: -154.2}
+  m_SizeDelta: {x: 26.4, y: 16.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6759811712838676686
 CanvasRenderer:
@@ -6387,10 +6385,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: aa37f8954f4e35d42b7314318187011e, type: 3}
-    m_FontSize: 14
+    m_FontSize: 30
     m_FontStyle: 0
-    m_BestFit: 1
-    m_MinSize: 10
+    m_BestFit: 0
+    m_MinSize: 3
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -6398,8 +6396,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Te nombramos responsable para manejar el contagio que se avecina, asi que
-    tendras acceso a los recursos completos de la ciudad
+  m_Text: "Necesitamos tu ayuda para resguardar esta ciudad de la terrible pandemia
+    as\xED que  te damos acceso a todos los recursos de la ciudad."
 --- !u!1 &1620571446141646771
 GameObject:
   m_ObjectHideFlags: 0
@@ -6513,8 +6511,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -376.6, y: -31}
-  m_SizeDelta: {x: 328.1, y: -128.6}
+  m_AnchoredPosition: {x: -437.9, y: -16.9}
+  m_SizeDelta: {x: 450.7, y: -100.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7119234537816628723
 CanvasRenderer:
@@ -7649,7 +7647,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 270}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 56.1, y: -2.9000015}
+  m_AnchoredPosition: {x: 174, y: -2.899994}
   m_SizeDelta: {x: 56.51, y: 22.4}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &1618464868285096971
@@ -8287,10 +8285,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: aa37f8954f4e35d42b7314318187011e, type: 3}
-    m_FontSize: 14
+    m_FontSize: 30
     m_FontStyle: 0
-    m_BestFit: 1
-    m_MinSize: 10
+    m_BestFit: 0
+    m_MinSize: 3
     m_MaxSize: 40
     m_Alignment: 3
     m_AlignByGeometry: 0
@@ -8298,8 +8296,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Abre la ventana de Graficas de Estadisticas del juego. En esa ventana es
-    posible ver el avance Economico y de Salud durante el escenario
+  m_Text: "Ventana de Estadisticas. Aqu\xED puedes ver el avance econ\xF3mico y de
+    salud de la partida."
 --- !u!1 &2119766920749930868
 GameObject:
   m_ObjectHideFlags: 0
@@ -8476,8 +8474,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 118, y: 136.8}
-  m_SizeDelta: {x: -14.7, y: -40.9}
+  m_AnchoredPosition: {x: 149.04999, y: 157.5}
+  m_SizeDelta: {x: 274.5, y: 0.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5868921237665963940
 CanvasRenderer:
@@ -8549,7 +8547,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 37.4, y: 2.0999985}
+  m_AnchoredPosition: {x: 37.4, y: 2.100006}
   m_SizeDelta: {x: 125, y: 22.400002}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &1642990431611006943
@@ -9439,6 +9437,80 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 130, y: 325}
   m_Pivot: {x: 1, y: 0}
+--- !u!1 &2393056005146490795
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1980530048260046553}
+  - component: {fileID: 7386668612026840803}
+  - component: {fileID: 2083657218162751041}
+  m_Layer: 5
+  m_Name: SoundBG
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1980530048260046553
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2393056005146490795}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_Children: []
+  m_Father: {fileID: 9201387680000882584}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 67.849976, y: -83}
+  m_SizeDelta: {x: 52.5, y: 52.5}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &7386668612026840803
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2393056005146490795}
+  m_CullTransparentMesh: 0
+--- !u!114 &2083657218162751041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2393056005146490795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -651291265482070882, guid: f6422be47d977644aa73d93de73dfe04,
+    type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &2393193761493807394
 GameObject:
   m_ObjectHideFlags: 0
@@ -10523,7 +10595,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 308, y: 4}
+  m_AnchoredPosition: {x: 242, y: 4}
   m_SizeDelta: {x: 73.3, y: 40.1}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &1681288870725805055
@@ -10627,10 +10699,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: aa37f8954f4e35d42b7314318187011e, type: 3}
-    m_FontSize: 14
+    m_FontSize: 30
     m_FontStyle: 0
-    m_BestFit: 1
-    m_MinSize: 10
+    m_BestFit: 0
+    m_MinSize: 3
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -10638,11 +10710,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Recuerda mantener contentos a los pobladores, cubriendo sus necesidades:
-    Comida, Educacion, Entretenimiento, Viajar.
-
-
-    Un pueblo contento es un pueblo sano!'
+  m_Text: "Recuerda  mantener a los ciudadanos sanos y felices, cubriendo sus necesidades
+    de comida, educaci\xF3n, entretenimiento. En fin, una ciudad sana es una ciudad
+    feliz."
 --- !u!1 &2745723723983752099
 GameObject:
   m_ObjectHideFlags: 0
@@ -11255,7 +11325,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 283.258}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 268.2, y: -4.0999756}
+  m_AnchoredPosition: {x: 156, y: -12}
   m_SizeDelta: {x: 162.9, y: 32.3}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &4721503553908758428
@@ -11812,7 +11882,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -2.5000076, y: 1.0899963}
+  m_AnchoredPosition: {x: -2.5000153, y: 1.0899963}
   m_SizeDelta: {x: -21.41, y: -13.78}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8163583205684552140
@@ -11843,10 +11913,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: aa37f8954f4e35d42b7314318187011e, type: 3}
-    m_FontSize: 14
+    m_FontSize: 30
     m_FontStyle: 0
-    m_BestFit: 1
-    m_MinSize: 10
+    m_BestFit: 0
+    m_MinSize: 3
     m_MaxSize: 40
     m_Alignment: 3
     m_AlignByGeometry: 0
@@ -11854,7 +11924,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Cantidad de poblaci\xF3n saludable en la ciudad. "
+  m_Text: Ciudadanos sanos en la ciudad.
 --- !u!1 &3096705414688692524
 GameObject:
   m_ObjectHideFlags: 0
@@ -12066,10 +12136,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: aa37f8954f4e35d42b7314318187011e, type: 3}
-    m_FontSize: 14
+    m_FontSize: 30
     m_FontStyle: 0
-    m_BestFit: 1
-    m_MinSize: 10
+    m_BestFit: 0
+    m_MinSize: 3
     m_MaxSize: 40
     m_Alignment: 3
     m_AlignByGeometry: 0
@@ -12077,8 +12147,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Estos son los controles de camara: rotacion izquierda, rotacion derecha,
-    centrar camara'
+  m_Text: "Controles de c\xE1mara. Puedes centrar, girar, acercar y alejar la c\xE1mara
+    como desees."
 --- !u!1 &3183476487819085668
 GameObject:
   m_ObjectHideFlags: 0
@@ -13593,8 +13663,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 37.600098, y: -167.5}
-  m_SizeDelta: {x: -375, y: -521.2}
+  m_AnchoredPosition: {x: 42, y: -126}
+  m_SizeDelta: {x: -466.2, y: -551}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1509478125598390455
 CanvasRenderer:
@@ -13783,6 +13853,135 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: New Text netextnetn netnetne tnetnoi  opkrpeo pokdepo kdpok apokdp okpaoke
     pdok poka dapok
+--- !u!1 &3682336968903381372
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2238876749454919213}
+  - component: {fileID: 4760584384593074889}
+  - component: {fileID: 7014628943370961139}
+  - component: {fileID: 2696513106744086868}
+  m_Layer: 5
+  m_Name: btnSound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2238876749454919213
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3682336968903381372}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.75, y: 1.75, z: 1}
+  m_Children: []
+  m_Father: {fileID: 9201387680000882584}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -14.4, y: -96.2}
+  m_SizeDelta: {x: 28.699999, y: 22.4}
+  m_Pivot: {x: 1, y: 1}
+--- !u!222 &4760584384593074889
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3682336968903381372}
+  m_CullTransparentMesh: 0
+--- !u!114 &7014628943370961139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3682336968903381372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 9114597606659912831, guid: f6422be47d977644aa73d93de73dfe04,
+    type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2696513106744086868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3682336968903381372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 7014628943370961139}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9201387680897900231}
+        m_MethodName: MuteSound
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3682999661947886213
 GameObject:
   m_ObjectHideFlags: 0
@@ -14591,8 +14790,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 241.85, y: -12}
-  m_SizeDelta: {x: 116.91, y: -128.59}
+  m_AnchoredPosition: {x: 265.1, y: -11}
+  m_SizeDelta: {x: 163.3, y: -84.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9068480832717305513
 CanvasRenderer:
@@ -16996,10 +17195,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: aa37f8954f4e35d42b7314318187011e, type: 3}
-    m_FontSize: 14
+    m_FontSize: 30
     m_FontStyle: 0
-    m_BestFit: 1
-    m_MinSize: 10
+    m_BestFit: 0
+    m_MinSize: 3
     m_MaxSize: 40
     m_Alignment: 3
     m_AlignByGeometry: 0
@@ -17007,10 +17206,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "La cantidad de recursos que dispones para afrontar la crisis. \n\nCada
-    ciclo economico se suman ingresos por cada habitante, al igual que por el uso
-    de los diferentes edificios, y se resta los costos relacionados con mantenimiento
-    de edificios, politicas e investigacion de vacuna"
+  m_Text: "Medidor de Recursos, muestra la cantidad de recursos generada por cada
+    ciclo del Avance Econ\xF3mico. Los ciudadanos y edificios construidos producen
+    un mayor n\xFAmero de recursos, el mantenimiento de edificios, pol\xEDticas e
+    investigaci\xF3n de la vacuna, restan recursos."
 --- !u!1 &4823480599921612389
 GameObject:
   m_ObjectHideFlags: 0
@@ -17196,8 +17395,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 241.85, y: -62}
-  m_SizeDelta: {x: 116.91, y: -128.59}
+  m_AnchoredPosition: {x: 259.2, y: -63}
+  m_SizeDelta: {x: 151.8, y: -83.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &297010812376540852
 CanvasRenderer:
@@ -17397,10 +17596,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: aa37f8954f4e35d42b7314318187011e, type: 3}
-    m_FontSize: 14
+    m_FontSize: 30
     m_FontStyle: 0
-    m_BestFit: 1
-    m_MinSize: 10
+    m_BestFit: 0
+    m_MinSize: 3
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -17408,11 +17607,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Y preparate, para que cuando llegue el contagio, tengas suficientes recursos
-    y hospitales para atender a los enfermos
-
-
-    BUENA SUERTE!'
+  m_Text: "Oh, casi lo olvidaba. Te aconsejo que te prepares con recursos y hospitales
+    para atender a los enfermos cuando llegue la pandemia, creeme que har\xE1n falta.
+    \r\nBueno, eso es todo por mi parte. Carl, confiamos en ti.\r\n"
 --- !u!1 &4954807763722900416
 GameObject:
   m_ObjectHideFlags: 0
@@ -18672,8 +18869,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 151, y: 159}
-  m_SizeDelta: {x: 143.05, y: -6.8}
+  m_AnchoredPosition: {x: 150, y: 161}
+  m_SizeDelta: {x: 237.5, y: -6.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4415713272532315683
 CanvasRenderer:
@@ -20201,7 +20398,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -77.3, y: 4}
+  m_AnchoredPosition: {x: -124, y: 4}
   m_SizeDelta: {x: 58.19, y: 40.08}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &2936310612495523943
@@ -20618,8 +20815,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -2, y: -157.2002}
-  m_SizeDelta: {x: -712.6, y: -541.7}
+  m_AnchoredPosition: {x: 0.000012398, y: -123}
+  m_SizeDelta: {x: -538.6, y: -550}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2964327959565365477
 CanvasRenderer:
@@ -22643,10 +22840,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: aa37f8954f4e35d42b7314318187011e, type: 3}
-    m_FontSize: 14
+    m_FontSize: 30
     m_FontStyle: 0
-    m_BestFit: 1
-    m_MinSize: 10
+    m_BestFit: 0
+    m_MinSize: 3
     m_MaxSize: 40
     m_Alignment: 3
     m_AlignByGeometry: 0
@@ -22654,10 +22851,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Muestra el nivel de felicidad que existe en el pueblo. Tiene 5 niveles:
-    Feliz, Contento, Neutral, Molesto, Enojo.  \n\nEste valor es calculado al inicio
-    de cada ciclo y afecta tanto los Recursos Generados como tambien la velocidad
-    de contagio."
+  m_Text: "Medidor de Felicidad, muestra el estado de los ciudadanos. Tiene 5 estados:
+    Felicidad, Alegr\xEDa, Aburrimiento, Frustraci\xF3n y Enojo.\r\nSeg\xFAn el estado
+    en que se encuentre el Medidor de Felicidad, afectar\xE1 a los recursos generados
+    cada ciclo del Avance Econ\xF3mico as\xED como la velocidad del contagio.\r"
 --- !u!1 &6878962437522588248
 GameObject:
   m_ObjectHideFlags: 0
@@ -22697,8 +22894,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 11.6, y: 238.13}
-  m_SizeDelta: {x: -55.69, y: -59.43}
+  m_AnchoredPosition: {x: 37.2, y: 245.6}
+  m_SizeDelta: {x: -4.3, y: -44.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2161939699146938857
 CanvasRenderer:
@@ -22957,8 +23154,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -269, y: 213}
-  m_SizeDelta: {x: 514.7, y: -90}
+  m_AnchoredPosition: {x: -197.7, y: 213}
+  m_SizeDelta: {x: 372.2, y: -90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3513983974078456670
 CanvasRenderer:
@@ -25048,7 +25245,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 270}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 223, y: -2.899994}
+  m_AnchoredPosition: {x: 290, y: -2.899994}
   m_SizeDelta: {x: 56.51, y: 22.4}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &4024949191922163157
@@ -27193,10 +27390,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: aa37f8954f4e35d42b7314318187011e, type: 3}
-    m_FontSize: 14
+    m_FontSize: 30
     m_FontStyle: 0
-    m_BestFit: 1
-    m_MinSize: 10
+    m_BestFit: 0
+    m_MinSize: 3
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -27204,7 +27401,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Hola Carl, y bienvenido a tu primer pueblo!
+  m_Text: Hola Carl, bienvenido.
 --- !u!1 &8357647089102209023
 GameObject:
   m_ObjectHideFlags: 0
@@ -28002,7 +28199,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -2.5, y: 1.0899963}
+  m_AnchoredPosition: {x: -2.4999847, y: 1.0899963}
   m_SizeDelta: {x: -21.41, y: -13.78}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9054267952494256052
@@ -28033,10 +28230,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: aa37f8954f4e35d42b7314318187011e, type: 3}
-    m_FontSize: 14
+    m_FontSize: 30
     m_FontStyle: 0
-    m_BestFit: 1
-    m_MinSize: 10
+    m_BestFit: 0
+    m_MinSize: 3
     m_MaxSize: 40
     m_Alignment: 3
     m_AlignByGeometry: 0
@@ -28044,7 +28241,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Muestra el avance de tiempo, representando un ciclo economico completo
+  m_Text: 'Avance Economico, cada ciclo produce un ingreso a la ciudad. '
 --- !u!1 &8584523819017094617
 GameObject:
   m_ObjectHideFlags: 0
@@ -28502,7 +28699,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -2.5000076, y: 1.0899963}
+  m_AnchoredPosition: {x: -2.5, y: 1.0899963}
   m_SizeDelta: {x: -21.41, y: -13.78}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5653369067697526567
@@ -28533,10 +28730,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: aa37f8954f4e35d42b7314318187011e, type: 3}
-    m_FontSize: 14
+    m_FontSize: 30
     m_FontStyle: 0
-    m_BestFit: 1
-    m_MinSize: 10
+    m_BestFit: 0
+    m_MinSize: 3
     m_MaxSize: 40
     m_Alignment: 3
     m_AlignByGeometry: 0
@@ -28544,7 +28741,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Cantidad de poblaci\xF3n enferma en la ciudad. "
+  m_Text: 'Ciudadanos enfermos en la ciudad. '
 --- !u!1 &8735557927775858983
 GameObject:
   m_ObjectHideFlags: 0
@@ -28838,7 +29035,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: aa37f8954f4e35d42b7314318187011e, type: 3}
-    m_FontSize: 24
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -29425,8 +29622,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 21.699951, y: -117.69995}
-  m_SizeDelta: {x: -605.4, y: -620.6}
+  m_AnchoredPosition: {x: 106, y: -82}
+  m_SizeDelta: {x: -837.4, y: -635.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6538890118112324402
 CanvasRenderer:
@@ -30729,6 +30926,8 @@ RectTransform:
   - {fileID: 9201387680950762566}
   - {fileID: 545888222454526849}
   - {fileID: 5806573747945371867}
+  - {fileID: 1980530048260046553}
+  - {fileID: 2238876749454919213}
   m_Father: {fileID: 8496691992215833615}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -32314,6 +32513,10 @@ MonoBehaviour:
   - {fileID: 5712295676167783768}
   - {fileID: 8086911016000048433}
   - {fileID: 2401722020878357038}
+  btnMute: {fileID: 2696513106744086868}
+  VolumeControlSprite:
+  - {fileID: -2295713347213856984, guid: f6422be47d977644aa73d93de73dfe04, type: 3}
+  - {fileID: 9114597606659912831, guid: f6422be47d977644aa73d93de73dfe04, type: 3}
   panelPopInfo: {fileID: 9201387680504227183}
   panelCurrencyInfo: {fileID: 9201387680000882584}
   panelSpeedControl: {fileID: 9201387681882547569}

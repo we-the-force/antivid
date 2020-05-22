@@ -260,6 +260,15 @@ TextureImporter:
   - first:
       213: 878737281325443256
     second: Tutorial_Happiness
+  - first:
+      213: -651291265482070882
+    second: Sound_BG
+  - first:
+      213: 9114597606659912831
+    second: SoundOn
+  - first:
+      213: -2295713347213856984
+    second: SoundOff
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -2169,6 +2178,69 @@ TextureImporter:
       bones: []
       spriteID: 1864e638c9a43d5498273096f4973885
       internalID: 878737281325443256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sound_BG
+      rect:
+        serializedVersion: 2
+        x: 1784
+        y: 897
+        width: 150
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c50b51bfeef31db47b677962d201cdb9
+      internalID: -651291265482070882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SoundOn
+      rect:
+        serializedVersion: 2
+        x: 1946
+        y: 903
+        width: 82
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f210e36a73670a0419c14e3acd0df86a
+      internalID: 9114597606659912831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SoundOff
+      rect:
+        serializedVersion: 2
+        x: 1946
+        y: 980
+        width: 82
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 702f4f0a0e78e3e41986ed330d8d52b5
+      internalID: -2295713347213856984
       vertices: []
       indices: 
       edges: []

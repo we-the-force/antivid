@@ -18,6 +18,8 @@ public class SaveManager : MonoBehaviour
     //List<ScenarioSaveData> scenarioData = new List<ScenarioSaveData>();
     GameSaveData gsd = new GameSaveData();
 
+    public GamePreferences gPref = new GamePreferences();
+
     string dataPath;
 
     public bool DataLoaded = false;
@@ -26,7 +28,7 @@ public class SaveManager : MonoBehaviour
     {
         get { return _instance; }
     }
-
+       
     private void Awake()
     {
         DataLoaded = false;
@@ -97,6 +99,48 @@ public class SaveManager : MonoBehaviour
         bf.Serialize(file, auxData);
         file.Close();
     }
+
+    public void SaveGamePreferenceData()
+    {
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream file = File.Create(dataPath + "/PrefData.dat");
+        Debug.Log($"File created at {dataPath}/PrefData.dat");
+        bf.Serialize(file, gPref);
+        file.Close();
+    }
+    public bool IsSoundMuted()
+    {
+        bool _stat = false;
+
+        if (File.Exists(dataPath + "/PrefData.dat"))
+        {
+            Debug.Log("Loading preference data!");
+            //BinaryFormatter bf = new BinaryFormatter();
+            //FileStream file = File.Open(dataPath + "/Data.dat", FileMode.Open);
+            //GameSaveData data = (GameSaveData)bf.Deserialize(file);
+            //file.Close();
+            try
+            {
+                GamePreferences data = (GamePreferences)ReadFile(dataPath + "/PrefData.dat");
+                gPref = data;
+                _stat = gPref.SoundIsMuted;
+            }
+            catch (Exception e)
+            {
+                Debug.LogError($"Error loading data:\r\n{e.Message}");
+                _stat = false;
+            }
+        }
+        else
+        {
+            Debug.Log($"File didn't exist ({dataPath}/PrefData.dat)");
+            _stat = false;
+        }
+
+        return _stat;
+    }
+
+
     public void SaveData()
     {
         BinaryFormatter bf = new BinaryFormatter();
@@ -247,6 +291,11 @@ public class SaveManager : MonoBehaviour
     }
 }
 
+[Serializable]
+public class GamePreferences
+{
+    public bool SoundIsMuted;
+}
 
 [Serializable]
 public class GameSaveData

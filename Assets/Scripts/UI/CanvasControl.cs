@@ -56,6 +56,9 @@ public class CanvasControl : MonoBehaviour
     public bool WindowOpen { get; set; }
 
     bool statisticReturnToResultScreen = false;
+    
+    public Button btnMute;
+    public List<Sprite> VolumeControlSprite;
 
     private void Awake()
     {
@@ -115,8 +118,13 @@ public class CanvasControl : MonoBehaviour
         BuildWindow.optionContainer.sizeDelta = new Vector2(BuildWindow.optionContainer.sizeDelta.x, posY);
 
         //----
+
         SoundsAndMusic();
+
+        SetupCanvasSounds();
+        audioManager.ChangeBGM(audioManager.DiamondDust);
     }
+
     public RectTransform panelPopInfo;
     public RectTransform panelCurrencyInfo;
     public RectTransform panelSpeedControl;
@@ -125,10 +133,41 @@ public class CanvasControl : MonoBehaviour
 
     private void SoundsAndMusic()
     {
-        SetupCanvasSounds();
-        audioManager.ChangeBGM(audioManager.DiamondDust);
+        Debug.LogError("CHECANDO DESDE YA EL NIEVL SI ESTA MUTE EL SONIDO");
+        bool _isSoundMuted = SaveManager.Instance.IsSoundMuted();
+        SetMuteValue(_isSoundMuted);
     }
 
+
+
+    public void SetMuteValue(bool muteValue)
+    {
+        Debug.LogError("Valor muteValue " + muteValue);
+
+        AudioManager.Instance.SetMuteFromSave(muteValue);
+        MuteSound(true);
+    }
+
+    public void MuteSound(bool fromSave = false)
+    {
+        if(!fromSave)
+            AudioManager.Instance.MuteBGMSource();
+
+        if (AudioManager.Instance.IsMute)
+        {
+            btnMute.image.sprite = VolumeControlSprite[0];
+        }
+        else
+        {
+            btnMute.image.sprite = VolumeControlSprite[1];
+        }
+
+        if (!fromSave)
+        {
+            SaveManager.Instance.gPref.SoundIsMuted = AudioManager.Instance.IsMute;
+            SaveManager.Instance.SaveGamePreferenceData();
+        }
+    }
 
     public void RearangeElements(float _aspect)
     {

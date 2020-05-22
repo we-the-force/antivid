@@ -64,6 +64,8 @@ public class MainMenuCanvas : MonoBehaviour
             }
         }
 
+        bool _isSoundMuted = SaveManager.Instance.IsSoundMuted();
+        SetMuteValue(_isSoundMuted);
 
         for (int i = 0; i < ScenarioCollection.Count; i++)
         {
@@ -243,8 +245,51 @@ public class MainMenuCanvas : MonoBehaviour
             scenarioNextAnchorPos.x += (movePortion * Time.fixedDeltaTime) * _heading;
             rect.anchoredPosition = scenarioNextAnchorPos;
             seconds += Time.fixedDeltaTime;
-            Debug.LogError("SECONDS  : " + seconds);
+           // Debug.LogError("SECONDS  : " + seconds);
 
+        }
+    }
+
+    public Button btnMute;
+    public List<Sprite> VolumeControlSprite;
+    /*public void MuteSound()
+    {
+        AudioManager.Instance.MuteBGMSource();
+        if (AudioManager.Instance.IsMute)
+        {
+            btnMute.image.sprite = VolumeControlSprite[0];
+        }
+        else
+        {
+            btnMute.image.sprite = VolumeControlSprite[1];
+        }
+    }*/
+
+
+    public void SetMuteValue(bool muteValue)
+    {
+        AudioManager.Instance.SetMuteFromSave(muteValue);
+        MuteSound(true);
+    }
+
+    public void MuteSound(bool fromSave = false)
+    {
+        if (!fromSave)
+            AudioManager.Instance.MuteBGMSource();
+
+        if (AudioManager.Instance.IsMute)
+        {
+            btnMute.image.sprite = VolumeControlSprite[0];
+        }
+        else
+        {
+            btnMute.image.sprite = VolumeControlSprite[1];
+        }
+
+        if (!fromSave)
+        {
+            SaveManager.Instance.gPref.SoundIsMuted = AudioManager.Instance.IsMute;
+            SaveManager.Instance.SaveGamePreferenceData();
         }
     }
 

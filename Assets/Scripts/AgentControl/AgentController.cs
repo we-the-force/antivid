@@ -485,7 +485,10 @@ public class AgentController : MonoBehaviour
             return;
 
         if (_need == GlobalObject.NeedScale.None)
+        {
+            TakeCareOfNeed(GlobalObject.NeedScale.Wander);
             return;
+        }      
 
         SetVisibility(true);
 
@@ -782,7 +785,6 @@ public class AgentController : MonoBehaviour
     public void SetVisibility(bool visible)
     {
         IconController.gameObject.SetActive(visible);
-
         AnimationObject.SetActive(visible);
     }
 

@@ -53,7 +53,9 @@ public class AnnouncementWindow : MonoBehaviour
     {
         string txtExtra = "";
 
-        for(int i=0;i<SpecialEventsCollection.Count;i++)
+        EventEffectDescription.text = "";
+
+        for (int i=0;i<SpecialEventsCollection.Count;i++)
         {
             if (SpecialEventsCollection[i].specialEventName == EventName)
             {

@@ -185,6 +185,39 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public bool IsMute;
+    public void MuteBGMSource()
+    {
+        Debug.LogError("ENTRANDO AL MUTE BGMSOURCE");
+
+        IsMute = !IsMute;
+
+        float _volume = 0;
+        if (!IsMute)
+            _volume = 1;
+
+        BGMSource.volume = _volume;
+        for (int i = 0; i < audioSourceList.Count; i++)
+        {
+            audioSourceList[i].volume = _volume;
+        }
+    }
+
+    public void SetMuteFromSave(bool muteValue)
+    {
+        IsMute = muteValue;
+
+        float _volume = 0;
+        if (!IsMute)
+            _volume = 1;
+
+        BGMSource.volume = _volume;
+        for (int i = 0; i < audioSourceList.Count; i++)
+        {
+            audioSourceList[i].volume = _volume;
+        }
+    }
+    
     public void StopBGM()
     {
         BGMSource.Stop();
@@ -209,7 +242,12 @@ public class AudioManager : MonoBehaviour
         StopBGM();
         BGMSource.clip = newBGM;
         PlayBGM();
-        yield return fadeSource(BGMSource, BGMSource.volume, 1, duration);
+
+        float _targetValue = 1;
+        if (IsMute)
+            _targetValue = 0;
+
+        yield return fadeSource(BGMSource, BGMSource.volume, _targetValue, duration);
         isTransitioningBGM = false;
     }
 
