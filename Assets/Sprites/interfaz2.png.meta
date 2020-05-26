@@ -113,6 +113,9 @@ TextureImporter:
   - first:
       213: -8072942904200460721
     second: btnIniciar_Over
+  - first:
+      213: 7104291725499153005
+    second: bg_Ranking
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -582,9 +585,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1304
-        y: 754
+        y: 882
         width: 210
-        height: 1294
+        height: 1166
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -644,10 +647,10 @@ TextureImporter:
       name: btnIniciar
       rect:
         serializedVersion: 2
-        x: 426
-        y: 47
-        width: 740
-        height: 238
+        x: 956
+        y: 84
+        width: 514
+        height: 165
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -665,10 +668,10 @@ TextureImporter:
       name: btnIniciar_Over
       rect:
         serializedVersion: 2
-        x: 1223
-        y: 46
-        width: 740
-        height: 238
+        x: 1511
+        y: 84
+        width: 514
+        height: 165
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -678,6 +681,27 @@ TextureImporter:
       bones: []
       spriteID: 4d1874b1e73b3ab4c9b8ee9d7f22a7e8
       internalID: -8072942904200460721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bg_Ranking
+      rect:
+        serializedVersion: 2
+        x: 684
+        y: 62
+        width: 236
+        height: 188
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ed72fd7afe7a8c4dad88ad71b0da9bb
+      internalID: 7104291725499153005
       vertices: []
       indices: 
       edges: []

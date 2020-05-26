@@ -223,6 +223,8 @@ MonoBehaviour:
   buildingImage: {fileID: 3000944552198129592}
   buildingType: {fileID: 8528083558935841602}
   buildingText: {fileID: 2850142269008428747}
+  GrayScaleMaterial: {fileID: 2100000, guid: aa3eeda3af2144643ab9da21c75e395d, type: 2}
+  isBuyable: 0
   parentWindow: {fileID: 0}
 --- !u!1 &2850142269008428749
 GameObject:
@@ -258,7 +260,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 37.27, y: 0}
+  m_AnchoredPosition: {x: 38.9, y: 0}
   m_SizeDelta: {x: -83.85, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2850142269008428746
@@ -289,7 +291,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: aa37f8954f4e35d42b7314318187011e, type: 3}
-    m_FontSize: 12
+    m_FontSize: 13
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -299,7 +301,7 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
+    m_LineSpacing: 0.65
   m_Text: Edificio de comida
 --- !u!1 &5359911899261041410
 GameObject:

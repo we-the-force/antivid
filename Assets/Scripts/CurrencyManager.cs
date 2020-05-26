@@ -268,7 +268,7 @@ public class CurrencyManager : MonoBehaviour
                 //--- Determina si va a haber un evento Random
                 CanvasControl.instance._announcementWindow.RandomEvent();
             }
-
+            /*
             if (WorldManager.instance.IsTutorial)
             {
                 if (currentCycle == 1)
@@ -288,6 +288,7 @@ public class CurrencyManager : MonoBehaviour
                     TutorialManager.instance.ShowTutorial(nextTutorial);
                 }
             }
+            */
         }
 
 

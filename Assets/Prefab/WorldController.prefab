@@ -175,6 +175,7 @@ MonoBehaviour:
     minValue: 0
     maxValue: 0
   StatisticCollection: []
+  TextLineSpacingValue: 0.6
   currentTimeCycle: 0
   NodeParent: {fileID: 6257447480022803166}
   NodeCollection: []

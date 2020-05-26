@@ -10,6 +10,8 @@ public class BuyBuildingWindow : MonoBehaviour
 
     public RectTransform optionContainer;
 
+    public bool IsBuyable;
+
     // Start is called before the first frame update
     public List<string> Titulos;
     public List<string> Descripciones;

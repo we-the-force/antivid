@@ -17,6 +17,8 @@ public class MainMenuCanvas : MonoBehaviour
     public Text txtFood;
     public Text txtEducation;
 
+    public Material GrayScaleMaterial;
+
     public Text txtVersion;
 
     public GameObject ScenarioButtonPrefab;
@@ -97,11 +99,28 @@ public class MainMenuCanvas : MonoBehaviour
 
     private void SetIcon(GameObject obj, Text txt, int qty)
     {
-        obj.SetActive(false);
+        //obj.SetActive(false);
+        for (int i = 0; i < obj.transform.childCount; i++)
+        {
+            Image img = obj.transform.GetChild(i).GetComponent<Image>();
+            if (img != null)
+            {
+                img.material = GrayScaleMaterial;
+            }
+        }
+
+        txt.text = qty.ToString();
         if (qty > 0)
         {
-            txt.text = qty.ToString();
-            obj.SetActive(true);
+            for (int i = 0; i < obj.transform.childCount; i++)
+            {
+                Image img = obj.transform.GetChild(i).GetComponent<Image>();
+                if (img != null)
+                {
+                    img.material = null;
+                }
+            }
+            //obj.SetActive(true);
         }
     }
 
@@ -174,11 +193,13 @@ public class MainMenuCanvas : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene(ScenarioCollection[SelectedID].ScenarioSceneName, UnityEngine.SceneManagement.LoadSceneMode.Single);
     }
 
+    public GameObject TitleObject;
 
     public void InitButtonPressed()
     {
         initButton.SetActive(false);
         optionsButton.SetActive(false);
+        TitleObject.SetActive(false);
 
         SeleccionadorDeEscenarios.SetActive(true);
     }

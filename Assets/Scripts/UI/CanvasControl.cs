@@ -63,7 +63,7 @@ public class CanvasControl : MonoBehaviour
     private void Awake()
     {
         instance = this;
-
+        
         WindowOpen = false;
     }
 
@@ -87,35 +87,11 @@ public class CanvasControl : MonoBehaviour
         }
 
         int btnC = 0;
-        float posY = 0;
 
-        for (int i = 0; i < BuyableBuildingsCollection.Count; i++)
-        {
-            BuildingCanvasEntry building = BuyableBuildingsCollection[i];
-            if (building.ActiveForScenario)
-            {
-                //--- aqui se generan ya los botones
-                GameObject obj = Instantiate(BuyBuildingOptionOBJ, BuildWindow.optionContainer);
-                RectTransform rect = obj.GetComponent<RectTransform>();
+        btnC = SetBuildingsInStore(true, btnC);
+        //btnC = SetBuildingsInStore(false, btnC);
 
-                rect.anchoredPosition = new Vector2(40f, posY);
-                btnC++;
-
-                posY = (rect.sizeDelta.y * rect.localScale.y * btnC) * -1f;
-
-                //posY = (rect.sizeDelta.y * rect.localScale.y * btnC) * -1f;
-                
-                BuyBuildingOption buyOption = obj.GetComponent<BuyBuildingOption>();
-                buyOption.myID = i;
-                buyOption.buildingText.text = building.Name;
-                buyOption.buildingImage.sprite = building.ButtonImage;
-                buyOption.buildingType.sprite = building.BigImage;
-                buyOption.parentWindow = BuildWindow;
-
-            }
-        }
-
-        BuildWindow.optionContainer.sizeDelta = new Vector2(BuildWindow.optionContainer.sizeDelta.x, posY);
+      //  BuildWindow.optionContainer.sizeDelta = new Vector2(BuildWindow.optionContainer.sizeDelta.x, posY);
 
         //----
 
@@ -124,6 +100,48 @@ public class CanvasControl : MonoBehaviour
         SetupCanvasSounds();
         audioManager.ChangeBGM(audioManager.DiamondDust);
     }
+
+    public int SetBuildingsInStore(bool buyable, int b)
+    {
+        int btnC = b;
+        float posY = 0;
+
+        for (int i = 0; i < BuyableBuildingsCollection.Count; i++)
+        {
+            BuildingCanvasEntry building = BuyableBuildingsCollection[i];
+
+            if (building.Name != "Nothing")
+            {
+                if (building.ActiveForScenario == buyable)
+                {
+                    //--- aqui se generan ya los botones
+                    GameObject obj = Instantiate(BuyBuildingOptionOBJ, BuildWindow.optionContainer);
+                    RectTransform rect = obj.GetComponent<RectTransform>();
+
+                    posY = (rect.sizeDelta.y * rect.localScale.y * btnC) * -1f;
+
+                    rect.anchoredPosition = new Vector2(40f, posY);
+                    btnC++;
+                    
+                    //posY = (rect.sizeDelta.y * rect.localScale.y * btnC) * -1f;
+
+                    BuyBuildingOption buyOption = obj.GetComponent<BuyBuildingOption>();
+                    buyOption.myID = i;
+                    buyOption.isBuyable = building.ActiveForScenario;
+                    buyOption.SetGrayScale();
+                    buyOption.buildingText.text = building.Name;
+                    buyOption.buildingImage.sprite = building.ButtonImage;
+                    buyOption.buildingType.sprite = building.BigImage;
+                    buyOption.parentWindow = BuildWindow;
+                }
+               
+            }
+        }
+
+        BuildWindow.optionContainer.sizeDelta = new Vector2(BuildWindow.optionContainer.sizeDelta.x, posY);
+        return btnC;
+    }
+
 
     public RectTransform panelPopInfo;
     public RectTransform panelCurrencyInfo;
