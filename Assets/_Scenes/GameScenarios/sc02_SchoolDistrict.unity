@@ -2576,7 +2576,7 @@ PrefabInstance:
     - target: {fileID: 5584120424534346709, guid: df2b705b261be0e409b22a59fcf1895d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11
+      value: -7
       objectReference: {fileID: 0}
     - target: {fileID: 5584120424534346709, guid: df2b705b261be0e409b22a59fcf1895d,
         type: 3}
@@ -2586,7 +2586,7 @@ PrefabInstance:
     - target: {fileID: 5584120424534346709, guid: df2b705b261be0e409b22a59fcf1895d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5584120424534346709, guid: df2b705b261be0e409b22a59fcf1895d,
         type: 3}
@@ -8140,7 +8140,7 @@ PrefabInstance:
     - target: {fileID: 5160226374194979871, guid: f3eac50afae36f64887ea84c417fb721,
         type: 3}
       propertyPath: NeedPercentageBaseCollection.Array.data[1].NeedPercentageCollection.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5160226374194979871, guid: f3eac50afae36f64887ea84c417fb721,
         type: 3}
@@ -8345,7 +8345,7 @@ PrefabInstance:
     - target: {fileID: 5160226374194979871, guid: f3eac50afae36f64887ea84c417fb721,
         type: 3}
       propertyPath: NeedPercentageBaseCollection.Array.data[1].NeedPercentageCollection.Array.data[0].PercentageToCompare
-      value: 110
+      value: 140
       objectReference: {fileID: 0}
     - target: {fileID: 5160226374194979871, guid: f3eac50afae36f64887ea84c417fb721,
         type: 3}
@@ -8430,7 +8430,7 @@ PrefabInstance:
     - target: {fileID: 5160226374194979871, guid: f3eac50afae36f64887ea84c417fb721,
         type: 3}
       propertyPath: NeedPercentageBaseCollection.Array.data[2].NeedPercentageCollection.Array.data[2].PercentageToCompare
-      value: 100
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 5160226374194979871, guid: f3eac50afae36f64887ea84c417fb721,
         type: 3}
@@ -8445,7 +8445,7 @@ PrefabInstance:
     - target: {fileID: 5160226374194979871, guid: f3eac50afae36f64887ea84c417fb721,
         type: 3}
       propertyPath: NeedPercentageBaseCollection.Array.data[2].NeedPercentageCollection.Array.data[0].PercentageToCompare
-      value: 90
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 5160226374194979871, guid: f3eac50afae36f64887ea84c417fb721,
         type: 3}
@@ -8465,7 +8465,7 @@ PrefabInstance:
     - target: {fileID: 5160226374194979871, guid: f3eac50afae36f64887ea84c417fb721,
         type: 3}
       propertyPath: NeedPercentageBaseCollection.Array.data[0].NeedPercentageCollection.Array.data[2].PercentageToCompare
-      value: 160
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5160226374194979871, guid: f3eac50afae36f64887ea84c417fb721,
         type: 3}
@@ -8475,7 +8475,7 @@ PrefabInstance:
     - target: {fileID: 5160226374194979871, guid: f3eac50afae36f64887ea84c417fb721,
         type: 3}
       propertyPath: NeedPercentageBaseCollection.Array.data[3].NeedPercentageCollection.Array.data[0].PercentageToCompare
-      value: 120
+      value: 160
       objectReference: {fileID: 0}
     - target: {fileID: 5160226374194979871, guid: f3eac50afae36f64887ea84c417fb721,
         type: 3}
@@ -8590,6 +8590,31 @@ PrefabInstance:
     - target: {fileID: 5160226374194979871, guid: f3eac50afae36f64887ea84c417fb721,
         type: 3}
       propertyPath: NeedPercentageBaseCollection.Array.data[3].NeedPercentageCollection.Array.data[4].TicValue
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5160226374194979871, guid: f3eac50afae36f64887ea84c417fb721,
+        type: 3}
+      propertyPath: NeedPercentageBaseCollection.Array.data[0].NeedPercentageCollection.Array.data[0].PercentageToCompare
+      value: 140
+      objectReference: {fileID: 0}
+    - target: {fileID: 5160226374194979871, guid: f3eac50afae36f64887ea84c417fb721,
+        type: 3}
+      propertyPath: NeedPercentageBaseCollection.Array.data[1].NeedPercentageCollection.Array.data[4].Need
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5160226374194979871, guid: f3eac50afae36f64887ea84c417fb721,
+        type: 3}
+      propertyPath: NeedPercentageBaseCollection.Array.data[1].NeedPercentageCollection.Array.data[4].PercentageToCompare
+      value: 160
+      objectReference: {fileID: 0}
+    - target: {fileID: 5160226374194979871, guid: f3eac50afae36f64887ea84c417fb721,
+        type: 3}
+      propertyPath: NeedPercentageBaseCollection.Array.data[1].NeedPercentageCollection.Array.data[4].TicsToCoverNeed
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5160226374194979871, guid: f3eac50afae36f64887ea84c417fb721,
+        type: 3}
+      propertyPath: NeedPercentageBaseCollection.Array.data[1].NeedPercentageCollection.Array.data[4].TicValue
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5160226374194979870, guid: f3eac50afae36f64887ea84c417fb721,

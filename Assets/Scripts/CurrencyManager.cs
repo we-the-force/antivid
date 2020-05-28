@@ -268,27 +268,11 @@ public class CurrencyManager : MonoBehaviour
                 //--- Determina si va a haber un evento Random
                 CanvasControl.instance._announcementWindow.RandomEvent();
             }
-            /*
-            if (WorldManager.instance.IsTutorial)
-            {
-                if (currentCycle == 1)
-                {
-                    nextTutorial = 0;
-                    playTutorial = true;
-                }
-                else if (currentCycle == 2)
-                {
-                    nextTutorial = 1;
-                    playTutorial = true;
-                }
 
-                if (playTutorial)
-                {
-                    playTutorial = false;
-                    TutorialManager.instance.ShowTutorial(nextTutorial);
-                }
-            }
-            */
+            CanvasControl.instance.SetNeedScale(_needFullHunger, _needFullEducation, _needFullEntertainment);
+            _needFullHunger = 0;
+            _needFullEntertainment = 0;
+            _needFullEducation = 0;
         }
 
 
@@ -298,6 +282,25 @@ public class CurrencyManager : MonoBehaviour
 
     public int nextTutorial { get; set; }
     public bool playTutorial { get; set; }
+
+
+    public int _needFullHunger;
+    public int _needFullEducation;
+    public int _needFullEntertainment;
+
+    public void CalculateNeedScale(NeedScale _need)
+    {
+        if (_need == NeedScale.Hunger)
+            _needFullHunger++;
+
+        if (_need == NeedScale.Education)
+            _needFullEducation++;
+
+        if (_need == NeedScale.Entertainment)
+            _needFullEntertainment++;
+    }
+
+
 
     public bool HasEnoughCurrency(float toCompare)
     {

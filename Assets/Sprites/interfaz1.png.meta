@@ -1871,10 +1871,10 @@ TextureImporter:
       name: Ranking_C
       rect:
         serializedVersion: 2
-        x: 1794
-        y: 649
-        width: 254
-        height: 246
+        x: 1830
+        y: 654
+        width: 185
+        height: 237
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1934,10 +1934,10 @@ TextureImporter:
       name: ranking_B
       rect:
         serializedVersion: 2
-        x: 807
-        y: 0
-        width: 234
-        height: 233
+        x: 840
+        y: 3
+        width: 186
+        height: 230
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1955,10 +1955,10 @@ TextureImporter:
       name: ranking_A
       rect:
         serializedVersion: 2
-        x: 531
-        y: 0
-        width: 263
-        height: 244
+        x: 550
+        y: 9
+        width: 235
+        height: 235
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1976,10 +1976,10 @@ TextureImporter:
       name: Ranking_S
       rect:
         serializedVersion: 2
-        x: 332
-        y: 0
-        width: 197
-        height: 259
+        x: 347
+        y: 14
+        width: 176
+        height: 238
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1998,9 +1998,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 4
-        y: 0
-        width: 322
-        height: 267
+        y: 9
+        width: 340
+        height: 237
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

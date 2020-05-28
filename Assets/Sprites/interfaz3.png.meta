@@ -125,10 +125,10 @@ TextureImporter:
       name: ranking_d
       rect:
         serializedVersion: 2
-        x: 776
-        y: 653
-        width: 248
-        height: 243
+        x: 804
+        y: 658
+        width: 209
+        height: 231
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,10 +146,10 @@ TextureImporter:
       name: Ranking_F
       rect:
         serializedVersion: 2
-        x: 791
+        x: 827
         y: 399
-        width: 211
-        height: 239
+        width: 157
+        height: 228
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -188,10 +188,10 @@ TextureImporter:
       name: Ranking_E
       rect:
         serializedVersion: 2
-        x: 776
-        y: 119
-        width: 211
-        height: 252
+        x: 812
+        y: 129
+        width: 167
+        height: 231
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

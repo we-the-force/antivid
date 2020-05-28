@@ -11,6 +11,10 @@ using UnityEditor;
 
 public class CanvasControl : MonoBehaviour
 {
+    public Text txtNeedHun;
+    public Text txtNeedEdu;
+    public Text txtNeedEnt;
+
     public GameObject BackToMenuButton;
 
     public bool ShowVideoAtEnd;
@@ -67,11 +71,6 @@ public class CanvasControl : MonoBehaviour
         WindowOpen = false;
     }
 
-    public void SetHappinessFace(int i)
-    {
-        happinessImage.sprite = happinessFaces[i];
-    }
-
     private void Start()
     {
         //--- Inicializa el icono de felicidad en el mas alto nivel
@@ -123,7 +122,7 @@ public class CanvasControl : MonoBehaviour
                     rect.anchoredPosition = new Vector2(40f, posY);
                     btnC++;
                     
-                    //posY = (rect.sizeDelta.y * rect.localScale.y * btnC) * -1f;
+                    posY = (rect.sizeDelta.y * rect.localScale.y * btnC) * -1f;
 
                     BuyBuildingOption buyOption = obj.GetComponent<BuyBuildingOption>();
                     buyOption.myID = i;
@@ -143,6 +142,19 @@ public class CanvasControl : MonoBehaviour
     }
 
 
+    public void SetNeedScale(int _hun, int _edu, int _ent)
+    {
+        txtNeedHun.text = _hun.ToString();
+        txtNeedEdu.text = _edu.ToString();
+        txtNeedEnt.text = _ent.ToString();
+    }
+
+    public void SetHappinessFace(int i)
+    {
+        happinessImage.sprite = happinessFaces[i];
+    }
+
+
     public RectTransform panelPopInfo;
     public RectTransform panelCurrencyInfo;
     public RectTransform panelSpeedControl;
@@ -151,7 +163,7 @@ public class CanvasControl : MonoBehaviour
 
     private void SoundsAndMusic()
     {
-        Debug.LogError("CHECANDO DESDE YA EL NIEVL SI ESTA MUTE EL SONIDO");
+        //Debug.LogError("CHECANDO DESDE YA EL NIEVL SI ESTA MUTE EL SONIDO");
         bool _isSoundMuted = SaveManager.Instance.IsSoundMuted();
         SetMuteValue(_isSoundMuted);
     }

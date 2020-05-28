@@ -175,7 +175,6 @@ MonoBehaviour:
     minValue: 0
     maxValue: 0
   StatisticCollection: []
-  TextLineSpacingValue: 0.6
   currentTimeCycle: 0
   NodeParent: {fileID: 6257447480022803166}
   NodeCollection: []
@@ -426,10 +425,10 @@ MonoBehaviour:
     AnimationPrefab: {fileID: 3394471691759221651, guid: f62e6f2f776d3ce4b8bddf04bc4784c8,
       type: 3}
   - Perk: 3
-    AnimationPrefab: {fileID: 402776667776272084, guid: 50f4df10e7b889e4caec1182de836e81,
+    AnimationPrefab: {fileID: 8896568738292111558, guid: 56875a36eb0becf4a9847900c9e343c7,
       type: 3}
   - Perk: 4
-    AnimationPrefab: {fileID: 3357871767962163750, guid: 46cca44164b6abd4fa3843d065fdc1fe,
+    AnimationPrefab: {fileID: 3394471691759221651, guid: f62e6f2f776d3ce4b8bddf04bc4784c8,
       type: 3}
   - Perk: 2
     AnimationPrefab: {fileID: 4753201843905315091, guid: 2534903cf5693c746a09f5e0936d726f,
@@ -441,7 +440,7 @@ MonoBehaviour:
     AnimationPrefab: {fileID: 8896568738292111558, guid: 56875a36eb0becf4a9847900c9e343c7,
       type: 3}
   - Perk: 7
-    AnimationPrefab: {fileID: 5808655169337276268, guid: 8b0739f8ca9316a45b429f7daa964996,
+    AnimationPrefab: {fileID: 3848858783447354118, guid: 1dde4f877ec4e3c4e906771a3081c2ce,
       type: 3}
   SneezeBaseFrequency: 10
   SneezePrefab: {fileID: 5738051209377488478, guid: 21d9acae3ca97274fba835c6146655cc,

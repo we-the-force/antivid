@@ -513,6 +513,8 @@ public class AgentController : MonoBehaviour
 
             if (myDestinationBuilding == null)
             {
+                CurrencyManager.Instance.CalculateNeedScale(_need);
+
                 Debug.LogError($"Building was null! Need: {_need}");
                 _need = GlobalObject.NeedScale.Wander;
                 NeedTakenCare = _need;
