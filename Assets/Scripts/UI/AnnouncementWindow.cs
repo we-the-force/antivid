@@ -65,7 +65,7 @@ public class AnnouncementWindow : MonoBehaviour
                 switch (EventName)
                 {
                     case GlobalObject.SpecialEventName.FirstInfected:
-                        AudioManager.Instance.Play(AudioManager.Instance.EventVirusAlert);
+                        AudioManager.Instance.Play(AudioManager.Instance.EventVAlert);
                         AudioManager.Instance.ChangeBGM(AudioManager.Instance.OnYourWayBack);
 
                         int _ciclos = Mathf.CeilToInt(VaccineManager.Instance.TicsToStart / CurrencyManager.Instance.ticCutout);
@@ -74,11 +74,11 @@ public class AnnouncementWindow : MonoBehaviour
                         VaccineManager.Instance.ShouldTic = true;
                         break;
                     case GlobalObject.SpecialEventName.FirstStage:
-                        AudioManager.Instance.Play(AudioManager.Instance.EventVirusAlert);
+                        AudioManager.Instance.Play(AudioManager.Instance.EventVAlert);
                         break;
                     case GlobalObject.SpecialEventName.SecondStage:
                         //--- Habilita la politica de cuarentena
-                        AudioManager.Instance.Play(AudioManager.Instance.EventVirusAlert);
+                        AudioManager.Instance.Play(AudioManager.Instance.EventVAlert);
                         PolicyManager.Instance.EnablePolicy(0);
                         break;
                     case GlobalObject.SpecialEventName.StartVaccineStudy:

@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -387,7 +387,7 @@ GameObject:
   - component: {fileID: 68072295}
   - component: {fileID: 68072296}
   m_Layer: 5
-  m_Name: BacteriaContainer (2)
+  m_Name: bContainer (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -445,7 +445,7 @@ GameObject:
   - component: {fileID: 144067061}
   - component: {fileID: 144067060}
   m_Layer: 5
-  m_Name: Bacteria7
+  m_Name: b7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -880,7 +880,7 @@ GameObject:
   - component: {fileID: 281741150}
   - component: {fileID: 281741151}
   m_Layer: 5
-  m_Name: BacteriaContainer (1)
+  m_Name: bContainer (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1773,7 +1773,7 @@ GameObject:
   - component: {fileID: 550949637}
   - component: {fileID: 550949636}
   m_Layer: 5
-  m_Name: Bacteria2
+  m_Name: b2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1955,7 +1955,7 @@ GameObject:
   - component: {fileID: 634205069}
   - component: {fileID: 634205070}
   m_Layer: 5
-  m_Name: BacteriaContainer (4)
+  m_Name: bContainer (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3291,7 +3291,7 @@ GameObject:
   - component: {fileID: 992293503}
   - component: {fileID: 992293504}
   m_Layer: 5
-  m_Name: BacteriaContainer (8)
+  m_Name: bContainer (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3347,7 +3347,7 @@ GameObject:
   - component: {fileID: 1006316345}
   - component: {fileID: 1006316346}
   m_Layer: 5
-  m_Name: BacteriaContainer (3)
+  m_Name: bContainer (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3734,7 +3734,7 @@ GameObject:
   - component: {fileID: 1203959857}
   - component: {fileID: 1203959858}
   m_Layer: 5
-  m_Name: BacteriaContainer (6)
+  m_Name: bContainer (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3792,7 +3792,7 @@ GameObject:
   - component: {fileID: 1214996131}
   - component: {fileID: 1214996130}
   m_Layer: 5
-  m_Name: Bacteria3
+  m_Name: b3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3953,7 +3953,7 @@ GameObject:
   - component: {fileID: 1227561687}
   - component: {fileID: 1227561688}
   m_Layer: 5
-  m_Name: BacteriaContainer (5)
+  m_Name: bContainer (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4973,7 +4973,7 @@ GameObject:
   - component: {fileID: 1599056187}
   - component: {fileID: 1599056186}
   m_Layer: 5
-  m_Name: Bacteria8
+  m_Name: b8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5412,7 +5412,7 @@ GameObject:
   - component: {fileID: 1708059251}
   - component: {fileID: 1708059250}
   m_Layer: 5
-  m_Name: Bacteria5
+  m_Name: b5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5729,7 +5729,7 @@ GameObject:
   - component: {fileID: 1846966384}
   - component: {fileID: 1846966383}
   m_Layer: 5
-  m_Name: Bacteria4
+  m_Name: b4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5818,7 +5818,7 @@ GameObject:
   - component: {fileID: 1891858562}
   - component: {fileID: 1891858561}
   m_Layer: 5
-  m_Name: Bacteria1
+  m_Name: b1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6211,7 +6211,7 @@ GameObject:
   - component: {fileID: 1989660252}
   - component: {fileID: 1989660251}
   m_Layer: 5
-  m_Name: Bacteria6
+  m_Name: b6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6298,7 +6298,7 @@ GameObject:
   - component: {fileID: 2002943999}
   - component: {fileID: 2002944000}
   m_Layer: 5
-  m_Name: BacteriaContainer (7)
+  m_Name: bContainer (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -39,7 +39,7 @@ public class AudioManager : MonoBehaviour
     ///  5: Evento Normal
     ///  6: Construir edificio
     ///  7: Edificio Completado
-    ///  8: Evento Alerta Virus
+    ///  8: Evento Alerta
     ///  9: Open Window
     /// 10: CHK BOX Click
     /// 11: Game Over
@@ -90,7 +90,7 @@ public class AudioManager : MonoBehaviour
     {
         get { return sfxList[7]; }
     }
-    public AudioClip EventVirusAlert
+    public AudioClip EventVAlert
     {
         get { return sfxList[8]; }
     }

@@ -168,8 +168,6 @@ public class CanvasControl : MonoBehaviour
         SetMuteValue(_isSoundMuted);
     }
 
-
-
     public void SetMuteValue(bool muteValue)
     {
         Debug.LogError("Valor muteValue " + muteValue);

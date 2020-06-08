@@ -14,7 +14,7 @@ public class WorldManager : MonoBehaviour
     public float buildingInfectionPercentage;
 
     /// <summary>
-    /// Determina que tan infeccioso es el virus, para los agentes que viajan fuera de la ciudad
+    /// Determina que tan infeccioso es, para los agentes que viajan fuera de la ciudad
     /// es la probabilidad de que alguien regrese contagiado
     /// </summary>
     public float TravelInfectionPercentage;
