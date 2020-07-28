@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a3657ee23f333c4fa55fb60fb430e72, type: 3}
+  m_Name: Test0
+  m_EditorClassIdentifier: 
+  PolicyID: 0
+  Available: 1
+  PolicyName: Cuarentena Total
+  PolicyDescription: 
+  Enabled: 1
+  IsQuarantine: 1
+  UpkeepCost: 3
+  InitialCost: 0
+  TransformBuildingSection:
+    Enabled: 0
+    BuildingToChange: 6
+    TargetBuilding: 6
+    Percentage: 0
+  LimitBuildingSection:
+    Enabled: 0
+    BuildingToChange: 6
+    Percentage: 0
+  BuildingEffectivitySection:
+    Enabled: 1
+    ParameterMods:
+    - BuildingType: 0
+      ParameterToChange: 2
+      Percentage: 0.1
+    - BuildingType: 2
+      ParameterToChange: 2
+      Percentage: 0.1
+    - BuildingType: 4
+      ParameterToChange: 2
+      Percentage: 0.1
+    - BuildingType: 7
+      ParameterToChange: 2
+      Percentage: 0.1
+    - BuildingType: 3
+      ParameterToChange: 2
+      Percentage: 0.6
+  DistributionEffectivitySection:
+    Enabled: 0
+    ParameterMods: []

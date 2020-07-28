@@ -1,0 +1,488 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2298040683438931534
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6257447480022803166}
+  m_Layer: 0
+  m_Name: NodeCollection
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6257447480022803166
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2298040683438931534}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5160226374194979870}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4242604577075349647
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5169222394482657214}
+  m_Layer: 0
+  m_Name: GrassCollection
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5169222394482657214
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4242604577075349647}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5160226374194979870}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5160226373831960406
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5160226373831960405}
+  m_Layer: 0
+  m_Name: AgentAnchor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5160226373831960405
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5160226373831960406}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5160226374194979870}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5160226374194979864
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5160226374194979870}
+  - component: {fileID: 5160226374194979871}
+  - component: {fileID: 5160226374194979869}
+  - component: {fileID: 5160226374194979868}
+  m_Layer: 0
+  m_Name: WorldController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5160226374194979870
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5160226374194979864}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.5790434, y: -0.867465, z: -0.22568813}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 5160226373831960405}
+  - {fileID: 6257447480022803166}
+  - {fileID: 5169222394482657214}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5160226374194979871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5160226374194979864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03095047c09bcd64886efe977df67153, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildingInfectionPercentage: 7
+  TravelInfectionPercentage: 5
+  InfectionGuaranteedAfterNumberOfTravel: 3
+  IsTutorial: 0
+  SecondsPerTic: 0.25
+  TicScale: 1
+  PreviousTicScale: 0
+  FirstInfectionDetected: 0
+  StatisticMinMaxCollection:
+  - Entry: 0
+    minValue: 0
+    maxValue: 0
+  - Entry: 1
+    minValue: 0
+    maxValue: 0
+  - Entry: 2
+    minValue: 0
+    maxValue: 0
+  - Entry: 3
+    minValue: 0
+    maxValue: 0
+  - Entry: 4
+    minValue: 0
+    maxValue: 0
+  - Entry: 5
+    minValue: 0
+    maxValue: 0
+  - Entry: 6
+    minValue: 0
+    maxValue: 0
+  - Entry: 7
+    minValue: 0
+    maxValue: 0
+  - Entry: 8
+    minValue: 0
+    maxValue: 0
+  StatisticCollection: []
+  currentTimeCycle: 0
+  NodeParent: {fileID: 6257447480022803166}
+  NodeCollection: []
+  NeedPercentageBaseCollection:
+  - Perk: 0
+    NeedPercentageCollection:
+    - Need: 0
+      PercentageToCompare: 100
+      CurrentPercentage: 0
+      TicsToCoverNeed: 25
+      TicValue: 0.5
+    - Need: 1
+      PercentageToCompare: 100
+      CurrentPercentage: 0
+      TicsToCoverNeed: 25
+      TicValue: 0.5
+    - Need: 2
+      PercentageToCompare: 100
+      CurrentPercentage: 0
+      TicsToCoverNeed: 30
+      TicValue: 0.5
+    - Need: 4
+      PercentageToCompare: 100
+      CurrentPercentage: 0
+      TicsToCoverNeed: 25
+      TicValue: 0.5
+    - Need: 5
+      PercentageToCompare: 100
+      CurrentPercentage: 0
+      TicsToCoverNeed: 10
+      TicValue: 0.5
+    resourceProduction: 1
+    WillAttendHospitalOnMildCase: 0
+    WillRandomlyAttendHospital: 0
+    PercentageForBackPack: 0.25
+  - Perk: 1
+    NeedPercentageCollection:
+    - Need: 0
+      PercentageToCompare: 80
+      CurrentPercentage: 0
+      TicsToCoverNeed: 10
+      TicValue: 0.5
+    - Need: 1
+      PercentageToCompare: 75
+      CurrentPercentage: 0
+      TicsToCoverNeed: 30
+      TicValue: 0.5
+    - Need: 2
+      PercentageToCompare: 120
+      CurrentPercentage: 0
+      TicsToCoverNeed: 15
+      TicValue: 0.5
+    - Need: 5
+      PercentageToCompare: 85
+      CurrentPercentage: 0
+      TicsToCoverNeed: 10
+      TicValue: 0.5
+    resourceProduction: 0.9
+    WillAttendHospitalOnMildCase: 1
+    WillRandomlyAttendHospital: 0
+    PercentageForBackPack: 0.3
+  - Perk: 2
+    NeedPercentageCollection:
+    - Need: 0
+      PercentageToCompare: 120
+      CurrentPercentage: 0
+      TicsToCoverNeed: 10
+      TicValue: 0.5
+    - Need: 1
+      PercentageToCompare: 130
+      CurrentPercentage: 0
+      TicsToCoverNeed: 40
+      TicValue: 0.5
+    - Need: 4
+      PercentageToCompare: 85
+      CurrentPercentage: 0
+      TicsToCoverNeed: 25
+      TicValue: 0.5
+    - Need: 5
+      PercentageToCompare: 100
+      CurrentPercentage: 0
+      TicsToCoverNeed: 10
+      TicValue: 0.5
+    - Need: 7
+      PercentageToCompare: 350
+      CurrentPercentage: 0
+      TicsToCoverNeed: 10
+      TicValue: 0.5
+    resourceProduction: 1.2
+    WillAttendHospitalOnMildCase: 0
+    WillRandomlyAttendHospital: 0
+    PercentageForBackPack: 0.2
+  - Perk: 3
+    NeedPercentageCollection:
+    - Need: 0
+      PercentageToCompare: 120
+      CurrentPercentage: 0
+      TicsToCoverNeed: 5
+      TicValue: 0.5
+    - Need: 1
+      PercentageToCompare: 70
+      CurrentPercentage: 0
+      TicsToCoverNeed: 50
+      TicValue: 0.5
+    - Need: 2
+      PercentageToCompare: 100
+      CurrentPercentage: 0
+      TicsToCoverNeed: 15
+      TicValue: 0.5
+    - Need: 4
+      PercentageToCompare: 150
+      CurrentPercentage: 0
+      TicsToCoverNeed: 10
+      TicValue: 0.5
+    resourceProduction: 0.8
+    WillAttendHospitalOnMildCase: 0
+    WillRandomlyAttendHospital: 0
+    PercentageForBackPack: 0.15
+  - Perk: 4
+    NeedPercentageCollection:
+    - Need: 0
+      PercentageToCompare: 100
+      CurrentPercentage: 0
+      TicsToCoverNeed: 25
+      TicValue: 0.5
+    - Need: 1
+      PercentageToCompare: 150
+      CurrentPercentage: 0
+      TicsToCoverNeed: 10
+      TicValue: 0.5
+    - Need: 2
+      PercentageToCompare: 105
+      CurrentPercentage: 0
+      TicsToCoverNeed: 25
+      TicValue: 0.5
+    - Need: 4
+      PercentageToCompare: 100
+      CurrentPercentage: 0
+      TicsToCoverNeed: 25
+      TicValue: 0.5
+    - Need: 5
+      PercentageToCompare: 80
+      CurrentPercentage: 0
+      TicsToCoverNeed: 5
+      TicValue: 0.5
+    resourceProduction: 1
+    WillAttendHospitalOnMildCase: 1
+    WillRandomlyAttendHospital: 1
+    PercentageForBackPack: 0.35
+  - Perk: 5
+    NeedPercentageCollection:
+    - Need: 0
+      PercentageToCompare: 100
+      CurrentPercentage: 0
+      TicsToCoverNeed: 25
+      TicValue: 0.5
+    - Need: 1
+      PercentageToCompare: 105
+      CurrentPercentage: 0
+      TicsToCoverNeed: 35
+      TicValue: 0.5
+    - Need: 2
+      PercentageToCompare: 100
+      CurrentPercentage: 0
+      TicsToCoverNeed: 25
+      TicValue: 0.5
+    - Need: 5
+      PercentageToCompare: 110
+      CurrentPercentage: 0
+      TicsToCoverNeed: 10
+      TicValue: 0.5
+    - Need: 7
+      PercentageToCompare: 150
+      CurrentPercentage: 0
+      TicsToCoverNeed: 35
+      TicValue: 0.5
+    resourceProduction: 0.3
+    WillAttendHospitalOnMildCase: 0
+    WillRandomlyAttendHospital: 0
+    PercentageForBackPack: 0.35
+  - Perk: 6
+    NeedPercentageCollection:
+    - Need: 0
+      PercentageToCompare: 100
+      CurrentPercentage: 0
+      TicsToCoverNeed: 10
+      TicValue: 0.5
+    - Need: 1
+      PercentageToCompare: 100
+      CurrentPercentage: 0
+      TicsToCoverNeed: 30
+      TicValue: 0.5
+    - Need: 7
+      PercentageToCompare: 130
+      CurrentPercentage: 0
+      TicsToCoverNeed: 60
+      TicValue: 0.5
+    resourceProduction: 1.5
+    WillAttendHospitalOnMildCase: 1
+    WillRandomlyAttendHospital: 0
+    PercentageForBackPack: 0.3
+  - Perk: 7
+    NeedPercentageCollection:
+    - Need: 0
+      PercentageToCompare: 100
+      CurrentPercentage: 0
+      TicsToCoverNeed: 10
+      TicValue: 0.5
+    - Need: 2
+      PercentageToCompare: 80
+      CurrentPercentage: 0
+      TicsToCoverNeed: 20
+      TicValue: 0.5
+    - Need: 1
+      PercentageToCompare: 70
+      CurrentPercentage: 0
+      TicsToCoverNeed: 60
+      TicValue: 0.5
+    resourceProduction: 0.7
+    WillAttendHospitalOnMildCase: 0
+    WillRandomlyAttendHospital: 1
+    PercentageForBackPack: 0.4
+--- !u!114 &5160226374194979869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5160226374194979864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c0c28a0338956b498ef3c3fc5a67c3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AgentPrefab: {fileID: 4743075006342897453, guid: 84d2765961a894e4b9751e03153f2b21,
+    type: 3}
+  AgentAnchor: {fileID: 5160226373831960405}
+  TicCutout: 80
+  InitialSpeed: 0.6
+  SpeedStep: 0.03
+  SpeedVariationQty: 15
+  SpeedList: []
+  AgentAnimationCollection:
+  - Perk: 0
+    AnimationPrefab: {fileID: 3848858783447354118, guid: 1dde4f877ec4e3c4e906771a3081c2ce,
+      type: 3}
+  - Perk: 1
+    AnimationPrefab: {fileID: 3394471691759221651, guid: f62e6f2f776d3ce4b8bddf04bc4784c8,
+      type: 3}
+  - Perk: 3
+    AnimationPrefab: {fileID: 8896568738292111558, guid: 56875a36eb0becf4a9847900c9e343c7,
+      type: 3}
+  - Perk: 4
+    AnimationPrefab: {fileID: 3394471691759221651, guid: f62e6f2f776d3ce4b8bddf04bc4784c8,
+      type: 3}
+  - Perk: 2
+    AnimationPrefab: {fileID: 4753201843905315091, guid: 2534903cf5693c746a09f5e0936d726f,
+      type: 3}
+  - Perk: 5
+    AnimationPrefab: {fileID: 9037213481067824984, guid: 988e1bada40e3674db0e3e25a69c30e6,
+      type: 3}
+  - Perk: 6
+    AnimationPrefab: {fileID: 8896568738292111558, guid: 56875a36eb0becf4a9847900c9e343c7,
+      type: 3}
+  - Perk: 7
+    AnimationPrefab: {fileID: 3848858783447354118, guid: 1dde4f877ec4e3c4e906771a3081c2ce,
+      type: 3}
+  SneezeBaseFrequency: 10
+  SneezePrefab: {fileID: 5738051209377488478, guid: 21d9acae3ca97274fba835c6146655cc,
+    type: 3}
+  Buildings: []
+  RoadSystem: []
+  AgentCollection: []
+  NeedTreshhold: 220
+  InfectedCellPerTic: 0.3
+  SeriousIllnessInfectionFactor: 1.25
+  IncomePerAgent: 0.38
+  TotalBuildingUpkeepCost: 0
+  TotalPolicyUpkeepCost: 0
+  TotalAgentIncome: 0
+  initialInfectedDudes: 0
+  ActivePolicies: []
+  ScenarioPercentagesForPerks:
+  - Perk: 0
+    Percentage: 0.2
+  - Perk: 1
+    Percentage: 0.1
+  - Perk: 2
+    Percentage: 0.15
+  - Perk: 3
+    Percentage: 0.05
+  - Perk: 4
+    Percentage: 0.05
+  - Perk: 5
+    Percentage: 0.1
+  - Perk: 6
+    Percentage: 0.2
+  - Perk: 7
+    Percentage: 0.15
+--- !u!114 &5160226374194979868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5160226374194979864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33a08726aa7f70c469213b37e98ab4a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

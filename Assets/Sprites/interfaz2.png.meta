@@ -1,0 +1,724 @@
+fileFormatVersion: 2
+guid: 2ff12e5d63b5e0d4a88f1f4df5c3c965
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8690071190185003059
+    second: BG_MENU
+  - first:
+      213: -2398123474449657425
+    second: Logo
+  - first:
+      213: -3301986524495060843
+    second: btnOpciones
+  - first:
+      213: -5716495228204960618
+    second: btnInicio
+  - first:
+      213: 5020638478705818464
+    second: btnInicio_Over
+  - first:
+      213: -6491366197105945481
+    second: btnOpciones_Over
+  - first:
+      213: -2867246316648682127
+    second: Bacteria3
+  - first:
+      213: 5792771506202124940
+    second: Bacteria2
+  - first:
+      213: -3323115666487277796
+    second: Bacteria1
+  - first:
+      213: -989428519208815744
+    second: Bacteria4
+  - first:
+      213: -1134509910992032799
+    second: Bacteria5
+  - first:
+      213: -2616683816960528967
+    second: Bacteria7
+  - first:
+      213: 4310499648654406116
+    second: Bacteria6
+  - first:
+      213: -1725980309758945567
+    second: Logo_BG
+  - first:
+      213: 2556831910848183544
+    second: BG_WindowScenario
+  - first:
+      213: 8364169177240026146
+    second: Scenario_Portrait
+  - first:
+      213: -6692505356708615954
+    second: Scenario_Button
+  - first:
+      213: -1966338653868890389
+    second: Scenario_Element
+  - first:
+      213: 4659132310050327954
+    second: Scenario_Button_Slider
+  - first:
+      213: -5184356124174148067
+    second: Scenario_BGElement_Yellow
+  - first:
+      213: 6795827144581760363
+    second: Scenario_BGElement_Purple
+  - first:
+      213: -1289418925028010040
+    second: Scenario_BGElement_Green
+  - first:
+      213: 736645726570549652
+    second: Scenario_BGElement_Red
+  - first:
+      213: -5770770560438961318
+    second: Scenario_BGElement_Shadow
+  - first:
+      213: -4578469898019376110
+    second: Scenario_BGElementMask
+  - first:
+      213: -6831733948987416263
+    second: Scenario_Portrait_Mask
+  - first:
+      213: 1314067815213032389
+    second: Scenario_Portrait_Shadow
+  - first:
+      213: -7613073183122086192
+    second: ScenarioElementBG_notsliced
+  - first:
+      213: -5061160613349069182
+    second: btnIzquierda
+  - first:
+      213: -1450880396135118937
+    second: btnIzquierda_Over
+  - first:
+      213: -8519193437418547546
+    second: btnDerecha
+  - first:
+      213: 7390258450421090110
+    second: btnDerecha_Over
+  - first:
+      213: -9215475071178624023
+    second: interfaz2_0
+  - first:
+      213: -6585277021683507140
+    second: interfaz2_1
+  - first:
+      213: 7619986811584247189
+    second: interfaz2_2
+  - first:
+      213: -6581227795722644620
+    second: btnIniciar
+  - first:
+      213: -8072942904200460721
+    second: btnIniciar_Over
+  - first:
+      213: 7104291725499153005
+    second: bg_Ranking
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BG_MENU
+      rect:
+        serializedVersion: 2
+        x: 2019
+        y: 2020
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c4180d57497e3e499b182ea7ce9b064
+      internalID: -8690071190185003059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Logo
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1467
+        width: 829
+        height: 581
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08b89ee7d16ed744589aa26f1a0c1ae3
+      internalID: -2398123474449657425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btnInicio
+      rect:
+        serializedVersion: 2
+        x: 956
+        y: 1782
+        width: 304
+        height: 114
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29fcaebf45a6b134d9c35fdaf07edc83
+      internalID: -5716495228204960618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btnInicio_Over
+      rect:
+        serializedVersion: 2
+        x: 829
+        y: 1651
+        width: 304
+        height: 114
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 333b8e65465560c4c8738b718b6bce15
+      internalID: 5020638478705818464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bacteria3
+      rect:
+        serializedVersion: 2
+        x: 867
+        y: 1178
+        width: 265
+        height: 263
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8926dd9b61b803418d3e6edfdba2342
+      internalID: -2867246316648682127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bacteria2
+      rect:
+        serializedVersion: 2
+        x: 633
+        y: 1258
+        width: 174
+        height: 179
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec9b337f18d7fbb48975116f0807e892
+      internalID: 5792771506202124940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bacteria1
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1350
+        width: 95
+        height: 89
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ae3506a588fc8848988086e9f416571
+      internalID: -3323115666487277796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bacteria4
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 980
+        width: 278
+        height: 267
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51a362f3da365f749bac47405a7389e0
+      internalID: -989428519208815744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bacteria5
+      rect:
+        serializedVersion: 2
+        x: 839
+        y: 912
+        width: 246
+        height: 242
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c77643a534a2c84580d83a770e971d9
+      internalID: -1134509910992032799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bacteria7
+      rect:
+        serializedVersion: 2
+        x: 681
+        y: 676
+        width: 242
+        height: 235
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f764feaa856ed24b876ddeabb297b90
+      internalID: -2616683816960528967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bacteria6
+      rect:
+        serializedVersion: 2
+        x: 508
+        y: 827
+        width: 139
+        height: 138
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48b1a96270a5dfc43ae1108aa8747720
+      internalID: 4310499648654406116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Logo_BG
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 476
+        width: 508
+        height: 987
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6c1be54b9f4c6c48ad097b9421073f4
+      internalID: -1725980309758945567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ScenarioElementBG_notsliced
+      rect:
+        serializedVersion: 2
+        x: 1057
+        y: 500
+        width: 251
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 123818814bf1e3d4cb5c6c64babce21d
+      internalID: -7613073183122086192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btnIzquierda
+      rect:
+        serializedVersion: 2
+        x: 1534
+        y: 1832
+        width: 209
+        height: 216
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a58d624662ed5d544a538f7d8fb33d8d
+      internalID: -5061160613349069182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btnIzquierda_Over
+      rect:
+        serializedVersion: 2
+        x: 1752
+        y: 1832
+        width: 209
+        height: 216
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aaf341974dc3db645b5cf11cb271d951
+      internalID: -1450880396135118937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btnDerecha
+      rect:
+        serializedVersion: 2
+        x: 1752
+        y: 1615
+        width: 209
+        height: 216
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1235efbc32191b642a37fb0e8c429a0b
+      internalID: -8519193437418547546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btnDerecha_Over
+      rect:
+        serializedVersion: 2
+        x: 1534
+        y: 1615
+        width: 209
+        height: 216
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 424399232949fef4c9f5ec754e890849
+      internalID: 7390258450421090110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: interfaz2_0
+      rect:
+        serializedVersion: 2
+        x: 1304
+        y: 882
+        width: 210
+        height: 1166
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e3a2735a30a2464c8d7f591e72b8a2a
+      internalID: -9215475071178624023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: interfaz2_1
+      rect:
+        serializedVersion: 2
+        x: 1558
+        y: 460
+        width: 404
+        height: 1155
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 548386557a71e9c45bff14ef4a8ff356
+      internalID: -6585277021683507140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: interfaz2_2
+      rect:
+        serializedVersion: 2
+        x: 934
+        y: 291
+        width: 614
+        height: 417
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 823a5bd3d2cdb244996ea54b1a257d3c
+      internalID: 7619986811584247189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btnIniciar
+      rect:
+        serializedVersion: 2
+        x: 956
+        y: 84
+        width: 514
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9ad225fc36a1064187d053072993f92
+      internalID: -6581227795722644620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btnIniciar_Over
+      rect:
+        serializedVersion: 2
+        x: 1511
+        y: 84
+        width: 514
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d1874b1e73b3ab4c9b8ee9d7f22a7e8
+      internalID: -8072942904200460721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bg_Ranking
+      rect:
+        serializedVersion: 2
+        x: 684
+        y: 62
+        width: 236
+        height: 188
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ed72fd7afe7a8c4dad88ad71b0da9bb
+      internalID: 7104291725499153005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

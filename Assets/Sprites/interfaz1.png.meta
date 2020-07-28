@@ -1,0 +1,2263 @@
+fileFormatVersion: 2
+guid: f6422be47d977644aa73d93de73dfe04
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7449986200695359459
+    second: Icon_HealtyPop
+  - first:
+      213: -9120010350145299774
+    second: Icon_SickPop
+  - first:
+      213: 7129825157252304822
+    second: Icon_DeadPop
+  - first:
+      213: -1332317902430918499
+    second: BG_PopUI
+  - first:
+      213: -3615392559444636140
+    second: ButtonShowPolicy
+  - first:
+      213: 2965302998961556843
+    second: PolicyIcon_Food
+  - first:
+      213: -2164006300563894057
+    second: PolicyIcon_Quarentine
+  - first:
+      213: 6863911730192020843
+    second: PolicyIcon_Health
+  - first:
+      213: -8921329762182806185
+    second: Time_BG
+  - first:
+      213: -8747702060709884574
+    second: ButtonClose
+  - first:
+      213: 6058799227391705584
+    second: Toggle_check
+  - first:
+      213: -5383976917115775234
+    second: Button_HalfSpeedSelected
+  - first:
+      213: -523706006563913091
+    second: CheckBox_BG
+  - first:
+      213: -648835197328929404
+    second: Button_HalfSpeed
+  - first:
+      213: -253520033801596797
+    second: Button_SpeedSelected
+  - first:
+      213: -6761885626472706697
+    second: Button_OneAndHalfSelected
+  - first:
+      213: 4307546417034821424
+    second: Button_DoubleSpeedSelected
+  - first:
+      213: -4781406489324838285
+    second: Button_PauseSelected
+  - first:
+      213: 6412872044468195123
+    second: Button_Pause
+  - first:
+      213: 1035721387080905329
+    second: Button_DoubleSpeed
+  - first:
+      213: -6271988349040802167
+    second: Button_OneAndHalfSpeed
+  - first:
+      213: 3811316472160786908
+    second: Button_Speed
+  - first:
+      213: 1337583722828001263
+    second: Time_FG
+  - first:
+      213: 6706642940484723430
+    second: ResourcesBG
+  - first:
+      213: -1765510484241919289
+    second: Button_NewBuilding
+  - first:
+      213: 2512276972981970685
+    second: NewBuilding_School
+  - first:
+      213: 5022717123071660036
+    second: NewBuilding_Cinema
+  - first:
+      213: -88150655592256897
+    second: NewBuilding_Hospital
+  - first:
+      213: 1993483458906434743
+    second: NewBuilding_Restorant
+  - first:
+      213: -4911673956207875641
+    second: CostToBuild
+  - first:
+      213: -5171581170659059877
+    second: TimeToBuild
+  - first:
+      213: 8524778196621010450
+    second: Vaccine_Progress_Icon
+  - first:
+      213: -4376915280400771550
+    second: Vaccine_Resources_Icon
+  - first:
+      213: 9152934878024165222
+    second: Slider_Handle
+  - first:
+      213: 4328461059521165150
+    second: Window_Announcement
+  - first:
+      213: 3423924588348001853
+    second: Window_Policy
+  - first:
+      213: -8783849524332784371
+    second: Buttons_BuyBuildings
+  - first:
+      213: 8350037085302186246
+    second: Announcement_Image
+  - first:
+      213: -5363108531262276796
+    second: Announcement_Text
+  - first:
+      213: 3407876192131828207
+    second: ProgressBar
+  - first:
+      213: -1115095779273063290
+    second: ProgressBarBG
+  - first:
+      213: 4885421588467887939
+    second: SliderBG
+  - first:
+      213: -8949059133168800987
+    second: Announcement_UnlockArea
+  - first:
+      213: -4215731569061604297
+    second: Button_VaccineWindow
+  - first:
+      213: 2629474722291211199
+    second: SpecialEvent_Alert
+  - first:
+      213: -2931839649792393152
+    second: Button_Statistic
+  - first:
+      213: -7277296753422218442
+    second: buttonRotate
+  - first:
+      213: -2531230550172595245
+    second: buttonCenterCamera
+  - first:
+      213: -7499322994625707038
+    second: ButtonCenterCamera_white
+  - first:
+      213: -1647133752078907659
+    second: ButtonRotateCameraWhite
+  - first:
+      213: -1206765288307672832
+    second: Stat_ChkboxBG
+  - first:
+      213: 1004341142354474319
+    second: Stat_ConnectedLine
+  - first:
+      213: -1779546067626247925
+    second: Stat_Bullet
+  - first:
+      213: -2129831440904588875
+    second: Stat_ChkBox
+  - first:
+      213: 6268814000520829177
+    second: Stat_ChkBoxSelected
+  - first:
+      213: -2854035035619293835
+    second: Stat_Tab2
+  - first:
+      213: 816053924819828638
+    second: Stat_Tab1
+  - first:
+      213: -6325547116146684001
+    second: Stat_WindowBG
+  - first:
+      213: 848652051160376181
+    second: NewBuilding_Bar
+  - first:
+      213: 8659749458814007194
+    second: NewBuilding_GasStation
+  - first:
+      213: 8227203982403822351
+    second: CostResizable
+  - first:
+      213: 3863922292492478669
+    second: happiness0
+  - first:
+      213: 2249572623500073370
+    second: happiness3
+  - first:
+      213: 8215099938825450210
+    second: happiness1
+  - first:
+      213: 6822456675893744436
+    second: happiness2
+  - first:
+      213: 9053365921937351480
+    second: happiness4
+  - first:
+      213: 3673690497650939722
+    second: BuyBuilding_ScrollButton
+  - first:
+      213: 2392446034296491340
+    second: Button_Skip
+  - first:
+      213: -4824498215718402274
+    second: PagoUnico
+  - first:
+      213: -1292759281839723172
+    second: PagoCiclico
+  - first:
+      213: -4171140358275194797
+    second: Scroll_BG
+  - first:
+      213: 2628150351329841533
+    second: Ranking_C
+  - first:
+      213: 7449986200695359459
+    second: interfaz1_0
+  - first:
+      213: 8275210077803774138
+    second: Button_Back
+  - first:
+      213: 5854438671871573569
+    second: ranking_B
+  - first:
+      213: 3735413877506401142
+    second: ranking_A
+  - first:
+      213: -1336485100998994066
+    second: Ranking_S
+  - first:
+      213: 2588032157956458333
+    second: Ranking_SS
+  - first:
+      213: -7601225048421235721
+    second: BuildingIcon
+  - first:
+      213: 79176883012306614
+    second: IconBuildingTXT
+  - first:
+      213: 2583988419935035853
+    second: PolicyIcon_Entertainment
+  - first:
+      213: -3594844101945926441
+    second: PolicyIcon_Education
+  - first:
+      213: 314444427710798593
+    second: Tutorial_Buy
+  - first:
+      213: 6668582300839355378
+    second: Tutorial_Policy
+  - first:
+      213: -7658167737318539152
+    second: Tutorial_Vacuna
+  - first:
+      213: 878737281325443256
+    second: Tutorial_Happiness
+  - first:
+      213: -651291265482070882
+    second: Sound_BG
+  - first:
+      213: 9114597606659912831
+    second: SoundOn
+  - first:
+      213: -2295713347213856984
+    second: SoundOff
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Icon_HealtyPop
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 1972
+        width: 69
+        height: 73
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 755fc1ac9db9f774dac37ee9bc4a6d92
+      internalID: 7449986200695359459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_SickPop
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 1892
+        width: 69
+        height: 73
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5382db024a01f2848a9aaf4e92b5c4cf
+      internalID: -9120010350145299774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_DeadPop
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 1811
+        width: 69
+        height: 73
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74cbef2076e06594c85ece35136365ae
+      internalID: 7129825157252304822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BG_PopUI
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 1767
+        width: 172
+        height: 273
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a30a4d72fa287034cbe2bec158c4151d
+      internalID: -1332317902430918499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ButtonShowPolicy
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 1874
+        width: 168
+        height: 167
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ed4b8e0481975242a71a8d693f3e941
+      internalID: -3615392559444636140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PolicyIcon_Food
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 1951
+        width: 89
+        height: 88
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2ac306944a94004fb620976415ddcee
+      internalID: 2965302998961556843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PolicyIcon_Quarentine
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 1860
+        width: 89
+        height: 88
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79244c1c59c0c474a8b038f4e917b938
+      internalID: -2164006300563894057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PolicyIcon_Health
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 1763
+        width: 89
+        height: 88
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b660388d26b5cbf4488ccbe67b1ac88d
+      internalID: 6863911730192020843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Time_BG
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 1779
+        width: 68
+        height: 67
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10bfaced566219043a7fea6d2f731b13
+      internalID: -8921329762182806185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ButtonClose
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 1779
+        width: 67
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed23193bae0bb684a97b7b81e1de9bcd
+      internalID: -8747702060709884574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toggle_check
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 1894
+        width: 59
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14e6686895c5b6547839a1d1aaf65c9b
+      internalID: 6058799227391705584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_HalfSpeedSelected
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 1859
+        width: 75
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffd78d83f0e486544b5ffe64bead728b
+      internalID: -5383976917115775234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CheckBox_BG
+      rect:
+        serializedVersion: 2
+        x: 547
+        y: 1954
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fe1023bf81690e4e8ba8ad3f5d85ef8
+      internalID: -523706006563913091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_HalfSpeed
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 1854
+        width: 91
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecc532f948e294d4dbb0d4b461d69c46
+      internalID: -648835197328929404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_SpeedSelected
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 1921
+        width: 39
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 340c50ac2d42b334fa1918fec3c538b8
+      internalID: -253520033801596797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_OneAndHalfSelected
+      rect:
+        serializedVersion: 2
+        x: 761
+        y: 1886
+        width: 29
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ccb53cdb29fb9d448c09f543a92f166
+      internalID: -6761885626472706697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_DoubleSpeedSelected
+      rect:
+        serializedVersion: 2
+        x: 726
+        y: 1875
+        width: 29
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 707d1234e40a6894c97c8855251c7a75
+      internalID: 4307546417034821424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_PauseSelected
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 1781
+        width: 45
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a93f2396992447145bab2655df148f52
+      internalID: -4781406489324838285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_Pause
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 1758
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28d05335d71cf1143b8c89b201d209be
+      internalID: 6412872044468195123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_DoubleSpeed
+      rect:
+        serializedVersion: 2
+        x: 706
+        y: 1753
+        width: 91
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 714a6731a51566546aae715cc103d55c
+      internalID: 1035721387080905329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_OneAndHalfSpeed
+      rect:
+        serializedVersion: 2
+        x: 806
+        y: 1752
+        width: 91
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72b5ef497a2630141aa6ff32fa0771c1
+      internalID: -6271988349040802167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_Speed
+      rect:
+        serializedVersion: 2
+        x: 812
+        y: 1854
+        width: 91
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88b983370e51882409dc26c9d5c4812e
+      internalID: 3811316472160786908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Time_FG
+      rect:
+        serializedVersion: 2
+        x: 681
+        y: 1644
+        width: 97
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c27a330c6c3ca2c4087fde5cda40fa1e
+      internalID: 1337583722828001263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ResourcesBG
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 1957
+        width: 282
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a930fbbc77f63e74fbb6bd44a365cad2
+      internalID: 6706642940484723430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_NewBuilding
+      rect:
+        serializedVersion: 2
+        x: 942
+        y: 1885
+        width: 440
+        height: 152
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2115d1b75ad08ff4fa66bdd74dc1dc8a
+      internalID: -1765510484241919289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewBuilding_School
+      rect:
+        serializedVersion: 2
+        x: 1416
+        y: 1900
+        width: 210
+        height: 118
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7714396a6db512644bca1fc90fa45980
+      internalID: 2512276972981970685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewBuilding_Cinema
+      rect:
+        serializedVersion: 2
+        x: 1388
+        y: 1739
+        width: 213
+        height: 118
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a798c9234a9954459596aaa31f44e48
+      internalID: 5022717123071660036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewBuilding_Hospital
+      rect:
+        serializedVersion: 2
+        x: 1160
+        y: 1733
+        width: 198
+        height: 118
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f5ea655d9570284bbd74ece01afc251
+      internalID: -88150655592256897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewBuilding_Restorant
+      rect:
+        serializedVersion: 2
+        x: 944
+        y: 1735
+        width: 192
+        height: 118
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 450b2df14f5f5dc4bae3761402fc5c2b
+      internalID: 1993483458906434743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CostToBuild
+      rect:
+        serializedVersion: 2
+        x: 1845
+        y: 1732
+        width: 89
+        height: 298
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd6fadd486351af4886cc31b3b05f261
+      internalID: -4911673956207875641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TimeToBuild
+      rect:
+        serializedVersion: 2
+        x: 1949
+        y: 1732
+        width: 89
+        height: 298
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08892eca034333440b3d47d0471eb68d
+      internalID: -5171581170659059877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vaccine_Progress_Icon
+      rect:
+        serializedVersion: 2
+        x: 1879
+        y: 1606
+        width: 47
+        height: 118
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a14314f5c7446145bb055536ee0e12b
+      internalID: 8524778196621010450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vaccine_Resources_Icon
+      rect:
+        serializedVersion: 2
+        x: 1948
+        y: 1644
+        width: 83
+        height: 76
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e16b9c689f024c47919a68faf2f234d
+      internalID: -4376915280400771550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slider_Handle
+      rect:
+        serializedVersion: 2
+        x: 1885
+        y: 1544
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 842634c31dcf28a49b5a9682d7fad63f
+      internalID: 9152934878024165222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Window_Announcement
+      rect:
+        serializedVersion: 2
+        x: 813
+        y: 1061
+        width: 1057
+        height: 639
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8b7d1c8b16715a46a199a4416612b1e
+      internalID: 4328461059521165150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Window_Policy
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 1039
+        width: 661
+        height: 712
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 100, y: 100, z: 100, w: 100}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a59afbe07cc892a4888c2d814dbd7981
+      internalID: 3423924588348001853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Buttons_BuyBuildings
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 1052
+        width: 115
+        height: 584
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 518de629f0737aa41851e673105b4d85
+      internalID: -8783849524332784371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Announcement_Image
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 698
+        width: 321
+        height: 332
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f119b608f199aec47b876034ebfed571
+      internalID: 8350037085302186246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Announcement_Text
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 698
+        width: 642
+        height: 332
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01301c8da5e122e48a313c6940213c68
+      internalID: -5363108531262276796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProgressBar
+      rect:
+        serializedVersion: 2
+        x: 992
+        y: 1028
+        width: 761
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 128647c594f153d42b690e69e269832c
+      internalID: 3407876192131828207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProgressBarBG
+      rect:
+        serializedVersion: 2
+        x: 992
+        y: 976
+        width: 781
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8af989a9a885b974a847d2f8dbed5ec4
+      internalID: -1115095779273063290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SliderBG
+      rect:
+        serializedVersion: 2
+        x: 993
+        y: 938
+        width: 782
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17b37b9842197d745be1be2dd88bf96f
+      internalID: 4885421588467887939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Announcement_UnlockArea
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 459
+        width: 890
+        height: 227
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3fd4e3c3c76b0442a00017da57c43a3
+      internalID: -8949059133168800987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_VaccineWindow
+      rect:
+        serializedVersion: 2
+        x: 1876
+        y: 1366
+        width: 169
+        height: 169
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cfa43a7e3b74d64caa70eadb9e83439
+      internalID: -4215731569061604297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpecialEvent_Alert
+      rect:
+        serializedVersion: 2
+        x: 1641
+        y: 1714
+        width: 177
+        height: 172
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6dc50d119562ed448cab9d6e463b0ae
+      internalID: 2629474722291211199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_Statistic
+      rect:
+        serializedVersion: 2
+        x: 1876
+        y: 1193
+        width: 169
+        height: 169
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d52642a6e1c16994ca96a768ae67acf4
+      internalID: -2931839649792393152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: buttonRotate
+      rect:
+        serializedVersion: 2
+        x: 991
+        y: 835
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e29c749a7a815424aaab4bcf376c4401
+      internalID: -7277296753422218442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: buttonCenterCamera
+      rect:
+        serializedVersion: 2
+        x: 1102
+        y: 835
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e95303ac58635cf4eb6a48faee8b1bc8
+      internalID: -2531230550172595245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ButtonCenterCamera_white
+      rect:
+        serializedVersion: 2
+        x: 1201
+        y: 860
+        width: 73
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 164c709248fcca2488ba9eb5a89fb76b
+      internalID: -7499322994625707038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ButtonRotateCameraWhite
+      rect:
+        serializedVersion: 2
+        x: 1005
+        y: 765
+        width: 59
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93e9217ce04f1de4492e77ac19e12d27
+      internalID: -1647133752078907659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stat_ChkboxBG
+      rect:
+        serializedVersion: 2
+        x: 1892
+        y: 1153
+        width: 128
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 17, y: 14, z: 17, w: 14}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83135473ac5a0e04e825fdc68980550f
+      internalID: -1206765288307672832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stat_ConnectedLine
+      rect:
+        serializedVersion: 2
+        x: 1892
+        y: 1089
+        width: 128
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e6dbe0572d1d604c9b75558b3810950
+      internalID: 1004341142354474319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stat_Bullet
+      rect:
+        serializedVersion: 2
+        x: 1890
+        y: 1072
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c5c448b4858ec847b976a96fd2dab66
+      internalID: -1779546067626247925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stat_ChkBox
+      rect:
+        serializedVersion: 2
+        x: 1909
+        y: 1049
+        width: 34
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e5653123b42a114b9c2cf1f18d88566
+      internalID: -2129831440904588875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stat_ChkBoxSelected
+      rect:
+        serializedVersion: 2
+        x: 1953
+        y: 1057
+        width: 24
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21781af57f59b8546b6228cfaf98d29e
+      internalID: 6268814000520829177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stat_Tab2
+      rect:
+        serializedVersion: 2
+        x: 1038
+        y: 4
+        width: 498
+        height: 624
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33d5dcccab001c648b518cb0a1825031
+      internalID: -2854035035619293835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stat_Tab1
+      rect:
+        serializedVersion: 2
+        x: 1544
+        y: 4
+        width: 498
+        height: 624
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6aea0607a09b6440bc16db4f6d3fdc9
+      internalID: 816053924819828638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stat_WindowBG
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 4
+        width: 416
+        height: 624
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d57ca42fdc07fb40af1a4fe9bd8a2bc
+      internalID: -6325547116146684001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewBuilding_Bar
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 811
+        width: 228
+        height: 118
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ccaa190a9446b6429cdb3833cec6920
+      internalID: 848652051160376181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewBuilding_GasStation
+      rect:
+        serializedVersion: 2
+        x: 1521
+        y: 811
+        width: 221
+        height: 118
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b8b3206fa4c67b48acf5662e4d6779e
+      internalID: 8659749458814007194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CostResizable
+      rect:
+        serializedVersion: 2
+        x: 1845
+        y: 1732
+        width: 89
+        height: 298
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 32, z: 0, w: 94}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c33af3bc3a7b22f4284cb2c534948a01
+      internalID: 8227203982403822351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: happiness0
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 350
+        width: 95
+        height: 101
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5efba9651093c924f98109d3dfd8ebfb
+      internalID: 3863922292492478669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: happiness3
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 350
+        width: 95
+        height: 101
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 845ae4eb1c883db4f81726a4841ed19c
+      internalID: 2249572623500073370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: happiness1
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 350
+        width: 95
+        height: 101
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ff30e262127c524aa6888608f383c49
+      internalID: 8215099938825450210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: happiness2
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 350
+        width: 95
+        height: 101
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 396ffc62d8b856347aa86b428627de0b
+      internalID: 6822456675893744436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: happiness4
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 350
+        width: 95
+        height: 101
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 082db94c084d897459ddf508708eafb3
+      internalID: 9053365921937351480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuyBuilding_ScrollButton
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 317
+        width: 258
+        height: 132
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 46, y: 51, z: 39, w: 36}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 150d541aa21b5814ca078b523baf8336
+      internalID: 3673690497650939722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_Skip
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 277
+        width: 162
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eab431b01e72d4f469f8a6353f742d26
+      internalID: 2392446034296491340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PagoUnico
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 274
+        width: 94
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12edbf0d31de8f642822abc67baa949c
+      internalID: -4824498215718402274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PagoCiclico
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 275
+        width: 77
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b844053181058641b1a1939eaf4bd79
+      internalID: -1292759281839723172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scroll_BG
+      rect:
+        serializedVersion: 2
+        x: 1090
+        y: 755
+        width: 495
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8b3f658e792cf44bb99b17f396b1b12
+      internalID: -4171140358275194797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranking_C
+      rect:
+        serializedVersion: 2
+        x: 1830
+        y: 654
+        width: 185
+        height: 237
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f11bdb3d0d58964409d36adf93211ea3
+      internalID: 2628150351329841533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: interfaz1_0
+      rect:
+        serializedVersion: 2
+        x: 1306
+        y: 707
+        width: 29
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7951c41287552e943bfc38c11a9d6b17
+      internalID: 7449986200695359459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_Back
+      rect:
+        serializedVersion: 2
+        x: 822
+        y: 289
+        width: 173
+        height: 170
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82bf62d5ec9418c428c4f30d7403fbd2
+      internalID: 8275210077803774138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ranking_B
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 3
+        width: 186
+        height: 230
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8ff05bddccc779469f4f8e9c45ad9cb
+      internalID: 5854438671871573569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ranking_A
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 9
+        width: 235
+        height: 235
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5758f27268c8346488d720e777037946
+      internalID: 3735413877506401142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranking_S
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 14
+        width: 176
+        height: 238
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cc43cc6f1c1d5343bfe651cbc0bc34a
+      internalID: -1336485100998994066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranking_SS
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 9
+        width: 340
+        height: 237
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7fa2b855e778aa4096690b479d428cd
+      internalID: 2588032157956458333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuildingIcon
+      rect:
+        serializedVersion: 2
+        x: 942
+        y: 1885
+        width: 440
+        height: 152
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 67, y: 0, z: 60, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3002433ddb72bb45ac1e02f78161ad4
+      internalID: -7601225048421235721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconBuildingTXT
+      rect:
+        serializedVersion: 2
+        x: 681
+        y: 1644
+        width: 97
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 46, y: 48, z: 46, w: 48}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e758b96c84f462e4a9555966d643627b
+      internalID: 79176883012306614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PolicyIcon_Entertainment
+      rect:
+        serializedVersion: 2
+        x: 1593
+        y: 706
+        width: 89
+        height: 88
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a59f6fab4cf54d478e6ea3d115226bd
+      internalID: 2583988419935035853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PolicyIcon_Education
+      rect:
+        serializedVersion: 2
+        x: 1682
+        y: 706
+        width: 89
+        height: 88
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37a248ba80c451049a7430bd6fa165a5
+      internalID: -3594844101945926441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tutorial_Buy
+      rect:
+        serializedVersion: 2
+        x: 1479
+        y: 665
+        width: 96
+        height: 75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddd63b15e7e09074c9be8e980da76986
+      internalID: 314444427710798593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tutorial_Policy
+      rect:
+        serializedVersion: 2
+        x: 1371
+        y: 665
+        width: 96
+        height: 75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1baf2d36a3a6c0546baeacde639f8592
+      internalID: 6668582300839355378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tutorial_Vacuna
+      rect:
+        serializedVersion: 2
+        x: 1263
+        y: 665
+        width: 96
+        height: 75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c40d7643b22b60c46a6ce8eb99d4da10
+      internalID: -7658167737318539152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tutorial_Happiness
+      rect:
+        serializedVersion: 2
+        x: 1155
+        y: 665
+        width: 96
+        height: 75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1864e638c9a43d5498273096f4973885
+      internalID: 878737281325443256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sound_BG
+      rect:
+        serializedVersion: 2
+        x: 1784
+        y: 897
+        width: 150
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c50b51bfeef31db47b677962d201cdb9
+      internalID: -651291265482070882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SoundOn
+      rect:
+        serializedVersion: 2
+        x: 1946
+        y: 903
+        width: 82
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f210e36a73670a0419c14e3acd0df86a
+      internalID: 9114597606659912831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SoundOff
+      rect:
+        serializedVersion: 2
+        x: 1946
+        y: 980
+        width: 82
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 702f4f0a0e78e3e41986ed330d8d52b5
+      internalID: -2295713347213856984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

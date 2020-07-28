@@ -7,6 +7,106 @@ public class WorldManager : MonoBehaviour
 {
     public static WorldManager instance;
 
+    /// <summary>
+    /// Determina la cantidad de porcentage de contagio que se aumenta en todos los agentes de un edificio
+    /// cuando un agente cotagiado entra en ese edificio
+    /// </summary>
+    public float buildingInfectionPercentage;
+
+    /// <summary>
+    /// Determina que tan infeccioso es, para los agentes que viajan fuera de la ciudad
+    /// es la probabilidad de que alguien regrese contagiado
+    /// </summary>
+    public float TravelInfectionPercentage;
+
+    /// <summary>
+    /// Determina despues de cuantos viajes un agente se contagia; si no ha recibido contagio de manera natural
+    /// </summary>
+    public int InfectionGuaranteedAfterNumberOfTravel;
+         
+    public bool IsTutorial;
+
+    //--- World Time (tic) logic declaration
+    public float SecondsPerTic;
+    public float TicScale = 1.0f;
+    public float PreviousTicScale = 0.0f;
+
+    public delegate void OnTicCall();
+    public static OnTicCall TicDelegate;
+
+    public bool FirstInfectionDetected;
+
+    [SerializeField]
+    public List<StatisticMinMaxObject> StatisticMinMaxCollection;
+    [SerializeField]
+    public List<StatisticObject> StatisticCollection;
+
+    public int currentTimeCycle = 0;
+
+     IEnumerator TICManager()
+     {
+        float _seconds = 1;
+
+        while (true)
+        {
+            if (TicScale == 0)
+            {
+                //--- es pausa
+                _seconds = 0;
+                yield return new WaitForFixedUpdate();
+            }
+            else
+            {
+                _seconds = SecondsPerTic / TicScale;
+                yield return new WaitForSeconds(_seconds);
+               
+                TicDelegate();
+
+                CanvasControl.instance.Statistic(WorldAgentController.instance.AgentCollection);
+            }
+        }
+     }
+
+    public void Pause(bool pause)
+    {
+        if (pause)
+        {
+            if (PreviousTicScale == 0)
+            {
+                PreviousTicScale = TicScale;
+                ChangeTimeScale(0);
+            }
+        }
+        else
+        {
+            if (PreviousTicScale != 0)
+            {
+                ChangeTimeScale(PreviousTicScale);
+                PreviousTicScale = 0;
+            }
+        }
+    }
+
+    public void ChangeTimeScale(float _scale)
+    {
+        //--- Si la _scale es igual a 0; ahi se hace la pausa;
+        //---
+        TicScale = _scale;
+
+        int idx = Mathf.RoundToInt(_scale * 2);
+        CanvasControl.instance.SpeedActiveButton(idx);
+
+        if (_scale == 0)
+        {
+            CanvasControl.instance.BackToMenuButton.SetActive(true);
+        }
+        else
+        {
+            CanvasControl.instance.BackToMenuButton.SetActive(false);
+        }
+    }
+    //-----
+
     private void Awake()
     {
         instance = this;
@@ -19,16 +119,122 @@ public class WorldManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
+
+        FirstInfectionDetected = false;
+        StartCoroutine(DelayStart());
+
+    }
+
+    IEnumerator DelayStart()
+    {
+        yield return null;
         NodeCollection = new List<PathFindingNode>();
 
         for (int i = 0; i < NodeParent.childCount; i++)
         {
             PathFindingNode _node = NodeParent.GetChild(i).GetComponent<PathFindingNode>();
-            _node.NodeID = i; 
+            _node.NodeID = i;
             _node.InitConnections();
             NodeCollection.Add(_node);
         }
         InitPathCollection();
+    }
+
+
+    public List<PerkPercentages> NeedPercentageBaseCollection;
+    /*public List<NeedPercentage> GetPerkValues(GlobalObject.AgentPerk perk, out float resourceProduction)
+    {
+        List<NeedPercentage> _needCollection = NeedPercentageBaseCollection;
+        resourceProduction = 1;
+
+        switch (perk)
+        {
+            case GlobalObject.AgentPerk.Gamer:
+                break;
+            case GlobalObject.AgentPerk.Executive:
+                break;
+            case GlobalObject.AgentPerk.LeasureTraveler:
+                break;
+            case GlobalObject.AgentPerk.Athletic:
+                hungerResistance = 0.7f;
+                healthResistance = 1.3f;
+                break;
+            case GlobalObject.AgentPerk.Workaholic:
+                resourceProduction = 1.25f;
+                healthResistance = 0.7f;
+                sleepResistance = 0.85f;
+                break;
+            case GlobalObject.AgentPerk.Introvert:
+                educationResistance = 1.6f;
+                wanderResistance = 1.6f;
+                healthResistance = 0.6f;
+                entertainmentResistance = 1.6f;
+                resourceProduction = 1.1f;
+                hungerResistance = 1.3f;
+                break;
+            case GlobalObject.AgentPerk.Extrovert:
+                entertainmentResistance = 0.65f;
+                healthResistance = 1.2f;
+                wanderResistance = 0.65f;
+                break;
+        }
+
+
+        return _needCollection;
+    }*/
+
+    public void GetPerkValues(GlobalObject.AgentPerk perk,
+            out float hungerResistance,
+            out float healthResistance,
+            out float wanderResistance,
+            out float educationResistance,
+            out float entertainmentResistance,
+            out float sleepResistance,
+            out float travelResistance,
+            out float resourceProduction
+)
+    {
+        hungerResistance = 1;
+        healthResistance = 1;
+        wanderResistance = 1;
+        educationResistance = 1;
+        entertainmentResistance = 1;
+        sleepResistance = 1;
+        resourceProduction = 1;
+        travelResistance = 1;
+
+        switch (perk)
+        {
+            case GlobalObject.AgentPerk.Gamer:
+                break;
+            case GlobalObject.AgentPerk.Executive:
+                break;
+            case GlobalObject.AgentPerk.LeasureTraveler:
+                break;
+            case GlobalObject.AgentPerk.Athletic:
+                hungerResistance = 0.7f;
+                healthResistance = 1.3f;
+                break;
+            case GlobalObject.AgentPerk.Workaholic:
+                resourceProduction = 1.25f;
+                healthResistance = 0.7f;
+                sleepResistance = 0.85f;
+                break;
+            case GlobalObject.AgentPerk.Introvert:
+                educationResistance = 1.6f;
+                wanderResistance = 1.6f;
+                healthResistance = 0.6f;
+                entertainmentResistance = 1.6f;
+                resourceProduction = 1.1f;
+                hungerResistance = 1.3f;
+                break;
+            case GlobalObject.AgentPerk.Extrovert:
+                entertainmentResistance = 0.65f;
+                healthResistance = 1.2f;
+                wanderResistance = 0.65f;
+                break;
+        }
     }
 
 
@@ -107,7 +313,27 @@ public class WorldManager : MonoBehaviour
             for (int i = 0; i < lista.Count; i++)
             {
                 rowObj.ShortestPathCollection.Add(lista[i]);
+
+                string[] pathIdCollection = lista[i].Split(',');
+
+                int _id = 0;
+                int.TryParse(pathIdCollection[0], out _id);
+                rowObj.SP_Destinations.Add(_id);
+
+                PathCost _pathCost = new PathCost();
+
+                _pathCost.TileID = int.Parse(pathIdCollection[0]);
+                _pathCost.Cost = pathIdCollection.Length;
+
+                rowObj.PathCostCollection.Add(_pathCost);
             }
+        }
+
+        StartCoroutine("TICManager");
+
+        if (IsTutorial)
+        {
+            CanvasControl.instance.ShowTutorialOverlay();
         }
     }
 
@@ -142,21 +368,28 @@ public class WorldManager : MonoBehaviour
     /// <param name="somePosition">Posicion asignada a partir de la cual realiza la busqueda</param>
     /// <returns></returns>
     //public Transform GetNextTileInRoute(Transform myPosition, Transform somePosition = null)
-    public PathFindingNode GetNextTileInRoute(int myNodeID, int nextNodeID)
+    public PathFindingNode GetNextTileInRoute(int myNodeID, int nextNodeID, PathFindingNode _tileOrigin = null)
     {
         PathFindingNode result = null;
         PathFindingNode tileInfoOrigin = null;
-        PathFindingNode tileInfoDestination = null;
+        // PathFindingNode tileInfoDestination = null;
         string destinationId;
         string[] pathIdCollection;
 
-        for (int i = 0; i < NodeCollection.Count; i++)
+        if (_tileOrigin != null)
         {
-            if (NodeCollection[i].NodeID == myNodeID)
-                tileInfoOrigin = NodeCollection[i];
+            tileInfoOrigin = _tileOrigin;
+        }
+        else
+        {
+            for (int i = 0; i < NodeCollection.Count; i++)
+            {
+                if (NodeCollection[i].NodeID == myNodeID)
+                    tileInfoOrigin = NodeCollection[i];
 
-            if (NodeCollection[i].NodeID == nextNodeID)
-                tileInfoDestination = NodeCollection[i];
+                //if (NodeCollection[i].NodeID == nextNodeID)
+                //    tileInfoDestination = NodeCollection[i];
+            }
         }
 
         destinationId = nextNodeID.ToString();
@@ -182,4 +415,35 @@ public class WorldManager : MonoBehaviour
         return result;
     }
 
+    public string GetCompletePath(int destinationID, PathFindingNode _tileOrigin)
+    {
+        string _result = "";
+
+        for (int i = 0; i < _tileOrigin.SP_Destinations.Count; i++)
+        {
+            if (_tileOrigin.SP_Destinations[i] == destinationID)
+            {
+                _result = _tileOrigin.ShortestPathCollection[i];
+                break;
+            }
+        }
+
+        return _result;
+    }
+
+    public PathFindingNode GetNodeFromID(int pathNodeId)
+    {
+        PathFindingNode _result = null;
+
+        for (int i = 0; i < NodeCollection.Count; i++)
+        {
+            if (NodeCollection[i].NodeID == pathNodeId)
+            {
+                _result = NodeCollection[i];
+                break;
+            }
+        }
+
+        return _result;
+    }
 }

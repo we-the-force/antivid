@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a3657ee23f333c4fa55fb60fb430e72, type: 3}
+  m_Name: Test5
+  m_EditorClassIdentifier: 
+  PolicyID: 5
+  Available: 0
+  PolicyName: Entertainment to houses
+  PolicyDescription: 
+  Enabled: 0
+  IsQuarantine: 0
+  UpkeepCost: 3
+  TransformBuildingSection:
+    Enabled: 0
+    BuildingToChange: 6
+    TargetBuilding: 6
+    Percentage: 0
+  LimitBuildingSection:
+    Enabled: 0
+    BuildingToChange: 6
+    Percentage: 0
+  BuildingEffectivitySection:
+    Enabled: 0
+    ParameterMods: []
+  DistributionEffectivitySection:
+    Enabled: 1
+    ParameterMods:
+    - Parameter: 3
+      Units: 200
